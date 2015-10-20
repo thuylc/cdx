@@ -30,6 +30,10 @@ gem 'geojson_import', git: "https://github.com/instedd/geojson_import", branch: 
 gem 'location_service', git: "https://github.com/instedd/ruby-location_service.git", branch: 'master'
 gem 'view_components', git: "https://github.com/manastech/rails-view_components.git", branch: 'master'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-react'
+end
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

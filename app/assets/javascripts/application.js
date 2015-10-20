@@ -16,7 +16,7 @@
 //= require jquery.are-you-sure
 //= require lodash
 //= require select2
-//= require react
+//= require react/react-with-addons
 //= require react_ujs
 //= require classnames
 //= require react-input-autosize
