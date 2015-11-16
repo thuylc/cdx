@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/instedd/rails-logstash_stdout.git
+  revision: e1c32ca5b77dd6e93e4d4c33c9add38a5becaf97
+  specs:
+    rails-logstash_stdout (0.0.1)
+      lograge (~> 0.3)
+      logstash-event (~> 1.2)
+      rails (>= 3.0)
+
+GIT
   remote: https://github.com/instedd/cdx-sync-server.git
   revision: 2e453e4e0c71b42fdf82d0893cd4950b3638ea5e
   branch: master
@@ -332,6 +341,11 @@ GEM
       rb-inotify (>= 0.9)
     lodash-rails (3.10.1)
       railties (>= 3.1)
+    lograge (0.3.4)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
+    logstash-event (1.2.02)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
@@ -665,6 +679,7 @@ DEPENDENCIES
   rails (~> 4.2.0)
   rails-assets-es5-shim!
   rails-i18n (~> 4.0.0)
+  rails-logstash_stdout!
   rchardet
   react-rails
   rest-client

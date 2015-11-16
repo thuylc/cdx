@@ -118,3 +118,7 @@ group :test do
     gem 'rails-assets-es5-shim'
   end
 end
+
+group :production do
+  gem 'rails-logstash_stdout', github: 'instedd/rails-logstash_stdout'
+end
