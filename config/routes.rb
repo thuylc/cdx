@@ -85,6 +85,8 @@ Rails.application.routes.draw do
   resources :api_tokens
   resources :patients
 
+  resources :alerts
+
   scope :dashboards, controller: :dashboards do
     get :nndd
   end
