@@ -12,6 +12,8 @@ class Device < ActiveRecord::Base
   has_many :device_messages
   has_many :device_logs
   has_many :device_commands
+  
+  has_and_belongs_to_many :alerts
 
   serialize :custom_mappings, JSON
 
