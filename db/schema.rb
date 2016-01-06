@@ -10,6 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+
 ActiveRecord::Schema.define(version: 20160115131955) do
 
   create_table "alert_histories", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160115131955) do
     t.integer  "aggregation_frequency", limit: 4,     default: 0
     t.integer  "sms_limit",             limit: 4,     default: 0
     t.integer  "anomalie_type",         limit: 4,     default: 0
+    t.boolean  "notify_patients",                     default: false
   end
 
   add_index "alerts", ["user_id"], name: "index_alerts_on_user_id", using: :btree
