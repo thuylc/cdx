@@ -86,6 +86,7 @@ Rails.application.routes.draw do
   resources :patients
 
   resources :alerts
+  
   resources :incidents, only: [:index, :show]
   resources :alert_messages, only: [:index]
 
