@@ -83,10 +83,11 @@ Rails.application.routes.draw do
   resources :subscribers
   resources :policies
   resources :api_tokens
+
   resources :patients
 
+
   resources :alerts
-  
   resources :incidents, only: [:index, :show]
   resources :alert_messages, only: [:index]
 
