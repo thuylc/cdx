@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115131955) do
-
+ActiveRecord::Schema.define(version: 20160115135130) do
 
   create_table "alert_histories", force: :cascade do |t|
     t.boolean  "read",                                  default: false
