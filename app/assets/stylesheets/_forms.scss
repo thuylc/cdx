@@ -48,7 +48,7 @@ label {
 
 // Checkboxes ---------------------------------------------------------//
 
-input[type="checkbox11"] {
+input[type="checkbox"] {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -135,6 +135,7 @@ input[type="checkbox11"] {
 
 
 // Radio buttons ---------------------------------------------------------//
+
 
 input[type="radio"] {
   display: none;
@@ -387,5 +388,3 @@ label.on {
     display: block;
   }
 }
-
-
