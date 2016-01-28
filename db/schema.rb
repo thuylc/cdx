@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125112341) do
+ActiveRecord::Schema.define(version: 20160128123511) do
 
   create_table "alert_histories", force: :cascade do |t|
     t.boolean  "read",                                  default: false
@@ -61,8 +61,10 @@ ActiveRecord::Schema.define(version: 20160125112341) do
     t.integer  "anomalie_type",         limit: 4,     default: 0
     t.boolean  "notify_patients",                     default: false
     t.text     "sms_message",           limit: 65535
+    t.datetime "deleted_at"
   end
 
+  add_index "alerts", ["deleted_at"], name: "index_alerts_on_deleted_at", using: :btree
   add_index "alerts", ["user_id"], name: "index_alerts_on_user_id", using: :btree
 
   create_table "alerts_devices", id: false, force: :cascade do |t|
