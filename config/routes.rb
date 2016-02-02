@@ -92,6 +92,7 @@ Rails.application.routes.draw do
   end
 
   scope :dashboards, controller: :dashboards do
+    get :index, as: :dashboard
     get :nndd
   end
 
