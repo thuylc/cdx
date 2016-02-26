@@ -10,7 +10,7 @@ RSpec.describe Reports::Errors, elasticsearch: true do
   let(:site_two) { Site.make(institution: institution_two) }
   let(:user_device) { Device.make institution_id: institution.id, site: site }
   let(:user_device_two) { Device.make institution_id: institution_two.id, site: site_two }
-  
+
   let(:nav_context) { NavigationContext.new(current_user, institution.uuid) }
 
   before do
