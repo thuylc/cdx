@@ -7,6 +7,19 @@ module ChartsHelper
     Reports::Devices.by_device(current_user, @navigation_context)
   end
 
+  def errors_by_model
+    Reports::Errors.by_model(current_user, @navigation_context)
+  end
+
+  def errors_by_successful
+    Reports::Errors.by_successful(current_user, @navigation_context)
+  end
+  
+  def errors_by_not_successful
+    Reports::Errors.by_not_successful(current_user, @navigation_context)
+  end
+      
+  
   def query_tests_chart
     Reports::AllTests.process(current_user, @navigation_context).sort_by_month
   end
