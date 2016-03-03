@@ -20,7 +20,7 @@ module Reports
       data << { label: 'Unknown', value: no_error_code } if no_error_code > 0
       data
     end
-     
+
     def self.by_model(*args)
       new(*args).by_model
     end
@@ -40,8 +40,8 @@ module Reports
       end
       data << { label: 'Unknown', value: no_error_code } if no_error_code > 0
       data
-    end   
-       
+    end
+
     def self.by_successful(*args)
       new(*args).by_successful
     end
@@ -63,44 +63,27 @@ module Reports
       data
     end
 
-
     def self.by_not_successful(*args)
       new(*args).by_not_successful
     end
 
     def by_not_successful
-=begin
-    status:
-         type: enum
-         searchable: true
-         options:
-           - invalid
-           - error
-           - no_result
-           - success
-           - in_progress
-=end
-      #  filter['test.status'] = 'not(successful)'
-      
-      filter['test.status'] = 'invalid,no_result,in_progress'
-        total_count = TestResult.query(filter, current_user).execute['total_count']
-        no_error_code = total_count
-        filter['group_by'] = 'test.status'
-      
-        results = TestResult.query(filter, current_user).execute
-        data = results['tests'].map do |test|
+      filter['test.status'] = 'invalid,error,no_result,in_progress'
+      total_count = TestResult.query(filter, current_user).execute['total_count']
+      no_error_code = total_count
+      filter['group_by'] = 'test.status'
+
+      results = TestResult.query(filter, current_user).execute
+      data = results['tests'].map do |test|
         no_error_code -= test['count']
         {
           label: test['test.status'],
           value: test['count']
         }
-        end
-        data << { label: 'Unknown', value: no_error_code } if no_error_code > 0
-        data
       end
-
-
-
+      data << { label: 'Unknown', value: no_error_code } if no_error_code > 0
+      data
+    end
 
     def process
       filter['test.status'] = 'error'
