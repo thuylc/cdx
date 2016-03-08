@@ -1,13 +1,13 @@
 module Reports
-  class Devices < Base
-    attr_reader :device_models
+  class DeviceErrors < Base
+    attr_reader :statuses
 
     def self.by_device(*args)
       new(*args).by_device
     end
 
-    def self.total_devices(time_created)
-      DeviceModel.where("created_at >= ?", time_created).count
+    def self.total_devices
+      Device.count
     end
 
     def by_device
@@ -26,13 +26,15 @@ module Reports
       data
     end
 
+
     def process
+      filter['test.status'] = 'error'
       filter['group_by'] = 'month(test.start_time),device.model'
       super
     end
 
-    def device_models
-      results['tests'].index_by { |t| t['device.model'] }.keys
+    def statuses
+      results['tests'].index_by { |t| t['test.status'] }.keys
     end
 
     private
@@ -40,9 +42,9 @@ module Reports
     def data_hash_day(dayname, day_results)
       {
         label: dayname,
-        values: device_models.map do |u|
-          device_model_result = date_results && date_results[u]
-          device_model_result ? device_model_result['count'] : 0
+        values: statuses.map do |u|
+          status_result = date_results && date_results[u]
+          status_result ? status_result['count'] : 0
         end
       }
     end
@@ -50,11 +52,15 @@ module Reports
     def data_hash_month(date, date_results)
       {
         label: label_monthly(date),
-        values: device_models.map do |u|
-          device_model_result = date_results && date_results[u]
-          device_model_result ? device_model_result['count'] : 0
+        values: statuses.map do |u|
+          status_result = date_results && date_results[u]
+          status_result ? status_result['count'] : 0
         end
       }
+    end
+
+    def month_results(key)
+      results_by_period[key].try { |r| r.index_by { |t| t['test.status'] } }
     end
   end
 end
