@@ -45,11 +45,13 @@ module Reports
     end
 
     def sort_by_month(cnt = 11)
+      
       cnt.downto(0).each do |i|
         date = Date.today - i.months
         date_key = date.strftime('%Y-%m')
         data << data_hash_month(date, month_results(date_key))
       end
+    
       return self
     end
 
@@ -82,6 +84,7 @@ module Reports
     end
 
     def month_results(key)
+   
       results_by_period[key]
     end
 
@@ -94,6 +97,9 @@ module Reports
     end
 
     def results_by_period(format = '%Y-%m')
+      
+
+      
       results['tests'].group_by do |t|
         if(format == '%H')
           DateTime.strptime(t['test']['start_time'], '%Y-%m-%dT%H:%M:%S')

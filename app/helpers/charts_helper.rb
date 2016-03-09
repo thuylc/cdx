@@ -27,7 +27,8 @@ module ChartsHelper
 
   def successful_tests_chart
     data = Reports::Successful.process(current_user, @navigation_context, options)
-    return data.sort_by_month unless params['since']
+
+    return data.sort_by_month[0] unless params['since']
     return data.sort_by_month(number_of_months - 1) if number_of_months > 1
     return data.sort_by_day(days_since)
   end
@@ -35,6 +36,7 @@ module ChartsHelper
   def unsuccessful_tests_chart
     options['test.status'] = 'invalid,error,no_result,in_progress'
     data = Reports::Successful.process(current_user, @navigation_context, options)
+
     return data.sort_by_month unless params['since']
     return data.sort_by_month(number_of_months - 1) if number_of_months > 1
     return data.sort_by_day(days_since)
