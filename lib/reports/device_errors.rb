@@ -26,7 +26,6 @@ module Reports
       data
     end
 
-
     def process
       filter['test.status'] = 'error'
       filter['group_by'] = 'month(test.start_time),device.model'
@@ -39,28 +38,36 @@ module Reports
 
     private
 
-    def data_hash_day(dayname, day_results)
-      {
-        label: dayname,
-        values: statuses.map do |u|
-          status_result = date_results && date_results[u]
-          status_result ? status_result['count'] : 0
-        end
-      }
+    def day_results(format, key)
+      super
     end
 
-    def data_hash_month(date, date_results)
-      {
-        label: label_monthly(date),
-        values: statuses.map do |u|
-          status_result = date_results && date_results[u]
-          status_result ? status_result['count'] : 0
-        end
-      }
+    def results_by_period(format=nil)
+      results['tests'].group_by { |t| t['test.start_time'] }
     end
 
-    def month_results(key)
-      results_by_period[key].try { |r| r.index_by { |t| t['test.status'] } }
-    end
+    # def data_hash_day(dayname, day_results)
+    #   {
+    #     label: dayname,
+    #     values: statuses.map do |u|
+    #       status_result = date_results && date_results[u]
+    #       status_result ? status_result['count'] : 0
+    #     end
+    #   }
+    # end
+
+    # def data_hash_month(date, date_results)
+    #   {
+    #     label: label_monthly(date),
+    #     values: statuses.map do |u|
+    #       status_result = date_results && date_results[u]
+    #       status_result ? status_result['count'] : 0
+    #     end
+    #   }
+    # end
+
+    # def month_results(key)
+    #   results_by_period[key].try { |r| r.index_by { |t| t['test.status'] } }
+    # end
   end
 end

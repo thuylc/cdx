@@ -98,16 +98,15 @@ module Reports
 
     private
 
-    def data_hash_day(dayname, day_results)
-      {
-        label: dayname,
-        values: users.map do |u|
-          require 'pry'; binding.pry
-          user_result = day_results && day_results[u]
-          user_result ? user_result['count'] : 0
-        end
-      }
-    end
+    # def data_hash_day(dayname, day_results)
+    #   {
+    #     label: dayname,
+    #     values: users.map do |u|
+    #       user_result = day_results && day_results[u]
+    #       user_result ? user_result['count'] : 0
+    #     end
+    #   }
+    # end
 
     # def data_hash_month(date, date_results)
     #   {
