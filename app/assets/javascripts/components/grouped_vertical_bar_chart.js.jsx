@@ -61,50 +61,50 @@ var GroupedVerticalBarChart = React.createClass({
     .call(xAxis);
 
     svg.append("g")
-    .attr("class", "y axis")
-    .call(yAxis)
-    .append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", ".71em")
-    .style("text-anchor", "end")
-    .text("# tests");
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("# tests");
 
     var state = svg.selectAll(".state")
-    .data(all_data)
-    .enter().append("g")
-    .attr("class", "state")
-    .attr("transform", function(d) { return "translate(" + x0(d.site) + ",0)"; });
+      .data(all_data)
+      .enter().append("g")
+      .attr("class", "state")
+      .attr("transform", function(d) { return "translate(" + x0(d.site) + ",0)"; });
 
     state.selectAll("rect")
-    .data(function(d) { return d.tests; })
-    .enter().append("rect")
-    .attr("width", x1.rangeBand())
-    .attr("x", function(d) { return x1(d.name); })
-    .attr("y", function(d) { return y(d.value); })
-    .attr("height", function(d) { return height - y(d.value); })
-    .style("fill", function(d) { return color(d.name); });
+      .data(function(d) { return d.tests; })
+      .enter().append("rect")
+      .attr("width", x1.rangeBand())
+      .attr("x", function(d) { return x1(d.name); })
+      .attr("y", function(d) { return y(d.value); })
+      .attr("height", function(d) { return height - y(d.value); })
+      .style("fill", function(d) { return color(d.name); });
 
     var legend = svg.selectAll(".legend")
-    .data(legendNames.slice().reverse())
-    .enter().append("g")
-    .attr("class", "legend")
-    .attr("transform", function(d, i) { return "translate(0," + i * 25 + ")"; });
+      .data(legendNames.slice().reverse())
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 25 + ")"; });
 
     legend.append("rect")
-    .attr("x", width - 1)
-    .attr("width", 18)
-    .attr("height", 18)
-    .style("fill", color);
+      .attr("x", width - 1)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
 
     legend.append("text")
-    .attr("x", width - 5)
-    .attr("y", 9)
-    .attr("dy", ".35em")
-    .style("text-anchor", "end")
-    .text(function(d) { return d; });
+      .attr("x", width - 5)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
 
-    if (data.length==0) {
+    if (all_data.length == 0) {
       svg.append("text")
       .attr("x", this.props.width/2)
       .attr("y", this.props.height/2)
@@ -115,8 +115,7 @@ var GroupedVerticalBarChart = React.createClass({
     }
 
     return (
-      <div>
-      </div>
+      <div> </div>
     );
   }
 });
