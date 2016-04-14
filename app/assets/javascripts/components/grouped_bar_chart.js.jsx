@@ -6,34 +6,15 @@ var GroupedHorizontalBarChart = React.createClass({
     };
   },
 updateWindow: function(){
-	var w = window,
-	    d = document,
-	    e = d.documentElement,
-	    g = d.getElementsByTagName('body')[0];
-	
-	    x = w.innerWidth || e.clientWidth || g.clientWidth;
-	    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-
-	  //  svg.attr("width", x)
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName('body')[0];
+  
+      x = w.innerWidth || e.clientWidth || g.clientWidth;
+      y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 },
   render: function() {
-    /* data format required
-    var data1 = {
-    labels: [
-    'Mb Smith', 'bob righttttttttt', 'sarah right',
-    'paul smithhhhhh', 'miss dddd', 'mr left'
-    ],
-    series: [
-    {
-    label: 'Peak Tests',
-    values: [4, 8, 15, 16, 23, 42]
-    },
-    {
-    label: 'Avg Tests',
-    values: [12, 43, 22, 11, 73, 25]
-    },]
-    };
-    */
     var data = this.props.data;
     var barHeight = 20,
     groupHeight = barHeight * data.series.length,
@@ -62,7 +43,7 @@ updateWindow: function(){
     chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length + spaceForTicks;
 
     if (data.labels.length==0) {
-	     chartHeight = 200;
+       chartHeight = 200;
     }
 
     max = d3.max(zippedData);
@@ -75,7 +56,7 @@ updateWindow: function(){
     .range([0, chartWidth]);
 
     var xAxisHeight=-chartHeight + 2*margin + axisMargin;
-    var	xAxis = d3.svg.axis()
+    var  xAxis = d3.svg.axis()
     .scale(x)
     .tickSize(xAxisHeight)
     .orient("bottom");
@@ -90,11 +71,10 @@ updateWindow: function(){
     .orient("left");
 
     // Specify the chart area and dimensions
-	  svg = d3.select(chart)
-	    .append("svg")
-	    .attr("width", "100%")
-	    .attr("height", chartHeight);
-		
+    svg = d3.select(chart)
+      .append("svg")
+      .attr("width", "100%")
+      .attr("height", chartHeight);
 
     // Create bars
     var bar = svg.selectAll("g")
@@ -110,7 +90,6 @@ updateWindow: function(){
     .attr("class", "bar")
     .attr("width", x)
     .attr("height", barHeight - 1);
-
 
     // Add text label in bar
     bar.append("text")
@@ -135,7 +114,6 @@ updateWindow: function(){
       return ""}).each(function() {
         labelWidth = spaceForLabels;
       });
-
 
     scale = d3.scale.linear()
       .domain([0, max])
@@ -167,13 +145,11 @@ updateWindow: function(){
         return 'translate(' + horz + ',' + vert + ')';
       });
 
-
       legend.append('rect')
       .attr('width', legendRectSize)
       .attr('height', legendRectSize)
       .style('fill', function (d, i) { return color(i); })
       .style('stroke', function (d, i) { return color(i); });
-
 
       legend.append('text')
       .attr("class", "horizontal-bar-value")
@@ -181,30 +157,16 @@ updateWindow: function(){
       .attr('y', legendRectSize - legendSpacing)
       .text(function (d) { return d.label; });
 
-      /*
-      //x axis title
-      svg.append("text")
-      .attr("x", (this.state.width / 2) + legendSpacing)
-      .attr("y", chartHeight + 10)
-      .attr("text-anchor", "middle")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "14px")
-      .attr("font-weight", "bold")
-      .attr("fill", "black")
-      .text(this.props.label);
-      */
-
-			if (data.labels.length==0) {
-			  svg.append("text")
-			        .attr("x", this.state.width / 2)
-			        .attr("y", chartHeight/2)
-			        .attr("dy", "-.7em")
-			        .attr("class", "horizontal-bar-value")
-			        .style("text-anchor", "middle")
-			        .text("There is no data to display");
-			 }
-			
-			
+      if (data.labels.length==0) {
+        svg.append("text")
+              .attr("x", this.state.width / 2)
+              .attr("y", chartHeight/2)
+              .attr("dy", "-.7em")
+              .attr("class", "horizontal-bar-value")
+              .style("text-anchor", "middle")
+              .text("There is no data to display");
+       }
+      
       svg.insert("g",":first-child")
         .attr("class", "horizontal-bar-axis")
         .attr("transform", "translate(" + (margin + spaceForLabels - 20) + ","+ (chartHeight - axisMargin + 8)+")")
