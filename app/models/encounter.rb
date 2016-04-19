@@ -11,6 +11,7 @@ class Encounter < ActiveRecord::Base
   has_many :test_results, dependent: :restrict_with_error
 
   belongs_to :patient
+  belongs_to :user
 
   validates_presence_of :site, if: Proc.new { |encounter| encounter.institution && !encounter.institution.kind_manufacturer? }
 
@@ -36,6 +37,18 @@ class Encounter < ActiveRecord::Base
 
   def phantom?
     super && core_fields[ASSAYS_FIELD].blank? && plain_sensitive_data[OBSERVATIONS_FIELD].blank?
+  end
+
+  # Added by Dave - attempt to set database fields for encounters table
+  def set_extra prm
+    tests_requested = prm['tests_requested']
+    coll_sample_type = prm['coll_sample_type']
+=begin
+    coll_sample_other = prm['coll_sample_other']
+    diag_comment = prm['diag_comment']
+    date_of_treatment = prm['date_of_treatment']
+    exam_reason = prm['exam_reason']
+=end
   end
 
   def self.merge_assays(assays1, assays2)

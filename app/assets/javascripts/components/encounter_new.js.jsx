@@ -8,7 +8,15 @@ var EncounterNew = React.createClass({
       new_samples: [],
       test_results: [],
       assays: [],
-      observations: ''
+      observations: '',
+
+      coll_sample_type: '',
+      coll_sample_other: '',
+      exam_reason: '',
+      tests_requested: '',
+      diag_comment: '',
+      date_of_treatment: '',
+      testdue_date: ''
     }};
   },
 
@@ -21,7 +29,15 @@ var EncounterNew = React.createClass({
         new_samples: { $set: [] },
         test_results: { $set: [] },
         assays: { $set: [] },
-        observations: { $set: '' }
+        observations: { $set: '' },
+
+        coll_sample_type: { $set: '' },
+        coll_sample_other: { $set: '' },
+        exam_reason: { $set: '' },
+        tests_requested: { $set: '' },
+        diag_comment: { $set: '' },
+        date_of_treatment: { $set: '' },
+        testdue_date: { $set: '' }
       }
     }));
   },
@@ -32,16 +48,20 @@ var EncounterNew = React.createClass({
 
     if (this.state.encounter.site == null)
       return (<div>{siteSelect}</div>);
+    else
+      this.props.defaultSiteUuid = this.props.context.institution.uuid;
 
     return (
       <div>
         {siteSelect}
-
         {(function(){
-          if (this.props.mode == 'existing_tests') {
-            return <EncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} manual_sample_entry={this.state.encounter.site.allows_manual_entry} />
-          } else {
-            return <FreshTestsEncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} manual_sample_entry={this.state.encounter.site.allows_manual_entry} />
+          if (this.props.mode == 'existing_tests') 
+          {
+            return <EncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} />
+          } 
+          else 
+          {
+            return <FreshTestsEncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} />
           }
         }.bind(this))()}
       </div>
