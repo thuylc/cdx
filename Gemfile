@@ -89,7 +89,7 @@ gem 'doorkeeper'
 
 gem 'faker'
 gem 'leaflet-rails'
-
+gem 'rake-progressbar'
 gem 'nuntium_api', '~> 0.21'
 
 source 'https://rails-assets.org' do
