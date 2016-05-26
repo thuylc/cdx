@@ -26,10 +26,8 @@
             = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "pull-right"
   .row
     .col
-      %p
-        This system has been designed to work with:
-        %br
-        = image_tag( 'chrome_logo_sm.png', :style=>"vertical-align:middle")
-        the <b>Google Chrome</b> browser.
-        %br
-        Other browsers might not work properly.
+      .chromeimage
+        = image_tag( 'chrome_logo_sm.png' )
+      .chrometest
+        %p This system has been designed to work with the Google Chrome browser.
+        %p.smallprint Other browsers might not work properly.
