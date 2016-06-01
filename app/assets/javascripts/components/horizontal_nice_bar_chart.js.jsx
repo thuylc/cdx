@@ -13,7 +13,7 @@ var HorizontalNiceBarChart = React.createClass({
       height: 250,
       bar_height: 30,
       bar_gap: 20,
-      space_for_labels: 160,
+      space_for_labels: 30,
       space_for_ticks: 60,
       space_for_legend: 200,
       fill_colour: '#03A9F4',
@@ -83,7 +83,7 @@ var HorizontalNiceBarChart = React.createClass({
       .attr("text-anchor", "end")
       .attr("y", barHeightHalf)
       .attr("dy", ".35em") //vertical align middle
-      .attr("x", labelWidth+50)
+      .attr("x", labelWidth+20)
       .text(function(d){ return d._label; })
       .each(function() {
         labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));

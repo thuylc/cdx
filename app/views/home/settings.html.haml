@@ -12,12 +12,6 @@
         = setting_card title: pluralize(@alerts_count, "Alert"), href: alerts_path, icon: 'fa-exclamation-triangle', colour: 'red' do |c|
           - c.body do
             Keep your team notified about important stuff.
-            %br
-            %br
-            Check
-            = link_to "alert messages sent", alert_messages_path
-            sent about registered
-            = link_to "incidents", incidents_path
 
       -# ------------ ROLES
       - if has_access_to_roles_index?

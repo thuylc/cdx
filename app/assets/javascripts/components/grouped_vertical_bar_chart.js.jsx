@@ -54,13 +54,15 @@ var GroupedVerticalBarChart = React.createClass({
     var barCountPerSite = legendNames.length;
 
     var xtmp = (barCountPerSite * barWidth) + (barGap * siteCount) + margin.left + margin.right + this.props.space_for_legend;
-
+    console.log('Bar Width:', xtmp, ' , ', this.props.width);
     if(this.props.width > xtmp) xtmp = this.props.width;
 
-    var  width = xtmp - margin.left - margin.right - this.props.space_for_legend;
-    var  height = this.props.height - margin.top - margin.bottom - this.props.space_for_labels;
-
     var chart = document.getElementById(this.props.chart_div);
+    var height = Math.abs( parseInt(d3.select(chart).style('height'), 10) );
+    if(height <= 0) height = this.props.height || 400;
+
+    var  width = xtmp - margin.left - margin.right - this.props.space_for_legend;
+    height = height - margin.top - margin.bottom - this.props.space_for_labels;
 
     if(width == NaN) return '';
 
@@ -219,7 +221,7 @@ var GroupedVerticalBarChart = React.createClass({
       .enter()
         .append("g")
           .attr("class", "legend")
-          .attr("transform", function(d, i) { return "translate(0,"+(i*25)+")"; });
+          .attr("transform", function(d, i) { return "translate(100,"+(i*25)+")"; });
 
     legend.append("rect")
       .attr("x", width - 1)

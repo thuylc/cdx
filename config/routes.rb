@@ -117,6 +117,7 @@ Rails.application.routes.draw do
   resources :alerts, except: [:show]
   resources :incidents, only: [:index]
   resources :alert_messages, only: [:index]
+  resources :alert_groups, only: [:index]
 
   scope :dashboards, controller: :dashboards do
     get :index, as: :dashboard

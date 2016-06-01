@@ -55,6 +55,13 @@
         - select.item false, "Relative to my time zone"
         - select.item true, "Relative to the device time zone"
 
+  .row
+    .col.pe-2
+      = f.label 'Session Timeout Seconds'
+    .col
+      = f.number_field :timeout_in
+
+
   .row.button-actions
     .col
       = f.submit 'Save', class: 'btn-primary'

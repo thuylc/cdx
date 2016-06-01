@@ -13,7 +13,7 @@ var HorizontalNiceBarChartImages = React.createClass({
       height: 250,
       bar_height: 30,
       bar_gap: 40,
-      space_for_labels: 160,
+      space_for_labels: 34,
       space_for_ticks: 60,
       space_for_legend: 200,
       fill_colour: '#03A9F4',
@@ -94,7 +94,7 @@ var HorizontalNiceBarChartImages = React.createClass({
       .attr("dx", barHeight )
       .text(function(d){ return d._label; })
       .each(function() {
-        labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));
+        labelWidth = Math.min(spaceForLabels, Math.max(labelWidth, this.getBBox().width));
       });
 
     scale = d3.scale.linear()

@@ -92,6 +92,19 @@ var SitePicker = React.createClass({
       }
     });
 
+    // This handler remembers where the side bar was scrolled to, 
+    // in conjunction with a scroll setter from application.js file.
+    $('#context_side_bar > div').scroll( function() 
+      {
+        if( $('#context_side_bar > div').html().length ) 
+        {
+          var scroll_l = $('#context_side_bar > div').scrollLeft();
+          var scroll_t = $('#context_side_bar > div').scrollTop();
+          localStorage.setItem('scroll_l', scroll_l);
+          localStorage.setItem('scroll_t', scroll_t);
+        }
+      });
+
     return [roots, selected];
   },
 
@@ -159,7 +172,7 @@ var SitesTreeView = React.createClass({
   },
   render: function() {
     return (
-      <ul className="sites-tree-view">
+      <ul id="sites_tree_body" className="sites-tree-view">
       {this.props.sites.map(function(site){
         return <SiteTreeViewNode key={site.uuid} site={site} onSiteClick={this.onSiteClick}/>;
       }.bind(this))}
@@ -177,7 +190,7 @@ var SiteTreeViewNode = React.createClass({
     this.setState(React.addons.update(this.state, {
       expanded: { $set: !this.state.expanded }
     }));
-    var zs = JSON.parse( localStorage.getItem('sidebar_state') );
+    var zs = JSON.parse( localStorage.getItem('sidebar_state') ) || {};
     zs[ this.props.site.uuid ] = this.state.expanded?'closed':'open';
     localStorage.setItem('sidebar_state', JSON.stringify(zs) );
     event.stopPropagation();

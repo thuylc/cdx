@@ -72,6 +72,16 @@ $(document).on("ready", function(){
 
 $(document).ready(function(){
 
+  // This bit will auto scroll the sidebar to the last location
+  // It uses a scroll handler that is inserted via the sites.js.jsx::_buildTree function
+  var scroll_l = localStorage.getItem('scroll_l');
+  var scroll_t = localStorage.getItem('scroll_t');
+
+  $('#context_side_bar > div').scrollLeft(scroll_l);
+  $('#context_side_bar > div').scrollTop(scroll_t);
+
+
+
   function setFilledClass(elem) {
     window.setTimeout(function(){
       if(elem.val().length > 0) {
