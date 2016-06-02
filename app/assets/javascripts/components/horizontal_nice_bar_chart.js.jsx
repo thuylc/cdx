@@ -13,7 +13,7 @@ var HorizontalNiceBarChart = React.createClass({
       height: 250,
       bar_height: 30,
       bar_gap: 20,
-      space_for_labels: 30,
+      space_for_labels: 100,
       space_for_ticks: 60,
       space_for_legend: 200,
       fill_colour: '#03A9F4',
@@ -45,7 +45,7 @@ var HorizontalNiceBarChart = React.createClass({
       chartHeight = (barHeight * (data.length+1)) + (gapBetweenGroups * (data.length+1));
 
       // get maximum data value
-    max = d3.max(data.map(function(d){ 
+    max_data_value = d3.max(data.map(function(d){ 
         return d._value;
       }));
 
@@ -74,7 +74,7 @@ var HorizontalNiceBarChart = React.createClass({
     bar.attr("class", "chart-base")
       .attr("cx",0)
       .attr("transform", function(d, i) { 
-        return "translate(" + margin + "," + (i * (barHeight + barPadding) + barPadding) + ")";
+        return "translate(0," + (i * (barHeight + barPadding) + barPadding) + ")";
       });
 
     // per bar labels
@@ -83,19 +83,19 @@ var HorizontalNiceBarChart = React.createClass({
       .attr("text-anchor", "end")
       .attr("y", barHeightHalf)
       .attr("dy", ".35em") //vertical align middle
-      .attr("x", labelWidth+20)
       .text(function(d){ return d._label; })
       .each(function() {
-        labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));
-      });
+        labelWidth = Math.min(spaceForLabels, Math.max(labelWidth, this.getBBox().width));
+      })
+      .attr("x", labelWidth);
 
     scale = d3.scale.linear()
-      .domain([0, max])
-      .range([0, width - margin*2 - labelWidth]);
+      .domain([0, max_data_value])
+      .range([0, width - (margin*4) - labelWidth]);
 
     xAxis = d3.svg.axis()
       .scale(scale)
-      .tickSize(-chartHeight + 2*margin + axisMargin)
+      .tickSize( -chartHeight + (margin*2) + axisMargin)
       .orient("bottom");
 
     // main bar rectangle
@@ -158,6 +158,7 @@ var HorizontalNiceBarChart = React.createClass({
         return scale(d._value) + valueMargin + labelWidth;
       });
 
+    /*
     var canvasWidth = this.props.width,
         canvasHeight = chartHeight,
         otherMargins = canvasWidth * 0.1,
@@ -166,14 +167,13 @@ var HorizontalNiceBarChart = React.createClass({
         maxChartHeight = canvasHeight - (otherMargins * 2);
 
     //x axis title        
-    /*
     svg.append("text")
       .attr("x", (maxBarWidth / 2) + leftMargin)
       .attr("y", chartHeight - (otherMargins / 8))
       .attr("text-anchor", "middle")
       .attr("class", "chart-axis-title")
       .text(this.props.label);                                
-    */
+
     if (data.length==0) 
     {
       svg.append("text")
@@ -184,7 +184,7 @@ var HorizontalNiceBarChart = React.createClass({
         .style("text-anchor", "middle")
         .text("There is no data to display");
     }
-
+    */
     return (
         <div>
         </div>

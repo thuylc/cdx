@@ -66,7 +66,7 @@
         %h3 Total Tests
       .box-content
         -if(query_tests_chart.present?)
-          = react_component('GroupedVerticalBarChart', data: query_tests_chart, height: 600, width: 1000, chart_div: 'chart_total_tests', colors: standard_colours)
+          = react_component('GroupedVerticalBarChart', data: query_tests_chart, height: 400, width: 800, chart_div: 'chart_total_tests', colors: standard_colours)
           #chart_total_tests
         -else
           No chart information available
@@ -103,7 +103,7 @@
         %h3 Average Tests by Site
       .box-content
         -if(average_test_per_site_chart.present?)
-          = react_component('GroupedVerticalBarChart', height: 600, width: 800, chart_div: 'chart_average_test_per_site_chart', data: average_test_per_site_chart, colors: standard_colours)
+          = react_component('GroupedVerticalBarChart', height: 400, width: 800, chart_div: 'chart_average_test_per_site_chart', data: average_test_per_site_chart, colors: standard_colours)
           #chart_average_test_per_site_chart
         -else
           No chart information available
@@ -126,7 +126,7 @@
         %h3 Average Tests by Technician
       .box-content
         -if(average_tests_per_technician_chart.present?)
-          = react_component('GroupedVerticalBarChart', data: average_tests_per_technician_chart, height: 600, width: 1000, chart_div: 'chart_average_tests', label: 'DAYS', colors: standard_colours)
+          = react_component('GroupedVerticalBarChart', data: average_tests_per_technician_chart, height: 400, width: 800, chart_div: 'chart_average_tests', label: 'DAYS', colors: standard_colours)
           #chart_average_tests
         -else
           No chart information available
@@ -137,7 +137,7 @@
         %h3 Devices Not Responding
       .box-content
         -if(query_devices_not_reporting_chart)
-          = react_component('HorizontalNiceBarChart', data: query_devices_not_reporting_chart, width: 700, chart_div: 'chart_not_responding', label: 'DAYS')
+          = react_component('HorizontalNiceBarChart', data: query_devices_not_reporting_chart, width: 800, colors: standard_colours, chart_div: 'chart_not_responding', label: 'DAYS')
           #chart_not_responding
         -else
           No chart information available
@@ -148,7 +148,7 @@
         %h3 Device Error Codes
       .box-content
         -if(error_codes_by_device)
-          = react_component('DeviceErrorTable', title: "title", allowSorting: "true", orderBy: "-device", data: error_codes_by_device)
+          = react_component('DeviceErrorTable', title: "title", allowSorting: "true", orderBy: "-device", colors: standard_colours, data: error_codes_by_device)
         -else
           No chart information available
 
