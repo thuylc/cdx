@@ -66,7 +66,7 @@
         %h3 Total Tests
       .box-content
         -if(query_tests_chart.present?)
-          = react_component('GroupedVerticalBarChart', data: query_tests_chart, height: 400, width: 800, chart_div: 'chart_total_tests', colors: standard_colours)
+          = react_component('GroupedVerticalBarChart', data: query_tests_chart, chart_div: 'chart_total_tests', space_for_labels: 10, colors: standard_colours)
           #chart_total_tests
         -else
           No chart information available
@@ -103,7 +103,7 @@
         %h3 Average Tests by Site
       .box-content
         -if(average_test_per_site_chart.present?)
-          = react_component('GroupedVerticalBarChart', height: 400, width: 800, chart_div: 'chart_average_test_per_site_chart', data: average_test_per_site_chart, colors: standard_colours)
+          = react_component('GroupedVerticalBarChart', chart_div: 'chart_average_test_per_site_chart', data: average_test_per_site_chart, colors: standard_colours)
           #chart_average_test_per_site_chart
         -else
           No chart information available
@@ -126,7 +126,7 @@
         %h3 Average Tests by Technician
       .box-content
         -if(average_tests_per_technician_chart.present?)
-          = react_component('GroupedVerticalBarChart', data: average_tests_per_technician_chart, height: 400, width: 800, chart_div: 'chart_average_tests', label: 'DAYS', colors: standard_colours)
+          = react_component('GroupedVerticalBarChart', data: average_tests_per_technician_chart, chart_div: 'chart_average_tests', label: 'DAYS', colors: standard_colours)
           #chart_average_tests
         -else
           No chart information available

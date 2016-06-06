@@ -85,9 +85,9 @@ var HorizontalNiceBarChart = React.createClass({
       .attr("dy", ".35em") //vertical align middle
       .text(function(d){ return d._label; })
       .each(function() {
-        labelWidth = Math.min(spaceForLabels, Math.max(labelWidth, this.getBBox().width));
+        labelWidth = Math.min(spaceForLabels, Math.max(labelWidth, this.getBBox().width))+barHeightHalf;
       })
-      .attr("x", labelWidth);
+      .attr("x", labelWidth-barHeightHalf);
 
     scale = d3.scale.linear()
       .domain([0, max_data_value])
