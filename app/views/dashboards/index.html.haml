@@ -1,13 +1,6 @@
 -# ----  The Lines below provide dummy data for the graphs while the code is being improved ---
--query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
--#devices_grouped = [{_label:'Sally',_value:42},{_label:'Bobby',_value:25},{_label:'George',_value:15},{_label:'Site',_value:8},{_label:'Another Site',_value:4}];
--#query_site_tests_chart = [ {"_label":"site20", "_value":2 }, {"_label":"site40", "_value":3 }];
--#average_test_per_site_chart = [{:_label=>"AbbA", :peak=>26, :average=>12.2343},{:_label=>"BB", :peak=>26, :average=>70.12341234},{:_label=>"CC", :peak=>26, :average=>0.76347},{:_label=>"Aardvark", :peak=>42, :average=>21.345234},{:_label=>"Thirds", :peak=>66, :average=>33},{:_label=>"Fork", :peak=>12, :average=>5},{:_label=>"Spoon", :peak=>40, :average=>45}];
--#failed_labels = ['Total','Failed'];
--#failed_tests = [ {"_label":"Total", "_value":55, "_img":"chart-box-tick"}, {"_label":"Failed", "_value":15, "_img":"chart-box-exclam"} ];
--#average_tests_per_technician_chart = [{_label:"JaneDoe", "Peak Tests":10, "Avg Tests":2}];
--#query_devices_not_reporting_chart = [1];
--#error_codes_by_device = [1];
+-query_tests_chart = [{_label:'Mar',avg:20,peak:10},{_label:'Apr',avg:30,peak:14},{_label:'May',avg:24,peak:16},{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:18,peak:5}];
+
 
 -standard_colours = ["#00A8AB", "#B7D6B7", "#D8B49C", "#DE6023", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00"];
 
@@ -78,7 +71,7 @@
         %h3 Failed Tests
       .box-content
         -if(failed_tests.present?)
-          = react_component('HorizontalNiceBarChartImages', data: failed_tests, width: 400, label: 'Failed tests', chart_div: 'chart_failed_tests_graph', colors: ["#00A8AB", "#F15754"] )
+          = react_component('HorizontalNiceBarChartImages', data: failed_tests, label: 'Failed tests', chart_div: 'chart_failed_tests_graph', colors: ["#00A8AB", "#F15754"] )
           #chart_failed_tests_graph
           %p This should be some meaingful text that explains the above informative chart. Rerum cumque ut at voluptates. Excepturi minus maiores atque earum ad placeat beatae! Quidem placeat atque corrupti! Incidunt repudiandae, quam neque dicta.
         -else
@@ -91,7 +84,7 @@
         %h3 Total Tests by Site
       .box-content
         -if(query_site_tests_chart.present?)
-          = react_component('HorizontalNiceBarChart', data: query_site_tests_chart, width: 600, chart_div: 'chart_site_tests', label: 'Total Tests by Site', colors: standard_colours)
+          = react_component('HorizontalNiceBarChart', data: query_site_tests_chart, chart_div: 'chart_site_tests', label: 'Total Tests by Site', colors: standard_colours)
           #chart_site_tests
         -else
           No chart information available
@@ -137,7 +130,7 @@
         %h3 Devices Not Responding
       .box-content
         -if(query_devices_not_reporting_chart)
-          = react_component('HorizontalNiceBarChart', data: query_devices_not_reporting_chart, width: 800, colors: standard_colours, chart_div: 'chart_not_responding', label: 'DAYS')
+          = react_component('HorizontalNiceBarChart', data: query_devices_not_reporting_chart, colors: standard_colours, chart_div: 'chart_not_responding', label: 'DAYS')
           #chart_not_responding
         -else
           No chart information available

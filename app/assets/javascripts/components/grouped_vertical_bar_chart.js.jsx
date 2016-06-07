@@ -75,7 +75,7 @@ var GroupedVerticalBarChart = React.createClass({
 
     // calc width
     var xtmp = (((barCountPerSite * barWidth) + barGap) * siteCount) + margin.left + margin.right + this.props.space_for_legend;
-    console.log('Bar Width:', xtmp, ' , ', this.props.width);
+    //console.log('Bar Width:', xtmp, ' , ', this.props.width);
     if(this.props.width > xtmp) xtmp = this.props.width;
 
     var chart = document.getElementById(this.props.chart_div);
@@ -86,7 +86,7 @@ var GroupedVerticalBarChart = React.createClass({
     height = height - margin.top - margin.bottom - this.props.space_for_labels;
 
     if(width == NaN) return '';
-
+/*
     console.log('barCountPerSite: ',barCountPerSite);
     console.log('barWidth: ',barWidth);
     console.log('barGap: ',barGap);
@@ -97,7 +97,7 @@ var GroupedVerticalBarChart = React.createClass({
     console.log('xtmp: ',xtmp);
     console.log('this.props.width: ',this.props.width);
     console.log('width: ',width);
-
+*/
     /*
     var shadeOfColour = d3.scale.linear()
       .rangeRound(["white", d ]);

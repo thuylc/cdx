@@ -37,6 +37,23 @@
             = f.label :last_sign_in_at, "Activity"
           .col
             .value= last_activity(f.object)
+      
+        - if @can_update
+          - if f.object.invited_pending?
+            .row
+              .col.pe-2
+                .value= f.label :is_active, "Resend Invite"
+              .col
+                .value
+                  = link_to 'Send', 'foooooo', class: 'btn-link'
+          .row
+
+            .col.pe-2
+              .value= f.label :is_active, "Remove User"
+            .col
+              .value
+                = link_to 'Delete', 'foooooo', class: 'btn-link'
+
   - if @can_update
     .row.button-actions
       .col
