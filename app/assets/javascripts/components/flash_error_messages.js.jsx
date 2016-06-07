@@ -10,11 +10,14 @@ var FlashErrorMessages = React.createClass({
         {this.props.messages.map(function(message, index) {
           _reason = message[0];
           _text  = message[1];
-          return (
-            <div key={index} className="flash-error-reactjs">
-             {_reason} : {_text}
-            </div>
-          );
+          if(_text != "You are already signed in.")
+          {
+            return (
+              <div key={index} className="flash-error-reactjs">
+               {_reason} : {_text}
+              </div>
+            );
+          }
         }.bind(this))}
       </div>
       </div>

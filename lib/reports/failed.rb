@@ -16,8 +16,10 @@ module Reports
     end
 
     def sort_pie
-      data << { _label: 'Success', _value: total_tests - failed_tests, _img: "chart-box-tick"}
-      data << { _label: 'Failed', _value: failed_tests, _img:"chart-box-exclam" }
+      im1 = "chart-box-tick"
+      im2 = "chart-box-exclam"
+      data << { _label: 'Success', _value: total_tests - failed_tests, _img: im1}
+      data << { _label: 'Failed', _value: failed_tests, _img: im2 }
     end
 
     def sum_total

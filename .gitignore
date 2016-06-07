@@ -21,6 +21,7 @@ backend/tmp
 backend/erl_crash.dump
 public/assets
 backend/log
+Gemfile.lock
 *.dump
 cdxapi/.eunit
 cdxapi/ebin

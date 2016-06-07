@@ -36,6 +36,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def find
+    @users = @users.where("email = ?", "#{params["email"]}") if params["email"].present?
+  end
+
   def edit
     @user_roles = @user.roles.select { |role| has_access?(role, ASSIGN_USER_ROLE) }
     @user_roles = @user_roles.map { |r| { value: r.id, label: r.name } }
