@@ -1,7 +1,13 @@
 namespace :ftp do
   desc "Start FTP monitor to download remote files"
-  task start: :environment do
-    FtpMonitor.new(300).run!
+  task :start, [:repeat] => :environment do |task, args|   
+    run_time = 60
+    
+    if args[:repeat]
+       run_time = args[:repeat].to_i
+    end   
+    
+    FtpMonitor.new(run_time).run!
   end
 
   desc "Delete the failed file messages as a way to reprocess those files in the next monitoring iteration"

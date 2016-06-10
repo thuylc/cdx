@@ -54,6 +54,19 @@ module Importers
     end
 
     def format_date(date_time)
+      
+#TODO remove these logger lines
+Rails.logger.info "ftp importer date_time= " + date_time
+Rails.logger.info "ftp importer format_date= " + formatter(date_time)
+date_value=   DateTime.strptime(date_time, formatter(date_time)).iso8601
+rescue Exception
+ Rails.logger.info 'strptime exception'
+ensure
+   date_value = 'nil value' if date_value==nil
+   Rails.logger.info 'DateTime.strptime='+ date_value
+end 
+#end of remove
+
       DateTime.strptime(date_time, formatter(date_time)).iso8601
     end
 
