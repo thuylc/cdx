@@ -30,7 +30,7 @@
     "},
     "test.error_description" : { "lookup" : "ErrorMessage" },
     "test.site_user" : { "lookup" : "Operator" },
-    "test.start_time" : {"parse_date": [{"concat": [{"lookup": "Result Date"}, { "lookup" : "Start Time" }]}, "%Y-%m-%d%H:%M"]},
+    "test.start_time" : {"parse_date": [{"concat": [{"lookup": "Result Date"}," ", { "lookup" : "Start Time" }]}, "%d/%m/%Y %H:%M"]},
     "test.status" : { "script" : "
       if( message['ErrorMessage'] != null) {
         'error'

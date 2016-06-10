@@ -230,6 +230,7 @@ class ManifestFieldMapping
   end
 
   def parse_date(node, data, date, format)
+#    binding.pry
     parsed_date = DateTime.strptime(date, format)
     if !format.match(/%[zZ]/) && @device.try(:time_zone)
       parsed_date = ActiveSupport::TimeZone[@device.time_zone].local(parsed_date.year, parsed_date.month, parsed_date.day, parsed_date.hour, parsed_date.minute, parsed_date.second)
