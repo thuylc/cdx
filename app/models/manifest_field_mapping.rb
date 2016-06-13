@@ -231,10 +231,15 @@ class ManifestFieldMapping
 
   def parse_date(node, data, date, format)
 #    binding.pry
+Rails.logger.info "ftp: parse date #{date} with format #{date}"
+
     parsed_date = DateTime.strptime(date, format)
     if !format.match(/%[zZ]/) && @device.try(:time_zone)
       parsed_date = ActiveSupport::TimeZone[@device.time_zone].local(parsed_date.year, parsed_date.month, parsed_date.day, parsed_date.hour, parsed_date.minute, parsed_date.second)
     end
+    
+    Rails.logger.info "ftp: pared date result #{parsed_date}"
+    
     parsed_date
   end
 
