@@ -89,6 +89,13 @@ Rails.logger.info("ftp: after already_reviewed_files")
     end
 
     def already_reviewed_files
+      
+      Rails.logger.info "ftp: already_reviewed_files host: #{ftp_info.hostname},port: #{ftp_info.port},dir: #{ftp_info.directory}"
+      
+      aa = %w(failed success)
+      Rails.logger.info "ftp: status #{aa}"
+      
+      
       FileMessage.where(
         ftp_hostname: ftp_info.hostname,
         ftp_port: ftp_info.port,
