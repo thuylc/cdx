@@ -55,6 +55,9 @@ end
 
 gem 'puma'
 
+
+gem 'rails_stdout_logging'
+
 # Use Sidekiq for background jobs
 gem 'sidekiq'
 gem 'sinatra'
