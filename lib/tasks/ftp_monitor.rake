@@ -3,10 +3,13 @@ namespace :ftp do
   task :start, [:repeat] => :environment do |task, args|   
     run_time = 60
     
+    Rails.logger.info "ftp:at start"
+    
     if args[:repeat]
        run_time = args[:repeat].to_i
     end   
     
+    Rails.logger.info "ftp: before ftpmonitor new"
     FtpMonitor.new(run_time).run!
   end
 

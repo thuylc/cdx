@@ -10,6 +10,7 @@ class FtpMonitor
 
   def run!
     while true
+      Rails.logger.info "ftp:start process"
       self.process!
       sleep @sleep_interval
     end
@@ -37,6 +38,9 @@ class FtpMonitor
 
     def process!
       # Connect and list files
+      
+          Rails.logger.info "ftp: inside process"
+          
       open_ftp!
       files = ftp.nlst
       Rails.logger.info("Listed files from #{ftp_info.hostname}: #{files.join(', ')}")
