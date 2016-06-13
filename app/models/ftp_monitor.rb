@@ -140,10 +140,14 @@ class FtpMonitor
     def download_files(files)
       files.map do |filename|
         begin
+             Rails.logger.info "ftp: download_files #{filename}"
           tempfile = Tempfile.new(File.basename(filename), Rails.root.join('tmp'))
+          Rails.logger.info "ftp: download_files tempfile path #{tempfile.path}"
           ftp.getbinaryfile filename, tempfile.path
           [filename, tempfile]
         rescue => ex
+          Rails.logger.info "ftp: download_files rescue reason::"
+          Rails.logger.info "ftp: download_files rescue #{ex.message}"
           failed_file(filename, "Error downloading file", ex)
           break
         end
