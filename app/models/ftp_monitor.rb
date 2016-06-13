@@ -47,6 +47,10 @@ class FtpMonitor
       # Remove files already seen
       files -= already_reviewed_files
 
+Rails.logger.info("ftp: after already_reviewed_files")
+  Rails.logger.info("ftp: already_reviewed_files. number of files= #{files.size}")
+  
+  
       # Download all files
       downloaded = download_files(files)
       unless downloaded.present?
@@ -138,6 +142,7 @@ class FtpMonitor
     end
 
     def download_files(files)
+      Rails.logger.info "ftp: inside"
       files.map do |filename|
         begin
              Rails.logger.info "ftp: download_files #{filename}"
