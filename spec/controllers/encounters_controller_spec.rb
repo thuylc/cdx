@@ -9,6 +9,20 @@ RSpec.describe EncountersController, type: :controller, elasticsearch: true do
   before(:each) { sign_in user }
   let(:default_params) { {context: institution.uuid} }
 
+
+  context "destroy" do
+    let!(:encounter) { Encounter.make institution: institution, site: site }
+
+
+    it "should destroy an encounter" do
+      delete :destroy, id: encounter.id
+      expect(Encounter.count).to eq 0
+      expect(response).to be_redirect
+    end
+  end
+
+
+
   describe "GET #new" do
     it "returns http success" do
       get :new

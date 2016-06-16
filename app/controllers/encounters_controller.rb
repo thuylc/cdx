@@ -46,6 +46,16 @@ class EncountersController < ApplicationController
     return unless authorize_resource(@encounter, UPDATE_ENCOUNTER)
   end
 
+  def destroy
+    @encounter = Encounter.find(params[:id])   
+    return unless authorize_resource(@encounter, DELETE_ENCOUNTER)
+    @encounter.destroy
+    respond_to do |format|
+       format.html { redirect_to encounters_path, notice: 'Encounter was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end
+  
   def update
     perform_encounter_action "updating encounter" do
       prepare_encounter_from_json

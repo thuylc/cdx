@@ -63,6 +63,7 @@ class Policy < ActiveRecord::Base
 
     READ_ENCOUNTER =   "encounter:read"
     UPDATE_ENCOUNTER = "encounter:update"
+    DELETE_ENCOUNTER = "encounter:delete"
     PII_ENCOUNTER =    "encounter:pii"
 
     MEDICAL_DASHBOARD = "testResult:medicalDashboard"

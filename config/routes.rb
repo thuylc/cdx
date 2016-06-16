@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :encounters, only: [:new, :create, :edit, :update, :show] do
+    resources :encounters do
     collection do
       get :new_index
 

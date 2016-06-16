@@ -1,5 +1,5 @@
 -# ----  The Lines below provide dummy data for the graphs while the code is being improved ---
--query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
+-# query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
 -#devices_grouped = [{_label:'Sally',_value:42},{_label:'Bobby',_value:25},{_label:'George',_value:15},{_label:'Site',_value:8},{_label:'Another Site',_value:4}];
 -query_site_tests_chart = [ {"_label":"site20", "_value":2 }, {"_label":"site40", "_value":3 }];
 -#average_test_per_site_chart = [{:_label=>"AbbA", :peak=>26, :average=>12.2343},{:_label=>"BB", :peak=>26, :average=>70.12341234},{:_label=>"CC", :peak=>26, :average=>0.76347},{:_label=>"Aardvark", :peak=>42, :average=>21.345234},{:_label=>"Thirds", :peak=>66, :average=>33},{:_label=>"Fork", :peak=>12, :average=>5},{:_label=>"Spoon", :peak=>40, :average=>45}];
@@ -62,13 +62,13 @@
         %input#query_button.btn-primary{:type => "submit", :value => "filter"}
  
   .section.group
-    -if(query_tests_chart.present?)
+    -if(query_tests_chart_reformat.present?)
       .col.col-8.box
         %header
           = image_tag('img/test-tube-rack.png')
           %h3 Total Tests
         .box-content
-          = react_component('GroupedVerticalBarChart', data: query_tests_chart, height: 600, width: 1000, chart_div: 'chart_total_tests', colors: standard_colours)
+          = react_component('GroupedVerticalBarChart', data: query_tests_chart_reformat, height: 600, width: 1000, chart_div: 'chart_total_tests', colors: standard_colours)
           #chart_total_tests
 
     -if(failed_tests.present?)
