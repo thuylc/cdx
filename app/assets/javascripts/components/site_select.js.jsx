@@ -49,10 +49,10 @@ var SiteSelect = React.createClass({
     if (this.state.sites.length > 1)
       return (
       <div className="row">
-        <div className="col pe-2">
-          <label>Site</label>
+        <div className="col-6">
+          <label>{this.props.fieldLabel} Site</label>
         </div>
-        <div className="col">
+        <div className="col-6">
           <Select className="input-large" ref="select" clearable={false}
             value={this.state.selectedSiteUuid}
             onChange={this.handleSiteChange}

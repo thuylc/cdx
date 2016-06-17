@@ -15,10 +15,10 @@ var PatientSelect = React.createClass({
   render: function() {
     return (
     <div className="row">
-      <div className="col pe-2">
+      <div className="col-6">
         <label>Patient</label>
       </div>
-      <div className="col">
+      <div className="col-6">
 
         <label style={{ display: "none" }}>disableautocomplete</label>
         <Select

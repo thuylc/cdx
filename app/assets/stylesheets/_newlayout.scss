@@ -199,3 +199,468 @@ color:#fff;
 .new_device .Select-placeholder{
 color:#fff !important;
 }
+
+
+
+
+
+.testflow .section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow:row wrap;
+  justify-content:flex-start;
+}
+/*  SETTINGS STYLES START HEREEEEEEEE */
+.testflow .settings {justify-content:center;}
+.testflow .centered {text-align:center;}
+.testflow .col.px-4 {
+    -webkit-box-flex: 0 0 300px;
+    -moz-box-flex: 0 0 300px;
+    -webkit-flex: 0 0 300px;
+    -ms-flex: 0 0 300px;
+    flex: 0 0 24.667%;
+}
+.testflow .col:hover {opacity:0.8;cursor: pointer;}
+/* THATS IT */
+
+/*  COLUMN SETUP  */
+
+/*  FLEX GRID OF TWELVE  */
+.testflow .col-12{flex:1 0 auto;}
+.testflow .col-11 {max-width: 91.53%;flex:1 0 auto;}
+.testflow .col-10 {max-width: 83.06%;flex:1 0 auto;}
+.testflow .col-9 {max-width: 74.6%;flex:1 0 auto}
+.testflow .col-8 {max-width: 66.13%;flex:1 0 auto;}
+.testflow .col-7 {max-width: 57.66%;flex:1 0 auto;}
+.testflow .col-6 {max-width: 49.2%;flex:1 0 auto;}
+.testflow .col-5 {max-width: 40.73%;flex:1 0 auto;}
+.testflow .col-4 {max-width: 32.26%;flex:1 0 auto;}
+.testflow .col-3 {max-width: 23.8%;flex:1 0 auto;}
+.testflow .col-2{max-width: 15.33%;flex:1 0 auto;}
+.testflow .col-1 {max-width: 6.866%;flex:1 0 auto;}
+
+.testflow .box {background:white;}
+.testflow .col {margin:0.5% 0.5%;}
+
+/*  COLOURS  */
+.testflow .red {background-color: #c0392b;}
+.testflow .teal {background-color: #05a8aa;}
+.testflow .light-green {background-color: #b8d5b8;}
+.testflow .sand {background-color: #d7b49e;}
+.testflow .orange {background-color: #F4B350;}
+.testflow .off-white {background-color: #f4f4f4;}
+.testflow .silver {background-color:#bdc3c7;}
+.testflow .blue {background-color:#89C4F4}
+.testflow .green {background-color:#27ae60;}
+
+
+
+/* TEXT */
+
+.testflow {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #333;
+  /*margin: 1em;*/
+}
+
+
+.testflow header {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  background-color: #6d6c8b;
+  color: white;
+  padding: 0.6em 0.5em;
+}
+
+.testflow h1 {
+  font-weight: 300;
+  font-size: 2.2em;
+}
+
+.testflow h2 {
+  font-weight: 400;
+  font-size: 1.7em;
+}
+
+
+
+/* SUMMARY BOXES */
+
+.testflow .summary {
+  color: white;
+  box-sizing: border-box;
+  padding: 0.9em;
+  min-height: 350px;
+
+}
+
+@media only screen and (max-width: 480px) {
+  .testflow .summary {
+    min-height: 0;
+  }
+}
+
+.testflow .summary img {
+  float: left;
+  margin-right: 0.9em;
+}
+
+.testflow .summary h2 {
+  text-transform: uppercase;
+  margin-top: 0;
+  font-weight: 300;
+  font-size: 1.5em;
+}
+  @media only screen and (max-width: 1390px) {
+    .testflow .summary h2 {font-size: 1.3em;}
+    .testflow .summary img {width: 30px;}
+  }
+
+.testflow .summary .stat {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+
+.testflow .summary .stat span {
+  font-family: 'Raleway', sans-serif;
+  font-size: 6em;
+}
+
+.testflow .summary .stat p.label {
+  text-align: right;
+}
+
+/* SECTION TITLE */
+
+.testflow .title {
+  border-bottom: 1px solid #555;
+}
+
+.testflow .title h2 {
+  float: left;
+  margin: 0;
+}
+
+.testflow .title span {
+  float: right;
+}
+
+@media only screen and (max-width: 480px) {
+  .testflow .title span,
+  .testflow .title h2 {
+    float: none;
+  }
+}
+
+
+/* FORM */
+
+.testflow fieldset {
+  background-color: #dc602e;
+  color: white;
+  padding: 0.5em;
+  border: none;
+  display: inline-block;
+}
+
+
+@media only screen and (max-width: 480px) {
+  .testflow fieldset {
+    margin-top: 0.5em; 
+  }
+}
+
+.testflow label {
+  font-size: 0.8em;
+}
+
+.testflow input[type=text] {
+    background-color: rgba(245, 245, 245, 0);
+    border: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    color: rgb(0, 0, 0);
+    padding:0.25rem;
+    min-width:200px;
+}
+
+.testflow input[type=submit] {
+  background-color: #555;
+  color: white;
+  border: none;
+  vpadding: 1em 2em;
+  font-size: .9em;
+  text-transform: uppercase;
+  line-height: 1em;
+}
+
+/*  BELOW 768 PIXELS */
+@media only screen and (max-width: 769px) {
+  .testflow input[type=submit] {
+    margin-top: 1em;
+  }
+}
+
+
+
+
+
+/* TABLE */
+
+.testflow table {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+
+.testflow th {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.9em;
+  padding: 0.8em 0.5em;
+  border-bottom: 1px solid #05a8aa;
+}
+
+.testflow td {
+  padding: 0.8em 0.5em;
+  margin: 0;
+}
+
+.testflow tr:nth-child(even) {
+  background-color: #dbdae2;
+} 
+
+
+
+/* New Episode Styles */ 
+
+.testflow .row {
+  max-width:64rem;
+  /*margin:1rem auto;*/
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Header Styles! */
+.testflow .row.labelHeader {
+    align-items: center;
+    background: #6d6c8b;
+    padding: 0 15px;
+    height: auto;
+    color: #fff;
+    padding:0.6em 0em;
+    margin-bottom:0px;
+    max-width:90rem;
+}
+
+.testflow .row.labelHeader h3 {margin:0;}
+
+.testflow .row.labelHeader ul, .testflow .row.labelfooter ul {
+  display:flex;
+  justify-content:flex-end;
+  margin:0px;
+}
+
+.testflow .row.labelfooter ul {
+  justify-content:flex-start;
+  margin:10px;
+}
+
+.testflow .row.labelheader ul li, .testflow .row.labelfooter ul li {
+  list-style-type:none;
+}
+
+.testflow .row.labelfooter ul {padding-left:0px;margin-left:0px;}
+
+/* Content Styles! */
+
+.testflow .panel {
+  background:#fff;
+  max-width:90rem;
+  margin:0 auto;
+  overflow:hidden;
+  width:100%;
+}
+.testflow .panel hr {border:none;}
+.testflow .panel .row {
+  margin:1em 0px;
+  max-width:none;
+}
+.testflow .button:hover {opacity:0.8;}
+
+.testflow form.zebra .panel .row:nth-child(even) {
+  background:#dbdae2;
+}
+
+.testflow form.zebra .panel .row:nth-child(even) > div {
+  padding:1rem 0.5rem;
+}
+.testflow .panel .row:last-child {
+  margin-bottom:0px;
+}
+.testflow form select {
+  padding:0.25rem;
+  border:1px solid #ccc;
+  min-width:200px;
+}
+
+.testflow div a.button,
+.testflow li a.button {
+  background-color:#26af60;
+  color: white;
+  border: none;
+  padding: 0.5em 2em;
+  font-size: .9em;
+  text-transform: uppercase;
+  line-height: 1em;
+  text-decoration:none;
+  margin-left:5px;
+}
+
+.testflow li a.button.save, .testflow li a.button.new {
+  background:#2196f3;
+}
+
+.testflow li a.button.cancel, .testflow li a.button.edit {
+  background:#555;
+}
+
+
+
+/* Patient Summary & Details Styles */
+.testflow .patient {
+  background:#ececec;
+  color:#434343;
+  min-height:auto;
+  margin:10px;
+}
+
+.testflow .patient-details {
+  position:relative;
+}
+
+.testflow .patient-details .button.edit {
+    position: absolute;
+    top: 5px;
+    right: 14px;
+    padding: 0.75em 1.9em;
+}
+.testflow .patient-details .row {
+  margin:0px;
+  align-items:flex-start;
+}
+
+.testflow .order-details .panel.patient-details {border:1px solid #ccc;}
+.testflow .patient-details .button-container {
+  width:0px;
+}
+
+.testflow .patient-details .row .col-3 {
+  max-width:100%;
+  flex:1 0 auto;
+  margin:0px;
+}
+
+.testflow .patient-details .row .col-9 {
+max-width:100%;
+flex:3 0 auto;
+padding:15px;
+}
+
+.testflow .patient-details .col-10 {
+  display:flex;
+}
+
+.testflow .patient-details ul {
+  padding-left:0px;
+}
+
+.testflow .patient-details ul li {
+  list-style-type:none;
+  margin:15px 30px;
+}
+
+.testflow .patient-details .stat {
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testflow .order-details .patient-details ul {
+  float:left;
+}
+
+.testflow .order-details .patient-details ul li {
+  margin:5px 15px;
+}
+
+.testflow table.patient-history {
+  border:none;
+}
+
+.testflow table.patient-history th {
+  border-bottom:none;
+}
+
+.testflow .patient-details.panel .row:nth-child(even) {
+  background:#fff;
+}
+
+/* Style the tabs area */
+.testflow ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width:100%;
+}
+
+/* Float the list items side by side */
+.testflow ul.tab li {float: left;margin:0px;}
+
+/* Style the links inside the list items */
+.testflow ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+.testflow ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+.testflow ul.tab li a:focus, .testflow .active {background-color: #ccc;}
+
+/* Style the tab content */
+.testflow .tabcontent {
+    display: none;
+    border-top: none;
+}
+
+/* Test Order Styles */ 
+.testflow .right {float:right;}
+.testflow .left {float:left;}
+
+.testflow .newTestOrder .panel > div.row {justify-content:flex-start;}
+.testflow .newTestOrder .panel .row {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 5px;
+}

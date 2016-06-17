@@ -1,6 +1,10 @@
 var FreshTestsEncounterForm = React.createClass(_.merge({
   componentDidMount: function() {
     $('#sample_other').hide();
+    $('.test_for_ebola').attr('checked', false).parent().hide();
+    $('.test_for_tb').attr('checked', false).parent().hide();
+    $('.test_for_hiv').attr('checked', false).parent().hide();
+
   },
   render: function() {
     var now = new Date();
@@ -9,14 +13,16 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
 
     return (
-      <div>
+      <div className="newTestOrder">
+      <div className="panel">
+
         <PatientSelect patient={this.state.encounter.patient} context={this.props.context} onPatientChanged={this.onPatientChanged}/>
 
         <div className="row">
-          <div className="col pe-2">
+          <div className="col-6">
             <label>Samples</label>
           </div>
-          <div className="col">
+          <div className="col-6">
             <NewSamplesList samples={this.state.encounter.new_samples} onRemoveSample={this.removeNewSample}/>
             <p>
               <a className="btn-add-link" href='#' onClick={this.addNewSamples}>
@@ -28,72 +34,96 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
         </div>
 
         <div className="row">
-          <div className="col pe-2">
+          <div className="col-6">
             <label>Reason for Examination</label>
           </div>
-          <div className="col pe-2">
+          <div className="col-6">
             <input type="radio" onChange={this.reason_clicked.bind(this, 0)} checked={this.state.encounter.exam_reason == 'diag'} name="exam_reason" id="exam_reason_diag" value="diag"/>
             <label htmlFor="exam_reason_diag">Diagnosis</label>
-          </div>
-          <div className="col pe-2">
             <input type="radio" onChange={this.reason_clicked.bind(this, 1)} checked={this.state.encounter.exam_reason == 'follow'} name="exam_reason" id="exam_reason_follow" value="follow"/>
             <label htmlFor="exam_reason_follow">Follow-Up</label>
           </div>
         </div>
-        <div id="if_reason_diag" className="row">
-          <div className="col pe-2">
+        <div className="row if_reason_diag">
+          <div className="col-6">
             <label>Comment</label>
           </div>
-          <div className="col">
+          <div className="col-6">
             <textarea name="diag_comment" id="diag_comment" onChange={this.diag_comment_change}></textarea>
           </div>
         </div>
 
         <div className="row">
-          <div className="col pe-2">
+          <div className="col-6">
+            <label>Testing For</label>
+          </div>
+          <div className="col-6">
+            <label>
+              <select className="input-large" id="testing_for" name="testing_for" onChange={this.testing_for_change} datavalue={this.state.encounter.testing_for}>
+                <option value="">Please Select...</option>
+                <option value="TB">TB</option>
+                <option value="HIV">HIV</option>
+                <option value="Ebola">Ebola</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+
+        <div className="row">
+          <div className="col-6">
             <label>Tests Requested</label>
           </div>
-          <div className="col req_tests_checks">
+          <div className="col-6 req_tests_checks">
             <ul>
-              <li><input type="checkbox" onChange={this.reqtests_change} name="microscopy" id="requested_microscopy"/>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="microscopy" className="test_for_tb" id="requested_microscopy"/>
                 <label htmlFor="requested_microscopy">Microscopy</label>
               </li>
-              <li><input type="checkbox" onChange={this.reqtests_change} name="xpert" id="requested_xpert"/>
-                <label htmlFor="requested_xpert">Xpert MTB/RIF</label>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="xpertmtb" className="test_for_tb" id="requested_xpertmtb"/>
+                <label htmlFor="requested_xpertmtb">Xpert MTB/RIF</label>
               </li>
-              <li><input type="checkbox" onChange={this.reqtests_change} name="culture" id="requested_culture"/>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="culture" className="test_for_tb" id="requested_culture"/>
                 <label htmlFor="requested_culture">Culture Drug susceptibility</label>
               </li>
-              <li><input type="checkbox" onChange={this.reqtests_change} name="lineprobe" id="requested_lineprobe"/>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="dst" className="test_for_tb" id="requested_dst"/>
+                <label htmlFor="requested_dst">DST</label>
+              </li>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="lineprobe" className="test_for_tb" id="requested_lineprobe"/>
                 <label htmlFor="requested_lineprobe">Line probe assay</label>
               </li>
-              <li><input type="checkbox" onChange={this.reqtests_change} name="cd4" id="requested_cd4"/>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="cd4" className="test_for_hiv" id="requested_cd4"/>
                 <label htmlFor="requested_cd4">CD4 Count</label>
               </li>
-              <li><input type="checkbox" onChange={this.reqtests_change} name="viral" id="requested_viral"/>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="viral" className="test_for_hiv" id="requested_viral"/>
                 <label htmlFor="requested_viral">Viral Load Count</label>
               </li>
-              <li><input type="checkbox" onChange={this.reqtests_change} name="hiv" id="requested_hiv"/>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="hiv" className="test_for_hiv" id="requested_hiv"/>
                 <label htmlFor="requested_hiv">HIV 1/2 Detect</label>
+              </li>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="rdt" className="test_for_hiv" id="requested_rdt"/>
+                <label htmlFor="requested_rdt">RDT</label>
+              </li>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="xpertebola" className="test_for_ebola" id="requested_xpertebola"/>
+                <label htmlFor="requested_xpertebola">Xpert Ebola</label>
               </li>
             </ul>
           </div>
         </div>
 
-        <div id="if_reason_follow" className="row">
-          <div className="col pe-2">
+        <div className="row if_reason_follow">
+          <div className="col-6">
             <label>Weeks in Treatment</label>
           </div>
-          <div className="col">
+          <div className="col-6">
             <input type="number" min="0" max="52" onChange={this.treatmentdate_change} id="treatment_weeks" name="treatment_weeks"/>
           </div>
         </div>
 
         <div className="row">
-          <div className="col pe-2">
+          <div className="col-6">
             <label>Collection Sample Type</label>
           </div>
-          <div className="col">
+          <div className="col-6">
             <label>
               <select className="input-large" id="coll_sample_type" name="coll_sample_type" onChange={this.sample_type_change} datavalue={this.state.encounter.coll_sample_type}>
                 <option value="">Please Select...</option>
@@ -106,29 +136,36 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
         </div>
 
         <div className="row">
-          <div className="col pe-2">
+          <div className="col-6">
             &nbsp;
           </div>
-          <div className="col">
+          <div className="col-6">
             <textarea name="sample_other" id="sample_other" onChange={this.sample_other_change}></textarea>
           </div>
         </div>
 
         <div className="row">
-          <div className="col pe-2">
+          <div className="col-6">
             <label>Test Due Date</label>
           </div>
-          <div className="col">
+          <div className="col-6">
             <input type="date" id="testdue_date" min={today} onChange={this.testduedate_change} value={this.state.encounter.testdue_date}/>
           </div>
         </div>
 
-        <hr/>
+        <div className="row labelfooter">
+          <div className="col-12">
+            <ul>
+              <li>
+                <a href="#" className="button save" onClick={this.save}>Save</a>
+              </li>
+              <li>
+                <a href="/encounters/new_index" className="button cancel">Cancel</a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-        <FlexFullRow>
-          <button type="button" className="btn-primary" onClick={this.save}>Save</button>
-          <a href="/encounters/new_index" className="btn btn-link">Cancel</a>
-        </FlexFullRow>
 
         <Modal ref="addNewSamplesModal">
           <h1>
@@ -143,12 +180,13 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
         </Modal>
 
       </div>
+      </div>
     );
   },
 
   getInitialState: function() {
-    $('#if_reason_diag').hide();
-    $('#if_reason_follow').hide();
+    $('.if_reason_diag').hide();
+    $('.if_reason_follow').hide();
     $('#sample_other').hide();
   },
 
@@ -190,7 +228,6 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     $('.req_tests_checks input:checked').each(function(dd) {
       reqtests += $(this).attr('name') + '|';
     });
-    console.log('ReqTests: ' + reqtests);
     this.setState(React.addons.update(this.state, {
       encounter: {
         tests_requested: {
@@ -243,6 +280,30 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     this.state.encounter.testdue_date = xx;
   },
 
+  testing_for_change: function() {
+    var xx = $('#testing_for').val();
+    $('.test_for_ebola').attr('checked', false).parent().hide();
+    $('.test_for_tb').attr('checked', false).parent().hide();
+    $('.test_for_hiv').attr('checked', false).parent().hide();
+    switch(xx)
+    {
+      case 'TB':
+        $('.test_for_tb').parent().show();
+        break;
+      case 'Ebola':
+        $('.test_for_ebola').parent().show();
+        break;
+      case 'HIV':
+        $('.test_for_hiv').parent().show();
+        break;
+
+      default:
+        $('.test_for_tb').parent().show();
+        $('.test_for_ebola').parent().show();
+        $('.test_for_hiv').parent().show();
+    }
+  },
+
   sample_type_change: function() {
     var xx = $('#coll_sample_type').val();
     if (xx == 'other')
@@ -271,18 +332,18 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
   reason_clicked: function(clk) {
     var ths = this;
     var foo = '';
-    if (clk == 0) {
+    if (clk == 0) { // Diagnosis
       ths.setState({'reasonFollow': false});
       ths.setState({'reasonDiag': true});
-      $('#if_reason_diag').show();
-      $('#if_reason_follow').hide();
+      $('.if_reason_follow').hide();
+      $('.if_reason_diag').show();
       foo = 'diag';
     }
-    if (clk == 1) {
+    if (clk == 1) { // Follow Up
       ths.setState({'reasonDiag': false});
       ths.setState({'reasonFollow': true});
-      $('#if_reason_follow').show();
-      $('#if_reason_diag').hide();
+      $('.if_reason_diag').hide();
+      $('.if_reason_follow').show();
       foo = 'follow';
     }
     ths.setState(React.addons.update(this.state, {
@@ -308,7 +369,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 var ReasonDiag = React.createClass(_.merge({
   render: function() {
     return (
-      <div id="if_reason_diag" className="row">
+      <div className="row if_reason_diag">
         <div className="col pe-2">
           <label>Comment</label>
         </div>
@@ -323,7 +384,7 @@ var ReasonDiag = React.createClass(_.merge({
 var ReasonFollow = React.createClass(_.merge({
   render: function() {
     return (
-      <div id="if_reason_follow" className="row">
+      <div className="row if_reason_follow">
         <div className="col pe-2">
           <label>Weeks in Treatment</label>
         </div>
