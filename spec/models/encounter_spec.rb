@@ -285,4 +285,19 @@ describe Encounter do
       end
     end
   end
+  
+  
+   context "add request test" do
+      let(:requested_test1) { RequestedTest.make }
+      let(:requested_test2) { RequestedTest.make }
+   
+      it "should save requested tests" do
+        requested_test1.encounter = encounter
+        requested_test2.encounter = encounter
+        requested_test1.save!
+        requested_test2.save!
+        expect(encounter.RequestedTests.count).to eq(2)
+      end
+    end
+  
 end

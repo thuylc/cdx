@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613092735) do
+ActiveRecord::Schema.define(version: 20160617090150) do
 
   create_table "alert_condition_results", force: :cascade do |t|
     t.string  "result",   limit: 255
@@ -415,6 +415,20 @@ ActiveRecord::Schema.define(version: 20160613092735) do
 
   add_index "recipient_notification_histories", ["user_id"], name: "index_recipient_notification_histories_on_user_id", using: :btree
 
+  create_table "requested_tests", force: :cascade do |t|
+    t.integer  "encounter_id", limit: 4
+    t.string   "name",         limit: 255
+    t.integer  "status",       limit: 4,   default: 0
+    t.datetime "deleted_at"
+    t.datetime "datetime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requested_tests", ["datetime"], name: "index_requested_tests_on_datetime", using: :btree
+  add_index "requested_tests", ["deleted_at"], name: "index_requested_tests_on_deleted_at", using: :btree
+  add_index "requested_tests", ["encounter_id"], name: "index_requested_tests_on_encounter_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name",           limit: 255, null: false
     t.integer  "institution_id", limit: 4,   null: false
@@ -587,6 +601,7 @@ ActiveRecord::Schema.define(version: 20160613092735) do
     t.boolean  "is_active",                                  default: true
     t.string   "telephone",                      limit: 255
     t.boolean  "sidebar_open",                               default: true
+    t.integer  "timeout_in_seconds",             limit: 4,   default: 180
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -604,4 +619,5 @@ ActiveRecord::Schema.define(version: 20160613092735) do
   add_foreign_key "encounters", "sites"
   add_foreign_key "encounters", "users"
   add_foreign_key "patients", "sites"
+  add_foreign_key "requested_tests", "encounters"
 end

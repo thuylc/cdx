@@ -109,11 +109,10 @@ var ChangedEncounterShow = React.createClass({
         </FlexFullRow>
 
         <div className="row">
-          <div className="col pe-8">
-             TABLE 
-             Name | Results | Sample | Type | Status | Error Code | Start | End
+        
+  <RequestedTestsIndexTable encounter={this.props.encounter} requested_tests={this.props.requested_tests} />
 
-          </div>
+        
         </div>
 
         <br />

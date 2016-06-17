@@ -101,6 +101,7 @@ Manifest.blueprint do
   definition { DefaultManifest.definition }
 end
 
+
 Encounter.blueprint do
   institution { object.patient.try(:institution) || Institution.make }
   user { institution.user }
@@ -111,6 +112,14 @@ Encounter.blueprint do
     end
   }
 end
+
+RequestedTest.blueprint do
+  encounter
+  name { "CD4" }
+  status {RequestedTest.statuses["open"]}
+end
+
+
 
 def first_or_make_site_unless_manufacturer(institution)
   unless institution.kind_manufacturer?

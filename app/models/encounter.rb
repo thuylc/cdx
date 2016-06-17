@@ -9,6 +9,7 @@ class Encounter < ActiveRecord::Base
 
   has_many :samples, dependent: :restrict_with_error
   has_many :test_results, dependent: :restrict_with_error
+  has_many :RequestedTests
 
   belongs_to :patient
   belongs_to :user
