@@ -12,7 +12,7 @@ var FlashErrorMessages = React.createClass({
           _text  = message[1];
           return (
             <div key={index} className="flash-error-reactjs">
-             {_reason} : {_text}
+            {_reason} : {_text}
             </div>
           );
         }.bind(this))}

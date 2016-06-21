@@ -1,0 +1,480 @@
+.testflow {
+  .section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+  .settings {
+    justify-content: center;
+  }
+  .centered {
+    text-align: center;
+  }
+  .col {
+    &.px-4 {
+      -webkit-box-flex: 0 0 300px;
+      -moz-box-flex: 0 0 300px;
+      -webkit-flex: 0 0 300px;
+      -ms-flex: 0 0 300px;
+      flex: 0 0 24.667%;
+    }
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+  .col-12 {
+    flex: 1 0 auto;
+  }
+  .col-11 {
+    max-width: 91.53%;
+    flex: 1 0 auto;
+  }
+  .col-10 {
+    max-width: 83.06%;
+    flex: 1 0 auto;
+  }
+  .col-9 {
+    max-width: 74.6%;
+    flex: 1 0 auto;
+  }
+  .col-8 {
+    max-width: 66.13%;
+    flex: 1 0 auto;
+  }
+  .col-7 {
+    max-width: 57.66%;
+    flex: 1 0 auto;
+  }
+  .col-6 {
+    max-width: 49.2%;
+    flex: 1 0 auto;
+  }
+  .col-5 {
+    max-width: 40.73%;
+    flex: 1 0 auto;
+  }
+  .col-4 {
+    max-width: 32.26%;
+    flex: 1 0 auto;
+  }
+  .col-3 {
+    max-width: 23.8%;
+    flex: 1 0 auto;
+  }
+  .col-2 {
+    max-width: 15.33%;
+    flex: 1 0 auto;
+  }
+  .col-1 {
+    max-width: 6.866%;
+    flex: 1 0 auto;
+  }
+  .box {
+    background: white;
+  }
+  .col {
+    margin: 0.5% 0.5%;
+  }
+  .red {
+    background-color: #c0392b;
+  }
+  .teal {
+    background-color: #05a8aa;
+  }
+  .light-green {
+    background-color: #b8d5b8;
+  }
+  .sand {
+    background-color: #d7b49e;
+  }
+  .orange {
+    background-color: #F4B350;
+  }
+  .off-white {
+    background-color: #f4f4f4;
+  }
+  .silver {
+    background-color: #bdc3c7;
+  }
+  .blue {
+    background-color: #89C4F4;
+  }
+  .green {
+    background-color: #27ae60;
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #333;
+  margin: 1em;
+}
+
+.testflow {
+  header {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    background-color: #6d6c8b;
+    color: white;
+    padding: 0.6em 0.5em;
+  }
+  h1 {
+    font-weight: 300;
+    font-size: 2.2em;
+  }
+  h2 {
+    font-weight: 400;
+    font-size: 1.7em;
+  }
+  .summary {
+    color: white;
+    box-sizing: border-box;
+    padding: 0.9em;
+    min-height: 350px;
+    img {
+      float: left;
+      margin-right: 0.9em;
+    }
+    h2 {
+      text-transform: uppercase;
+      margin-top: 0;
+      font-weight: 300;
+      font-size: 1.5em;
+    }
+    .stat {
+      text-align: center;
+      width: 60%;
+      margin: auto;
+      span {
+        font-family: 'Raleway', sans-serif;
+        font-size: 6em;
+      }
+      p.label {
+        text-align: right;
+      }
+    }
+  }
+  .title {
+    border-bottom: 1px solid #555;
+    h2 {
+      float: left;
+      margin: 0;
+    }
+    span {
+      float: right;
+    }
+  }
+  fieldset {
+    background-color: #dc602e;
+    color: white;
+    padding: 0.5em;
+    border: none;
+    display: inline-block;
+  }
+  label {
+    font-size: 0.8em;
+  }
+  input {
+    &[type=text] {
+      background-color: rgba(245, 245, 245, 0);
+      border: 1px solid #e2e2e2;
+      border-bottom: 1px solid #e2e2e2;
+      color: rgb(0, 0, 0);
+      padding: 0.25rem;
+      min-width: 200px;
+    }
+    &[type=submit] {
+      background-color: #555;
+      color: white;
+      border: none;
+      vpadding: 1em 2em;
+      font-size: .9em;
+      text-transform: uppercase;
+      line-height: 1em;
+    }
+  }
+  table {
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+  th {
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9em;
+    padding: 0.8em 0.5em;
+    border-bottom: 1px solid #05a8aa;
+  }
+  td {
+    padding: 0.8em 0.5em;
+    margin: 0;
+  }
+  tr:nth-child(even) {
+    background-color: #dbdae2;
+  }
+  .row {
+    max-width: 64rem;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.labelHeader {
+      align-items: center;
+      background: #6d6c8b;
+      padding: 0 15px;
+      height: auto;
+      color: #fff;
+      padding: 0.6em 0em;
+      margin-bottom: 0px;
+      max-width: 90rem;
+      h3 {
+        margin: 0;
+      }
+      ul {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0px;
+      }
+    }
+    &.labelfooter ul {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0px;
+      justify-content: flex-start;
+      margin: 10px;
+    }
+    &.labelheader ul li {
+      list-style-type: none;
+    }
+    &.labelfooter ul {
+      li {
+        list-style-type: none;
+      }
+      padding-left: 0px;
+      margin-left: 0px;
+    }
+  }
+  .panel {
+    background: #fff;
+    max-width: 90rem;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    hr {
+      border: none;
+    }
+    .row {
+      margin: 1em 0px;
+      max-width: none;
+    }
+  }
+  .button:hover {
+    opacity: 0.8;
+  }
+  form.zebra .panel .row:nth-child(even) {
+    background: #dbdae2;
+    > div {
+      padding: 1rem 0.5rem;
+    }
+  }
+  .panel .row:last-child {
+    margin-bottom: 0px;
+  }
+  form select {
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    min-width: 200px;
+  }
+  li a.button {
+    background-color: #26af60;
+    color: white;
+    border: none;
+    padding: 0.5em 2em;
+    font-size: .9em;
+    text-transform: uppercase;
+    line-height: 1em;
+    text-decoration: none;
+    margin-left: 5px;
+    &.save, &.new {
+      background: #2196f3;
+    }
+    &.cancel, &.edit {
+      background: #555;
+    }
+  }
+  .patient {
+    background: #ececec;
+    color: #434343;
+    min-height: auto;
+    margin: 10px;
+  }
+  .patient-details {
+    position: relative;
+    .button.edit {
+      position: absolute;
+      top: 5px;
+      right: 14px;
+      padding: 0.75em 1.9em;
+    }
+    .row {
+      margin: 0px;
+      align-items: flex-start;
+    }
+  }
+  .order-details .panel.patient-details {
+    border: 1px solid #ccc;
+  }
+  .patient-details {
+    .button-container {
+      width: 0px;
+    }
+    .row {
+      .col-3 {
+        max-width: 100%;
+        flex: 1 0 auto;
+        margin: 0px;
+      }
+      .col-9 {
+        max-width: 100%;
+        flex: 3 0 auto;
+        padding: 15px;
+      }
+    }
+    .col-10 {
+      display: flex;
+    }
+    ul {
+      padding-left: 0px;
+      li {
+        list-style-type: none;
+        margin: 15px 30px;
+      }
+    }
+    .stat {
+      width: 100%;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .order-details .patient-details ul {
+    float: left;
+    li {
+      margin: 5px 15px;
+    }
+  }
+  table.patient-history {
+    border: none;
+    th {
+      border-bottom: none;
+    }
+  }
+  .patient-details.panel .row:nth-child(even) {
+    background: #fff;
+  }
+  ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 100%;
+    li {
+      float: left;
+      margin: 0px;
+      a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 17px;
+        &:hover {
+          background-color: #ddd;
+        }
+        &:focus {
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+  .active {
+    background-color: #ccc;
+  }
+  .tabcontent {
+    display: none;
+    border-top: none;
+  }
+  .right {
+    float: right;
+  }
+  .left {
+    float: left;
+  }
+  .newTestOrder .panel {
+    > div.row {
+      justify-content: flex-start;
+    }
+    .row {
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0 5px;
+    }
+  }
+}
+
+/* SUMMARY BOXES */
+
+@media only screen and (max-width: 480px) {
+  .testflow .summary {
+    min-height: 0;
+  }
+}
+
+@media only screen and (max-width: 1390px) {
+  .testflow .summary {
+    h2 {
+      font-size: 1.3em;
+    }
+    img {
+      width: 30px;
+    }
+  }
+}
+
+/* SECTION TITLE */
+
+@media only screen and (max-width: 480px) {
+  .testflow .title {
+    span, h2 {
+      float: none;
+    }
+  }
+}
+
+/* FORM */
+
+@media only screen and (max-width: 480px) {
+  .testflow fieldset {
+    margin-top: 0.5em;
+  }
+}
+
+/*  BELOW 768 PIXELS */
+@media only screen and (max-width: 769px) {
+  .testflow input[type=submit] {
+    margin-top: 1em;
+  }
+}

@@ -75,7 +75,11 @@
     cdx_select_on_change "site[parent_id]", (parent_id) ->
       if parent_id? && (Number(parent_id) > 0)
         $.get '/sites/' + parent_id, (result) ->
-          return unless result? && result.sample_id_reset_policy?
+          return unless result?
+          if result.allows_manual_entry
+            $("#site_allows_manual_entry").prop('checked', true)
+          else
+            $("#site_allows_manual_entry").prop('checked', false)
           sample_id_reset_policy = result.sample_id_reset_policy.charAt(0).toUpperCase() + result.sample_id_reset_policy.slice(1)
           $( "input[name='site[sample_id_reset_policy]']" ).val(result.sample_id_reset_policy)
           $('.sample-id-reset .Select-placeholder').text(sample_id_reset_policy)

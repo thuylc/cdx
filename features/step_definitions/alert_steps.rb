@@ -1,3 +1,4 @@
+@wip
 include AlertsHelper
 include CdxPageHelper
 
@@ -17,7 +18,6 @@ Given(/^the user creates a new error category alert with all fields with name "(
   device = site.devices.make
   @alert = NewAlertPage.new
   @alert.load
-
   within(@alert.form) do |form|
     alert_form_fillin_basic(form, arg1)
 
@@ -34,7 +34,6 @@ Given(/^the user creates a new error category alert with all fields with name "(
     form.emaillimit.set 2
     alert_form_fillin_externaluser(form)
     form.new_externaluser.click
-  # form.submit.click
     find_button("submit").trigger('click')
     wait_for_submit
   end
@@ -94,7 +93,6 @@ Given(/^the user creates a new testresult alert with all fields with name "(.*?)
     form.condition_results.set_exact_multi "positive"
 
     form.new_externaluser.click
-    #  form.submit.click
     find_button("submit").trigger('click')
     wait_for_submit
   end
@@ -123,7 +121,6 @@ Given(/^the user Successful creates a new utilization efficiency category with a
     form.sampleid.set 'ABC'
 
     form.new_externaluser.click
-    # form.submit.click
     find_button("submit").trigger('click')
     wait_for_submit
   end

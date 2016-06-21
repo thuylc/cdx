@@ -87,53 +87,45 @@ var OutstandingTestsTable = React.createClass({
     }.bind(this);
 
     return (
-        <div>
-        <div className="row">
-        <div className="col pe-8">
-        <h1>Outstanding Tests ({this.state.data.length})</h1>
-        </div>
-        </div>
-        <div className="row">
+      <div className="row">
         <div className="col pe-12">
-        <div className={this.state.shouldHide ? '' : 'hidden'}>
-        <span className="horizontal-bar-value">There is no data to display</span>
+          <div className={this.state.shouldHide ? '' : 'hidden'}>
+            <span className="horizontal-bar-value">There is no data to display</span>
+          </div>
+          <div className={this.state.shouldHide ? 'hidden' : ''}>
+            <table className="table" cellPadding="0" cellSpacing="0" >
+            <colgroup>
+            <col width="25%" />
+            <col width="25%" />
+            <col width="25%" />
+            <col width="25%" />
+            </colgroup>
+            <thead>
+            <tr>
+              {sortableHeader("Test Order#", "test_order")}
+              {sortableHeader("Date Ordered", "date_ordered")}
+              {sortableHeader("Ordered by", "ordered_by")}
+              {sortableHeader("Outstanding days", "outstanding")}
+            </tr>
+            </thead>
+            </table>
+            <div className="table_scroll_container">
+              <table className="table scroll" cellPadding="0" cellSpacing="0"  id="outstanding_tests_table_chart" >
+              <colgroup>
+              <col width="25%" />
+              <col width="25%" />
+              <col width="25%" />
+              <col width="25%" />
+              </colgroup>
+              <tbody key={this.randomString()} >
+              {this.state.data.map(function(row_data,index) {
+                                                    return <TestOrdersRow key={index} row_data={row_data} />;
+                                                  }.bind(this))}
+              </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div className={this.state.shouldHide ? 'hidden' : ''}>
-        <table className="table" cellPadding="0" cellSpacing="0" >
-        <colgroup>
-        <col width="25%" />
-        <col width="25%" />
-        <col width="25%" />
-        <col width="25%" />
-        </colgroup>
-        <thead>
-        <tr>
-        {sortableHeader("Test Order#", "test_order")}
-    {sortableHeader("Date Ordered", "date_ordered")}
-    {sortableHeader("Ordered by", "ordered_by")}
-    {sortableHeader("Outstanding days", "outstanding")}
-    </tr>
-
-      </thead>
-      </table>
-      <div className="table_scroll_container">
-      <table className="table scroll" cellPadding="0" cellSpacing="0"  id="outstanding_tests_table_chart" >
-      <colgroup>
-      <col width="25%" />
-      <col width="25%" />
-      <col width="25%" />
-      <col width="25%" />
-      </colgroup>
-      <tbody key={this.randomString()} >
-      {this.state.data.map(function(row_data,index) {
-                                                      return <TestOrdersRow key={index} row_data={row_data} />;
-                                                    }.bind(this))}
-    </tbody>
-      </table>
-      </div>
-      </div>
-      </div>
-      </div>
       </div>
       );
   }

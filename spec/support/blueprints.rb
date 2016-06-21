@@ -51,6 +51,14 @@ AlertRecipient.blueprint do
   last_name {'smith'}
 end
 
+Comment.blueprint do
+  patient       { Patient.make }
+  commented_on  { Faker::Date.between(60.days.ago, Date.today) }
+  user          { User.make }
+  description   { Faker::Lorem.sentence }
+  comment       { Faker::Lorem.paragraph }
+end
+
 
 User.blueprint(:invited_pending) do
   confirmed_at nil

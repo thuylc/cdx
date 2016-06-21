@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :load_resource, only: [:edit, :update, :assign_role, :unassign_role]
+  before_filter :load_resource, only: [:edit, :update, :assign_role, :unassign_role, :remove, :resend_invite, :find]
 
   def index
     site_admin = !has_access?(@navigation_context.entity, READ_INSTITUTION_USERS) && @navigation_context.entity.kind_of?(Institution)
@@ -51,23 +51,31 @@ class UsersController < ApplicationController
   end
 
   def create
+    output_info = ' '
     @role = Role.find(params[:role])
     message = params[:message]
     (params[:users] || []).each do |email|
       email = email.strip
-      user = User.find_or_initialize_by(email: email)
-      unless user.persisted?
-        user.invite! do |u|
-          u.skip_invitation = true
+      if email.length > 0
+        user = User.find_by(email: email)      
+        if user.present?
+          output_info << "User with Email '#{email}' is already in the System - please edit that User<br>"
+        else
+          user = User.new(email: email)
+          unless user.persisted?
+            user.invite! do |u|
+              u.skip_invitation = true
+            end
+            user.invitation_sent_at = Time.now.utc # mark invitation as delivered
+            user.invited_by_id = current_user.id
+            InvitationMailer.invite_message(user, @role, message).deliver_now
+          end
+          user.roles << @role unless user.roles.include?(@role)
+          ComputedPolicy.update_user(user)
         end
-        user.invitation_sent_at = Time.now.utc # mark invitation as delivered
-        user.invited_by_id = current_user.id
-        InvitationMailer.invite_message(user, @role, message).deliver_now
       end
-      user.roles << @role unless user.roles.include?(@role)
-      ComputedPolicy.update_user(user)
     end
-    render nothing: true
+    render text:{'info' => output_info}.to_json, layout:false
   end
 
   def assign_role
@@ -101,6 +109,51 @@ class UsersController < ApplicationController
     redirect_to users_path if has_access?(
       @navigation_context.entity,
       (@navigation_context.entity.is_a?(Institution) ? READ_INSTITUTION_USERS : READ_SITE_USERS))
+  end
+
+  # Remove a specified User based on ID and redirect to the Users list page
+  def remove
+    #return unless authorize_resource(current_user, UPDATE_USER)
+    #return head :forbidden unless can_edit?
+    #user = User.find_by(id: params[:id])
+    if @user.present?
+      @user.destroy
+      redirect_to users_path, notice: "User Removed"
+    else
+      redirect_to users_path, notice: "User Not Found"
+    end
+  end
+
+  # Find a User by their Email address, 
+  # return a json state of 'success' (if found) or 'fail'.
+  # To be used from an Ajax call.
+  def find
+    user = User.find_by(email: params[:email])
+    if user.present?
+      render json:'success'.to_json
+    else
+      render json:'fail'.to_json
+    end
+  end
+
+  # Find the User by ID, 
+  # attempt to send the Invite email again to them, 
+  # then redirect back to the Users list page.
+  def resend_invite
+    #user = User.find_by(id: params[:id])
+    @role = @user.roles.first
+    message = 'Resending Invite'
+    if @user.present?
+      @user.invite! do |u|
+        u.skip_invitation = true
+      end
+      @user.invitation_sent_at = Time.now.utc # mark invitation as delivered
+      @user.invited_by_id = current_user.id
+      InvitationMailer.invite_message(@user, @role, message).deliver_now
+      redirect_to users_path, notice: "Resent Invite Ok"
+    else
+      redirect_to users_path, notice: "Failed to Resend Invite"
+    end
   end
 
   private

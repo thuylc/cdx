@@ -1,3 +1,3 @@
 class AlertsIndexPage < SitePrism::Page
- set_url '/alerts'
+ set_url '/alert_groups'
 end

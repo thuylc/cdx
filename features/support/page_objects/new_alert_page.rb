@@ -1,5 +1,5 @@
 class NewAlertPage < SitePrism::Page
-  set_url '/alerts/new'
+  set_url '/alert_groups/new'
 
   section 'form', '#new_alert' do
     element :name, '#alertname'

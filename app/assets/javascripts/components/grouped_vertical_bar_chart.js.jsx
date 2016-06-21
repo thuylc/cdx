@@ -15,28 +15,48 @@
 */
 
 var GroupedVerticalBarChart = React.createClass({ 
-  getInitialState: function() {
-    var height_value = this.props.height || 400;
+  getInitialState: function() 
+  {
+    var height_value = this.props.height || 250;
     return {
       height: height_value,
     };
   },
-  getDefaultProps: function() {
+  getDefaultProps: function() 
+  {
     return {
       margin: {top: 20, right: 20, bottom: 30, left: 50},
-      width: 500,
+      width: 250,
       bar_size: 30,
       bar_gap: 20,
-      space_for_labels: 150,
+      space_for_labels: 50,
       space_for_ticks: 30,
       space_for_legend: 100,
       fill_colour: '#03A9F4',
-      colors: ["#9D1CB2", "#F6B500", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00"],
+      colors: ["#9D1CB2", "#F6B500", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00","#9D1CB2", "#F6B500", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00","#9D1CB2", "#F6B500", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00"],
       offcolor: "#434343",
     }
   },
+/*
+  componentDidMount: function() 
+  {
+    if (!this.props.width) 
+    {
+      this.setProps({
+        width: this.refs.svg.getDOMNode().clientWidth
+      })
+    }
+    if (!this.props.height) 
+    {
+      this.setProps({
+        height: this.refs.svg.getDOMNode().clientHeight
+      })
+    }
 
-  render: function() {
+  },
+*/
+  render: function() 
+  {
     var barWidth  = this.props.bar_size;
     var barGap    = this.props.bar_gap;
     var margin    = this.props.margin;
@@ -53,21 +73,18 @@ var GroupedVerticalBarChart = React.createClass({
                           });
     var barCountPerSite = legendNames.length;
 
-    var xtmp = (barCountPerSite * barWidth) + (barGap * siteCount) + margin.left + margin.right + this.props.space_for_legend;
-
+    // calc width
+    var xtmp = (((barCountPerSite * barWidth) + barGap) * siteCount) + margin.left + margin.right + this.props.space_for_legend;
     if(this.props.width > xtmp) xtmp = this.props.width;
 
-    var  width = xtmp - margin.left - margin.right - this.props.space_for_legend;
-    var  height = this.props.height - margin.top - margin.bottom - this.props.space_for_labels;
-
     var chart = document.getElementById(this.props.chart_div);
+    var height = Math.abs( parseInt(d3.select(chart).style('height'), 10) )-20;
+    if(height <= 0) height = this.props.height || 400;
+
+    var  width = xtmp - margin.left - margin.right - this.props.space_for_legend;
+    height = height - margin.top - margin.bottom - this.props.space_for_labels;
 
     if(width == NaN) return '';
-
-    /*
-    var shadeOfColour = d3.scale.linear()
-      .rangeRound(["white", d ]);
-    */
 
     // set the range bands for the domain array (created further down the code)
     // rangeband will return the step for each band
@@ -115,7 +132,7 @@ var GroupedVerticalBarChart = React.createClass({
 
     x1.domain(legendNames).rangeRoundBands([0, x0.rangeBand()]);
 
-    // return the y value scaled to fit the minima and maxima for the chart
+    // return the y value scaled to fit the minima (0) and maxima for the chart
     y.domain([0,d3.max(all_data, function(d) 
       { 
         return d3.max(d.tests, function(d) 
@@ -219,7 +236,7 @@ var GroupedVerticalBarChart = React.createClass({
       .enter()
         .append("g")
           .attr("class", "legend")
-          .attr("transform", function(d, i) { return "translate(0,"+(i*25)+")"; });
+          .attr("transform", function(d, i) { return "translate(100,"+(i*25)+")"; });
 
     legend.append("rect")
       .attr("x", width - 1)
@@ -234,6 +251,7 @@ var GroupedVerticalBarChart = React.createClass({
       .style("text-anchor", "end")
       .text(function(d) { return d; });
 
+    /*
     if (all_data.length == 0) {
       svg.append("text")
         .attr("x", this.props.width/2)
@@ -243,6 +261,7 @@ var GroupedVerticalBarChart = React.createClass({
         .style("text-anchor", "middle")
         .text("There is no data to display");
     }
+    */
 
     return (
       <div> </div>

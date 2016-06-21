@@ -62,10 +62,9 @@ describe UsersController, type: :controller do
       expect(ActionMailer::Base.deliveries.count).to eq(2)
     end
 
-    it "adds role to existing users" do
+    it "does not add role to existing users" do
       post :create, {users: [user_to_edit.email], role: role.id}
-      expect(user_to_edit.roles.count).to eq(1)
-      expect(user_to_edit.roles.first).to eq(role)
+      expect(user_to_edit.roles.count).to eq(0)
     end
 
     it "adds role to new user" do
@@ -84,7 +83,7 @@ describe UsersController, type: :controller do
     it "refreshes computed policies" do
       expect(user_to_edit.computed_policies.count).to eq(1)
       post :create, {users: [user_to_edit.email], role: role.id}
-      expect(user_to_edit.computed_policies.count).to_not eq(1)
+      expect(user_to_edit.computed_policies.count).to eq(1)
     end
   end
 

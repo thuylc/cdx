@@ -149,7 +149,6 @@ RSpec.describe PatientsController, type: :controller do
     it "should be accessible be institution owner" do
       get :show, id: patient.id
       expect(response).to be_success
-      expect(assigns(:can_edit)).to be_truthy
     end
 
     it "should not be accessible if can not read" do
@@ -163,7 +162,6 @@ RSpec.describe PatientsController, type: :controller do
       sign_in other_user
       get :show, id: patient.id
       expect(response).to be_success
-      expect(assigns(:can_edit)).to be_falsy
     end
 
     it "should allow to edit if can update" do
@@ -172,7 +170,6 @@ RSpec.describe PatientsController, type: :controller do
       sign_in other_user
       get :show, id: patient.id
       expect(response).to be_success
-      expect(assigns(:can_edit)).to be_truthy
     end
   end
 
@@ -227,7 +224,7 @@ RSpec.describe PatientsController, type: :controller do
       expect(patient.entity_id).to eq(patient_form_plan[:entity_id])
       expect(patient.gender).to eq(patient_form_plan[:gender])
       expect(Time.parse(patient.dob)).to eq(patient_form_plan_dob)
-      
+
       expect(patient.address).to eq(patient_form_plan[:address])
       expect(patient.city).to eq(patient_form_plan[:city])
       expect(patient.state).to eq(patient_form_plan[:state])

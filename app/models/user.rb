@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :alert_histories
   has_many :alert_recipients
   has_many :recipient_notification_history
+  has_many :comments
 
   include Resource
 

@@ -59,7 +59,7 @@ module ApplicationHelper
     keys = { :notice => 'flash_notice', :error => 'flash_error', :alert => 'flash_error' }
 
     keys.each do |key, value|
-      if flash[key]
+      if flash[key].present?
         html_option = { :class => "flash #{value}" }
         res = content_tag :div, html_option do
           content_tag :div do

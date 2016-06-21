@@ -1,0 +1,12 @@
+- content_for(:subheader) do
+  .commentarea
+    .row.center.add-new
+      .col.pe-10
+        .row
+          .col
+            %h2
+              = link_to patient_path(@patient), class: 'side-link', title: 'Back' do
+                = image_tag "arrow-left-white.png"
+              New Comment
+
+= render 'form'

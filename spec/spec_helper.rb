@@ -4,6 +4,7 @@ ENV["SINGLE_TENANT"] = 'false'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/collection_matchers'
+require 'paperclip/matchers'
 require 'coffee_script'
 
 require 'capybara/rspec'
@@ -71,6 +72,7 @@ RSpec.configure do |config|
   config.include ManifestSpecHelper
   config.include CdxFieldsHelper
   config.include FeatureSpecHelpers, :type => :feature
+  config.include Paperclip::Shoulda::Matchers
 
   config.before(:each) do
     stub_request(:get, "http://fonts.googleapis.com/css").

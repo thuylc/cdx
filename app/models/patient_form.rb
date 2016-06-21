@@ -1,5 +1,6 @@
 class PatientForm
   include ActiveModel::Model
+  include Auditable
 
   def self.shared_attributes # shared editable attributes with patient model
     [:institution, :site, :name, :entity_id, :gender, :dob, :lat, :lng, :location_geoid, :address, :email, :phone, :city, :zip_code, :state]
@@ -37,15 +38,21 @@ class PatientForm
     end
   end
 
-  def update(attributes)
+  def update(attributes, audit=false, audit_params={})
     attributes.each do |attr, value|
       self.send("#{attr}=", value)
     end
 
+    Audit::Auditor.new(patient, audit_params[:current_user].id).log_changes(audit_params[:title], audit_params[:comment])
+
     save
   end
 
-  def save
+  def update_and_audit(attributes, current_user, title, comment='')
+    update(attributes, true, { current_user: current_user, title: title, comment: comment })
+  end
+
+  def save(audit_params={})
     self.class.assign_attributes(patient, self)
     patient.dob = @dob  # we need to set a Time in patient insead of self.dob :: String
 
@@ -54,14 +61,26 @@ class PatientForm
     return false unless form_valid
 
     # validate/save patient. all done if succeeded
-    patient_valid = patient.save
-    return true if patient_valid
+    if patient.save
+      Audit::Auditor.new(self.patient, audit_params[:current_user].id).log_action(audit_params[:title], audit_params[:comment]) if audit_params.present?
+      return true
+    end
 
     # copy validations from patient to form (form is valid, but patient is not)
     patient.errors.each do |key, error|
       errors.add(key, error) if self.class.shared_attributes.include?(key)
     end
+
     return false
+  end
+
+  def save_and_audit(current_user, title, comment='')
+    save(current_user: current_user, title: title, comment: comment)
+  end
+
+  def destroy_and_audit(current_user, title, comment='')
+    Audit::Auditor.new(self.patient, current_user.id).log_action(title, comment)
+    destroy
   end
 
   validates_presence_of :name, :entity_id

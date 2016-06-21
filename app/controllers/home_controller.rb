@@ -16,6 +16,8 @@ class HomeController < ApplicationController
     if has_access_to_test_results_index?
       @alerts_count = current_user.alerts.count
     end
+
+    load_institution
   end
 
   def verify
@@ -27,5 +29,13 @@ class HomeController < ApplicationController
   end
 
   def design
+  end
+
+  protected
+
+  def load_institution
+    institutions = check_access(Institution, READ_INSTITUTION) || []
+
+    @institution = institutions.first
   end
 end

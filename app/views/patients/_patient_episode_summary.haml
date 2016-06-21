@@ -1,0 +1,37 @@
+- if encounters.empty?
+  = empty_data icon: 'icon-outline-test xx-large' do |c|
+    - c.body do
+      %h1 No medical history
+      %p Create a #{link_to 'new episode', new_encounter_path, class: 'button add'} in order to start the medical history.
+      %p You can not create test orders until a #{link_to 'new episode', new_encounter_path, class: 'button add'} has been added.
+
+- else
+  .row.labelHeader
+    .col-6
+      %h3 Episode Summary
+    .col-6
+      %ul
+        %li
+          = link_to 'Add Episode', new_encounter_path, class: 'button add'
+  .panel.patient-details
+    - @encounters.each do |encounter|
+      .row
+        .col-2.summary.patient
+          .stat
+            .empty-icon.centered
+              %span
+                %i.fa.fa-navicon
+        .col-10
+          - if has_access?(encounter, Policy::Actions::UPDATE_ENCOUNTER)
+            %ul.button-container
+              %li
+                = link_to 'Edit Episode', edit_encounter_path(encounter), class: 'button edit'
+          %ul
+            %li
+              = format_date(encounter.start_time)
+            %li
+              = patient_diagnostic(encounter)
+          %ul
+            %li &nbsp;
+            %li
+              = patient_observations(encounter)

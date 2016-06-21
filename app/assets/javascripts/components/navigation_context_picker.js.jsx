@@ -14,7 +14,7 @@ $(document).on('ready', function(){
       cdx_init_components(container);
     }
 
-    $("body").toggleClass("show-navigation-context-picker");
+    //$("body").toggleClass("show-navigation-context-picker");
     $("input:first", container).focus();
     event.preventDefault();
     return false;
@@ -28,6 +28,7 @@ $(document).on('ready', function(){
       initializeContext();
     }
   }
+  /*
   $(document).on('click', "#nav-context", function(event){
     initializeContext();
     $.ajax({
@@ -36,6 +37,7 @@ $(document).on('ready', function(){
       data: { sidebar_open: $("body").hasClass("show-navigation-context-picker") }
     });
   });
+  */
 
   // preserve the #context_side_bar element
   // and preserve the status of the body.show-navigation-context-picker css class
@@ -47,9 +49,9 @@ $(document).on('ready', function(){
   }
   $(document).on("page:fetch", saveCurrentContextForNextChange);
   $(document).on("page:change", function() {
-    if (show_navigation_context) {
+    //if (show_navigation_context) {
       $("body").addClass("show-navigation-context-picker");
-    }
+    //}
     if (context_side_bar) {
       $('#context_side_bar')
         .append(context_side_bar.children())

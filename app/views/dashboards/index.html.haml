@@ -1,7 +1,7 @@
 -# ----  The Lines below provide dummy data for the graphs while the code is being improved ---
--# query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
+-#query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
 -#devices_grouped = [{_label:'Sally',_value:42},{_label:'Bobby',_value:25},{_label:'George',_value:15},{_label:'Site',_value:8},{_label:'Another Site',_value:4}];
--query_site_tests_chart = [ {"_label":"site20", "_value":2 }, {"_label":"site40", "_value":3 }];
+-#query_site_tests_chart = [ {"_label":"site20", "_value":2 }, {"_label":"site40", "_value":3 }];
 -#average_test_per_site_chart = [{:_label=>"AbbA", :peak=>26, :average=>12.2343},{:_label=>"BB", :peak=>26, :average=>70.12341234},{:_label=>"CC", :peak=>26, :average=>0.76347},{:_label=>"Aardvark", :peak=>42, :average=>21.345234},{:_label=>"Thirds", :peak=>66, :average=>33},{:_label=>"Fork", :peak=>12, :average=>5},{:_label=>"Spoon", :peak=>40, :average=>45}];
 -#failed_labels = ['Total','Failed'];
 -#failed_tests = [ {"_label":"Total", "_value":55, "_img":"chart-box-tick"}, {"_label":"Failed", "_value":15, "_img":"chart-box-exclam"} ];
@@ -12,11 +12,8 @@
 -standard_colours = ["#00A8AB", "#B7D6B7", "#D8B49C", "#DE6023", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00"];
 
 .container
-  .section.group
-    .col.col-12
-      %h1 Dashboard
 
-  .section.group
+  -#.section.group
     .col.col-3.teal.summary
       = image_tag('img/test-tube-rack.png')
       %h2 Total Tests
@@ -44,8 +41,14 @@
 
   .section.group
     .col.col-12.title
-      %h2 (institution name goes here)
-      %span SHOWING: in the last 12 months
+      %h2 
+        = @institution_name
+      %span 
+        SHOWING:
+        -if(params['range'].present?)
+          = chart_heading
+        -else
+          default
 
   .section.group
     .col.col-12
@@ -62,105 +65,105 @@
         %input#query_button.btn-primary{:type => "submit", :value => "filter"}
  
   .section.group
-    -if(query_tests_chart_reformat.present?)
-      .col.col-8.box
-        %header
-          = image_tag('img/test-tube-rack.png')
-          %h3 Total Tests
-        .box-content
-          = react_component('GroupedVerticalBarChart', data: query_tests_chart_reformat, height: 600, width: 1000, chart_div: 'chart_total_tests', colors: standard_colours)
+    -# Total Tests
+    .col.col-8.box
+      %header
+        = image_tag('img/test-tube-rack.png')
+        %h3 Total Tests
+      .box-content
+        -if(query_tests_chart_reformat.present?)
+          = react_component('GroupedVerticalBarChart', data: query_tests_chart_reformat, chart_div: 'chart_total_tests', space_for_labels: 10, colors: standard_colours)
           #chart_total_tests
+        -else
+          No chart information available
 
-    -if(failed_tests.present?)
-      .col.col-4.box
-        %header
-          = image_tag('img/fail.png')
-          %h3 Failed Tests
-        .box-content
+    -# Failed Tests
+    .col.col-4.box
+      %header
+        = image_tag('img/fail.png')
+        %h3 Failed Tests
+      .box-content
+        -if(failed_tests.present?)
           = react_component('HorizontalNiceBarChartImages', data: failed_tests, width: 400, label: 'Failed tests', chart_div: 'chart_failed_tests_graph', colors: ["#00A8AB", "#F15754"] )
           #chart_failed_tests_graph
-          %p This should be some meaingful text that explains the above informative chart. Rerum cumque ut at voluptates. Excepturi minus maiores atque earum ad placeat beatae! Quidem placeat atque corrupti! Incidunt repudiandae, quam neque dicta.
+        -else
+          No chart information available
 
-    -if(query_site_tests_chart.present?)
-      .col.col-6.box
-        %header
-          = image_tag('img/site.png')
-          %h3 Total Tests by Site
-        .box-content
+    -# Total Tests by Site
+    .col.col-6.box
+      %header
+        = image_tag('img/site.png')
+        %h3 Total Tests by Site
+      .box-content
+        -if(query_site_tests_chart.present?)
           = react_component('HorizontalNiceBarChart', data: query_site_tests_chart, width: 600, chart_div: 'chart_site_tests', label: 'Total Tests by Site', colors: standard_colours)
           #chart_site_tests
+        -else
+          No chart information available
 
-    -if(average_test_per_site_chart.present?)
-      .col.col-6.box
-        %header
-          = image_tag('img/site.png')
-          %h3 Average Tests by Site
-        .box-content
-          = react_component('GroupedVerticalBarChart', height: 600, width: 800, chart_div: 'chart_average_test_per_site_chart', data: average_test_per_site_chart, colors: standard_colours)
+    -# Average Tests by Site
+    .col.col-6.box
+      %header
+        = image_tag('img/site.png')
+        %h3 Average Tests by Site
+      .box-content
+        -if(average_test_per_site_chart.present?)
+          = react_component('GroupedVerticalBarChart', chart_div: 'chart_average_test_per_site_chart', data: average_test_per_site_chart, colors: standard_colours)
           #chart_average_test_per_site_chart
+        -else
+          No chart information available
 
-    -if(devices_grouped.present?)
-      .col.col-4.box
-        %header
-          = image_tag('img/device.png')
-          %h3 Total Tests by Device
-        .box-content#tests_run
+    -#Total Tests by Device
+    .col.col-4.box
+      %header
+        = image_tag('img/device.png')
+        %h3 Total Tests by Device
+      .box-content#tests_run
+        -if(devices_grouped.present?)
           = react_component('SnailPieChart', data: devices_grouped, height: 250, label: 'Tests Run', colors: standard_colours)
+        -else
+          No chart information available
 
-    -if(average_tests_per_technician_chart.present?)
-      .col.col-8.box
-        %header
-          = image_tag('img/user.png')
-          %h3 Average Tests by Technician
-        .box-content
-          = react_component('GroupedVerticalBarChart', data: average_tests_per_technician_chart, height: 600, width: 1000, chart_div: 'chart_average_tests', label: 'DAYS', colors: standard_colours)
+    -# Average Tests by Technician
+    .col.col-8.box
+      %header
+        = image_tag('img/user.png')
+        %h3 Average Tests by Technician
+      .box-content
+        -if(average_tests_per_technician_chart.present?)
+          = react_component('GroupedVerticalBarChart', data: average_tests_per_technician_chart, chart_div: 'chart_average_tests', label: 'DAYS', colors: standard_colours)
           #chart_average_tests
+        -else
+          No chart information available
 
-      .col.col-12.box
-        %header
-          = image_tag('img/test-tube.png')
-          %h3 Outstanding Tests
-        .box-content
-          %table
-            %thead
-              %th Test Order Number
-              %th
-                Date Ordered
-                = image_tag('img/filter-arrow.png')
-              %th
-                Ordered By
-                = image_tag('img/filter-arrow.png')
-              %th
-                Outstanding Days
-                = image_tag('img/filter-arrow.png')
-            %tbody
-              %tr
-                %td 02468aff-2cdb-af93-d6a9-df78d4fbdd13
-                %td 16-05-2016
-                %td Jane Doe
-                %td 88
-              %tr
-                %td 073b4d77-3f0b-3487-4a44-db3b41bb8c2a
-                %td 14-05-2016
-                %td Cornelia
-                %td 86
-              %tr
-                %td 0acb86c9-9eb7-97a5-1799-d4322bb71d4b
-                %td 01-05-2016
-                %td Harris
-                %td 71
-              %tr
-                %td 0cff0bc4-a10d-55ef-604f-09c14802f40f
-                %td 21-04-2016
-                %td John Doe
-                %td 69
-              %tr
-                %td 152770e8-4f18-16ac-1c0c-35f270f14ac1
-                %td 17-04-2016
-                %td Trintass
-                %td 57
-              %tr
-                %td 25a7b3a9-e6de-c00b-d97e-c0fc7dffe9b0
-                %td 03-04-2016
-                %td Christiana
-                %td 45
+    -# Devices Not Responding
+    .col.col-6.box
+      %header
+        %h3 Devices Not Responding
+      .box-content
+        -if(query_devices_not_reporting_chart)
+          = react_component('HorizontalNiceBarChart', data: query_devices_not_reporting_chart, width: 600, colors: standard_colours, chart_div: 'chart_not_responding', label: 'DAYS')
+          #chart_not_responding
+        -else
+          No chart information available
+  
+    -# Device Error Codes
+    .col.col-6.box
+      %header
+        %h3 Device Error Codes
+      .box-content
+        -if(error_codes_by_device)
+          = react_component('DeviceErrorTable', title: "title", allowSorting: "true", orderBy: "-device", colors: standard_colours, data: error_codes_by_device)
+        -else
+          No chart information available
+
+    -# Outstanding Tests
+    .col.col-12.box
+      %header
+        = image_tag('img/test-tube.png')
+        %h3 Outstanding Tests
+      .box-content
+        -if(outstanding_orders)
+          = react_component('OutstandingTestsTable', title: "title", allowSorting: "true", orderBy: "-test_order", data: outstanding_orders)
+        -else
+          No chart information available

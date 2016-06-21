@@ -1,0 +1,37 @@
+.row.labelHeader
+  .col-6
+    %h3 Patient Summary
+  .col-6
+    %ul
+.panel.patient-details
+  .row
+    .col-2.summary.patient
+      .stat
+        .empty-icon.centered
+          %span
+            %i.fa.fa-user
+    .col-10
+      - if has_access?(@patient, Policy::Actions::UPDATE_PATIENT)
+        %ul.button-container
+          %li
+            = link_to('Edit patient', edit_patient_path(patient), class: 'button edit')
+      %ul
+        %li
+          = patient_display_name(patient.name)
+        %li
+          = patient.entity_id
+        %li
+          = patient.gender
+      %ul
+        %li
+          = patient_birth_date(patient.dob)
+        %li
+          = patient.phone
+        %li
+          = patient.email
+
+      %ul
+        %li
+          = patient.address
+        %li
+          = patient.created_at.strftime(I18n.t('date.input_format.pattern'))

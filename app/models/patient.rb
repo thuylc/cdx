@@ -6,10 +6,12 @@ class Patient < ActiveRecord::Base
   include DateDistanceHelper
   include WithLocation
   include SiteContained
+  include Auditable
 
   has_many :test_results, dependent: :restrict_with_error
   has_many :samples, dependent: :restrict_with_error
   has_many :encounters, dependent: :restrict_with_error
+  has_many :comments, dependent: :destroy
 
   validates_presence_of :institution
   validates_uniqueness_of :entity_id, scope: :institution_id, allow_nil: true

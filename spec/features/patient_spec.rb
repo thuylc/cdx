@@ -3,8 +3,8 @@ require 'policy_spec_helper'
 
 describe "Patients", elasticsearch: true do
   let(:institution) { Institution.make }
-  let(:user) { institution.user }
-  let(:site) { institution.sites.make }
+  let(:user)        { institution.user }
+  let(:site)        { institution.sites.make }
 
   let!(:device_spec_helper) { DeviceSpecHelper.new 'genoscan' }
   let!(:device) { device_spec_helper.make site: site }

@@ -4,14 +4,17 @@ module ChartsHelper
     found_data = results.sort_by_site.data
     all_sites = check_access(Site.within(@navigation_context.entity), Policy::Actions::READ_SITE)
     sites = all_sites.map { | site | [site.name,0] }
+    data = []
     sites.each do | site |
       found_data.each do | found_site_data |
         if site[0].include? found_site_data[0]
-          site[1] = found_site_data[1]
+          #site[1] = found_site_data[1]
+          data << {'_label':site[0], '_value': found_site_data[1] }
         end
       end
     end
-    sites
+    data
+    #sites
   end
 
   def query_devices_not_reporting_chart
@@ -33,10 +36,10 @@ module ChartsHelper
       end
 
       if device_message==nil
-        data << [device.name, day_range]
+        data << {'_label':device.name, '_value':day_range} if device.name.length > 0
       else
         days_diff = ( (Time.now - (device_message.created_at) ) / (1.day)).round
-        data << [device.name.truncate(13), days_diff]
+        data << {'_label':device.name.truncate(13), '_value':days_diff} if device.name.length > 0
       end
     end
     data
@@ -138,6 +141,17 @@ module ChartsHelper
     end
     
     new_sorted_data = sorted_data.map{|x| {_label: x[:label], peak: x[:values][0], average: x[:values][1]} }
+  end
+
+  def query_tests_chart_reformat
+    results = Reports::AllTests.process(current_user, @navigation_context, options)
+    if results.number_of_months > 1
+      sorted_data = results.sort_by_month.data
+    else
+      sorted_data = results.sort_by_day.data
+    end
+    
+    new_sorted_data = sorted_data.map{|x| {_label: x[:label], Tests: x[:values][0], Errors: x[:values][1]} }
   end
 
   def tests_by_status

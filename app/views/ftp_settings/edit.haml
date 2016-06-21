@@ -1,0 +1,34 @@
+- content_for(:subheader) do
+  .row.center.edit
+    .col.pe-10
+      .row
+        .col
+          %h2
+            = "FTP settings for: #{institution.name}"
+
+= form_for institution, url: ftp_setting_path(institution) do |f|
+  = validation_errors institution
+
+  .row
+    .col.pe-2= f.label :ftp_hostname, 'FTP'
+    .col.pe-2= f.text_field :ftp_hostname, placeholder: 'Hostname'
+    .col.pe-2= f.number_field :ftp_port, min: 0, max: 65535, placeholder: 'Port'
+    .col.pe-1
+      = f.label :ftp_passive, "Passive"
+    .col.pe-1
+      = f.check_box :ftp_passive
+      = f.label :ftp_passive, "&nbsp;".html_safe
+    .col.pe-2= f.text_field :ftp_directory, placeholder: 'Folder'
+  .row{style: 'visibility:hidden; height: 1px'}
+    .col.pe-2= f.label :fake_username, 'Login'
+    .col.pe-2= text_field :fake_username, placeholder: 'Username', autocomplete: 'on'
+    .col.pe-2= f.password_field :fake_password, value: '', placeholder: 'Password', autocomplete: 'off'
+  .row
+    .col.pe-2= f.label :ftp_username, 'Login'
+    .col.pe-2= f.text_field :ftp_username, placeholder: 'Username', autocomplete: 'off'
+    .col.pe-2= f.password_field :ftp_password, value: institution.ftp_password, placeholder: 'Password', autocomplete: 'off'
+
+  .row.button-actions
+    .col
+      = f.submit 'Save', class: 'btn-primary'
+      = link_to 'Cancel', settings_path, class: 'btn-link'

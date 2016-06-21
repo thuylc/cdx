@@ -29,6 +29,8 @@ en:
       patient:
         dob: Birthday
         entity_id: Patient id
+      comment:
+        commented_on: Date
 
   user:
     settings:
@@ -38,6 +40,8 @@ en:
     input_format:
       pattern: "%m/%d/%Y"
       placeholder: MM/DD/YYYY
+    formats:
+      default: "%m/%d/%Y"
 
 # es:
 #   date:

@@ -43,13 +43,20 @@ var UserInviteForm = React.createClass({
 
     if(this.state.includeMessage)
       data.message = this.state.message;
+
     $.ajax({
       url: '/users',
       method: 'POST',
       data: data,
-      success: function () {
-        this.closeModal();
-        window.location.reload(true); // reload page to update users table
+      success: function (d) {
+        d = $.parseJSON(d);
+        if(d.info.trim().length > 0)
+          $('.flashmessage').hide().html(d.info).fadeIn('fast').delay(3000).fadeOut('fast');
+        else
+        {
+          this.closeModal();
+          window.location.reload(true); // reload page to update users table
+        }
       }.bind(this)
     });
   },
@@ -113,6 +120,9 @@ var UserInviteForm = React.createClass({
           <div className="col pe-3"><label>Message</label></div>
           <div className="col"><textarea value={this.state.message} onChange={this.writeMessage} className="input-block resizeable" rows="1" /></div>
         </div> : null }
+
+      <div className="row flashmessage">
+      </div>
 
       <div className="modal-footer">
         <button className="btn btn-primary" onClick={this.sendInvitation}>Send</button>

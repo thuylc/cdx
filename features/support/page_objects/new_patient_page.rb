@@ -3,5 +3,5 @@ class NewPatientPage < CdxPageBase
 
   element :name, :field, "Name"
   element :patient_id, :field, "Patient id"
-
+  element :dob, :field, "Birthday"
 end

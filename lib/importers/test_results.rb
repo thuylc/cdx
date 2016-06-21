@@ -63,6 +63,10 @@ module Importers
     end
 
     def lookup(result)
+      # Temp hack to get some decent albeit
+      # fake data in system
+      return results.sample
+
       case result
       when 'Negative'
         'MTB NOT DETECTED'
@@ -75,6 +79,18 @@ module Importers
       else
         'NO RESULT'
       end
+    end
+
+    def results
+      [
+        'INVALID',
+        'ERROR',
+        'NO RESULT',
+        'MTB NOT DETECTED',
+        'Rif Resistance DETECTED',
+        'Rif Resistance INDETERMINATE',
+        'MTB DETECTED'
+      ]
     end
   end
 end
