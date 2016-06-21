@@ -21,6 +21,12 @@ var ChangedEncounterShow = React.createClass({
 		  cancelButton = "<div>/<div>"
 		}
 		
+		if (this.props.encounter.performing_site == null) {
+			performing_site = "";
+		} else {
+			performing_site = this.props.encounter.site.name;
+		}
+		
     return (
       <div>
         <div className="row">
@@ -28,7 +34,7 @@ var ChangedEncounterShow = React.createClass({
           <label>Requested Site:</label> 
           </div>
           <div className="col">
-            <p>{this.props.encounter.site.name}</p>
+            <p>{performing_site}</p>
           </div>
         </div>
 
@@ -37,7 +43,7 @@ var ChangedEncounterShow = React.createClass({
           <label>Performing Site:</label> 
           </div>
           <div className="col">
-            <p>{this.props.encounter.site.name}</p>
+            <p>{performing_site}</p>
           </div>
         </div>
 
@@ -110,7 +116,7 @@ var ChangedEncounterShow = React.createClass({
 
         <div className="row">
         
-  <RequestedTestsIndexTable encounter={this.props.encounter} requested_tests={this.props.requested_tests} />
+  <RequestedTestsIndexTable encounter={this.props.encounter} requested_tests={this.props.requested_tests} requested_by={this.props.requested_by} />
 
         
         </div>

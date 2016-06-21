@@ -3,7 +3,7 @@ var EncounterNew = React.createClass({
     return {encounter: {
       institution: this.props.context.institution,
       site: null,
-      performingsite: null,
+      performing_site: null,
       patient: this.props.patient,
       samples: [],
       new_samples: [],
@@ -24,7 +24,7 @@ var EncounterNew = React.createClass({
     this.setState(React.addons.update(this.state, {
       encounter: {
         site: { $set: site },
-        performingsite: { $set: site },
+        performing_site: { $set: site },
         patient: { $set: this.props.patient },
         samples: { $set: [] },
         new_samples: { $set: [] },
@@ -41,10 +41,18 @@ var EncounterNew = React.createClass({
       }
     }));
   },
+setPerformingSite: function(site) {  
+    this.setState(React.addons.update(this.state, {
+      encounter: {
+        performing_site: { $set: site },
+      }
+    }));
+  },	
+	
   render: function() {
     var sitesUrl = URI("/encounters/sites").query({context: this.props.context.institution.uuid});
     var siteSelect = <SiteSelect onChange={this.setSite} url={sitesUrl} fieldLabel='Requested' defaultSiteUuid={_.get(this.props.context.site, 'uuid')} />;
-    var performingSiteSelect = <SiteSelect onChange={this.setGGG} url={sitesUrl} fieldLabel='Performing' defaultSiteUuid={_.get(this.props.context.performingsite, 'uuid')} />;
+    var performingSiteSelect = <SiteSelect onChange={this.setPerformingSite} url={sitesUrl} fieldLabel='Performing' defaultSiteUuid={_.get(this.props.context.performingsite, 'uuid')} />;
 
     if (this.state.encounter.site == null)
       return (<div className="testflow">{siteSelect}</div>);

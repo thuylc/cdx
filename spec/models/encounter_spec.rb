@@ -7,7 +7,8 @@ describe Encounter do
 
   it "#human_diagnose" do
     encounter.core_fields[Encounter::ASSAYS_FIELD] = [{"condition" => "flu_a", "name" => "flu_a", "result" => "positive", "quantitative_result" => nil}]
-    encounter.human_diagnose.should eq("FLU_A detected.")
+   # encounter.human_diagnose.should eq("FLU_A detected.")
+   expect(encounter.human_diagnose).to eq("FLU_A detected.")
   end
 
   describe "merge assays" do

@@ -13,14 +13,12 @@ RSpec.describe EncountersController, type: :controller, elasticsearch: true do
   context "destroy" do
     let!(:encounter) { Encounter.make institution: institution, site: site }
 
-
     it "should destroy an encounter" do
       delete :destroy, id: encounter.id
       expect(Encounter.count).to eq 0
       expect(response).to be_redirect
     end
   end
-
 
 
   describe "GET #new" do
@@ -39,7 +37,6 @@ RSpec.describe EncountersController, type: :controller, elasticsearch: true do
       encounter = Encounter.make institution: i1
       get :show, id: encounter.id
       expect(response).to have_http_status(:success)
-
       expect(assigns[:can_update]).to be_falsy
     end
 
@@ -146,7 +143,8 @@ RSpec.describe EncountersController, type: :controller, elasticsearch: true do
     }
 
     let(:json_response) { JSON.parse(response.body) }
-    let(:created_encounter) { Encounter.find(json_response['encounter']['id']) }
+    let(:created_encounter) { 
+      Encounter.find(json_response['encounter']['id']) }
 
     it "succeed" do
       expect(response).to have_http_status(:success)

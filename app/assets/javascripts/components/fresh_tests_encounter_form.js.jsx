@@ -83,8 +83,11 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
                 <label htmlFor="requested_xpertmtb">Xpert MTB/RIF</label>
               </li>
               <li><input type="checkbox" onChange={this.reqtests_change} name="culture" className="test_for_tb" id="requested_culture"/>
-                <label htmlFor="requested_culture">Culture Drug susceptibility</label>
+                <label htmlFor="requested_culture">Culture</label>
               </li>
+              <li><input type="checkbox" onChange={this.reqtests_change} name="culture" className="test_for_tb" id="requested_drug_susceptibility"/>
+                 <label htmlFor="requested_drug_susceptibility">Drug susceptibility</label>
+               </li>
               <li><input type="checkbox" onChange={this.reqtests_change} name="dst" className="test_for_tb" id="requested_dst"/>
                 <label htmlFor="requested_dst">DST</label>
               </li>
@@ -157,7 +160,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
           <div className="col-12">
             <ul>
               <li>
-                <a href="#" className="button save" onClick={this.save}>Save</a>
+                <a href="#" id="encountersave" className="button save" onClick={this.save}>Save</a>
               </li>
               <li>
                 <a href="/encounters/new_index" className="button cancel">Cancel</a>
@@ -200,7 +203,8 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     var tests = [];
     tests['microscopy'] = 'Microscopy';
     tests['xpert'] = 'Xpert MTB/RIF';
-    tests['culture'] = 'Culture Drug susceptibility';
+    tests['culture'] = 'Culture';
+    tests['drugsusceptibility'] = 'Culture Drug susceptibility';
     tests['lineprobe'] = 'Line probe assay';
     tests['cd4'] = 'CD4 Count';
     tests['viral'] = 'Viral Load Count';

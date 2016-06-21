@@ -119,10 +119,10 @@ describe "create encounter" do
       page.patient.type_and_select patient.name
       page.add_sample.click
       page.add_sample.click
-
-      page.submit
+      click_link('encountersave')
+      click_link('encountersave')
     end
-
+    
     expect_page ShowEncounterPage do |page|
       expect(page.encounter.patient).to eq(patient)
       expect(page.encounter.samples.count).to eq(2)
@@ -144,7 +144,9 @@ describe "create encounter" do
     expect_page NewFreshEncounterPage do |page|
       page.add_sample.click
       page.add_sample.click
-      page.submit
+    #  page.submit
+    click_link('encountersave')
+    click_link('encountersave')
     end
 
     expect_page ShowEncounterPage do |page|

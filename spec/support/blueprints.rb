@@ -106,6 +106,7 @@ Encounter.blueprint do
   institution { object.patient.try(:institution) || Institution.make }
   user { institution.user }
   site { object.institution.sites.first || object.institution.sites.make }
+  performing_site { object.institution.sites.first || object.institution.sites.make }
   core_fields {
     { "id" => "encounter-#{Sham.sn}" }.tap do |h|
       h["start_time"] = object.start_time if object.start_time
