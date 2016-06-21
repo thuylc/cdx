@@ -19,7 +19,6 @@ var EncounterNew = React.createClass({
       testdue_date: ''
     }};
   },
-
   setSite: function(site) {
     this.setState(React.addons.update(this.state, {
       encounter: {
@@ -41,14 +40,13 @@ var EncounterNew = React.createClass({
       }
     }));
   },
-setPerformingSite: function(site) {  
+  setPerformingSite: function(site) {  
     this.setState(React.addons.update(this.state, {
       encounter: {
         performing_site: { $set: site },
       }
     }));
-  },	
-	
+  },
   render: function() {
     var sitesUrl = URI("/encounters/sites").query({context: this.props.context.institution.uuid});
     var siteSelect = <SiteSelect onChange={this.setSite} url={sitesUrl} fieldLabel='Requested' defaultSiteUuid={_.get(this.props.context.site, 'uuid')} />;
@@ -72,5 +70,4 @@ setPerformingSite: function(site) {
       </div>
     );
   },
-
 });

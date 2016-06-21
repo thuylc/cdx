@@ -4,7 +4,6 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     $('.test_for_ebola').attr('checked', false).parent().hide();
     $('.test_for_tb').attr('checked', false).parent().hide();
     $('.test_for_hiv').attr('checked', false).parent().hide();
-
   },
   render: function() {
     var now = new Date();
@@ -15,9 +14,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     return (
       <div className="newTestOrder">
       <div className="panel">
-
         <PatientSelect patient={this.state.encounter.patient} context={this.props.context} onPatientChanged={this.onPatientChanged}/>
-
         <div className="row">
           <div className="col-6">
             <label>Samples</label>
@@ -68,7 +65,6 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
             </label>
           </div>
         </div>
-
 
         <div className="row">
           <div className="col-6">
@@ -169,7 +165,6 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
           </div>
         </div>
 
-
         <Modal ref="addNewSamplesModal">
           <h1>
             <a href="#" className="modal-back" onClick={this.closeAddNewSamplesModal}></a>
@@ -242,46 +237,37 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
   },
 
   diag_comment_change: function() {
-    var xx = $('#diag_comment').val();
+    var comment = $('#diag_comment').val();
     this.setState(React.addons.update(this.state, {
       encounter: {
         diag_comment: {
-          $set: xx
+          $set: comment
         }
       }
     }));
-
-    //anthony added
-    //this.state.encounter.diag_comment = xx;
-
   },
 
   treatmentdate_change: function() {
-    var xx = $('#treatment_weeks').val();
+    var treatmentdate = $('#treatment_weeks').val();
     this.setState(React.addons.update(this.state, {
       encounter: {
         treatment_weeks: {
-          $set: xx
+          $set: treatmentdate
         }
       }
     }));
-
-    //anthony added
-    //this.state.encounter.treatment_weeks = xx;
   },
 
   testduedate_change: function() {
-    var xx = $('#testdue_date').val();
+    var testduedate = $('#testdue_date').val();
     this.setState(React.addons.update(this.state, {
       encounter: {
         testdue_date: {
-          $set: xx
+          $set: testduedate
         }
       }
     }));
-
-    //anthony added
-    this.state.encounter.testdue_date = xx;
+    this.state.encounter.testdue_date = testduedate;
   },
 
   testing_for_change: function() {

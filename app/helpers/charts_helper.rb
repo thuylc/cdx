@@ -143,17 +143,6 @@ module ChartsHelper
     new_sorted_data = sorted_data.map{|x| {_label: x[:label], peak: x[:values][0], average: x[:values][1]} }
   end
 
-  def query_tests_chart_reformat
-    results = Reports::AllTests.process(current_user, @navigation_context, options)
-    if results.number_of_months > 1
-      sorted_data = results.sort_by_month.data
-    else
-      sorted_data = results.sort_by_day.data
-    end
-    
-    new_sorted_data = sorted_data.map{|x| {_label: x[:label], Tests: x[:values][0], Errors: x[:values][1]} }
-  end
-
   def tests_by_status
     Reports::Grouped.by_status(current_user, @navigation_context, options)
   end

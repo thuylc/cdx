@@ -8,8 +8,6 @@ var RequestedTestRow = React.createClass({
     if (i>0) {
       samples +=",";
     }
-  //  samples += encounter.samples[i].uuid;
-
 //TODO what is do when this.props.sample.entity_ids.length>1???
 samples += encounter.samples[i].entity_ids[0]
   }
@@ -21,7 +19,7 @@ samples += encounter.samples[i].entity_ids[0]
     <tr>
       <td>{test.name}</td>
       <td>{encounter.uuid}</td>
-      <td>{encounter.site["uuid"]}</td>
+      <td>{encounter.site.name}</td>
       <td>{samples}</td>
       <td>{this.props.requested_by}</td>
       <td>{created_at_date}</td>
@@ -43,10 +41,10 @@ var RequestedTestsList = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0">
         <colgroup>
           <col width="10%" />
+          <col width="15%" />
           <col width="10%" />
-          <col width="10%" />
-          <col width="20%" />
-          <col width="10%" />
+          <col width="15%" />
+          <col width="15%" />
           <col width="10%" />
           <col width="10%" />
           <col width="10%" />

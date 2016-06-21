@@ -22,7 +22,6 @@ class EncountersController < ApplicationController
       prepare_encounter_from_json
       create_requested_tests
       create_new_samples
-      
       @encounter.user = current_user
       @blender.save_and_index!
       @encounter.updated_diagnostic_timestamp!
@@ -140,13 +139,12 @@ class EncountersController < ApplicationController
   def create_requested_tests
     encounter_param = @encounter_param = JSON.parse(params[:encounter])
     tests_requested = encounter_param['tests_requested']
-    if ! tests_requested.blank? 
-        tests_requested.split('|').each do |name|
-          @encounter.RequestedTests.build(name: name, status: RequestedTest.statuses["open"]) 
-       end
+    if !tests_requested.blank? 
+      tests_requested.split('|').each do |name|
+        @encounter.RequestedTests.build(name: name, status: RequestedTest.statuses["open"]) 
+      end
    end 
   end
-  
   
   def perform_encounter_action(action)
     @extended_respone = {}
@@ -194,6 +192,7 @@ class EncountersController < ApplicationController
     @encounter = encounter_param['id'] ? Encounter.find(encounter_param['id']) : Encounter.new
     @encounter.new_samples = []
     @encounter.is_phantom = false
+    
     if @encounter.new_record?
       @institution = institution_by_uuid(encounter_param['institution']['uuid'])
       @encounter.institution = @institution
@@ -354,7 +353,6 @@ class EncountersController < ApplicationController
       json.site do
         as_json_site(json, @encounter.site)
       end
-     
      
      if @encounter.performing_site != nil
       json.performing_site do
