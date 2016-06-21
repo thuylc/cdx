@@ -24,7 +24,7 @@ var ChangedEncounterShow = React.createClass({
 		if (this.props.encounter.performing_site == null) {
 			performing_site = "";
 		} else {
-			performing_site = this.props.encounter.site.name;
+			performing_site = this.props.encounter.performing_site.name;
 		}
 		
     return (
@@ -34,7 +34,7 @@ var ChangedEncounterShow = React.createClass({
           <label>Requested Site:</label> 
           </div>
           <div className="col">
-            <p>{performing_site}</p>
+            <p>{this.props.encounter.site.name}</p>
           </div>
         </div>
 
