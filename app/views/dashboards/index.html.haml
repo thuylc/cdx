@@ -1,13 +1,16 @@
 -# ----  The Lines below provide dummy data for the graphs while the code is being improved ---
--#query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
--#devices_grouped = [{_label:'Sally',_value:42},{_label:'Bobby',_value:25},{_label:'George',_value:15},{_label:'Site',_value:8},{_label:'Another Site',_value:4}];
--#query_site_tests_chart = [ {"_label":"site20", "_value":2 }, {"_label":"site40", "_value":3 }];
--#average_test_per_site_chart = [{:_label=>"AbbA", :peak=>26, :average=>12.2343},{:_label=>"BB", :peak=>26, :average=>70.12341234},{:_label=>"CC", :peak=>26, :average=>0.76347},{:_label=>"Aardvark", :peak=>42, :average=>21.345234},{:_label=>"Thirds", :peak=>66, :average=>33},{:_label=>"Fork", :peak=>12, :average=>5},{:_label=>"Spoon", :peak=>40, :average=>45}];
--#failed_labels = ['Total','Failed'];
--#failed_tests = [ {"_label":"Total", "_value":55, "_img":"chart-box-tick"}, {"_label":"Failed", "_value":15, "_img":"chart-box-exclam"} ];
--#average_tests_per_technician_chart = [{_label:"JaneDoe", "Peak Tests":10, "Avg Tests":2}];
--#query_devices_not_reporting_chart = [1];
--#error_codes_by_device = [1];
+- query_tests_chart_totals = [{:_label=>"AbbA", :peak=>26, :average=>12.2343},{:_label=>"BB", :peak=>26, :average=>70.12341234},{:_label=>"CC", :peak=>26, :average=>0.76347},{:_label=>"Aardvark", :peak=>42, :average=>21.345234},{:_label=>"Thirds", :peak=>66, :average=>33},{:_label=>"Fork", :peak=>12, :average=>5},{:_label=>"Spoon", :peak=>40, :average=>45}]
+- data_points_x = query_tests_chart_totals.each { |data_info| "{ label: #{data_info[:_label]}, y: #{data_info[:peak]} } " }
+- data_points_y = query_tests_chart_totals.each { |data_info| "{ label: #{data_info[:_label]}, x: #{data_info[:average]} } " }
+- query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
+- devices_grouped = [{_label:'Sally',_value:42},{_label:'Bobby',_value:25},{_label:'George',_value:15},{_label:'Site',_value:8},{_label:'Another Site',_value:4}];
+- query_site_tests_chart = [ {"_label":"site20", "_value":2 }, {"_label":"site40", "_value":3 }];
+- average_test_per_site_chart = [{:_label=>"AbbA", :peak=>26, :average=>12.2343},{:_label=>"BB", :peak=>26, :average=>70.12341234},{:_label=>"CC", :peak=>26, :average=>0.76347},{:_label=>"Aardvark", :peak=>42, :average=>21.345234},{:_label=>"Thirds", :peak=>66, :average=>33},{:_label=>"Fork", :peak=>12, :average=>5},{:_label=>"Spoon", :peak=>40, :average=>45}];
+- failed_labels = ['Total','Failed'];
+- failed_tests = [ {"_label":"Total", "_value":55, "_img":"chart-box-tick"}, {"_label":"Failed", "_value":15, "_img":"chart-box-exclam"} ];
+- average_tests_per_technician_chart = [{_label:"JaneDoe", "Peak Tests":10, "Avg Tests":2}];
+- query_devices_not_reporting_chart = [1];
+- error_codes_by_device = [1];
 
 -standard_colours = ["#00A8AB", "#B7D6B7", "#D8B49C", "#DE6023", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00"];
 
@@ -41,9 +44,9 @@
 
   .section.group
     .col.col-12.title
-      %h2 
+      %h2
         = @institution_name
-      %span 
+      %span
         SHOWING:
         -if(params['range'].present?)
           = chart_heading
@@ -63,7 +66,7 @@
           %label{:for => "to"} To:
           = date_field('range','start_time[lte]')
         %input#query_button.btn-primary{:type => "submit", :value => "filter"}
- 
+
   .section.group
     -# Total Tests
     .col.col-8.box
@@ -71,11 +74,12 @@
         = image_tag('img/test-tube-rack.png')
         %h3 Total Tests
       .box-content
-        -if(query_tests_chart_reformat.present?)
-          = react_component('GroupedVerticalBarChart', data: query_tests_chart_reformat, chart_div: 'chart_total_tests', space_for_labels: 10, colors: standard_colours)
-          #chart_total_tests
-        -else
-          No chart information available
+        #chartContainer
+        -# -if(query_tests_chart_reformat.present?)
+        -#   = react_component('GroupedVerticalBarChart', data: query_tests_chart_reformat, chart_div: 'chart_total_tests', space_for_labels: 10, colors: standard_colours)
+        -#   #chart_total_tests
+        -# -else
+        -#   No chart information available
 
     -# Failed Tests
     .col.col-4.box
@@ -146,7 +150,7 @@
           #chart_not_responding
         -else
           No chart information available
-  
+
     -# Device Error Codes
     .col.col-6.box
       %header
@@ -167,3 +171,81 @@
           = react_component('OutstandingTestsTable', title: "title", allowSorting: "true", orderBy: "-test_order", data: outstanding_orders)
         -else
           No chart information available
+
+:javascript
+  var chart = new CanvasJS.Chart("chartContainer",
+  {
+  theme: "theme3",
+  animationEnabled: true,
+  title:{
+  text: "Crude Oil Reserves Vs Production, 2011",
+  fontSize: 30
+  },
+  toolTip: {
+  shared: true
+  },
+  axisY: {
+  title: "billion of barrels"
+  },
+  axisY2: {
+  title: "million barrels/day"
+  },
+  data: [
+  {
+  type: "column",
+  name: "Proven Oil Reserves (bn)",
+  legendText: "Proven Oil Reserves",
+  showInLegend: true,
+  dataPoints:[
+  {label: "Saudi", y: 262},
+  {label: "Venezuela", y: 211},
+  {label: "Canada", y: 175},
+  {label: "Iran", y: 137},
+  {label: "Iraq", y: 115},
+  {label: "Kuwait", y: 104},
+  {label: "UAE", y: 97.8},
+  {label: "Russia", y: 60},
+  {label: "US", y: 23.3},
+  {label: "China", y: 20.4}
+
+
+  ]
+  },
+  {
+  type: "column",
+  name: "Oil Production (million/day)",
+  legendText: "Oil Production",
+  axisYType: "secondary",
+  showInLegend: true,
+  dataPoints:[
+  {label: "Saudi", y: 11.15},
+  {label: "Venezuela", y: 2.5},
+  {label: "Canada", y: 3.6},
+  {label: "Iran", y: 4.2},
+  {label: "Iraq", y: 2.6},
+  {label: "Kuwait", y: 2.7},
+  {label: "UAE", y: 3.1},
+  {label: "Russia", y: 10.23},
+  {label: "US", y: 12.2343},
+  {label: "China", y: 4.3}
+
+
+  ]
+  }
+
+  ],
+  legend:{
+  cursor:"pointer",
+  itemclick: function(e){
+  if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+  e.dataSeries.visible = false;
+  }
+  else {
+  e.dataSeries.visible = true;
+  }
+  chart.render();
+  }
+  },
+  });
+
+  chart.render();
