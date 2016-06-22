@@ -139,8 +139,37 @@ module ChartsHelper
     else
       sorted_data = results.sort_by_day.data
     end
-    
+
     new_sorted_data = sorted_data.map{|x| {_label: x[:label], Tests: x[:values][0], Errors: x[:values][1]} }
+  end
+
+  def total_tests_canvas
+    data = query_tests_chart_reformat
+    {
+      theme: "theme3",
+      animationEnabled: true,
+      title: { text: "Tests Vs Errors", fontSize: 30 },
+      toolTip: { shared: true },
+      axisY: { title: "Quantity" },
+      data: [
+        {
+          type: "column",
+          name: "Tests",
+          legendText: "Tests",
+          showInLegend: true,
+          dataPoints: query_tests_chart_reformat.map { |data_point| { label: data_point[:_label], y: data_point[:Tests] } }
+        },
+        {
+          type: "column",
+          name: "Errors",
+          legendText: "Errors",
+          axisYType: "secondary",
+          showInLegend: true,
+          dataPoints: query_tests_chart_reformat.map { |data_point| { label: data_point[:_label], y: data_point[:Errors] } }
+        }
+      ],
+      legend:{ cursor:"pointer" },
+    }
   end
 
   def tests_by_status
