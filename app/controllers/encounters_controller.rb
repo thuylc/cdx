@@ -99,8 +99,15 @@ class EncountersController < ApplicationController
     perform_encounter_action "adding sample" do
       prepare_encounter_from_json
       add_sample_by_uuid params[:sample_uuid]
-  binding.pry
       recalculate_diagnostic
+    end
+  end
+
+  def add_existing_sample 
+    perform_encounter_action "adding sample" do
+      prepare_encounter_from_json
+      add_sample_by_uuid params[:sample_uuid]
+ #     recalculate_diagnostic
     end
   end
 
@@ -124,7 +131,6 @@ class EncountersController < ApplicationController
     perform_encounter_action "creating new sample" do
       prepare_encounter_from_json
       added_sample = new_sample_for_site
-binding.pry
       @extended_respone = { sample: added_sample }
     end
   end

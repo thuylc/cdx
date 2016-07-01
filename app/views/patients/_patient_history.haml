@@ -4,7 +4,7 @@
       = I18n.t('patients.show.patient_history')
   .col-6
     %ul
-      #- - if can_add_test_orders
+      #- if can_add_test_orders
       - if 1==1
         %li
           = link_to I18n.t('patients.show.add_test_order'), new_encounter_path(mode: 'fresh_tests', patient_id: patient.id), class: 'button add'

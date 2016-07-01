@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       get :search_sample
       get :search_test
       put 'add/sample/:sample_uuid' => 'encounters#add_sample'
+      put 'add/existing_sample/:sample_uuid' => 'encounters#add_existing_sample'
       put 'add/new_sample' => 'encounters#new_sample'
       put 'add/manual_sample_entry' => 'encounters#add_sample_manually'
       put 'add/test/:test_uuid' => 'encounters#add_test'

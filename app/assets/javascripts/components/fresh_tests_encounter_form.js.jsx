@@ -14,28 +14,9 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     this.refs.addSamplesModal.hide();
     event.preventDefault();
   },
-  showUnifySamplesModal: function(sample) {
-    this.setState(React.addons.update(this.state, {
-      unifyingSample: { $set: sample }
-    }));
-
-    this.refs.unifySamplesModal.show()
-    event.preventDefault()
-  },
-
-  closeUnifySamplesModal: function (event) {
-    this.refs.unifySamplesModal.hide();
-    event.preventDefault();
-  },
-
-  unifySample: function(sample) {
-    this.refs.unifySamplesModal.hide();
-    this._ajax_put("/encounters/merge/sample/", null, { sample_uuids: [this.state.unifyingSample.uuid, sample.uuid] });
-  },
   appendSample: function(sample) {
     this.refs.addSamplesModal.hide();
-  //  this._ajax_put("/encounters/add/sample/" + sample.uuid+"&do_not_save=true");
-this._ajax_put("/encounters/add/sample/" + sample.uuid);
+    this._ajax_put("/encounters/add/existing_sample/" + sample.uuid);
   },
   render: function() {
     var now = new Date();
@@ -48,6 +29,12 @@ this._ajax_put("/encounters/add/sample/" + sample.uuid);
 	     cancel_url = this.props.referer;
     }
 
+	 var external_samples_class="btn-add-link"
+	 if (this.props.allows_manual_entry != null) {
+		    external_samples_class="hidden"
+	  }
+		
+
     return (
       <div className="newTestOrder">
       <div className="panel">
@@ -57,7 +44,7 @@ this._ajax_put("/encounters/add/sample/" + sample.uuid);
             <label>Samples</label>
           </div>
           <div className="col-6">
-<SamplesList samples={this.state.encounter.samples} onUnifySample={this.showUnifySamplesModal} />
+            <SamplesList samples={this.state.encounter.samples}  />
             <NewSamplesList samples={this.state.encounter.new_samples} onRemoveSample={this.removeNewSample}/>
             <p>
               <a className="btn-add-link" href='#' onClick={this.addNewSamples}>
@@ -65,12 +52,9 @@ this._ajax_put("/encounters/add/sample/" + sample.uuid);
                 Add sample
               </a>
             </p>
-
-					  <p>
-					  <a className="btn-add-link" href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> Append sample</a>
-					   </p>
-
-
+            <p>
+            <a className={external_samples_class} href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> Append sample</a>
+            </p>
           </div>
 
          <Modal ref="addSamplesModal">
@@ -84,7 +68,6 @@ this._ajax_put("/encounters/add/sample/" + sample.uuid);
               itemTemplate={AddItemSearchSampleTemplate}
               itemKey="uuid" />
           </Modal>
-
         </div>
 
         <div className="row">
