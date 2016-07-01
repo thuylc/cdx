@@ -5,6 +5,38 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     $('.test_for_tb').attr('checked', false).parent().hide();
     $('.test_for_hiv').attr('checked', false).parent().hide();
   },
+	showAddSamplesModal: function(event) {
+    this.refs.addSamplesModal.show()
+    event.preventDefault()
+  },
+
+  closeAddSamplesModal: function (event) {
+    this.refs.addSamplesModal.hide();
+    event.preventDefault();
+  },
+  showUnifySamplesModal: function(sample) {
+    this.setState(React.addons.update(this.state, {
+      unifyingSample: { $set: sample }
+    }));
+
+    this.refs.unifySamplesModal.show()
+    event.preventDefault()
+  },
+
+  closeUnifySamplesModal: function (event) {
+    this.refs.unifySamplesModal.hide();
+    event.preventDefault();
+  },
+
+  unifySample: function(sample) {
+    this.refs.unifySamplesModal.hide();
+    this._ajax_put("/encounters/merge/sample/", null, { sample_uuids: [this.state.unifyingSample.uuid, sample.uuid] });
+  },
+  appendSample: function(sample) {
+    this.refs.addSamplesModal.hide();
+  //  this._ajax_put("/encounters/add/sample/" + sample.uuid+"&do_not_save=true");
+this._ajax_put("/encounters/add/sample/" + sample.uuid);
+  },
   render: function() {
     var now = new Date();
     var day = ("0" + now.getDate()).slice(-2);
@@ -25,6 +57,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
             <label>Samples</label>
           </div>
           <div className="col-6">
+<SamplesList samples={this.state.encounter.samples} onUnifySample={this.showUnifySamplesModal} />
             <NewSamplesList samples={this.state.encounter.new_samples} onRemoveSample={this.removeNewSample}/>
             <p>
               <a className="btn-add-link" href='#' onClick={this.addNewSamples}>
@@ -32,7 +65,26 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
                 Add sample
               </a>
             </p>
+
+					  <p>
+					  <a className="btn-add-link" href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> Append sample</a>
+					   </p>
+
+
           </div>
+
+         <Modal ref="addSamplesModal">
+            <h1>
+              <a href="#" className="modal-back" onClick={this.closeAddSamplesModal}></a>
+              Add sample
+            </h1>
+
+            <AddItemSearch callback={"/encounters/search_sample?institution_uuid=" + this.state.encounter.institution.uuid} onItemChosen={this.appendSample}
+              placeholder="Search by sample id"
+              itemTemplate={AddItemSearchSampleTemplate}
+              itemKey="uuid" />
+          </Modal>
+
         </div>
 
         <div className="row">
