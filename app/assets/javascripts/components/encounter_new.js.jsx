@@ -16,7 +16,8 @@ var EncounterNew = React.createClass({
       tests_requested: '',
       diag_comment: '',
       treatment_weeks: 0,
-      testdue_date: ''
+      testdue_date: '',
+      allows_manual_entry: null
     }};
   },
   setSite: function(site) {
@@ -47,9 +48,15 @@ var EncounterNew = React.createClass({
       }
     }));
   },
+  allow_manual_entry_callback: function(manual_entry) {
+	  this.setState({
+			allows_manual_entry: manual_entry
+		});
+		
+  },
   render: function() {
     var sitesUrl = URI("/encounters/sites").query({context: this.props.context.institution.uuid});
-    var siteSelect = <SiteSelect onChange={this.setSite} url={sitesUrl} fieldLabel='Requested' defaultSiteUuid={_.get(this.props.context.site, 'uuid')} />;
+    var siteSelect = <SiteSelect onChange={this.setSite} url={sitesUrl} fieldLabel='Requested' defaultSiteUuid={_.get(this.props.context.site, 'uuid')} allow_manual_entry_callback={this.allow_manual_entry_callback} />;
     var performingSiteSelect = <SiteSelect onChange={this.setPerformingSite} url={sitesUrl} fieldLabel='Performing' defaultSiteUuid={_.get(this.props.context.performingsite, 'uuid')} />;
 
     if (this.state.encounter.site == null)
@@ -64,7 +71,8 @@ var EncounterNew = React.createClass({
           if (this.props.mode == 'existing_tests') {
             return <EncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} manual_sample_entry={this.state.encounter.site.allows_manual_entry} />
           } else {
-            return <FreshTestsEncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} manual_sample_entry={this.state.encounter.site.allows_manual_entry} referer={this.props.referer} />                 
+            return <FreshTestsEncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} 
+                        manual_sample_entry={this.state.encounter.site.allows_manual_entry} referer={this.props.referer} allows_manual_entry={this.state.allows_manual_entry}/>                 
           }
         }.bind(this))()}
       </div>
