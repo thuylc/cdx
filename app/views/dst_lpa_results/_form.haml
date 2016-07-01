@@ -1,0 +1,86 @@
+= form_for([@requested_test, @dst_lpa_result], url: requested_test_dst_lpa_result_path(@requested_test, @dst_lpa_result), html: { autocomplete: 'off' }) do |f|
+  = validation_errors @dst_lpa_result
+  .row
+    %table
+      %thead
+        %tr
+          %th
+            = f.label :sample_collected_on
+          %th
+            = f.label :media_used
+          %th
+            = f.label :serial_number
+          %th
+            = f.label :results_h
+          %th
+            = f.label :results_r
+          %th
+            = f.label :results_e
+          %th
+            = f.label :results_s
+          %th
+            = f.label :results_amk
+          %th
+            = f.label :results_km
+          %th
+            = f.label :results_cm
+          %th
+            = f.label :results_fq
+          %th
+            = f.label :results_other1
+          %th
+            = f.label :results_other2
+          %th
+            = f.label :results_other3
+          %th
+            = f.label :results_other4
+      %tbody
+        %tr
+          %td
+            = f.date_field :sample_collected_on
+          %td
+            = f.collection_select :media_used, DstLpaResult.method_options, :first, :last
+          %td
+            = f.text_field :serial_number
+          %td
+            = f.collection_select :results_h, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.collection_select :results_r, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.collection_select :results_e, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.collection_select :results_s, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.collection_select :results_amk, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.collection_select :results_km, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.collection_select :results_cm, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.collection_select :results_fq, DstLpaResult.dst_lpa_options, :first, :last
+          %td
+            = f.text_field :results_other1
+          %td
+            = f.text_field :results_other2
+          %td
+            = f.text_field :results_other3
+          %td
+            = f.text_field :results_other4
+
+
+  .row
+    .col.pe-2
+      = f.label :examined_by
+    .col
+      = f.text_field :examined_by
+
+  .row
+    .col.pe-2
+      = f.label :result_on
+    .col
+      = f.date_field :result_on
+
+  .row.button-actions
+    .col
+      = f.submit 'Save', class: 'btn-primary'
+      = link_to 'Cancel', encounter_path(@requested_test.encounter), class: 'btn-link'

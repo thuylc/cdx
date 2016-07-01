@@ -18,14 +18,14 @@ class Episode < ActiveRecord::Base
   def self.diagnosis_options
     [
       OpenStruct.new(id: :presumptive_tb,
-                     name: 'Presumptive TB',
-                     anatomical: true),
+                     name: I18n.t('diagnosis.presumptive_tb'),
+                     anatomical: false),
       OpenStruct.new(id: :bacteriologically_confirmed,
-                     name: 'Bacteriologically Confirmed',
+                     name: I18n.t('diagnosis.bacteriologically_confirmed'),
                      anatomical: true),
       OpenStruct.new(id: :clinically_diagnosed,
-                     name: 'Clinically Diagnosed',
-                     anatomical: false)
+                     name: I18n.t('diagnosis.clinically_diagnosed'),
+                     anatomical: true)
     ]
   end
 

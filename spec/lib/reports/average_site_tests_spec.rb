@@ -51,14 +51,12 @@ RSpec.describe Reports::AverageSiteTests, elasticsearch: true do
   end
 
   describe '.show' do
-    before do
-      averages = described_class.process(current_user, nav_context)
-      @data = averages.show
-    end
-
     it 'is an array of hashes grouped by site' do
-      expect(@data).to be_a(Array)
-      expect(@data.first).to be_a(Hash)
+      data = described_class.new(current_user, nav_context).generate_chart
+
+      expect(data).to be_a(Hash)
+      expect(data[:columns]).to be_a(Array)
+      expect(data[:columns].first).to be_a(Hash)
     end
   end
 

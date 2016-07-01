@@ -40,8 +40,8 @@ RSpec.describe Episode, type: :model do
       expect(diagnosis_options).to be_a(Array)
     end
 
-    it 'excludes Clinically Diagnosed' do
-      expected = diagnosis_options.select { |o| o.id == :clinically_diagnosed }
+    it 'excludes Presumptive TB' do
+      expected = diagnosis_options.select { |o| o.id == :presumptive_tb }
       expect(expected).to eq([])
     end
   end

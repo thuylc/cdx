@@ -42,19 +42,21 @@ var PatientComments = React.createClass({
 
     return (
       <div className="row">
-        {this.state.patientComments.length < 1 ? <LoadingResults loadingMessage={this.state.loadingMessage} /> : null}
-        <table className="patient-history">
-          <thead>
-            <tr>
-              <th><a href="#" onClick={this.getComments.bind(null, 1)}>Date</a></th>
-              <th><a href="#" onClick={this.getComments.bind(null, 2)}>Commenter</a></th>
-              <th>Title</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows}
-          </tbody>
-        </table>
+        {
+          this.state.patientComments.length < 1 ? <LoadingResults loadingMessage={this.state.loadingMessage} /> :
+          <table className="patient-history">
+            <thead>
+              <tr>
+                <th><a href="#" onClick={this.getComments.bind(null, 1)}>Date</a></th>
+                <th><a href="#" onClick={this.getComments.bind(null, 2)}>Commenter</a></th>
+                <th>Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows}
+            </tbody>
+          </table>
+        }
       </div>
     );
   }

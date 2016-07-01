@@ -751,3 +751,15 @@ padding:15px;
     justify-content: flex-start;
     padding: 0 5px;
 }
+#new_episode select, #new_episode select option{
+  color:#000;
+}
+
+.labelHeader{
+  padding:0px !important;
+  height:50px !important;
+}
+
+.field_with_errors select, .field_with_errors input{
+  border:2px solid red !important;
+}

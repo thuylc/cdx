@@ -273,6 +273,13 @@ text-align:center;
   font-size:13px;
 }
 
+#activation-token
+{
+  font-family: "Lucida Console", Monaco, monospace;
+/* (alternative)  font-family: "Courier New", Courier, monospace */
+  font-weight: bold;
+}
+
 .optionsarea{
   width:100%;
 }

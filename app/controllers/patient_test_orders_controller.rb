@@ -3,20 +3,18 @@ class PatientTestOrdersController < ApplicationController
 
   before_filter :find_patient
 
-  expose(:patient_test_orders, scope: -> { @patient.encounters }, model: 'Encounters')
-
   def index
-    render json: Presenters::PatientTestOrders.patient_view(patient_test_orders.order(set_order_from_params).limit(30).offset(params[:page] || 0))
+    render json: Presenters::PatientTestOrders.patient_view(@patient.encounters.order(set_order_from_params).limit(30).offset(params[:page] || 0))
   end
 
   protected
 
   def find_patient
-    @patient = Patient.where(institution: @navigation_context.institution, id: params[:patient_id]).first
+    @patient = @navigation_context.institution.patients.find(params[:patient_id])
   end
 
   def set_order_from_params
-    order = params[:order] == 'true' ? 'desc' : 'asc'
+    order = params[:order] == 'true' ? 'asc' : 'desc'
     field_name = case params[:field].to_s == 'name'
     when 'site'
       'sites.name'

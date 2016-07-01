@@ -1,7 +1,20 @@
 module Reports
   class AverageTechnicianTests < Base
 
+    def generate_chart
+      average_tests
+      {
+        title:   '',
+        titleY:  'Peak Tests',
+        titleY2: 'Average Tests',
+        columns: generate_columns
+      }
+    end
+
+    protected
+
     def average_tests
+      process
       filter['group_by'] = "test.site_user,#{day_or_month}(test.start_time)"
       test_users_list=[]
       results = TestResult.query(@filter, current_user).execute
@@ -28,8 +41,6 @@ module Reports
       data = format_data(test_users_list)
     end
 
-    private
-
     def calculate_average(test_result_data)
       test_result_data.map do |test_user_data|
         if (test_user_data[:total] > 0) && (test_user_data[:number_results] > 0)
@@ -49,5 +60,26 @@ module Reports
       data
     end
 
+    def generate_columns
+      [
+        {
+          type: "column",
+          color: "#9dce65",
+          name: "Peak tests",
+          legendText: "Peak",
+          showInLegend: true,
+          dataPoints: data.map { |result| { label: result[:_label], y: result['Peak Tests'] } }
+        },
+        {
+          type: "column",
+          color: "#069ada",
+          name: "Average tests",
+          legendText: "Average",
+          axisYType: "secondary",
+          showInLegend: true,
+          dataPoints: data.map { |result| { label: result[:_label], y: result['Average Tests'] } }
+        }
+      ]
+    end
   end
 end

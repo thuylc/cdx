@@ -17,7 +17,7 @@
           .col-6
             = f.label :diagnosis, 'Diagnosis'
           .col-6
-            = f.collection_select :diagnosis, Episode.diagnosis_options, :id, :name, include_blank: true
+            = f.collection_select :diagnosis, Episode.diagnosis_options, :id, :name, include_blank: I18n.t('select.default')
         .row
           .col-6
             = f.label 'Diagnosis classify by Anatomical site'
@@ -27,19 +27,19 @@
           .col-6
             = f.label 'History of Previous Treatment'
           .col-6
-            = f.collection_select :initial_history, Episode.initial_history_options, :id, :name, include_blank: true
+            = f.collection_select :initial_history, Episode.initial_history_options, :id, :name, include_blank: I18n.t('select.default')
             %hr
-            = f.collection_select :previous_history, Episode.previous_history_options, :id, :name, include_blank: true
+            = f.collection_select :previous_history, Episode.previous_history_options, :id, :name, include_blank: I18n.t('select.default')
         .row
           .col-6
             = f.label 'HIV Status'
           .col-6
-            = f.collection_select :hiv_status, Episode.hiv_status_options, :id, :name, include_blank: true
+            = f.collection_select :hiv_status, Episode.hiv_status_options, :id, :name, include_blank: I18n.t('select.default')
         .row
           .col-6
             = f.label 'Drug Resistance'
           .col-6
-            = f.collection_select :drug_resistance, Episode.drug_resistance_options, :id, :name, include_blank: true
+            = f.collection_select :drug_resistance, Episode.drug_resistance_options, :id, :name, include_blank: I18n.t('select.default')
         .row
         = react_component 'EpisodeSelectOutcome', outcomeOptions: outcome_options, selected: @episode.outcome
         .row

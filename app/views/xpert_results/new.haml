@@ -1,0 +1,10 @@
+.testflow
+  .container
+    .row.labelHeader
+      .col-6
+        %h3 Add Xpert MTB/RIF Test Result
+      .col-6
+        %ul
+          %li
+            = link_to "Back", encounter_path(@requested_test.encounter), class: 'button new'
+    = render 'form'

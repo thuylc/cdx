@@ -1,169 +1,83 @@
--# ----  The Lines below provide dummy data for the graphs while the code is being improved ---
--#query_tests_chart = [{_label:'Jun',avg:21,peak:12},{_label:'Jul',avg:24,peak:16}];
--#devices_grouped = [{_label:'Sally',_value:42},{_label:'Bobby',_value:25},{_label:'George',_value:15},{_label:'Site',_value:8},{_label:'Another Site',_value:4}];
--#query_site_tests_chart = [ {"_label":"site20", "_value":2 }, {"_label":"site40", "_value":3 }];
--#average_test_per_site_chart = [{:_label=>"AbbA", :peak=>26, :average=>12.2343},{:_label=>"BB", :peak=>26, :average=>70.12341234},{:_label=>"CC", :peak=>26, :average=>0.76347},{:_label=>"Aardvark", :peak=>42, :average=>21.345234},{:_label=>"Thirds", :peak=>66, :average=>33},{:_label=>"Fork", :peak=>12, :average=>5},{:_label=>"Spoon", :peak=>40, :average=>45}];
--#failed_labels = ['Total','Failed'];
--#failed_tests = [ {"_label":"Total", "_value":55, "_img":"chart-box-tick"}, {"_label":"Failed", "_value":15, "_img":"chart-box-exclam"} ];
--#average_tests_per_technician_chart = [{_label:"JaneDoe", "Peak Tests":10, "Avg Tests":2}];
--#query_devices_not_reporting_chart = [1];
--#error_codes_by_device = [1];
+.dashboard
+  %section.row
+    .small-12.columns
+      .search
+        %form#filters-form{ action: dashboard_path }
 
--standard_colours = ["#00A8AB", "#B7D6B7", "#D8B49C", "#DE6023", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00"];
+          .topdateto
+            %label.block Date To
+            = date_field('range','start_time[lte]')
 
-.container
+          .topdatefrom
+            %label.block Date From
+            = date_field('range','start_time[gte]')
 
-  -#.section.group
-    .col.col-3.teal.summary
-      = image_tag('img/test-tube-rack.png')
-      %h2 Total Tests
-      .stat
-        %span 102
-        %p.label this year
-    .col.col-3.light-green.summary
-      = image_tag('img/test-tube.png')
-      %h2 Outstanding Tests
-      .stat
-        %span 50
-        %p.label this month
-    .col.col-3.sand.summary
-      = image_tag('img/user.png')
-      %h2 Total Technicians
-      .stat
-        %span 58
-        %p.label 4% increase
-    .col.col-3.orange.summary
-      =image_tag('img/site.png')
-      %h2 Total Sites
-      .stat
-        %span 21
-        %p.label in the UK
+          .topdateperiod
+            %form#filters-form{ action: dashboard_path, 'data-auto-submit' => true }
+              .filter
+                %label.block Date Period
+                = cdx_select name: 'since', value: params['since'] do |select|
+                  - select.items options_for_date, :value, :label
 
-  .section.group
-    .col.col-12.title
-      %h2 
-        = @institution_name
-      %span 
-        SHOWING:
-        -if(params['range'].present?)
-          = chart_heading
-        -else
-          default
+              .topbutton
+                %input#query_button.btn-primary(type='submit' value='Filter')
 
-  .section.group
-    .col.col-12
-      %form#filters-form{ action: dashboard_path }
-        %fieldset
-          %label{:for => "date"} Date Period:
-          = cdx_select name: 'since', value: params['since'] do |select|
-            - select.items options_for_date, :value, :label
-        %fieldset
-          %label{:for => "from"} Date From:
-          = date_field('range','start_time[gte]')
-          %label{:for => "to"} To:
-          = date_field('range','start_time[lte]')
-        %input#query_button.btn-primary{:type => "submit", :value => "filter"}
- 
-  .section.group
-    -# Total Tests
-    .col.col-8.box
-      %header
-        = image_tag('img/test-tube-rack.png')
-        %h3 Total Tests
-      .box-content
-        -if(query_tests_chart_reformat.present?)
-          = react_component('GroupedVerticalBarChart', data: query_tests_chart_reformat, chart_div: 'chart_total_tests', space_for_labels: 10, colors: standard_colours)
-          #chart_total_tests
-        -else
-          No chart information available
 
-    -# Failed Tests
-    .col.col-4.box
-      %header
-        = image_tag('img/fail.png')
-        %h3 Failed Tests
-      .box-content
-        -if(failed_tests.present?)
-          = react_component('HorizontalNiceBarChartImages', data: failed_tests, width: 400, label: 'Failed tests', chart_div: 'chart_failed_tests_graph', colors: ["#00A8AB", "#F15754"] )
-          #chart_failed_tests_graph
-        -else
-          No chart information available
+  %main
+    %section.row
+      .small-8.columns.box
+        %header
+          = image_tag('img/test-tube-rack.png')
+          %h3 Total Tests
+        .box-content
+          #chartContainer{:style => "height: 200px; width: 100%;"}
+            = react_component 'CanvasJsChart', chartDiv: 'chartContainer', chartData: Extras::Charts::VerticalColumns.new(@dashboard_report.total_tests).render
+      .small-4.columns.box
+        %header
+          = image_tag('img/test-tube.png')
+          %h3 Failed Tests
+        .box-content
+          #failedChartContainer{:style => "height: 200px; width: 100%;"}
+            = react_component 'CanvasJsChart', chartDiv: 'failedChartContainer', chartData: Extras::Charts::Pie.new(@dashboard_report.failed_tests).render
+    %section.row
+      .small-6.columns.box
+        %header
+          =image_tag('img/site.png')
+          %h3 Total Tests by Site
+        .box-content
+          #chartTotalTestsSite{:style => "height: 200px; width: 100%;"}
+            = react_component 'CanvasJsChart', chartDiv: 'chartTotalTestsSite', chartData: Extras::Charts::HorizontalColumns.new(@dashboard_report.query_site_tests).render
+      .col.small-6.columns.box
+        %header
+          =image_tag('img/site.png')
+          %h3 Average Tests by Site
+        .box-content
+          #chartAverageTestsSite{:style => "height: 200px; width: 100%;"}
+            = react_component 'CanvasJsChart', chartDiv: 'chartAverageTestsSite', chartData: Extras::Charts::VerticalColumns.new(@dashboard_report.average_test_per_site).render
+    %section.row
+      .small-4.columns.box
+        %header
+          = image_tag('img/device.png')
+          %h3 Total Tests by Device
+        .box-content
+          #chartTotalTestsDevice{:style => "height: 200px; width: 100%;"}
+            = react_component 'CanvasJsChart', chartDiv: 'chartTotalTestsDevice', chartData: Extras::Charts::Pie.new(@dashboard_report.total_tests_by_device).render
 
-    -# Total Tests by Site
-    .col.col-6.box
-      %header
-        = image_tag('img/site.png')
-        %h3 Total Tests by Site
-      .box-content
-        -if(query_site_tests_chart.present?)
-          = react_component('HorizontalNiceBarChart', data: query_site_tests_chart, width: 600, chart_div: 'chart_site_tests', label: 'Total Tests by Site', colors: standard_colours)
-          #chart_site_tests
-        -else
-          No chart information available
+      .small-8.columns.box
+        %header
+          = image_tag('img/user.png')
+          %h3 Average Tests by Technician
+        .box-content
+          #chartAverageTestsTechnician{:style => "height: 200px; width: 100%;"}
+            = react_component 'CanvasJsChart', chartDiv: 'chartAverageTestsTechnician', chartData: Extras::Charts::VerticalColumns.new(@dashboard_report.average_tests_per_technician).render
 
-    -# Average Tests by Site
-    .col.col-6.box
-      %header
-        = image_tag('img/site.png')
-        %h3 Average Tests by Site
-      .box-content
-        -if(average_test_per_site_chart.present?)
-          = react_component('GroupedVerticalBarChart', chart_div: 'chart_average_test_per_site_chart', data: average_test_per_site_chart, colors: standard_colours)
-          #chart_average_test_per_site_chart
-        -else
-          No chart information available
-
-    -#Total Tests by Device
-    .col.col-4.box
-      %header
-        = image_tag('img/device.png')
-        %h3 Total Tests by Device
-      .box-content#tests_run
-        -if(devices_grouped.present?)
-          = react_component('SnailPieChart', data: devices_grouped, height: 250, label: 'Tests Run', colors: standard_colours)
-        -else
-          No chart information available
-
-    -# Average Tests by Technician
-    .col.col-8.box
-      %header
-        = image_tag('img/user.png')
-        %h3 Average Tests by Technician
-      .box-content
-        -if(average_tests_per_technician_chart.present?)
-          = react_component('GroupedVerticalBarChart', data: average_tests_per_technician_chart, chart_div: 'chart_average_tests', label: 'DAYS', colors: standard_colours)
-          #chart_average_tests
-        -else
-          No chart information available
-
-    -# Devices Not Responding
-    .col.col-6.box
-      %header
-        %h3 Devices Not Responding
-      .box-content
-        -if(query_devices_not_reporting_chart)
-          = react_component('HorizontalNiceBarChart', data: query_devices_not_reporting_chart, width: 600, colors: standard_colours, chart_div: 'chart_not_responding', label: 'DAYS')
-          #chart_not_responding
-        -else
-          No chart information available
-  
-    -# Device Error Codes
-    .col.col-6.box
-      %header
-        %h3 Device Error Codes
-      .box-content
-        -if(error_codes_by_device)
-          = react_component('DeviceErrorTable', title: "title", allowSorting: "true", orderBy: "-device", colors: standard_colours, data: error_codes_by_device)
-        -else
-          No chart information available
-
-    -# Outstanding Tests
-    .col.col-12.box
-      %header
-        = image_tag('img/test-tube.png')
-        %h3 Outstanding Tests
-      .box-content
-        -if(outstanding_orders)
-          = react_component('OutstandingTestsTable', title: "title", allowSorting: "true", orderBy: "-test_order", data: outstanding_orders)
-        -else
-          No chart information available
+    %section.row
+      .small-12.columns.box
+        %header
+          = image_tag('img/test-tube.png')
+          %h3 Outstanding Tests
+        .box-content
+          -if(@dashboard_report.outstanding_orders)
+            = react_component('OutstandingTestsTable', title: "title", allowSorting: "true", orderBy: "-test_order", data: @dashboard_report.outstanding_orders)
+          -else
+            No chart information available

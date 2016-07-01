@@ -295,7 +295,7 @@ body {
     min-width: 200px;
   }
   li a.button {
-    background-color: #26af60;
+    background-color: #069ADA;
     color: white;
     border: none;
     padding: 0.5em 2em;
@@ -304,6 +304,7 @@ body {
     line-height: 1em;
     text-decoration: none;
     margin-left: 5px;
+	margin-right: 10px;
     &.save, &.new {
       background: #2196f3;
     }
@@ -321,7 +322,7 @@ body {
     position: relative;
     .button.edit {
       position: absolute;
-      top: 5px;
+      top: 38px;
       right: 14px;
       padding: 0.75em 1.9em;
     }
@@ -410,6 +411,7 @@ body {
       }
     }
   }
+  .tab table a { color:#000; }
   .active {
     background-color: #ccc;
   }
@@ -477,4 +479,25 @@ body {
   .testflow input[type=submit] {
     margin-top: 1em;
   }
+}
+
+
+
+.edit, .edit *{
+margin:0px !important;
+padding:0px;
+}
+
+
+.edit h2{
+height:30px;
+font-size:18px !important;
+line-height:26px;
+}
+
+.edit h2 a{
+height:30px;
+padding-left:10px;
+padding-right:10px;
+padding-top:3px;
 }

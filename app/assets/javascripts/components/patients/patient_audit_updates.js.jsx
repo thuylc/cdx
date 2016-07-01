@@ -41,19 +41,21 @@ var PatientAuditUpdates = React.createClass({
 
     return (
       <div className="row">
-        {this.state.patientAuditUpdates.length < 1 ? <LoadingResults loadingMessage={this.state.loadingMessage} /> : null}
-        <table className="patient-audit-updates">
-          <thead>
-            <tr>
-              <th><a href="#" onClick={this.getAuditUpdates.bind(null, 'name')}>Field</a></th>
-              <th>Original value</th>
-              <th>New value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows}
-          </tbody>
-        </table>
+        {
+          this.state.patientAuditUpdates.length < 1 ? <LoadingResults loadingMessage={this.state.loadingMessage} /> :
+          <table className="patient-audit-updates">
+            <thead>
+              <tr>
+                <th><a href="#" onClick={this.getAuditUpdates.bind(null, 'name')}>Field</a></th>
+                <th>Original value</th>
+                <th>New value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows}
+            </tbody>
+          </table>
+        }
       </div>
     );
   }

@@ -5,10 +5,16 @@ var EncounterShow = React.createClass({
       user_email= this.props.encounter["user"].email
     };
 
+    var disable_all_selects=false;
+    if (this.props.show_cancel==true || this.props.show_edit==false) {
+      disable_all_selects=true;
+    }
+
     return {
       user_email: user_email,
       error_messages:[],
-      requested_tests: this.props.requested_tests
+      requested_tests: this.props.requested_tests,
+      disable_all_selects: disable_all_selects
     };
   },
   submit_error: function(errorArray) {
@@ -35,7 +41,7 @@ var EncounterShow = React.createClass({
    }
 
   if (this.props.requested_tests.length>0) {
-    var urlParam = '/encounter_requested_tests';
+    var urlParam = '/requested_tests';
     urlParam = urlParam + '/' + this.props.encounter.id;
       requested_tests = this.props.requested_tests;
       EncounterRequestTestActions.update(urlParam, requested_tests, successUrl, this.submit_error);

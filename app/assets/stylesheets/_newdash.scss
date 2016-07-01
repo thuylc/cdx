@@ -12,8 +12,6 @@
   justify-content:flex-start;
 }
 
-
-
 /*  SETTINGS STYLES START HEREEEEEEEE */
 .container .settings {justify-content:center;}
 .container .centered {text-align:center;}
@@ -49,17 +47,20 @@
 
 .container .box {background:white;margin:0px 10px 0px 10px;}
 .container .col {margin:18px 10px 18px 10px;}
+.dashboard .col {margin:0px;}
 
 /* BOXES */
 
-.container header img {
+.dashboard header img {
   float: left;
   width: 25px;
   margin-right: 1em;
 }
 
-.container .box h3 {
+.dashboard h3 {
   margin: 0;
+  color:#fff;
+  text-transform:uppercase;
 }
 
 .container .box-content {
@@ -102,12 +103,14 @@ body {
 }
 
 
-.container header {
+.dashboard header {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  background-color: #6d6c8b;
+  background-color:#5c5b82;
   color: white;
   padding: 0.6em 0.5em;
+  height:auto;
+  border:1px solid #c7c7c7;
 }
 
 .container h1 {
@@ -251,27 +254,28 @@ body {
 
 /* TABLE */
 
-.container table {
+.dashboard table {
   width: 100%;
   border: 1px solid #ccc;
 }
 
 
-.container th {
+.dashboard th {
   text-align: left;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: 0.75em;
   padding: 0.8em 0.5em;
   border-bottom: 1px solid #05a8aa;
 }
 
-.container td {
+.dashboard td {
   padding: 0.8em 0.5em;
   margin: 0;
+  font-size:0.7rem;
 }
 
-.container tr:nth-child(even) {
+.dashboard tr:nth-child(even) {
   background-color: #dbdae2;
 } 
 
@@ -324,7 +328,7 @@ border-bottom:1px solid #fff;
 }
 
 .section #filters-form fieldset:first-child .Select .Select-control .Select-placeholder{
-color:white;
+color:white;font-size:12px;
 }
 
 
@@ -434,6 +438,7 @@ font-size:12px;
 
 #filters-form .Select-placeholder{
 margin-top:2px;
+text-align:center;
 }
 
 .section #filters-form fieldset {
@@ -446,4 +451,376 @@ margin-top:2px;
 
 
 
+.wrapper {
+min-width:100% !important;
+}
 
+/* Dashboard Styles */ 
+.dashboard .row .columns div.search {height:40px;background:#e67e22;position:fixed;top:0px;width:100%;left:300px;top:60px;z-index:999;}
+.dashboard main {margin-top:50px;}
+#contentcontainer {overflow:hidden!important;}
+.wrapper > header, .wrapper #context_side_bar {background:#1b1b1b!important;}
+#filters-form * {display:inline-block;color:#fff;}
+#filters-form > div {padding:0 15px;}
+#filters-form * input {color:#434343;padding-right:0px;margin-left:15px;}
+#filters-form div.topbutton input.btn-primary {height:30px;line-height:30px;color:#fff;padding-right:24px;}
+#filters-form div.filter label {padding-right:15px;}
+#filters-form div.Select-menu-outer {
+    display:block;background:#e67e22;
+
+    * {
+      display:block;
+
+      :hover, :focus, :active {
+        opacity:0.8;
+        color:#434343;
+      }
+    }
+}
+.dashboard{
+padding:10px;
+margin-bottom: 20px;
+}
+
+/* Side Nav */
+.sites-tree-view {
+    li button {
+    top:0px;
+    left:3px;
+  }
+
+  .selected::before {
+    height:29px;
+    background:rgb(255, 255, 255)!important;
+  }
+
+  .selected > a {
+    color:#434343;
+  }
+
+  li {
+    font-size:12px;
+    line-height:30px;
+  }
+} 
+
+.show-navigation-context-picker #context_side_bar ::-webkit-input-placeholder, .show-navigation-context-picker #context_side_bar ::-webkit-input-placeholder {
+color:#fff;
+}
+.show-navigation-context-picker #context_side_bar .search-sites {
+  background:#555 !important;
+  color:#fff !important;
+}
+
+
+.dashboard {
+h1 {
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 0.7em;
+}
+
+h3 {
+  font-size: 12px;
+}
+.box {
+  height:260px;
+  padding-top:0px;
+  padding-bottom:0px;
+  background:transparent;
+}
+}
+/* Foundation 6 Flex Grid */
+
+/**
+ * Foundation for Sites by ZURB
+ * Version 6.2.3
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
+
+
+/* Tables
+     ========================================================================== */
+/**
+   * Remove most spacing between table cells.
+   */
+
+
+html {
+  font-size: 100%;
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+.dashboard .row {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
+ .dashboard .row .row {
+    max-width: none;
+    margin-left: -0.9375rem;
+    margin-right: -0.9375rem; }
+ .dashboard .row.expanded {
+    max-width: none; }
+ .dashboard .row.collapse > .column, .row.collapse > .columns {
+    padding-left: 0;
+    padding-right: 0; }
+
+.dashboard .column, .columns {
+  -webkit-flex: 1 1 0px;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0px;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  min-width: initial; }
+
+.dashboard .column.row.row, .row.row.columns {
+  float: none;
+  display: block; }
+  .dashboard .row .column.row.row, .row .row.row.columns {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0; }
+
+.small-1 {
+  -webkit-flex: 0 0 8.33333%;
+      -ms-flex: 0 0 8.33333%;
+          flex: 0 0 8.33333%;
+  max-width: 8.33333%; }
+
+.small-2 {
+  -webkit-flex: 0 0 16.66667%;
+      -ms-flex: 0 0 16.66667%;
+          flex: 0 0 16.66667%;
+  max-width: 16.66667%; }
+
+.small-3 {
+  -webkit-flex: 0 0 25%;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  max-width: 25%; }
+
+.small-4 {
+  -webkit-flex: 0 0 33.33333%;
+      -ms-flex: 0 0 33.33333%;
+          flex: 0 0 33.33333%;
+  max-width: 33.33333%; }
+
+.small-5 {
+  -webkit-flex: 0 0 41.66667%;
+      -ms-flex: 0 0 41.66667%;
+          flex: 0 0 41.66667%;
+  max-width: 41.66667%; }
+
+.small-6 {
+  -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  max-width: 50%; }
+
+.small-7 {
+  -webkit-flex: 0 0 58.33333%;
+      -ms-flex: 0 0 58.33333%;
+          flex: 0 0 58.33333%;
+  max-width: 58.33333%; }
+
+.small-8 {
+  -webkit-flex: 0 0 66.66667%;
+      -ms-flex: 0 0 66.66667%;
+          flex: 0 0 66.66667%;
+  max-width: 66.66667%; }
+
+.small-9 {
+  -webkit-flex: 0 0 75%;
+      -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+  max-width: 75%; }
+
+.small-10 {
+  -webkit-flex: 0 0 83.33333%;
+      -ms-flex: 0 0 83.33333%;
+          flex: 0 0 83.33333%;
+  max-width: 83.33333%; }
+
+.small-11 {
+  -webkit-flex: 0 0 91.66667%;
+      -ms-flex: 0 0 91.66667%;
+          flex: 0 0 91.66667%;
+  max-width: 91.66667%; }
+
+.small-12 {
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%; }
+
+@media screen and (min-width: 40em) {
+  .medium-1 {
+    -webkit-flex: 0 0 8.33333%;
+        -ms-flex: 0 0 8.33333%;
+            flex: 0 0 8.33333%;
+    max-width: 8.33333%; }
+  .medium-2 {
+    -webkit-flex: 0 0 16.66667%;
+        -ms-flex: 0 0 16.66667%;
+            flex: 0 0 16.66667%;
+    max-width: 16.66667%; }
+  .medium-3 {
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    max-width: 25%; }
+  .medium-4 {
+    -webkit-flex: 0 0 33.33333%;
+        -ms-flex: 0 0 33.33333%;
+            flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+  .medium-5 {
+    -webkit-flex: 0 0 41.66667%;
+        -ms-flex: 0 0 41.66667%;
+            flex: 0 0 41.66667%;
+    max-width: 41.66667%; }
+  .medium-6 {
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%; }
+  .medium-7 {
+    -webkit-flex: 0 0 58.33333%;
+        -ms-flex: 0 0 58.33333%;
+            flex: 0 0 58.33333%;
+    max-width: 58.33333%; }
+  .medium-8 {
+    -webkit-flex: 0 0 66.66667%;
+        -ms-flex: 0 0 66.66667%;
+            flex: 0 0 66.66667%;
+    max-width: 66.66667%; }
+  .medium-9 {
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    max-width: 75%; }
+  .medium-10 {
+    -webkit-flex: 0 0 83.33333%;
+        -ms-flex: 0 0 83.33333%;
+            flex: 0 0 83.33333%;
+    max-width: 83.33333%; }
+  .medium-11 {
+    -webkit-flex: 0 0 91.66667%;
+        -ms-flex: 0 0 91.66667%;
+            flex: 0 0 91.66667%;
+    max-width: 91.66667%; }
+  .medium-12 {
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%; }}
+
+@media screen and (min-width: 64em) {
+  .large-1 {
+    -webkit-flex: 0 0 8.33333%;
+        -ms-flex: 0 0 8.33333%;
+            flex: 0 0 8.33333%;
+    max-width: 8.33333%; }
+  .large-2 {
+    -webkit-flex: 0 0 16.66667%;
+        -ms-flex: 0 0 16.66667%;
+            flex: 0 0 16.66667%;
+    max-width: 16.66667%; }
+  .large-3 {
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    max-width: 25%; }
+  .large-4 {
+    -webkit-flex: 0 0 33.33333%;
+        -ms-flex: 0 0 33.33333%;
+            flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+  .large-5 {
+    -webkit-flex: 0 0 41.66667%;
+        -ms-flex: 0 0 41.66667%;
+            flex: 0 0 41.66667%;
+    max-width: 41.66667%; }
+  .large-6 {
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%; }
+  .large-7 {
+    -webkit-flex: 0 0 58.33333%;
+        -ms-flex: 0 0 58.33333%;
+            flex: 0 0 58.33333%;
+    max-width: 58.33333%; }
+  .large-8 {
+    -webkit-flex: 0 0 66.66667%;
+        -ms-flex: 0 0 66.66667%;
+            flex: 0 0 66.66667%;
+    max-width: 66.66667%; }
+  .large-9 {
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    max-width: 75%; }
+  .large-10 {
+    -webkit-flex: 0 0 83.33333%;
+        -ms-flex: 0 0 83.33333%;
+            flex: 0 0 83.33333%;
+    max-width: 83.33333%; }
+  .large-11 {
+    -webkit-flex: 0 0 91.66667%;
+        -ms-flex: 0 0 91.66667%;
+            flex: 0 0 91.66667%;
+    max-width: 91.66667%; }
+  .large-12 {
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%; }}
+	
+.dashboard header img{
+height:20px;
+width:auto !important;
+}
+
+.box-content table{
+margin:auto;
+}
+
+
+.dashboard main .row{
+margin-bottom:65px;
+}
+
+.box-content{
+padding:30px;
+background:#fff;
+}
+
+.box-content{
+height:100%;
+   overflow-y: auto;
+}
+
+.box-content .hidden{
+display:none;
+}
+
+.box-content .table_scroll_container{
+    max-height: auto;
+    overflow-y: visible;
+}

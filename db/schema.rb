@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627152542) do
+ActiveRecord::Schema.define(version: 20160630153022) do
 
   create_table "alert_condition_results", force: :cascade do |t|
     t.string  "result",   limit: 255
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20160627152542) do
   add_index "audit_updates", ["uuid"], name: "index_audit_updates_on_uuid", using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.date     "commented_on",                     default: '2016-06-21'
+    t.date     "commented_on"
     t.text     "comment",            limit: 65535
     t.string   "description",        limit: 255
     t.string   "uuid",               limit: 255
@@ -216,13 +216,13 @@ ActiveRecord::Schema.define(version: 20160627152542) do
   add_index "device_messages", ["device_id"], name: "index_device_messages_on_device_id", using: :btree
   add_index "device_messages", ["site_id"], name: "index_device_messages_on_site_id", using: :btree
 
-  create_table "device_messages_test_results", force: :cascade do |t|
+  create_table "device_messages_patient_results", force: :cascade do |t|
     t.integer "device_message_id", limit: 4
     t.integer "test_result_id",    limit: 4
   end
 
-  add_index "device_messages_test_results", ["device_message_id"], name: "index_device_messages_test_results_on_device_message_id", using: :btree
-  add_index "device_messages_test_results", ["test_result_id"], name: "index_device_messages_test_results_on_test_result_id", using: :btree
+  add_index "device_messages_patient_results", ["device_message_id"], name: "index_device_messages_patient_results_on_device_message_id", using: :btree
+  add_index "device_messages_patient_results", ["test_result_id"], name: "index_device_messages_patient_results_on_test_result_id", using: :btree
 
   create_table "device_models", force: :cascade do |t|
     t.string   "name",                            limit: 255
@@ -426,6 +426,63 @@ ActiveRecord::Schema.define(version: 20160627152542) do
 
   add_index "old_passwords", ["password_archivable_type", "password_archivable_id"], name: "index_password_archivable", using: :btree
 
+  create_table "patient_results", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "uuid",                 limit: 255
+    t.text     "custom_fields",        limit: 65535
+    t.string   "test_id",              limit: 255
+    t.binary   "sensitive_data",       limit: 65535
+    t.integer  "device_id",            limit: 4
+    t.integer  "patient_id",           limit: 4
+    t.text     "core_fields",          limit: 65535
+    t.integer  "encounter_id",         limit: 4
+    t.integer  "site_id",              limit: 4
+    t.integer  "institution_id",       limit: 4
+    t.integer  "sample_identifier_id", limit: 4
+    t.string   "site_prefix",          limit: 255
+    t.datetime "deleted_at"
+    t.string   "type",                 limit: 255
+    t.integer  "requested_test_id",    limit: 4
+    t.date     "sample_collected_on"
+    t.date     "result_on"
+    t.string   "specimen_type",        limit: 255
+    t.string   "serial_number",        limit: 255
+    t.string   "appearance",           limit: 255
+    t.string   "results_h",            limit: 255
+    t.string   "results_r",            limit: 255
+    t.string   "results_e",            limit: 255
+    t.string   "results_s",            limit: 255
+    t.string   "results_amk",          limit: 255
+    t.string   "results_km",           limit: 255
+    t.string   "results_cm",           limit: 255
+    t.string   "results_fq",           limit: 255
+    t.string   "examined_by",          limit: 255
+    t.string   "tuberculosis",         limit: 255
+    t.string   "rifampicin",           limit: 255
+    t.string   "media_used",           limit: 255
+    t.string   "results_other1",       limit: 255
+    t.string   "results_other2",       limit: 255
+    t.string   "results_other3",       limit: 255
+    t.string   "results_other4",       limit: 255
+    t.boolean  "results_negative",                   default: false
+    t.boolean  "results_1to9",                       default: false
+    t.boolean  "results_1plus",                      default: false
+    t.boolean  "results_2plus",                      default: false
+    t.boolean  "results_3plus",                      default: false
+    t.boolean  "results_ntm",                        default: false
+    t.boolean  "results_contaminated",               default: false
+  end
+
+  add_index "patient_results", ["deleted_at"], name: "index_patient_results_on_deleted_at", using: :btree
+  add_index "patient_results", ["device_id"], name: "index_patient_results_on_device_id", using: :btree
+  add_index "patient_results", ["institution_id"], name: "index_patient_results_on_institution_id", using: :btree
+  add_index "patient_results", ["patient_id"], name: "index_patient_results_on_patient_id", using: :btree
+  add_index "patient_results", ["requested_test_id"], name: "index_patient_results_on_requested_test_id", using: :btree
+  add_index "patient_results", ["sample_identifier_id"], name: "index_patient_results_on_sample_identifier_id", using: :btree
+  add_index "patient_results", ["site_id"], name: "index_patient_results_on_site_id", using: :btree
+  add_index "patient_results", ["uuid"], name: "index_patient_results_on_uuid", using: :btree
+
   create_table "patients", force: :cascade do |t|
     t.binary   "sensitive_data", limit: 65535
     t.text     "custom_fields",  limit: 65535
@@ -482,11 +539,12 @@ ActiveRecord::Schema.define(version: 20160627152542) do
   create_table "requested_tests", force: :cascade do |t|
     t.integer  "encounter_id", limit: 4
     t.string   "name",         limit: 255
-    t.integer  "status",       limit: 4,   default: 0
+    t.integer  "status",       limit: 4,     default: 0
     t.datetime "deleted_at"
     t.datetime "datetime"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "comment",      limit: 65535
   end
 
   add_index "requested_tests", ["datetime"], name: "index_requested_tests_on_datetime", using: :btree
@@ -601,32 +659,6 @@ ActiveRecord::Schema.define(version: 20160627152542) do
     t.datetime "updated_at"
   end
 
-  create_table "test_results", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "uuid",                 limit: 255
-    t.text     "custom_fields",        limit: 65535
-    t.string   "test_id",              limit: 255
-    t.binary   "sensitive_data",       limit: 65535
-    t.integer  "device_id",            limit: 4
-    t.integer  "patient_id",           limit: 4
-    t.text     "core_fields",          limit: 65535
-    t.integer  "encounter_id",         limit: 4
-    t.integer  "site_id",              limit: 4
-    t.integer  "institution_id",       limit: 4
-    t.integer  "sample_identifier_id", limit: 4
-    t.string   "site_prefix",          limit: 255
-    t.datetime "deleted_at"
-  end
-
-  add_index "test_results", ["deleted_at"], name: "index_test_results_on_deleted_at", using: :btree
-  add_index "test_results", ["device_id"], name: "index_test_results_on_device_id", using: :btree
-  add_index "test_results", ["institution_id"], name: "index_test_results_on_institution_id", using: :btree
-  add_index "test_results", ["patient_id"], name: "index_test_results_on_patient_id", using: :btree
-  add_index "test_results", ["sample_identifier_id"], name: "index_test_results_on_sample_identifier_id", using: :btree
-  add_index "test_results", ["site_id"], name: "index_test_results_on_site_id", using: :btree
-  add_index "test_results", ["uuid"], name: "index_test_results_on_uuid", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                          limit: 255, default: "",    null: false
     t.string   "encrypted_password",             limit: 255, default: "",    null: false
@@ -665,7 +697,6 @@ ActiveRecord::Schema.define(version: 20160627152542) do
     t.boolean  "is_active",                                  default: true
     t.string   "telephone",                      limit: 255
     t.boolean  "sidebar_open",                               default: true
-    t.integer  "timeout_in_seconds",             limit: 4,   default: 180
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

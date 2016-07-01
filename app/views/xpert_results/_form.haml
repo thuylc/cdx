@@ -1,0 +1,37 @@
+= form_for([@requested_test, @xpert_result], url: requested_test_xpert_result_path(@requested_test, @xpert_result), html: { autocomplete: 'off' }) do |f|
+  = validation_errors @xpert_result
+
+  .row
+    .col.pe-2
+      = f.label :sample_collected_on
+    .col
+      = f.date_field :sample_collected_on
+
+  .row
+    .col.pe-2
+      = f.label :tuberculosis
+    .col
+      = f.collection_radio_buttons(:tuberculosis, XpertResult.tuberculosis_results, :first, :last)
+
+  .row
+    .col.pe-2
+      = f.label :rifampicin
+    .col
+      = f.collection_radio_buttons(:rifampicin, XpertResult.rifampicin_results, :first, :last)
+
+  .row
+    .col.pe-2
+      = f.label :examined_by
+    .col
+      = f.text_field :examined_by
+
+  .row
+    .col.pe-2
+      = f.label :result_on
+    .col
+      = f.date_field :result_on
+
+  .row.button-actions
+    .col
+      = f.submit 'Save', class: 'btn-primary'
+      = link_to 'Cancel', encounter_path(@requested_test.encounter), class: 'btn-link'

@@ -15,6 +15,21 @@ module Reports
       super
     end
 
+    def generate_chart
+      results = process
+      if results.number_of_months > 1
+        sorted_data = results.sort_by_month.data
+      else
+        sorted_data = results.sort_by_day.data
+      end
+      {
+        title:   '',
+        titleY:  'Number of tests',
+        titleY2: 'Number of errors',
+        columns: generate_columns(sorted_data)
+      }
+    end
+
     private
 
     def data_hash_day(dayname, test_results)
@@ -47,6 +62,28 @@ module Reports
       results_by_period(format)[key].try do |r|
         r.group_by { |t| t['test.status'] }
       end
+    end
+
+    def generate_columns(sorted_data)
+      [
+        {
+          type: "column",
+          color: "#9dce65",
+          name: "Tests",
+          legendText: "Tests",
+          showInLegend: true,
+          dataPoints: sorted_data.map { |data_point| { label: data_point[:label], y: data_point[:values][0] } }
+        },
+        {
+          type: "column",
+          color: "#069ada",
+          name: "Errors",
+          legendText: "Errors",
+          axisYType: "secondary",
+          showInLegend: true,
+          dataPoints: sorted_data.map { |data_point| { label: data_point[:label], y: data_point[:values][1] } }
+        }
+      ]
     end
   end
 end

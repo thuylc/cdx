@@ -1,5 +1,4 @@
-class TestResult < ActiveRecord::Base
-  include AutoUUID
+class TestResult < PatientResult
   include Entity
   include Resource
   include SiteContained
@@ -11,24 +10,21 @@ class TestResult < ActiveRecord::Base
   END_TIME_FIELD   = 'end_time'
   STATUS_FIELD     = 'status'
 
-  has_and_belongs_to_many :device_messages
-  has_many :test_result_parsed_data
-
-  belongs_to :device, -> { with_deleted }
-  belongs_to :sample_identifier, inverse_of: :test_results, autosave: true
   belongs_to :patient
   belongs_to :encounter
+  belongs_to :device, -> { with_deleted }
+  belongs_to :sample_identifier, inverse_of: :test_results, autosave: true
 
+  has_and_belongs_to_many :device_messages, through: :device_messages_test_results
+  has_many :test_result_parsed_data
   has_many :alert_histories
 
   validates_presence_of :device
   # validates_uniqueness_of :test_id, scope: :device_id, allow_nil: true
   validate :same_patient_in_sample
   validate :validate_sample
-  validate :validate_encounter
-  validate :validate_patient
 
-  before_create   :set_foreign_keys, prepend: true
+  before_create :set_foreign_keys, prepend: true
   before_save   :set_entity_id
   after_destroy :destroy_from_index
 

@@ -43,14 +43,11 @@ RSpec.describe Reports::AverageTechnicianTests, elasticsearch: true do
   end
 
   describe 'correct average tests' do
-    before do
-      @data = Reports::AverageTechnicianTests.process(current_user, nav_context).average_tests
-    end
-
     it 'returns a value for each user' do
-      expect(@data).to be_a(Array)
-      expect(@data.first).to be_a(Hash)
-    end
+      data = Reports::AverageTechnicianTests.new(current_user, nav_context).generate_chart
 
+      expect(data).to be_a(Hash)
+      expect(data[:columns].first).to be_a(Hash)
+    end
   end
 end

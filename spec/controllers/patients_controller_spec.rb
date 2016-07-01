@@ -201,7 +201,7 @@ RSpec.describe PatientsController, type: :controller do
 
   context "create" do
     let(:patient_form_plan) {
-      { name: 'Lorem', entity_id: '1001', gender: 'female', dob: '1/1/2000', address: "1 street", city: 'london', state: "aa", zip_code: 'sw11' }
+      { name: 'Lorem', entity_id: '1001', gender: 'female', dob: '2000/1/1', address: "1 street", city: 'london', state: "aa", zip_code: 'sw11' }
     }
     let(:patient_form_plan_dob) { Time.parse("2000-01-01") }
     def build_patient_form_plan(options)
@@ -302,7 +302,7 @@ RSpec.describe PatientsController, type: :controller do
 
     it "should validate dob if present" do
       expect {
-        post :create, patient: build_patient_form_plan(dob: '14/14/2000')
+        post :create, patient: build_patient_form_plan(dob: '2000/14/14')
       }.to change(institution.patients, :count).by(0)
 
       expect(assigns(:patient).errors).to have_key(:dob)
@@ -397,7 +397,7 @@ RSpec.describe PatientsController, type: :controller do
     let(:patient) { institution.patients.make }
 
     it "should update existing patient" do
-      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '1/18/2000', address: "1 street", city: 'london', state: "aa", zip_code: 'sw11' }
+      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '2000/1/18', address: "1 street", city: 'london', state: "aa", zip_code: 'sw11' }
       expect(response).to be_redirect
 
       patient.reload
@@ -411,7 +411,7 @@ RSpec.describe PatientsController, type: :controller do
     end
 
     it 'should log the updates' do
-      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '1/18/2000', address: "1 street", city: 'london', state: "aa", zip_code: 'sw11' }
+      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '2000/1/18', address: "1 street", city: 'london', state: "aa", zip_code: 'sw11' }
       audit_update = patient.audit_logs.last.audit_updates.first
     end
 
@@ -419,7 +419,7 @@ RSpec.describe PatientsController, type: :controller do
       patient = institution.patients.make :phantom
       expect(patient.entity_id).to be_blank
       expect(patient.entity_id_hash).to be_blank
-      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '1/18/2000', entity_id: 'other-id' }
+      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '200/1/18', entity_id: 'other-id' }
       expect(response).to be_redirect
 
       patient.reload
@@ -433,7 +433,7 @@ RSpec.describe PatientsController, type: :controller do
     it "should not change entity_id from previous" do
       old_entity_id = patient.entity_id
       expect(patient.entity_id).to_not be_blank
-      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '1/18/2000', entity_id: 'other-id' }
+      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '2000/1/18', entity_id: 'other-id' }
       expect(assigns(:patient).errors).to have_key(:entity_id)
       expect(response).to render_template("patients/edit")
 
@@ -445,7 +445,7 @@ RSpec.describe PatientsController, type: :controller do
     it "should not remove entity_id from previous" do
       old_entity_id = patient.entity_id
       expect(patient.entity_id).to_not be_blank
-      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '1/18/2000', entity_id: '' }
+      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '2000/1/18', entity_id: '' }
       expect(assigns(:patient).errors).to have_key(:entity_id)
       expect(response).to render_template("patients/edit")
 
@@ -471,7 +471,7 @@ RSpec.describe PatientsController, type: :controller do
       grant user, other_user, Patient, UPDATE_PATIENT
 
       sign_in other_user
-      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '1/1/2000' }
+      post :update, id: patient.id, patient: { name: 'Lorem', gender: 'female', dob: '2000/1/1' }
       expect(response).to be_redirect
 
       patient.reload

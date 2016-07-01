@@ -147,7 +147,8 @@ end
 RequestedTest.blueprint do
   encounter
   name { "CD4" }
-  status {RequestedTest.statuses["pending"]}
+  status { RequestedTest.statuses["pending"] }
+  comment {"this is a  comment for the requested test ......"}
 end
 
 

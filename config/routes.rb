@@ -103,8 +103,13 @@ Rails.application.routes.draw do
       post 'reprocess'
     end
   end
-  
-  resources :encounter_requested_tests , only: [:update]
+
+    resources :requested_tests , only: [:update] do
+    resource :xpert_result, only: [:new, :create, :show]
+    resource :microscopy_result, only: [:new, :create, :show]
+    resource :dst_lpa_result, only: [:new, :create, :show]
+  end
+
   resources :test_results , only: [:index, :show]
   resources :filters, format: 'html'
   resources :subscribers

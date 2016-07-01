@@ -30,6 +30,7 @@
 //= require react-select
 //= require react-leaflet
 //= require components
+//= require canvas-js.min
 //= require d3
 //= require jquery.custom-file-input
 //= require_tree .

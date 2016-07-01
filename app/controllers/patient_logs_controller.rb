@@ -15,7 +15,7 @@ class PatientLogsController < ApplicationController
   protected
 
   def find_patient
-    @patient = Patient.where(institution: @navigation_context.institution, id: params[:patient_id]).first
+    @patient = @navigation_context.institution.patients.find(params[:patient_id])
   end
 
   def find_patient_log
@@ -23,7 +23,7 @@ class PatientLogsController < ApplicationController
   end
 
   def set_order_from_params
-    order = params[:order] == 'true' ? 'desc' : 'asc'
+    order = params[:order] == 'true' ? 'asc' : 'desc'
     params[:field] == 'name' ? "users.first_name #{order}, users.last_name" : "audit_logs.created_at #{order}"
   end
 end

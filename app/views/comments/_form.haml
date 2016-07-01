@@ -1,11 +1,11 @@
-= form_for([patient, comment], html: { autocomplete: 'off' }) do |f|
-  = validation_errors comment
+= form_for([@patient, @comment], html: { autocomplete: 'off' }) do |f|
+  = validation_errors @comment
 
   .row
     .col.pe-2
       = f.label :commented_on
     .col
-      = f.text_field :commented_on, value: I18n.l(comment.commented_on), placeholder: I18n.t('date.input_format.placeholder')
+      = f.text_field :commented_on, value: I18n.l(@comment.commented_on || Date.today), placeholder: I18n.t('date.input_format.placeholder')
 
   .row
     .col.pe-2
@@ -28,4 +28,4 @@
   .row.button-actions
     .col
       = f.submit 'Save', class: 'btn-primary'
-      = link_to 'Cancel', patient_path(patient), class: 'btn-link'
+      = link_to 'Cancel', patient_path(@patient), class: 'btn-link'

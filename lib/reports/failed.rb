@@ -9,6 +9,18 @@ module Reports
       return self
     end
 
+    def generate_chart
+      @total_tests ||= sum_total
+      @failed_tests ||= sum_failed
+      sort_pie
+
+      slice_colors = ["#b5e083", "#069ada", "#aaaaaa", "#00A8AB", "#B7D6B7", "#D8B49C", "#DE6023", "#47B04B", "#009788", "#A05D56", "#D0743C", "#FF8C00"]
+
+      {
+        columns: data.each_with_index.map { |slice, i| { y: slice[:_value], color: slice_colors[i], indexLabel: "#{slice[:_label]} #percent%", legendText: slice[:_label] } }
+      }
+    end
+
     private
 
     def local_process

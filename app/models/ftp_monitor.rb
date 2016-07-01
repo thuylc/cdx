@@ -39,18 +39,22 @@ class FtpMonitor
       # Connect and list files
       open_ftp!
       files = ftp.nlst
-      Rails.logger.info("Listed files from #{ftp_info.hostname}: #{files.join(', ')}")
+      Rails.logger.info(I18n.t('ftp.monitor.listed_files_from', ftp_hostname:ftp_info.hostname, files_list: files.join(', ')))
       # Remove files already seen
       files -= already_reviewed_files
-
+      # Return if there are no more files
+      if files.length <= 0
+        Rails.logger.info(I18n.t('ftp.monitor.no_files_to_process', ftp_hostname:ftp_info.hostname))
+        return nil
+      end
       # Download all files
       downloaded = download_files(files)
       unless downloaded.present?
-        Rails.logger.info("Error downloading files from #{ftp_info.hostname}: #{files.join(', ')}")
+        Rails.logger.info(I18n.t('ftp.monitor.error_downloading_files_from', ftp_hostname:ftp_info.hostname, files_list: files.join(', ')))
         return nil
       end
 
-      Rails.logger.info("Downloaded files from #{ftp_info.hostname}: #{downloaded.join(', ')}")
+      Rails.logger.info(I18n.t('ftp.monitor.downloaded_files_from', ftp_hostname:ftp_info.hostname, files_list:downloaded.join(', ')))
 
       # Done with remote server
       ftp.quit rescue nil
@@ -117,7 +121,7 @@ class FtpMonitor
         failed_file(remote_name, device_message.error_description, nil, device_message)
       end
     rescue => ex
-      failed_file(remote_name, 'Unexpected error processing file', ex, device_message)
+      failed_file(remote_name, I18n.t('ftp.monitor.unexpected_error_processing_file'), ex, device_message)
     end
 
     def match_device(remote_name)
@@ -126,11 +130,11 @@ class FtpMonitor
       devices = matches.flat_map { |m, ds| m ? ds.select { |d| d.serial_number == m[:sn] } : [] }
 
       # Skip file if no device or multiple devices have matched its name
-      return skip_file(remote_name, 'No device matched') if devices.empty?
-      return skip_file(remote_name, "Multiple devices have matched file #{remote_name}: #{devices.map(&:serial_number)}") if devices.length > 1
+      return skip_file(remote_name, I18n.t('ftp.monitor.no_device_matched') ) if devices.empty?
+      return skip_file(remote_name, I18n.t('ftp.monitor.multiple_devices_matched', remote_name:remote_name, devices_list:devices.map(&:serial_number)) ) if devices.length > 1
       devices.first
     rescue => ex
-      failed_file(remote_name, 'Unexpected error matching file', ex)
+      failed_file(remote_name, I18n.t('ftp.monitor.unexpected_error_matching_file'), ex)
     end
 
     def download_files(files)
@@ -140,7 +144,7 @@ class FtpMonitor
           ftp.getbinaryfile filename, tempfile.path
           [filename, tempfile]
         rescue => ex
-          failed_file(filename, "Error downloading file", ex)
+          failed_file(filename, I18n.t('ftp.monitor.error_downloading_file'), ex)
           break
         end
       end
@@ -149,13 +153,13 @@ class FtpMonitor
     def skip_file(remote_name, reason)
       # TODO: Decide whether we want to log this info in DB as well for all affected devices
       # devices.each { |device| FileMessage.create(filename: remote_name, ftp_info: ftp_info, status: 'skipped', message: reason, device: device) }
-      Rails.logger.info("Skipping FTP file #{remote_name} on hostname #{ftp_info[:hostname]}: #{reason}")
+      Rails.logger.info(I18n.t('ftp.monitor.skipping_file', remote_name: remote_name, ftp_hostname:ftp_info[:hostname], reason: reason))
       nil
     end
 
     def failed_file(remote_name, reason, exception=nil, device_message=nil)
       FileMessage.create(filename: remote_name, ftp_info: ftp_info, status: 'failed', message: reason, device: device_message.try(:device), device_message_id: device_message.try(:id))
-      msg = "FTP file #{remote_name} on hostname #{ftp_info[:hostname]} failed: #{reason}"
+      msg = I18n.t('ftp.monitor.ftp_file_failed', remote_name: remote_name, ftp_hostname:ftp_info[:hostname], reason: reason)
       msg += "\n#{exception}" if exception
       msg += "\n#{exception.backtrace.join("\n")}" if exception && exception.respond_to?(:backtrace)
       Rails.logger.warn(msg)
@@ -164,13 +168,13 @@ class FtpMonitor
 
     def successful_file(remote_name, device_message)
       FileMessage.create(filename: remote_name, ftp_info: ftp_info, status: 'success', message: nil, device: device_message.device, device_message_id: device_message.id)
-      Rails.logger.info("FTP file #{remote_name} on hostname #{ftp_info[:hostname]} processed successfuly")
+      Rails.logger.info(I18n.t('ftp.monitor.ftp_file_success', remote_name: remote_name, ftp_hostname:ftp_info[:hostname]))
       nil
     end
 
     def log_error(ex)
-      devices.each { |device| FileMessage.create(ftp_info: ftp_info, device: device, message: "Error accessing FTP: #{ex}", status: 'error') }
-      Rails.logger.warn("Error accessing FTP #{ftp_info.hostname}: #{ex}\n#{ex.backtrace.join("\n")}")
+      devices.each { |device| FileMessage.create(ftp_info: ftp_info, device: device, message: I18n.t('ftp.monitor.error_accessing_ftp', ftp_hostname:'', exception:ex, backtrace_list:''), status: 'error') }
+      Rails.logger.warn( I18n.t('ftp.monitor.error_accessing_ftp', ftp_hostname: ftp_info.hostname, exception:ex, backtrace_list:ex.backtrace.join("\n") ) )
       ex
     end
 

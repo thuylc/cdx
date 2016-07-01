@@ -9,7 +9,8 @@ describe CommentsController do
   let(:default_params) { { context: institution.uuid } }
   let(:valid_params)   { {
     description:  'New valid comment',
-    comment:      'For whom the bell tolls'
+    comment:      'For whom the bell tolls',
+    commented_on: Date.today
   } }
 
   context 'user with edit patient permission' do
@@ -29,21 +30,21 @@ describe CommentsController do
       end
 
       it 'should return a json with comments ordered by comment date ascending' do
-        first_comment = patient.comments.order(commented_on: :asc).first
+        first_comment = patient.comments.order(commented_on: :desc).first
         get 'index', patient_id: patient.id
 
         expect(JSON.parse(response.body).first['title']).to eq(first_comment.description)
       end
 
       it 'should return a json with comments ordered by user name ascending' do
-        first_user = User.where.not(id: user.id).order(first_name: :asc).first
+        first_user = User.where.not(id: user.id).order(first_name: :desc).first
         get 'index', patient_id: patient.id, field: 'name', order: 0
 
         expect(JSON.parse(response.body).first['commenter']).to eq(first_user.full_name)
       end
 
       it 'should return a json with comments ordered by user name ascending' do
-        first_user = User.where.not(id: user.id).order(first_name: :desc).first
+        first_user = User.where.not(id: user.id).order(first_name: :asc).first
         get 'index', patient_id: patient.id, field: 'name', order: 'true'
 
         expect(JSON.parse(response.body).first['commenter']).to eq(first_user.full_name)
@@ -99,7 +100,7 @@ describe CommentsController do
 
         context 'if a date is provided' do
           it 'should be saved' do
-            post :create, patient_id: patient.id, comment: valid_params.merge!({ commented_on: '11/26/2016' })
+            post :create, patient_id: patient.id, comment: valid_params.merge!({ commented_on: '2016/11/26' })
 
             comment = patient.comments.where(description: 'New valid comment').first
 

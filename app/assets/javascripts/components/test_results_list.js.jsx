@@ -79,7 +79,7 @@ var TestResultsList = React.createClass({
         </colgroup>
         <thead>
           <tr>
-            <th className="tableheader" colSpan="7">
+            <th className="tableheader" colSpan="12">
               <span className={this.props.titleClassName}>{this.props.title}</span>
 
               { this.props.downloadCsvPath ? (

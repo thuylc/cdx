@@ -42,19 +42,21 @@ var PatientResults = React.createClass({
 
     return (
       <div className="row">
-        {this.state.patientResults.length < 1 ? <LoadingResults loadingMessage={this.state.loadingMessage} /> : null}
-        <table className="patient-results">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows}
-          </tbody>
-        </table>
+        {
+          this.state.patientResults.length < 1 ? <LoadingResults loadingMessage={this.state.loadingMessage} /> :
+          <table className="patient-results">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows}
+            </tbody>
+          </table>
+        }
       </div>
     );
   }

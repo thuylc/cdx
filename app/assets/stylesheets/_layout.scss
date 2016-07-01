@@ -47,7 +47,7 @@ header {
     nav {
       @include align-self(stretch);
       @include flex-grow(2);
-      margin-left: 15px;
+      margin-left: 38px;
 
       ul {
         margin: 0;
@@ -201,6 +201,10 @@ footer {
 
 // New Navigation Bar ---------------------------------------------------------//
 
+.show-navigation-context-picker #context_side_bar .search-sites {
+  padding-left:16px !important;
+}
+
 .wrapper #context_side_bar{
 background:#555354;
 }
@@ -210,7 +214,8 @@ background:#e06023;
 }
 
 .show-navigation-context-picker #context_side_bar .search-sites {
-background:#03abae;
+background:#555;
+color:#fff;
 
 }
 

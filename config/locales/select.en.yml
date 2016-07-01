@@ -1,0 +1,14 @@
+en:
+  select:
+    default: Please Select
+    dst_lpa:
+      dst_lpa_options:
+        resistant: 'R'
+        susceptible: 'S'
+        contaminated: 'C'
+        not_done: '--'
+      method_options:
+        solid: 'Solid Media DST'
+        liquid: 'Liquid Media DST'
+        direct: 'Direct LPA'
+        indirect: 'Indirect LPA'

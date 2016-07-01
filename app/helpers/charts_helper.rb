@@ -1,22 +1,4 @@
 module ChartsHelper
-  def query_site_tests_chart
-    results = Reports::Site.process(current_user, @navigation_context, options)
-    found_data = results.sort_by_site.data
-    all_sites = check_access(Site.within(@navigation_context.entity), Policy::Actions::READ_SITE)
-    sites = all_sites.map { | site | [site.name,0] }
-    data = []
-    sites.each do | site |
-      found_data.each do | found_site_data |
-        if site[0].include? found_site_data[0]
-          #site[1] = found_site_data[1]
-          data << {'_label':site[0], '_value': found_site_data[1] }
-        end
-      end
-    end
-    data
-    #sites
-  end
-
   def query_devices_not_reporting_chart
     @devices = check_access(Device.within(@navigation_context.entity), Policy::Actions::READ_DEVICE)
     if options["since"] !=nil
@@ -60,24 +42,10 @@ module ChartsHelper
     data.get_device_location_details
   end
 
-  def average_tests_per_technician_chart
-    data = Reports::AverageTechnicianTests.process(current_user, @navigation_context, options)
-    data.average_tests
-  end
-
-  def outstanding_orders
-    data = Reports::OutstandingOrders.process(current_user, @navigation_context, options)
-    data.latest_encounter
-  end
-
   def errors_by_device_chart
     results = Reports::DeviceErrors.process(current_user, @navigation_context, options)
     return results.sort_by_month if results.number_of_months > 1
     results.sort_by_day
-  end
-
-  def devices_grouped
-    Reports::Grouped.by_device(current_user, @navigation_context, options)
   end
 
   def errors_by_model_chart
@@ -126,33 +94,12 @@ module ChartsHelper
     message
   end
 
-  def query_tests_chart
-    results = Reports::AllTests.process(current_user, @navigation_context, options)
-    return results.sort_by_month if results.number_of_months > 1
-    results.sort_by_day
-  end
-
-  def query_tests_chart_reformat
-    results = Reports::AllTests.process(current_user, @navigation_context, options)
-    if results.number_of_months > 1
-      sorted_data = results.sort_by_month.data
-    else
-      sorted_data = results.sort_by_day.data
-    end
-    
-    new_sorted_data = sorted_data.map{|x| {_label: x[:label], peak: x[:values][0], average: x[:values][1]} }
-  end
-
   def tests_by_status
     Reports::Grouped.by_status(current_user, @navigation_context, options)
   end
 
   def tests_by_failed
     Reports::Grouped.by_failed(current_user, @navigation_context, options)
-  end
-
-  def failed_tests
-    Reports::Failed.process(current_user, @navigation_context, options).data
   end
 
   def days_since
@@ -169,14 +116,6 @@ module ChartsHelper
 
   def end_date
     params['range']['start_time']['lte'].present? ? Date.parse(params['range']['start_time']['lte']) : Date.today
-  end
-
-  def options
-    params.delete('range') if params['range'] && params['range']['start_time']['lte'].empty?
-    params.delete('range') if params['range'] && params['range']['start_time']['gte'].empty?
-    return { 'date_range' => params['range'] } if params['range']
-    return { 'since' => params['since'] } if params['since']
-    {}
   end
 
   def options_for_date
@@ -208,13 +147,5 @@ module ChartsHelper
 
   def since
     params['since'] ? Date.parse(params['since']) : Date.today - 1.year
-  end
-
-  def average_test_per_site_chart
-    Reports::AverageSiteTests.process(
-      current_user,
-      @navigation_context,
-      options
-    ).show
   end
 end
