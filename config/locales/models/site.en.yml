@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    attributes:
+      site:
+        parent: 'Parent site'

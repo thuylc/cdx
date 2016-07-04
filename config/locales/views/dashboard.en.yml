@@ -1,0 +1,20 @@
+en:
+  dashboard:
+    index:
+      date_to: 'Date To'
+      date_from: 'Date From'
+      date_period: 'Date Period'
+      filter_button: 'Filter'
+      total_tests: 'Total Tests'
+      failed_tests: 'Failed Tests'
+      total_tests_by_site: 'Total Tests by Site'
+      average_tests_by_site: 'Average Tests by Site'
+      total_tests_by_device: 'Total Tests by Device'
+      average_tests_by_technician: 'Average Tests by Technician'
+      outstanding_tests: 'Outstanding Tests'
+      no_chart_information: 'No chart information available'
+    chart_helper:
+      previous_month: 'Previous month'
+      previous_week: 'Previous week'
+      previous_quarter: 'Previous quartar'
+      previous_year: 'Previous year'

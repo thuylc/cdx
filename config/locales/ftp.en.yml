@@ -1,0 +1,15 @@
+ftp:
+  monitor:
+    listed_files_from: "Listed files from %{ftp_hostname}: %{files_list}"
+    no_files_to_process: "No files to process from %{ftp_hostname}"
+    error_downloading_file: "Error downloading file"
+    error_downloading_files_from: "Error downloading files from %{ftp_hostname}: %{files_list}"
+    downloaded_files_from: "Downloaded files from %{ftp_hostname}: %{files_list}"
+    unexpected_error_processing_file: "Unexpected error processing file"
+    no_device_matched: "No device matched"
+    multiple_devices_matched: "Multiple devices have matched file %{remote_name}: %{devices_list}"
+    unexpected_error_matching_file: "Unexpected error matching file"
+    skipping_file: "Skipping FTP file %{remote_name} on hostname %{ftp_hostname}: %{reason}"
+    ftp_file_failed: "FTP file %{remote_name} on hostname %{ftp_hostname} failed: %{reason}"
+    ftp_file_success: "FTP file %{remote_name} on hostname %{ftp_hostname} processed successfuly"
+    error_accessing_ftp: "Error accessing FTP %{ftp_hostname}: %{exception}\n%{backtrace_list}"

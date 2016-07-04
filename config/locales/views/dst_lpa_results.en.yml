@@ -1,0 +1,7 @@
+en:
+  dst_lpa_results:
+    new:
+      header: 'Add DST and LPA Test Result'
+    create:
+      audit: 'DST and LPA result added'
+      notice: 'DST and LPA result was successfully created.'

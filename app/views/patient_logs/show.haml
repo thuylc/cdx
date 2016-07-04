@@ -16,7 +16,7 @@
             .row
               .col-12
                 %label Date:
-                = @patient_log.created_at.strftime(I18n.t('date.input_format.pattern'))
+                = I18n.l(@patient_log.created_at, format: :full_time)
             .row
               .col-12
                 %label User:

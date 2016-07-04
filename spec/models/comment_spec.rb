@@ -13,8 +13,6 @@ describe Comment do
 
     it { should validate_presence_of(:description) }
 
-    it { should validate_presence_of(:commented_on) }
-
     it { should validate_presence_of(:patient_id) }
 
     it { should validate_presence_of(:user_id) }

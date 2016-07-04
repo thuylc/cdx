@@ -8,12 +8,18 @@ class Extras::Dates::Format
       end
     end
 
-    def datetime_with_time_zone(value, tz=nil)
-      return nil unless value
+    def datetime_with_time_zone(timeValue, formatValue=:long, tz=nil)
+      return nil unless timeValue.present?
 
-      value = Time.parse(value) unless value.is_a?(Time)
-      value = value.in_time_zone(tz) if tz
-      I18n.localize(value, locale: I18n.locale, format: :long)
+      timeValue = if timeValue.is_a?(String)
+        Time.parse(timeValue)
+      elsif timeValue.is_a?(Time)
+        tz ? timeValue.in_time_zone(tz) : timeValue
+      else
+        timeValue
+      end
+
+      I18n.l(timeValue, format: formatValue)
     end
   end
 end

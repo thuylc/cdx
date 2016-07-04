@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    attributes:
+      patient:
+        dob: 'Birthday'
+        entity_id: 'Patient id'
+        name: 'Name'
+        gender: 'Gender'
+        phone: 'Phone'
+        email: 'E-mail'
+        address: 'Address'
+        created_at: 'Created at'

@@ -103,6 +103,10 @@ GEM
     barby (0.6.2)
     base58 (0.1.0)
     bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -630,6 +634,8 @@ DEPENDENCIES
   aws-sdk (~> 1.6)
   barby
   base58
+  better_errors
+  binding_of_caller
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1)
   capistrano-rails (~> 1.1)

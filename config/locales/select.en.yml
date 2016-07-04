@@ -1,6 +1,15 @@
 en:
   select:
     default: Please Select
+    microscopy:
+      visual_appearance:
+        blood: 'Blood-stained'
+        mucopurulent: 'Mucopurulent'
+        saliva: 'Saliva'
+    culture:
+      media_options:
+        liquid: 'Liquid'
+        solid: 'Solid'
     dst_lpa:
       dst_lpa_options:
         resistant: 'R'

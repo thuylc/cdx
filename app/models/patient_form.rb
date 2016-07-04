@@ -103,7 +103,7 @@ class PatientForm
     value = @dob
 
     if value.is_a?(Time)
-      return value.strftime(I18n.t('date.input_format.pattern'))
+      return value.strftime(I18n.t('date.formats.default'))
     end
 
     value
@@ -113,7 +113,7 @@ class PatientForm
     value = nil if value.blank?
 
     @dob = if value.is_a?(String)
-      Date.strptime(value, I18n.t('date.formats.default')) rescue value
+      Time.parse(value) rescue value
     else
       value
     end
@@ -125,7 +125,8 @@ class PatientForm
 
   def dob_is_a_date
     return if @dob.blank?
-    errors.add(:dob, "should be a date in #{dob_placeholder}") unless @dob.is_a?(Date)
+
+    errors.add(:dob, "should be a date in #{dob_placeholder}") unless @dob.is_a?(Time)
   end
   # end dob
 

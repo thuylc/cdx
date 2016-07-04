@@ -15,7 +15,7 @@ describe Presenters::Comments do
     it 'should return elements formated' do
       expect(Presenters::Comments.patient_view(patient.comments).first).to eq({
         id:          patient.comments.first.uuid,
-        commentDate: patient.comments.first.commented_on.strftime(I18n.t('date.input_format.pattern')),
+        commentDate: I18n.l(patient.comments.first.created_at, format: :short),
         commenter:   patient.comments.first.user.full_name,
         title:       patient.comments.first.description,
         viewLink:    Rails.application.routes.url_helpers.patient_comment_path(patient, patient.comments.first)

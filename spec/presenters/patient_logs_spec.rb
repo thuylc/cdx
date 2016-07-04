@@ -17,7 +17,7 @@ describe Presenters::PatientLogs do
     it 'should return elements formated' do
       expect(Presenters::PatientLogs.patient_view(patient.audit_logs).first).to eq({
         id:       patient.audit_logs.first.uuid,
-        date:     patient.audit_logs.first.created_at.strftime(I18n.t('date.input_format.pattern')),
+        date:     I18n.l(patient.audit_logs.first.created_at, format: :short),
         user:     patient.audit_logs.first.user.full_name,
         title:    patient.audit_logs.first.title,
         viewLink: Rails.application.routes.url_helpers.patient_patient_log_path(patient.audit_logs.first.patient, patient.audit_logs.first)

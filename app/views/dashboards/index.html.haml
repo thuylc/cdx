@@ -5,22 +5,25 @@
         %form#filters-form{ action: dashboard_path }
 
           .topdateto
-            %label.block Date To
+            %label.block
+              = I18n.t('dashboard.index.date_to')
             = date_field('range','start_time[lte]')
 
           .topdatefrom
-            %label.block Date From
+            %label.block
+              = I18n.t('dashboard.index.date_from')
             = date_field('range','start_time[gte]')
 
           .topdateperiod
             %form#filters-form{ action: dashboard_path, 'data-auto-submit' => true }
               .filter
-                %label.block Date Period
+                %label.block
+                  = I18n.t('dashboard.index.date_period')
                 = cdx_select name: 'since', value: params['since'] do |select|
                   - select.items options_for_date, :value, :label
 
               .topbutton
-                %input#query_button.btn-primary(type='submit' value='Filter')
+                %input#query_button.btn-primary(type='submit' value="#{I18n.t('dashboard.index.filter_button')}")
 
 
   %main
@@ -28,14 +31,16 @@
       .small-8.columns.box
         %header
           = image_tag('img/test-tube-rack.png')
-          %h3 Total Tests
+          %h3
+            = I18n.t('dashboard.index.total_tests')
         .box-content
           #chartContainer{:style => "height: 200px; width: 100%;"}
             = react_component 'CanvasJsChart', chartDiv: 'chartContainer', chartData: Extras::Charts::VerticalColumns.new(@dashboard_report.total_tests).render
       .small-4.columns.box
         %header
           = image_tag('img/test-tube.png')
-          %h3 Failed Tests
+          %h3
+            = I18n.t('dashboard.index.failed_tests')
         .box-content
           #failedChartContainer{:style => "height: 200px; width: 100%;"}
             = react_component 'CanvasJsChart', chartDiv: 'failedChartContainer', chartData: Extras::Charts::Pie.new(@dashboard_report.failed_tests).render
@@ -43,14 +48,16 @@
       .small-6.columns.box
         %header
           =image_tag('img/site.png')
-          %h3 Total Tests by Site
+          %h3
+            = I18n.t('dashboard.index.total_tests_by_site')
         .box-content
           #chartTotalTestsSite{:style => "height: 200px; width: 100%;"}
             = react_component 'CanvasJsChart', chartDiv: 'chartTotalTestsSite', chartData: Extras::Charts::HorizontalColumns.new(@dashboard_report.query_site_tests).render
       .col.small-6.columns.box
         %header
           =image_tag('img/site.png')
-          %h3 Average Tests by Site
+          %h3
+            = I18n.t('dashboard.index.average_tests_by_site')
         .box-content
           #chartAverageTestsSite{:style => "height: 200px; width: 100%;"}
             = react_component 'CanvasJsChart', chartDiv: 'chartAverageTestsSite', chartData: Extras::Charts::VerticalColumns.new(@dashboard_report.average_test_per_site).render
@@ -58,7 +65,8 @@
       .small-4.columns.box
         %header
           = image_tag('img/device.png')
-          %h3 Total Tests by Device
+          %h3
+            = I18n.t('dashboard.index.total_tests_by_device')
         .box-content
           #chartTotalTestsDevice{:style => "height: 200px; width: 100%;"}
             = react_component 'CanvasJsChart', chartDiv: 'chartTotalTestsDevice', chartData: Extras::Charts::Pie.new(@dashboard_report.total_tests_by_device).render
@@ -66,7 +74,8 @@
       .small-8.columns.box
         %header
           = image_tag('img/user.png')
-          %h3 Average Tests by Technician
+          %h3
+            = I18n.t('dashboard.index.average_tests_by_technician')
         .box-content
           #chartAverageTestsTechnician{:style => "height: 200px; width: 100%;"}
             = react_component 'CanvasJsChart', chartDiv: 'chartAverageTestsTechnician', chartData: Extras::Charts::VerticalColumns.new(@dashboard_report.average_tests_per_technician).render
@@ -75,9 +84,10 @@
       .small-12.columns.box
         %header
           = image_tag('img/test-tube.png')
-          %h3 Outstanding Tests
+          %h3
+            = I18n.t('dashboard.index.outstanding_tests')
         .box-content
           -if(@dashboard_report.outstanding_orders)
             = react_component('OutstandingTestsTable', title: "title", allowSorting: "true", orderBy: "-test_order", data: @dashboard_report.outstanding_orders)
           -else
-            No chart information available
+            = I18n.t('dashboard.index.no_chart_information')

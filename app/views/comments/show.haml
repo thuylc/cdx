@@ -15,15 +15,18 @@
           .col-6
             .row
               .col-12
-                %label Date:
-                = @comment.commented_on.strftime(I18n.t('date.input_format.pattern'))
+                %label
+                  = Comment.human_attribute_name(:created_at)
+                = I18n.l(@comment.created_at, format: :long)
             .row
               .col-12
-                %label User:
+                %label
+                  = Comment.human_attribute_name(:user_id)
                 = @comment.user.full_name
             .row
               .col-12
-                %label Description:
+                %label
+                  = Comment.human_attribute_name(:description)
                 = @comment.description
             .row
               .col-12
@@ -32,4 +35,7 @@
             - if @comment.image
               .row
                 .col-12
+                  %label
+                    = Comment.human_attribute_name(:image)
+                  %br
                   = image_tag @comment.image.url

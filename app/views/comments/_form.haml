@@ -1,12 +1,5 @@
 = form_for([@patient, @comment], html: { autocomplete: 'off' }) do |f|
   = validation_errors @comment
-
-  .row
-    .col.pe-2
-      = f.label :commented_on
-    .col
-      = f.text_field :commented_on, value: I18n.l(@comment.commented_on || Date.today), placeholder: I18n.t('date.input_format.placeholder')
-
   .row
     .col.pe-2
       = f.label :description

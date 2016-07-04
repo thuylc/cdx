@@ -103,6 +103,8 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'pry-clipboard'
   gem 'rspec-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

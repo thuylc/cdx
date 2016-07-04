@@ -31,7 +31,7 @@
           %td
             = f.text_field :serial_number
           %td
-            = f.collection_select :appearance, MicroscopyResult.visual_appearance_results, :first, :last
+            = f.collection_select :appearance, MicroscopyResult.visual_appearance_options, :first, :last
           %td
             = f.check_box :results_negative
             %label{for: 'microscopy_result_results_negative'} &nbsp;
@@ -62,5 +62,5 @@
 
   .row.button-actions
     .col
-      = f.submit 'Save', class: 'btn-primary'
-      = link_to 'Cancel', encounter_path(@requested_test.encounter), class: 'btn-link'
+      = f.submit I18n.t('views.save'), class: 'btn-primary'
+      = link_to I18n.t('views.cancel'), encounter_path(@requested_test.encounter), class: 'btn-link'

@@ -9,7 +9,7 @@ describe Presenters::PatientTestOrders do
 
   describe 'patient_view' do
     before :each do
-      7.times { Encounter.make institution: institution, site: site, patient: patient  }
+      7.times { Encounter.make institution: institution, site: site, patient: patient, start_time: 3.days.ago.to_s, testdue_date: 1.day.from_now.to_s  }
     end
 
     it 'should return an array of formated comments' do
@@ -21,8 +21,8 @@ describe Presenters::PatientTestOrders do
         id:          patient.encounters.first.uuid,
         siteName:    patient.encounters.first.site.name,
         requester:   patient.encounters.first.user.full_name,
-        requestDate: Extras::Dates::Format.datetime_with_time_zone(patient.encounters.first.start_time),
-        dueDate:     Extras::Dates::Format.datetime_with_time_zone(patient.encounters.first.testdue_date),
+        requestDate: I18n.l(Time.parse(patient.encounters.first.start_time), format: :long),
+        dueDate:     I18n.l(patient.encounters.first.testdue_date, format: :long),
         status:      patient.encounters.first.core_fields['status'],
         viewLink:    Rails.application.routes.url_helpers.encounter_path(patient.encounters.first)
       })

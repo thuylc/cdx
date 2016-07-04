@@ -30,9 +30,6 @@
       = f.label :dob
     .col
       = f.date_field :dob, value: @patient.dob
-      -#= f.text_field :dob, placeholder: @patient.dob_placeholder
-
-
 
   = render partial: "shared/address", :locals => { :f => f, model_type: "patient" }
 

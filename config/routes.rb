@@ -104,10 +104,11 @@ Rails.application.routes.draw do
     end
   end
 
-    resources :requested_tests , only: [:update] do
+  resources :requested_tests , only: [:update] do
     resource :xpert_result, only: [:new, :create, :show]
     resource :microscopy_result, only: [:new, :create, :show]
     resource :dst_lpa_result, only: [:new, :create, :show]
+    resource :culture_result, only: [:new, :create, :show]
   end
 
   resources :test_results , only: [:index, :show]

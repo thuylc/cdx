@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      comment:
+        created_at: 'Date'
+        description: 'Description'
+        comment: 'Observations'
+        user_id: 'Commented by'
+        image: 'Attached image'

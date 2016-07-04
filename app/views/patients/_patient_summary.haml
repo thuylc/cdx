@@ -1,6 +1,7 @@
 .row.labelHeader
   .col-6
-    %h3 Patient Summary
+    %h3
+      = I18n.t('patients.show.patient_summary')
   .col-6
     %ul
 .panel.patient-details
@@ -14,24 +15,40 @@
       - if has_access?(@patient, Policy::Actions::UPDATE_PATIENT)
         %ul.button-container
           %li
-            = link_to('Edit patient', edit_patient_path(patient), class: 'button edit')
+            = link_to(I18n.t('patients.show.edit_patient'), edit_patient_path(patient), class: 'button edit')
       %ul
         %li
+          %label
+            = Patient.human_attribute_name(:name)
           = patient_display_name(patient.name)
         %li
+          %label
+            = Patient.human_attribute_name(:entity_id)
           = patient.entity_id
         %li
+          %label
+            = Patient.human_attribute_name(:gender)
           = patient.gender
       %ul
         %li
+          %label
+            = Patient.human_attribute_name(:dob)
           = patient_birth_date(patient.dob)
         %li
+          %label
+            = Patient.human_attribute_name(:phone)
           = patient.phone
         %li
+          %label
+            = Patient.human_attribute_name(:email)
           = patient.email
 
       %ul
         %li
+          %label
+            = Patient.human_attribute_name(:address)
           = patient.address
         %li
-          = patient.created_at.strftime(I18n.t('date.input_format.pattern'))
+          %label
+            = Patient.human_attribute_name(:created_at)
+          = I18n.l(patient.created_at, format: :long)

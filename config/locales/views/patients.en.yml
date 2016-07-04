@@ -1,0 +1,15 @@
+en:
+  patients:
+    show:
+      episode_empty_header: 'No medical history'
+      episode_empty_text1: 'Create a %{href} in order to start the medical history.'
+      episode_empty_text2: 'You can not create test orders until a %{href} has been added.'
+      new_episode: 'new episode'
+      add_episode: 'Add episode'
+      edit_episode: 'Edit episode'
+      add_test_order: 'Add test order'
+      add_comment: 'Add comment'
+      edit_patient: 'Edit patient'
+      patient_summary: 'Patient Summary'
+      patient_history: 'Patient History'
+      episode_summary: 'Episode Summary'

@@ -33,5 +33,5 @@
 
   .row.button-actions
     .col
-      = f.submit 'Save', class: 'btn-primary'
-      = link_to 'Cancel', encounter_path(@requested_test.encounter), class: 'btn-link'
+      = f.submit I18n.t('views.save'), class: 'btn-primary'
+      = link_to I18n.t('views.cancel'), encounter_path(@requested_test.encounter), class: 'btn-link'

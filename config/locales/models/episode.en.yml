@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      episode:
+        diagnosis: 'Diagnosis'
+        hiv_status: 'HIV Status'
+        initial_history: 'History'
+        drug_resistance: 'Drug resistance'
+        outcome: 'Outcome'

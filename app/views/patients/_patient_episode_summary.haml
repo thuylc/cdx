@@ -1,18 +1,22 @@
 - if episodes.empty?
   = empty_data icon: 'icon-outline-test xx-large' do |c|
     - c.body do
-      %h1 No medical history
-      %p Create a #{link_to 'new episode', new_patient_episode_path(patient), class: 'button add'} in order to start the medical history.
-      %p You can not create test orders until a #{link_to 'new episode', new_patient_episode_path(patient), class: 'button add'} has been added.
+      %h1
+        = I18n.t('patients.show.episode_empty_header')
+      %p
+        = raw I18n.t('patients.show.episode_empty_text1', href: link_to(I18n.t('patients.show.new_episode'), new_patient_episode_path(patient), class: 'button add'))
+      %p
+        = raw I18n.t('patients.show.episode_empty_text2', href: link_to(I18n.t('patients.show.new_episode'), new_patient_episode_path(patient), class: 'button add'))
 
 - else
   .row.labelHeader
     .col-6
-      %h3 Episode Summary
+      %h3
+        = I18n.t('patients.show.episode_summary')
     .col-6
       %ul
         %li
-          = link_to 'Add Episode', new_patient_episode_path(patient), class: 'button add'
+          = link_to I18n.t('patients.show.add_episode'), new_patient_episode_path(patient), class: 'button add'
   .panel.patient-details
     - episodes.each do |episode|
       .row
@@ -24,16 +28,26 @@
         .col-10
           %ul
             %li
-              = link_to 'Edit Episode', edit_patient_episode_path(patient, episode), class: 'button edit'
+              = link_to I18n.t('patients.show.edit_episode'), edit_patient_episode_path(patient, episode), class: 'button edit'
           %ul
             %li
+              %label
+                = Episode.human_attribute_name(:diagnosis)
               = link_to diagnosis_name(episode.diagnosis), edit_patient_episode_path(patient, episode)
             %li
+              %label
+                = Episode.human_attribute_name(:hiv_status)
               = hiv_status_name(episode.hiv_status)
             %li
+              %label
+                = Episode.human_attribute_name(:initial_history)
               = "#{history_options_name(episode.initial_history)} - #{previous_history_options_name(episode.previous_history)}"
           %ul
             %li
+              %label
+                = Episode.human_attribute_name(:drug_resistance)
               = drug_resistance_name(episode.drug_resistance)
             %li
+              %label
+                = Episode.human_attribute_name(:outcome)
               = treatment_outcome_name(episode.outcome)

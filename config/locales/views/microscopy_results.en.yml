@@ -1,0 +1,7 @@
+en:
+  microscopy_results:
+    new:
+      header: 'Add Microscopy Result'
+    create:
+      audit: 'Microscopy result added'
+      notice: 'Microscopy result was successfully created.'

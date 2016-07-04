@@ -1,0 +1,11 @@
+#culture-results.testflow
+  .container
+    .row.labelHeader
+      .col-6
+        %h3
+          = I18n.t('culture_results.new.header')
+      .col-6
+        %ul
+          %li
+            = link_to I18n.t('views.back'), encounter_path(@requested_test.encounter), class: 'button new'
+    = render 'form'

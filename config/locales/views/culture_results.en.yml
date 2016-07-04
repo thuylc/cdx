@@ -1,0 +1,7 @@
+en:
+  culture_results:
+    new:
+      header: 'Add Culture Test Result'
+    create:
+      audit: 'Culture result added'
+      notice: 'Culture result was successfully created.'

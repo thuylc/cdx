@@ -1,0 +1,72 @@
+= form_for([@requested_test, @culture_result], url: requested_test_culture_result_path(@requested_test, @culture_result), html: { autocomplete: 'off' }) do |f|
+  = validation_errors @culture_result
+  .row
+    %table
+      %thead
+        %tr
+          %th
+            = f.label :sample_collected_on
+          %th
+            = f.label :media_used
+          %th
+            = f.label :serial_number
+          %th
+            = f.label :results_negative
+          %th
+            = f.label :results_1to9
+          %th
+            = f.label :results_1plus
+          %th
+            = f.label :results_2plus
+          %th
+            = f.label :results_3plus
+          %th
+            = f.label :results_ntm
+          %th
+            = f.label :results_contaminated
+      %tbody
+        %tr
+          %td
+            = f.date_field :sample_collected_on
+          %td
+            = f.collection_select :media_used, CultureResult.media_options, :first, :last
+          %td
+            = f.text_field :serial_number
+          %td
+            = f.check_box :results_negative
+            %label{for: 'culture_result_results_negative'} &nbsp;
+          %td
+            = f.check_box :results_1to9
+            %label{for: 'culture_result_results_1to9'} &nbsp;
+          %td
+            = f.check_box :results_1plus
+            %label{for: 'culture_result_results_1plus'} &nbsp;
+          %td
+            = f.check_box :results_2plus
+            %label{for: 'culture_result_results_2plus'} &nbsp;
+          %td
+            = f.check_box :results_3plus
+            %label{for: 'culture_result_results_3plus'} &nbsp;
+          %td
+            = f.check_box :results_ntm
+            %label{for: 'culture_result_results_ntm'} &nbsp;
+          %td
+            = f.check_box :results_contaminated
+            %label{for: 'culture_result_results_contaminated'} &nbsp;
+
+  .row
+    .col.pe-2
+      = f.label :examined_by
+    .col
+      = f.text_field :examined_by
+
+  .row
+    .col.pe-2
+      = f.label :result_on
+    .col
+      = f.date_field :result_on
+
+  .row.button-actions
+    .col
+      = f.submit I18n.t('views.save'), class: 'btn-primary'
+      = link_to I18n.t('views.cancel'), encounter_path(@requested_test.encounter), class: 'btn-link'

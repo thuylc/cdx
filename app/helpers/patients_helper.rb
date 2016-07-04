@@ -13,7 +13,7 @@ module PatientsHelper
     birth_date = Time.parse(dob)
     return unless birth_date
 
-    "#{birth_date.strftime(I18n.t('date.input_format.pattern'))} - #{birth_date_to_words(birth_date)}"
+    "#{I18n.l(birth_date, format: :date_only)} - #{birth_date_to_words(birth_date)}"
   end
 
   def birth_date_to_words(birth_date)

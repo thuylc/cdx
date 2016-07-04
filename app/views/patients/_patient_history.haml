@@ -1,12 +1,13 @@
 .row.labelHeader
   .col-6
-    %h3 Patient History
+    %h3
+      = I18n.t('patients.show.patient_history')
   .col-6
     %ul
       - if can_add_test_orders
         %li
-          = link_to 'Add Test Order', new_encounter_path(mode: 'fresh_tests', patient_id: patient.id), class: 'button add'
+          = link_to I18n.t('patients.show.add_test_order'), new_encounter_path(mode: 'fresh_tests', patient_id: patient.id), class: 'button add'
       %li
-        = link_to 'Add Comment', new_patient_comment_path(patient), class: 'button add', title: 'Add new comment'
+        = link_to I18n.t('patients.show.add_comment'), new_patient_comment_path(patient), class: 'button add', title: I18n.t('patients.show.add_comment')
 .panel.patient-details
   = react_component 'PatientHistory', commentsUrl: patient_comments_path(patient), patientLogsUrl: patient_patient_logs_path(patient), testOrdersUrl: patient_patient_test_orders_path(patient), testResultsUrl: patient_patient_test_results_path(patient)

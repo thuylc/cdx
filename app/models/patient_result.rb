@@ -1,5 +1,6 @@
 class PatientResult < ActiveRecord::Base
   include AutoUUID
+  include Auditable
 
   belongs_to :requested_test
 

@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 RSpec.describe RequestedTest, :type => :model do
+  it { should have_one(:xpert_result) }
+  it { should have_one(:microscopy_result) }
+  it { should have_one(:dst_lpa_result) }
+  it { should have_one(:culture_result) }
+
   context "validates fields" do
     it "cannot create for missing fields" do
       requested_test = RequestedTest.create
@@ -34,5 +39,5 @@ RSpec.describe RequestedTest, :type => :model do
       expect(deleted_requested_test_id).to eq([requested_test.id])
     end
   end
-  
+
 end

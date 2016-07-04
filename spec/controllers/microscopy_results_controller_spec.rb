@@ -5,13 +5,17 @@ describe MicroscopyResultsController do
   render_views
   let(:user)           { User.make }
   let!(:institution)   { user.institutions.make }
-  let(:patient)        { Patient.make institution: institution }
-  let(:encounter)      { Encounter.make institution: institution , user: user, patient: patient }
+  let(:site)                { Site.make institution: institution }
+  let(:patient)             { Patient.make institution: institution }
+  let(:encounter)           { Encounter.make institution: institution , user: user, patient: patient }
+  let(:sample)              { Sample.make(institution: institution, patient: patient, encounter: encounter) }
+  let!(:sample_identifier1) { SampleIdentifier.make(site: site, entity_id: 'sample-id', sample: sample) }
+  let!(:sample_identifier2) { SampleIdentifier.make(site: site, entity_id: 'sample-2', sample: sample) }
   let(:requested_test) { RequestedTest.make encounter: encounter }
   let(:default_params) { { context: institution.uuid } }
   let(:valid_params)   { {
     sample_collected_on: 4.days.ago,
-    specimen_type:       'alive',
+    specimen_type:       'blood',
     serial_number:       'LO-3434-P',
     appearance:          'saliva',
     results_negative:    1,
@@ -29,10 +33,16 @@ describe MicroscopyResultsController do
     end
 
     describe 'new' do
-      it 'should render the new template' do
+      before :each do
         get 'new', requested_test_id: requested_test.id
+      end
 
+      it 'should render the new template' do
         expect(request).to render_template('new')
+      end
+
+      it 'should add test order samples id to laboratory serial numbers' do
+        expect(assigns(:microscopy_result).serial_number).to eq("#{sample_identifier1.entity_id}, #{sample_identifier2.entity_id}")
       end
     end
 
@@ -46,7 +56,7 @@ describe MicroscopyResultsController do
         it 'should save the comment' do
           patient_result = requested_test.microscopy_result
 
-          expect(patient_result.specimen_type).to eq('alive')
+          expect(patient_result.specimen_type).to eq('blood')
           expect(patient_result.uuid).not_to be_empty
           expect(patient_result.serial_number).to eq('LO-3434-P')
           expect(patient_result.appearance).to eq('saliva')

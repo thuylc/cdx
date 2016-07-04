@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    attributes:
+      culture_result:
+        sample_collected_on: 'Date sample collected'
+        examined_by: 'Examined by'
+        result_on: 'Date of result'
+        media_used: 'Media used'
+        serial_number: 'Laboratory serial number(s)'
+        results_negative: 'Results Negative'
+        results_1to9: 'Results 1-9'
+        results_1plus: 'Results +'
+        results_2plus: 'Results ++'
+        results_3plus: 'Results +++'
+        results_ntm: 'Results NTM'
+        results_contaminated: 'Results Contaminaed'

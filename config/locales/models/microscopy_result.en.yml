@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    attributes:
+      microscopy_result:
+        sample_collected_on: 'Date sample collected'
+        examined_by: 'Examined by'
+        result_on: 'Date of result'
+        specimen_type: 'Specimen type'
+        serial_number: 'Laboratory serial number(s)'
+        appearance: 'Visual appearance'
+        results_negative: 'Results Negative'
+        results_1to9: 'Results 1-9'
+        results_1plus: 'Results +'
+        results_2plus: 'Results ++'
+        results_3plus: 'Results +++'

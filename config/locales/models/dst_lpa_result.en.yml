@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    attributes:
+      dst_lpa_result:
+        sample_collected_on: 'Date sample collected'
+        media_used: 'Method'
+        serial_number: 'Lab serial number'
+        results_h: 'Result H'
+        results_r: 'Result R'
+        results_e: 'Result E'
+        results_s: 'Result S'
+        results_amk: 'Result Amk'
+        results_km: 'Result Km'
+        results_cm: 'Result Cm'
+        results_fq: 'Result FQ'
+        results_other1: 'Result Other'
+        results_other2: 'Result Other'
+        results_other3: 'Result Other'
+        results_other4: 'Result Other'
+        examined_by: 'Examined by'
+        result_on: 'Date of result'

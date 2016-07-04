@@ -4,7 +4,7 @@ class Presenters::PatientLogs
       patient_logs.map do |log|
         {
           id:       log.uuid,
-          date:     log.created_at.strftime(I18n.t('date.input_format.pattern')),
+          date:     I18n.l(log.created_at, format: :short),
           user:     log.user.full_name,
           title:    log.title,
           viewLink: Rails.application.routes.url_helpers.patient_patient_log_path(log.patient, log)
