@@ -58,7 +58,10 @@ var RequestedTestRow = React.createClass({
             this.statusChanged
            }
           className="input-x-medium"
-          value={this.state.test.status}>
+          value={this.state.test.status}
+          disabled = {
+            !this.props.edit
+           }>
           {status_data.map(MakeItem)}
           </select></td>
       <td><TextInputModal key={this.state.test.id} comment={this.state.test.comment} commentChanged={this.commentChanged} edit={this.props.edit}/></td>
