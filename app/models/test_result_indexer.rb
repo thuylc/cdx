@@ -39,7 +39,7 @@ class TestResultIndexer < EntityIndexer
     return {
       'test'        => test_fields(test_result),
       'device'      => device_fields(test_result.device),
-#      'location'    => location_fields(test_result.device.site.try(:location, ancestors: true)),
+      'location'    => location_fields(test_result.device.site.try(:location, ancestors: true)),
       'institution' => institution_fields(test_result.device.institution),
       'site'        => site_fields(test_result.device.site),
       'sample'      => sample_fields(test_result.sample),
