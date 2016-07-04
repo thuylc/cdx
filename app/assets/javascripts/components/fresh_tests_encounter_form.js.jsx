@@ -51,7 +51,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
               </a>
             </p>
             <p>
-            <a className={external_samples_class} href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> Append sample</a>
+            <a className={external_samples_class} href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span>Append sample</a>
             </p>
           </div>
 
