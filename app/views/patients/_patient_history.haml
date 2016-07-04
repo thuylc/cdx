@@ -3,8 +3,7 @@
     %h3 Patient History
   .col-6
     %ul
-      #- if can_add_test_orders
-      - if 1==1
+      - if can_add_test_orders
         %li
           = link_to 'Add Test Order', new_encounter_path(mode: 'fresh_tests', patient_id: patient.id), class: 'button add'
       %li

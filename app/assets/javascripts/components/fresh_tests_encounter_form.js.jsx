@@ -9,7 +9,6 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     this.refs.addSamplesModal.show()
     event.preventDefault()
   },
-
   closeAddSamplesModal: function (event) {
     this.refs.addSamplesModal.hide();
     event.preventDefault();
@@ -26,14 +25,13 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
     var cancel_url = "/encounters/new_index";
     if (this.props.referer != null) {
-	     cancel_url = this.props.referer;
+      cancel_url = this.props.referer;
     }
 
-	 var external_samples_class="btn-add-link"
-	 if (this.props.allows_manual_entry != null) {
-		    external_samples_class="hidden"
-	  }
-		
+    var external_samples_class="btn-add-link"
+    if (this.props.allows_manual_entry != true) {
+      external_samples_class="hidden"
+    }
 
     return (
       <div className="newTestOrder">
@@ -212,9 +210,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
           </h1>
 
           <p><input type="text" className="input-block" placeholder="Sample ID" ref="manualSampleEntry"/></p>
-          <p>
-            <button type="button" className="btn-primary pull-right" onClick={this.validateAndSetManualEntry}>OK</button>
-          </p>
+          <p><button type="button" className="btn-primary pull-right" onClick={this.validateAndSetManualEntry}>OK</button></p>
         </Modal>
 
       </div>
