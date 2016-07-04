@@ -39,6 +39,7 @@ class NewFreshEncounterPage < CdxPageBase
   element :testing_for,     "select[id='testing_for']"
 
   element :add_sample, :link, "Add sample"
+  element :add_existing_sample, :link, "Append sample"
 end
 
 class NewEncounterPage < EncounterFormPage

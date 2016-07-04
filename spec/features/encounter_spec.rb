@@ -117,6 +117,7 @@ describe "create encounter" do
       page.patient.type_and_select patient.name
       page.add_sample.click
       page.add_sample.click
+      expect(page).not_to have_link("Append Sample")
       click_link('encountersave')
       click_link('encountersave')
     end
@@ -163,6 +164,28 @@ describe "create encounter" do
       expect(page).to have_link("Update Test Order")
       expect(page.encounter.test_results.count).to eq(0)
       expect(page).to have_css('.icon-pencil', count: 4)
+    end
+  end
+  
+
+  xit "should be able to create fresh encounter with add external sample link on page" do
+    patient = institution.patients.make name: Faker::Name.name, site: site
+    site.update(allows_manual_entry: true);
+
+    goto_page NewFreshEncounterPage do |page|
+      page.patient.type_and_select patient.name
+      page.add_sample.click
+      page.add_sample.click
+      expect(page).to have_link("Append Sample")
+
+      click_link('encountersave')
+      click_link('encountersave')
+    end
+
+    expect_page ShowEncounterPage do |page|
+      expect(page.encounter.patient).to eq(patient)
+      expect(page.encounter.samples.count).to eq(2)
+      expect(page.encounter.test_results.count).to eq(0)
     end
   end
 
