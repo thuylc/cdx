@@ -49,10 +49,9 @@ var EncounterNew = React.createClass({
     }));
   },
   allow_manual_entry_callback: function(manual_entry) {
-	  this.setState({
-			allows_manual_entry: manual_entry
-		});
-		
+    this.setState({
+      allows_manual_entry: manual_entry
+    });
   },
   render: function() {
     var sitesUrl = URI("/encounters/sites").query({context: this.props.context.institution.uuid});
@@ -72,7 +71,7 @@ var EncounterNew = React.createClass({
             return <EncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} manual_sample_entry={this.state.encounter.site.allows_manual_entry} />
           } else {
             return <FreshTestsEncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} 
-                        manual_sample_entry={this.state.encounter.site.allows_manual_entry} referer={this.props.referer} allows_manual_entry={this.state.allows_manual_entry}/>                 
+                    manual_sample_entry={this.state.encounter.site.allows_manual_entry} referer={this.props.referer} allows_manual_entry={this.state.allows_manual_entry}/>                 
           }
         }.bind(this))()}
       </div>

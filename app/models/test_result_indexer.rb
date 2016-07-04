@@ -36,7 +36,6 @@ class TestResultIndexer < EntityIndexer
   end
 
   def fields_to_index
-#binding.pry
     return {
       'test'        => test_fields(test_result),
       'device'      => device_fields(test_result.device),
