@@ -1,12 +1,12 @@
 - content_for(:subheader) do
   .devicearea
-    .row.center.add-new
-      .col.pe-10
-        .row
-          .col
-            %h2
-              = link_to devices_path, class: 'side-link', title: 'Back' do
-                = image_tag "arrow-left-white.png"
-              = I18n.t('devices.new.new_device')
+    .row.center.collapse.add-new
+      .large-12.columns
+        .col
+          %h2
+            = link_to devices_path, class: 'side-link', title: 'Back' do
+              = image_tag "arrow-left-white.png"
+            = I18n.t('devices.new.new_device')
 
-= render 'form'
+.formContainer
+  = render 'form'
