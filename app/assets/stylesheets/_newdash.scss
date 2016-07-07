@@ -439,7 +439,7 @@ z-index:99999;
 }
 
 #filters-form *{
-font-size:12px;
+font-size:10px;
 }
 
 
@@ -464,7 +464,7 @@ min-width:100% !important;
 }
 
 /* Dashboard Styles */ 
-#contentcontainer .row .columns div.search {height:40px;background:#e67e22;position:fixed;top:0px;width:100%;left:300px;top:60px;z-index:999;}
+#contentcontainer .row .columns div.search {height:40px;background:#e06023;position:fixed;top:0px;width:100%;left:300px;top:60px;z-index:999;}
 #contentcontainer .dashboard main {margin-top:50px;}
 .dashboard {padding:10px;}
 #contentcontainer .filterHeader {margin-bottom:80px;}
@@ -560,8 +560,7 @@ form#new_device {
 /* Side Nav */
 .sites-tree-view {
   li button {top:0px;left:3px;}
-  .selected::before {height:29px;background:rgb(255, 255, 255)!important;}
-  .selected > a { color:#434343;}
+  .selected::before {height:29px;}
   li {font-size:12px;line-height:30px;}
 } 
 
@@ -577,12 +576,13 @@ form#new_device {
 
 /* NEW PATIENT STYLES */
   /* New Patient Top Bar Styles */
-  #contentsection .row.collapse.center.add-new {
+  #contentsection .row.collapse.center.add-new, #contentsection .row.collapse.center.edit {
     padding:0px;
     margin:0px;
     height:40px;
+    background:#e06023;
 
-      .large-12.columns {
+      .col.pe-10, .large-12.columns {
         display:flex;
         align-items:center;
 
@@ -590,6 +590,7 @@ form#new_device {
           display:flex;
           align-items:center;
           font-size:1em;
+          text-transform:uppercase;
 
           a.side-link {
             margin-left:15px!important;
@@ -601,6 +602,39 @@ form#new_device {
 
         }
       }
+  }
+  /* Edit Patient */
+  .testflow .container {
+    padding:0px 15px;
+
+    .row .labelHeader {
+      height:40px!important;
+
+      li a.button.add {
+        margin-right:0px;
+        display:inline-block;
+        padding:0.75em 2em;
+        min-width:135px;
+        margin-left:13px;
+        font-weight:bold;
+        font-size:12px!important;
+      }
+    }
+
+    .panel.patient-details {
+      max-width:none!important;
+
+      li a.button.edit {
+        right:13px;
+        min-width:135px;
+        font-weight:bold;
+        font-size:12px!important;
+      }
+    }
+  }
+
+  .testflow ul.tab li a {
+    font-size:12px;
   }
 
 form#new_patient {
@@ -639,7 +673,7 @@ form#new_patient {
   margin:0px;
   display:flex;
   align-items:center;
-  background:#e67e22;
+  background:#e06023;
   position:fixed;
   width:100%;
 
@@ -669,10 +703,11 @@ form#new_patient {
     height: 30px;
     border-radius: 0px;
     line-height: 30px;
-    font-size: 12px;
+    font-size: 11px;
     margin:0px 15px!important;
     border-radius:0%;
     font-weight:bold!important;
+    text-transform:uppercase;
     }
 
     a.side-link:hover {
@@ -695,6 +730,7 @@ form#filters-form.filteroptions {
     margin:0px;
     padding:0px;
     background:#e8e8e8;
+    padding-left:15px;
     input {
       margin-left:0px;
     }
@@ -705,7 +741,7 @@ form#filters-form.filteroptions {
       margin:0px;
       padding:0px;
       border-right:1px solid #b5b5b5;
-      padding:15px;
+      padding:5px;
 
       label {
         padding:0px;
@@ -722,14 +758,14 @@ form#filters-form.filteroptions {
 
     .Select-placeholder {
       text-align:left;
-      margin-top:0px;
+      margin-top:5px;
     }
   }
 } 
 
 #contentsection table {
   margin:0px;
-  padding:10px 15px;
+  padding:10px 20px 10px 15px;
   border:none;
 }
 
@@ -751,7 +787,7 @@ div.pagination {
 
 /* Settings Header Bar */
 .section.group {
-  background:#e67e22;
+  background:#e06023;
   display:flex;
   align-items:center;
   height:40px;
@@ -1074,7 +1110,7 @@ font-size:12px;
 }
 
 .add-new, #contentsection .devicearea .add-new{ 
-background:#e67e22;
+background:#e06023;
 }
 
 #contentsection .devicearea {

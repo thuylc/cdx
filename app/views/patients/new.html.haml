@@ -1,15 +1,13 @@
 - content_for(:subheader) do
-  .row.center.add-new
+  .row.center.add-new.collapse
     .col.pe-10
-      .row
-        .col
-          %h2
-            = link_to patients_path, class: 'side-link', title: 'Back' do
-              = image_tag "arrow-left-white.png"
-            New Patient
+      %h2
+        = link_to patients_path, class: 'side-link', title: 'Back' do
+          = image_tag "arrow-left-white.png"
+        New Patient
 
 .row
-  .col.pe-6
+  .col.pe-12
     = render 'form'
-  .col.pe-6
+  .col.pe-12
     = react_component 'PatientNameSearch'
