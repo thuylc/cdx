@@ -1,14 +1,12 @@
 = render "filters"
 
-.row
+.row.paginationHeader
   .col
     - if @patients.empty?
       = empty_data icon: 'icon-outline-patient xx-large' do |c|
         - c.body do
-          %h1
-            = I18n.t('patients.index.no_patients')
-          %p
-            = I18n.t('patients.index.keep_organized')
+          %h1 No patients registered
+          %p Keep your test orders organized under patients medical history
     - else
       = cdx_table title: pluralize(@total, "patient") do |t|
         - t.columns do
@@ -19,16 +17,11 @@
           %col{:width => "32%"}
         - t.thead do
           %tr
-            %th
-              = I18n.t('patients.index.name')
-            %th
-              = I18n.t('patients.index.patient_id')
-            %th
-              = I18n.t('patients.index.birth_date')
-            %th
-              = I18n.t('patients.index.city')
-            %th
-              = I18n.t('patients.index.last_test_order')
+            %th Name
+            %th Patient Id
+            %th Date of Birth
+            %th City
+            %th Last test order
         - t.tbody do
           - @patients.each do |patient|
             %tr{data: {href: patient_path(patient) }}
