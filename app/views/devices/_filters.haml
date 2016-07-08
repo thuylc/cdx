@@ -3,14 +3,15 @@
   .filterbar.filterbartest
     .heading
       .title
-        - if @can_create
-          = link_to "+", new_device_path, class: 'btn-add side-link fix', title: I18n.t('devices.filters.add_device')
         Devices
 
 
 
     .topfilteropt
       %input#query_button.btn-primary.filtershow(type='button' value="#{I18n.t('devices.filters.show_filters')}")
+      - if @can_create
+        = link_to "Add Device", new_device_path, class: 'btn-add side-link fix', title: I18n.t('devices.filters.add_device')
+        
 
   %form.filteroptions#filters-form{action: devices_path, "data-auto-submit" => true}
     %input{type: "hidden", name: "page_size", value: @page_size}

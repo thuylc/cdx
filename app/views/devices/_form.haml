@@ -1,11 +1,14 @@
 = form_for(@device, html: { autocomplete: 'off' }) do |f|
   = validation_errors @device
 
-  .row
+  .row.header
     .col.pe-2
       = f.label :institution
     .col
       .value= @navigation_context.institution.name
+    = f.submit I18n.t('devices.form.save'), class: 'btn-primary'
+  - if @can_delete
+    = link_to I18n.t('devices.form.delete'), @device, method: :delete, data: { confirm: I18n.t('devices.form.confirm_delete') }, class: 'btn-secondary pull-right'
 
   .row
     .col.pe-2
@@ -48,12 +51,7 @@
         - select.items(ActiveSupport::TimeZone.all, :name, :to_s)
   #custom_mappings
     = render "custom_mappings" if @device.device_model
-
-  .row.button-actions
-    .col
-      = f.submit I18n.t('devices.form.save'), class: 'btn-primary'
-      - if @can_delete
-        = link_to I18n.t('devices.form.delete'), @device, method: :delete, data: { confirm: I18n.t('devices.form.confirm_delete') }, class: 'btn-secondary pull-right'
+     
 
 :coffeescript
   $ ->

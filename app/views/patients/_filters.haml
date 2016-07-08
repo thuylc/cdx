@@ -1,13 +1,15 @@
 - content_for(:subheader) do
-  .row.center.filters
-    .col.pe-10
-      .row
-        .col
-          %h1
-            - if @can_create
-              = link_to "+", new_patient_path, class: 'btn-add side-link fix', title: I18n.t('patients.filters.add_patient')
-            = I18n.t('patients.filters.patients')
-      %form#filters-form{action: patients_path, "data-auto-submit" => true}
+  %section.row.filterHeader
+    .small-12.columns
+      .search
+        %h1 Patients
+        .btn.add
+          - if @can_create
+            = link_to "Add Patient", new_patient_path, class: 'btn-add side-link fix', title: I18n.t('patients.filters.add_patient')
+          = I18n.t('patients.filters.patients')
+
+            
+      %form.pageFilters#filters-form{action: patients_path, "data-auto-submit" => true}
         %input{type: "hidden", name: "page_size", value: @page_size}
         .row
           .filter
