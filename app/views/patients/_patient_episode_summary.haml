@@ -17,7 +17,7 @@
       %ul
         %li
           = link_to I18n.t('patients.show.add_episode'), new_patient_episode_path(patient), class: 'button add'
-  .panel.patient-details
+  .panel.patient-details.episodelisting
     - episodes.each do |episode|
       .row
         .col-2.summary.patient

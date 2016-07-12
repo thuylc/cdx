@@ -1,5 +1,6 @@
 - content_for(:subheader) do
-  .container.testflow
+.testflow.testOrder
+  .container
     .row.labelHeader
       .col-6
         %h3
@@ -7,7 +8,9 @@
             = 'Existing Tests'
           - else
             = 'New Test'
-      .col-6
-        = link_to(I18n.t('views.back'), new_index_encounters_path, class: 'button new')
+      .col-6.right
+        %ul
+          %li
+            = link_to(I18n.t('views.back'), new_index_encounters_path, class: 'button cancel')
 
 = react_component('EncounterNew', context: @navigation_context.to_hash, patient: @patient_json, mode: params[:mode], possible_assay_results: @possible_assay_results, referer: @return_path_encounter)

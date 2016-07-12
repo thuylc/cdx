@@ -63,8 +63,17 @@ var EncounterNew = React.createClass({
 
     return (
       <div className="testflow">
-        {siteSelect}
-        {performingSiteSelect}
+        <div class="row labelHeader">
+          <div class="col-6">
+            <h3>Site Details</h3>
+          </div>
+          <div class="col-6">
+          </div>
+        </div>
+        <div class="panel">
+          {siteSelect}
+          {performingSiteSelect}
+        </div>
 
         {(function(){
           if (this.props.mode == 'existing_tests') {

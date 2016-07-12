@@ -28,7 +28,6 @@
 
 
 
-
 /*  COLUMN SETUP  */
 
 /*  FLEX GRID OF TWELVE  */
@@ -108,8 +107,8 @@ body {
   font-weight: 400;
   background-color:#5c5b82;
   color: white;
-  padding: 0.6em 0.5em;
-  height:auto;
+  padding: 10px 15px;
+  height:40px;
   border:1px solid #c7c7c7;
 }
 
@@ -285,6 +284,10 @@ body {
 #contentcontainer tr:nth-child(even) {
   background-color: #dbdae2;
 } 
+
+#contentcontainer tr:nth-child(even):hover {
+  opacity:0.8;
+}
 
 #contentcontainer thead tr:nth-child(even) {
   background:#fff;
@@ -507,11 +510,11 @@ margin-bottom: 20px;
 }
 
 /* FORM STYLES */
-#filters-form.pageFilters, #filters-form.filteroptions {display:flex;flex-flow:row wrap;background:#e8e8e8;}
+#filters-form.pageFilters, #filters-form.filteroptions {display:flex;flex-flow:row wrap;background:#e8e8e8;width:100%;}
 #filters-form.pageFilters div.filter, #filters-form.filteroptions div.filter {display:flex!important;flex-flow:row wrap;align-items:center;}
 #filters-form.pageFilters label, #filters-form .custom-fields-title>.col {line-height:initial;min-height:auto;padding:15px;}
-#filters-form.pageFilters input.input-block:focus, #filters-form.filteroptions input.input-block:focus {outline:none;margin-top:5px;}
-#filters-form.pageFilters * .input-block, #filters-form.filteroptions * .input-block {flex:1 0 auto;width:auto;}
+#filters-form.pageFilters input.input-block:focus, #filters-form.filteroptions input.input-block:focus {outline:none;}
+#filters-form.pageFilters * .input-block, #filters-form.filteroptions * .input-block {flex:1 0 auto;width:auto;background:#fff;}
 #filters-form.pageFilters div.Select-placeholder, #filters-form.filteroptions div.Select-placeholder {margin-top:5px;}
 #filters-form.pageFilters div.row { margin-left: -0.9375rem;margin-right: -0.9375rem;}
 #filters-form.pageFilters * {color:#434343;}
@@ -589,92 +592,258 @@ form#new_device {
 }
 
 /* NEW PATIENT STYLES */
-  /* New Patient Top Bar Styles */
-  #contentsection .row.collapse.center.add-new, #contentsection .row.collapse.center.edit {
-    padding:0px;
-    margin:0px;
-    height:40px;
-    background:#e06023;
+/* New Patient Top Bar Styles */
+#contentsection .row.collapse.center.add-new, #contentsection .row.collapse.center.edit {
+  padding:0px;
+  margin:0px;
+  height:40px;
+  background:#e06023;
 
-      .col.pe-10, .large-12.columns {
+    .col.pe-10, .large-12.columns {
+      display:flex;
+      align-items:center;
+
+      h2 {
         display:flex;
         align-items:center;
+        font-size:14px!important;
+        text-transform:uppercase;
+        color:#fff;
 
-        h2 {
-          display:flex;
-          align-items:center;
-          font-size:12px!important;
-          text-transform:uppercase;
-          color:#fff;
+        a.side-link {
+          margin-left:15px!important;
+          height:auto;
+          padding:0px 15px 0px 0px;
+          border-radius:0px;
+          margin-right:0px!important;
 
-          a.side-link {
-            margin-left:15px!important;
-            height:auto;
-            padding:0px 15px 0px 0px;
-            border-radius:0px;
-
-            img {
-              display:block;
-            }
+          img {
+            display:block;
           }
-
         }
+
       }
+    }
+}
+/* Edit Patient Page Styles */
+.testflow {
+  padding:0px 15px;
+
+  .row.labelHeader {
+    height:40px!important;
+
+    h3 {
+      padding-left:15px;
+    }
+
+    li a.button.add {
+      margin-right:0px;
+      display:inline-block;
+      padding:0.75em 2em;
+      min-width:135px;
+      margin-left:13px;
+      font-weight:bold;
+      font-size:12px!important;
+      margin-right:0px;
+      background-color:#0d8aee;
+      font-weight:bold;
+    }
   }
-  /* Edit Patient */
-  .testflow .container {
-    padding:0px 15px;
+
+  .panel.patient-details {
+    max-width:none!important;
+
+    li a.button.edit {
+      right:10px;
+      min-width:135px;
+      font-weight:bold;
+      font-size:12px!important;
+      margin-right:0px;
+    }
+
+    label {
+      font-size:12px;
+      font-weight:bold;
+    }
+    .col-10 {position:relative;}
+  }
+}
+/* Edit & New Episode Styles */
+.testflow.editEpisode {
+  .container {
+    padding:0px;
 
     .row.labelHeader {
-      height:40px!important;
+      max-width:none;
 
-      li a.button.add {
-        margin-right:0px;
-        display:inline-block;
-        padding:0.75em 2em;
-        min-width:135px;
-        margin-left:13px;
-        font-weight:bold;
-        font-size:12px!important;
-        margin-right:0px;
-        background-color:#0d8aee;
-        font-weight:bold;
+      h3 {
+        padding-left:0px;
+      }
+
+      .right {
+        justify-content:flex-end;
+
+        a.cancel {
+          margin-right:0px;
+          padding:0.75em 2em;
+        }
       }
     }
 
-    .panel.patient-details {
-      max-width:none!important;
-
-      li a.button.edit {
-        right:13px;
-        min-width:135px;
-        font-weight:bold;
-        font-size:12px!important;
-        margin-right:0px;
-      }
+    .row {
+      margin:0rem auto;
+      justify-content:flex-start;
+      padding:0 15px;
+    }
+    .panel {
+      max-width:none;
     }
   }
 
-  .testflow ul.tab li a {
+  input[type="radio"]+label, .custom-fields-title>input[type="radio"]+.col {
+    margin-bottom:0px;
+  }
+
+  label, .custom-fields-title>.col {
+    color:#333;
+  }
+
+  form select {
+    width:200px;
+  }
+
+  .testflow input[type=submit] {
+    margin:5px 0px;
     font-size:12px;
+    background-color:#2196f3;
+    padding:0.75em 2em;
   }
+}
+
+/* Edit & New Test Order Styles */
+.testflow.testOrder {
+  .container {
+    padding:0px;
+
+    .row.labelHeader {
+      max-width:none;
+      margin:0px auto;
+
+      h3 {
+        padding-left:0px;
+      }
+
+      .col-6 {
+        width:50%;
+      }
+
+      .right {
+        justify-content:flex-end;
+        display:flex;
+
+        a.cancel {
+          margin-right:0px;
+          padding:0.75em 2em;
+          font-size:12px;
+          font-weight:bold;
+          display:inline-block;
+          background:#555;
+        }
+      }
+    }
+
+    .row {
+      justify-content:flex-start;
+      padding:0 15px;
+    }
+    .panel {
+      max-width:none;
+    }
+
+    .col.pe-10 .testflow {
+
+      .Select {z-index:initial;}
+
+      label {color:#333;}
+
+      .Select-control>.Select-placeholder {
+        color: #333333;
+        background: white;
+        padding: 8px 52px 8px 8px;
+        margin-top: 2px;
+        border:1px solid #e5e5e5;
+      }
+    }
+  }
+
+  input[type="radio"]+label, .custom-fields-title>input[type="radio"]+.col {
+    margin-bottom:0px;
+  }
+
+  label, .custom-fields-title>.col {
+    color:#333;
+  }
+
+  form select {
+    width:200px;
+  }
+
+  .testflow input[type=submit] {
+    margin:5px 0px;
+    font-size:12px;
+    background-color:#2196f3;
+    padding:0.75em 2em;
+  }
+}
+
+.newTestOrder {
+  .panel {
+    max-width:none;
+  }
+}
+
+.testflow ul.tab li a {
+  font-size:12px!important;
+}
 
 section.newPatientContainer {
-  padding:10px 15px 10px 20px;
+  padding:10px 20px 10px 15px;
 } 
 form#new_patient {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
   background:#fff;
+  border:1px solid #e2e2e2;
+  font-size:0.7rem;
+
+  label, .custom-fields-title>.col {
+    color:#333;
+  }
+
+  .row.header {
+    border-bottom:1px solid #2196f3;
+
+    label, .value {
+      font-weight:600;
+      color:rgba(0, 0, 0, 0.4);
+      font-size:11px;
+    }
+  }
+
+  .value {
+    line-height:40px;
+  }
   
   input.input-large {
     border:1px solid #e2e2e2;
+    margin-top:5px;
+    background:#fff;
   }
 
   div.row.button-actions {
     position:absolute;
-    top:-65px;
-    right:15px;
+    top:-15px;
+    right:25px;
+    background:none!important;
+    padding:0px;
 
       input.btn-primary, a.btn-link {
         margin:0px;padding:0.5em 2em;line-height:15px;height:30px;color:#fff;
@@ -687,6 +856,40 @@ form#new_patient {
       a.btn-link {
         background:#555!important;
       }
+  }
+
+  div.row:nth-child(even), div .row {
+    background:#dbdae2;
+  }
+
+  div.row {
+    padding:0 15px;
+  }
+
+  .Select.is-searchable {
+    margin-top:6px;
+    width:200px;
+    border:none;
+
+    .Select-control {
+      padding:8px 120px 8px 0px;
+
+      .Select-placeholder {
+        padding:5px 52px 8px 5px;
+        background:#fff;
+      }
+      span.Select-arrow {
+        top:8px;
+      }
+    }
+  }
+
+  .col input#patient_dob {
+    height:30px;
+    margin-top:5px;
+    width:200px;
+    border:1px solid #e2e2e2;
+    padding-left:5px;
   }
 }
 
@@ -729,7 +932,7 @@ form#new_patient {
     border-radius: 0px;
     line-height: 30px;
     font-size: 11px;
-    margin:0px 15px!important;
+    margin:0px 0px 0px 15px!important;
     border-radius:0%;
     font-weight:bold!important;
     text-transform:uppercase;
@@ -743,6 +946,7 @@ form#new_patient {
       height:30px;
       line-height:30px;
       background:#0d8aee;
+      margin-left:15px;
     }
   }
 }
@@ -755,7 +959,10 @@ form#filters-form.filteroptions {
     margin:0px;
     padding:0px;
     background:#e8e8e8;
-    padding-left:15px;
+
+    .advanced {
+      padding:0px 15px;
+    }
     input {
       margin-left:0px;
     }
@@ -765,6 +972,9 @@ form#filters-form.filteroptions {
      .filter:first-child {
       padding-left:0px;
      }
+     .filter:last-child {
+      border:none;
+     }
      .filter {
       margin:0px;
       padding:0px;
@@ -772,21 +982,36 @@ form#filters-form.filteroptions {
       padding:5px;
 
       label {
-        padding:0px;
+        padding:0px 0px 5px 0px;
         font-weight:bold;
+        padding-right:15px;
+        line-height:10px;
+        width:100%;
       }
       .col {
         padding:0px;
       }
+
+      input, .Select.is-searchable {height:20px;}
+      input {width:100%!important;background:#fff;}
+      input[type="text"] {border-bottom:none;}
 
     }
     .advanced {
       height:auto;
     }
 
+    .Select-arrow {
+      top:5px;
+    }
+
     .Select-placeholder {
       text-align:left;
-      margin-top:5px;
+      margin-top:0px;
+    }
+
+    .Select-control {
+      padding:0px 120px 0px 0px;
     }
   }
 } 
@@ -850,6 +1075,7 @@ th.tableheader {
 
 .table th .table-title {
   vertical-align:middle;
+  text-transform:capitalize;
 }
 
 tbody {background:#fff;}

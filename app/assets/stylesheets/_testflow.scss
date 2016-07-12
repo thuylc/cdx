@@ -427,7 +427,7 @@ body {
   }
   .newTestOrder .panel {
     > div.row {
-      justify-content: flex-start;
+      justify-content:center;
     }
     .row {
       align-items: flex-start;
@@ -500,4 +500,9 @@ height:30px;
 padding-left:10px;
 padding-right:10px;
 padding-top:3px;
+}
+
+.episodelisting{
+	height: 220px;
+    overflow: auto;
 }

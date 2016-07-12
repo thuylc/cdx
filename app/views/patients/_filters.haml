@@ -1,28 +1,30 @@
 - content_for(:subheader) do
-  %section.row.filterHeader
-    .small-12.columns
-      .search
-        %h1
-          = I18n.t('patients.filters.patients')
-        .btn.add
-          - if @can_create
-            = link_to I18n.t('patients.filters.add_patient'), new_patient_path, class: 'btn-add side-link fix', title: I18n.t('patients.filters.add_patient')
+  %div.filterbar.filterbartest
+    .heading
+      .title
+        Patients
+      .topfilteropt
+        - if @can_create
+          = link_to "Add Patient", new_patient_path, class: 'btn-add side-link fix', title: I18n.t('patients.filters.add_patient')
+          
 
-
-        %form.pageFilters#filters-form{action: patients_path, "data-auto-submit" => true}
-          %input{type: "hidden", name: "page_size", value: @page_size}
-          .row
-            .filter
-              %label.block
-                = I18n.t('patients.filters.name')
-              %input.input-block{type: "text", name: "name", value: params["name"]}
-            .filter
-              %label.block
-                = I18n.t('patients.filters.patient_id')
-              %input.input-block{type: "text", name: "entity_id", value: params["entity_id"]}
-            .filter
-              %label.block
-                = I18n.t('patients.filters.last_test_order')
-              = cdx_select name: "last_encounter", value: params["last_encounter"] do |select|
-                - select.item "", I18n.t('patients.filters.show_all')
-                - select.items @date_options, :value, :label
+            
+  %form.filteroptions#filters-form{action: patients_path, "data-auto-submit" => true}
+    %input{type: "hidden", name: "page_size", value: @page_size}
+    .row.custom_filters.center
+      .advanced.patientsFilter
+        .row
+          .filter
+            %label.block
+              = I18n.t('patients.filters.name')
+            %input.input-block{type: "text", name: "name", value: params["name"]}
+          .filter
+            %label.block
+              = I18n.t('patients.filters.patient_id')
+            %input.input-block{type: "text", name: "entity_id", value: params["entity_id"]}
+          .filter
+            %label.block
+              = I18n.t('patients.filters.last_test_order')
+            = cdx_select name: "last_encounter", value: params["last_encounter"] do |select|
+              - select.item "", I18n.t('patients.filters.show_all')
+              - select.items @date_options, :value, :label
