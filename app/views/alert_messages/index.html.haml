@@ -9,30 +9,20 @@
 .row
   .col
     - if @alert_messages.empty?
-      = empty_data title: "No alert messages", icon: 'icon-outline-alert xx-large' do |c|
+      = empty_data title: I18n.t('alert_messages.index.no_alerts'), icon: 'icon-outline-alert xx-large' do |c|
         - c.body do
-          %h1 There are no alert messages at #{truncated_navigation_context_entity_name}
-          %p Create alert groups in order to keep your team notified on current events
+          %h1
+            = I18n.t('alert_messages.index.no_messages', entity_name: truncated_navigation_context_entity_name)
+          %p
+            = I18n.t('alert_messages.index.create_alerts')
     - else
-      = cdx_table title: pluralize(@total, "Alert Message") do |t|
-        - t.columns do
-          %col{:width => "20%"}
-          %col{:width => "25%"}
-          %col{:width => "15%"}
-          %col{:width => "40%"}
-        - t.thead do
-          %tr
-            %th Alert Group
-            %th Date
-            %th Channel
-            %th Message
-        - t.tbody do
-          - @alert_messages.each do |alert_message|
-            %tr{data: {href: edit_alert_path(alert_message.alert) }}
-              %td= truncate(alert_message.alert.name, length: 20)
-              %td= alert_message.created_at.to_formatted_s(:long)
-              %td=  Alert.channel_types.keys[Alert.channel_types["email"]]
-              %td= truncate(alert_message.message_sent, length: 60)
-
-      .pagination
-        = render 'shared/pagination'
+      %section.row
+        .small-12.columns.box
+          %header
+            = image_tag('img/device.png')
+            %h3
+              = I18n.t('alert_messages.index.alert_message', count: @total)
+          .box-content
+            = react_component "AlertMessagesIndexTable", alertMessages: Presenters::AlertMessages.index_table(@alert_messages), orderBy: @order_by
+            .pagination
+              = render 'shared/pagination'

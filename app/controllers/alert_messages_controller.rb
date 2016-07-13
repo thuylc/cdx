@@ -6,14 +6,9 @@ class AlertMessagesController < ApplicationController
   end
 
   def index
-    @page_size = (params["page_size"] || 10).to_i
-    @page = (params["page"] || 1).to_i
-    offset = (@page - 1) * @page_size
-
-    @alert_messages = current_user.recipient_notification_history
-    @total = @alert_messages.count
-    @alert_messages = @alert_messages.limit(@page_size).offset(offset)
-
-    respond_with @alert_messages
+    @alert_messages  = current_user.recipient_notification_history
+    @total           = @alert_messages.count
+    order_by, offset = perform_pagination('alerts.name')
+    @alert_messages  = @alert_messages.joins(:alert, :user).order(order_by).limit(@page_size).offset(offset)
   end
 end

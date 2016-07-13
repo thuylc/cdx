@@ -17,6 +17,6 @@
             %h3
               = I18n.t('alert_groups.index.alert_group', count: @total)
           .box-content
-            = react_component "AlertGroupsIndexTable", alerts: Presenters::AlertGroups.index_table(@alerts), orderBy: params["order_by"] || "alerts.name"
+            = react_component "AlertGroupsIndexTable", alerts: Presenters::AlertGroups.index_table(@alerts), orderBy: @order_by
             .pagination
               = render 'shared/pagination'

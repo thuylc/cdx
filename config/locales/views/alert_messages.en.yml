@@ -1,0 +1,10 @@
+en:
+  alert_messages:
+    index:
+      no_messages: There are no alert messages at %{entity_name}
+      create_alerts: 'Create alert groups in order to keep your team notified on current events'
+      alert_message:
+        zero: 'No alert messages'
+        one: '1 Alert message'
+        other: '%{count} Alert messages'
+      no_alerts: 'No alert messages'

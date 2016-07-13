@@ -51,6 +51,12 @@ AlertRecipient.blueprint do
   last_name {'smith'}
 end
 
+RecipientNotificationHistory.blueprint do
+  user
+  alert
+  message_sent Faker::Lorem.sentence
+end
+
 Comment.blueprint do
   patient       { Patient.make }
   commented_on  { Faker::Date.between(60.days.ago, Date.today) }
