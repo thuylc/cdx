@@ -51,6 +51,12 @@ AlertRecipient.blueprint do
   last_name {'smith'}
 end
 
+AlertHistory.blueprint do
+  user
+  alert
+  test_result
+end
+
 RecipientNotificationHistory.blueprint do
   user
   alert

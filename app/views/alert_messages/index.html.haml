@@ -6,7 +6,7 @@
           %h1
             Alert messages
 
-.row
+.row.paginationHeader
   .col
     - if @alert_messages.empty?
       = empty_data title: I18n.t('alert_messages.index.no_alerts'), icon: 'icon-outline-alert xx-large' do |c|

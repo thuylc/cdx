@@ -1,0 +1,11 @@
+en:
+  incidents:
+    index:
+      no_incidents: 'No incidents'
+      zero_incidents: 'There are no incidents on this site'
+      create_alert_groups: 'Create alert groups in order to keep your team notified on current events.'
+      incident:
+        zero: 'No incidents'
+        one: '1 Incident'
+        other: '%{count} Incidents'
+      no_result: 'No result'
