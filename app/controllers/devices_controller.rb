@@ -18,17 +18,11 @@ class DevicesController < ApplicationController
     @devices = @devices.where(device_models: { institution_id: params[:manufacturer].to_i}) if params[:manufacturer].presence
     @devices = @devices.where(device_model: params[:device_model].to_i) if params[:device_model].present?
 
-    @page_size = (params['page_size'] || 10).to_i
-    @page_size = 50 if @page_size > 50
-    @page = (params['page'] || 1).to_i
-    @page = 1 if @page < 1
-    offset = (@page - 1) * @page_size
+    @total           = @devices.count
+    order_by, offset = perform_pagination('devices.name')
+    @devices         = @devices.order(order_by).limit(@page_size).offset(offset)
 
-    @total = @devices.count
-
-    @devices = @devices.order(params['order_by'] || 'devices.name').limit(@page_size).offset(offset)
-
-    @can_create = has_access?(Institution, REGISTER_INSTITUTION_DEVICE)
+    @can_create      = has_access?(Institution, REGISTER_INSTITUTION_DEVICE)
     @devices_to_read = check_access(Device, READ_DEVICE).pluck(:id)
 
     respond_to do |format|

@@ -44,16 +44,10 @@ class TestOrdersController < TestsController
   end
 
   def build_table_data(results)
-    @page_size  = (params["page_size"] || 10).to_i
-    @page_size  = 100 if @page_size > 100
-    @page       = (params["page"] || 1).to_i
-    @page       = 1 if @page < 1
-    @offset     = (@page - 1) * @page_size
-    @order_by   = params["order_by"] || "encounters.testdue_date"
-    order_by    =  @order_by[0] == '-' ? @order_by[1..90] + ' desc' : @order_by
-    order_by    = order_by + ', users.last_name' if order_by.include?('users.first_name')
-    @total      = Encounter.where(uuid: results.map{|r| r['encounter']['uuid'] if r['encounter'] }).count
-    @tests      = Encounter.includes(:institution, :patient, :site, :user).where(uuid: results.map{|r| r['encounter']['uuid'] if r['encounter'] }).order(order_by).limit(@page_size).offset(@offset)
+    @total           = Encounter.where(uuid: results.map{|r| r['encounter']['uuid'] if r['encounter'] }).count
+    order_by, offset = perform_pagination('encounters.testdue_date')
+    order_by         = order_by + ', users.last_name' if order_by.include?('users.first_name')
+    @tests           = Encounter.includes(:institution, :patient, :site, :user).where(uuid: results.map{|r| r['encounter']['uuid'] if r['encounter'] }).order(order_by).limit(@page_size).offset(offset)
   end
 
   def create_filter_for_test_order
