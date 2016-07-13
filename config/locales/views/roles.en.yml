@@ -1,0 +1,7 @@
+en:
+  roles:
+    index:
+      role:
+        zero: 'No roles created yet'
+        one: '1 Role'
+        other: '%{count} Roles'

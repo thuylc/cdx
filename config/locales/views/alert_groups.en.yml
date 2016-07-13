@@ -6,7 +6,7 @@ en:
       create_alert_groups: 'Create alert groups in order to keep your team notified on current events'
       alert_group:
         zero: 'No alert groups'
-        one: 'One alert group'
+        one: '1 Alert group'
         other: '%{count} Alert groups'
       ago: ' ago'
       never: 'never'

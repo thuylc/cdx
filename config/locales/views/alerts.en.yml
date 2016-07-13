@@ -1,0 +1,7 @@
+en:
+  alerts:
+    index:
+      alerts: 'Alerts'
+      your_team: 'Keep your team notified about important stuff.'
+      messages_sent: 'Alert messages sent'
+      incidents: 'Incidents'

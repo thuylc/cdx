@@ -4,20 +4,18 @@
   .container
     .section.group
       .col.col-12
-        %h1 Alerts
+        %h1
+          = I18n.t('alerts.index.alerts')
 
     .section.settings.centered
-      -# ------------ ALERT GROUPS
-      = setting_card title: pluralize(@total, "Alert Group"), href: alert_groups_path, icon: 'fa-exclamation-triangle', colour: 'orange' do |c|
+      = setting_card title: I18n.t('alert_groups.index.alert_group', count: @total), href: alert_groups_path, icon: 'fa-exclamation-triangle', colour: 'orange' do |c|
         - c.body do
-          Keep your team notified about important stuff.
+          = I18n.t('alerts.index.your_team')
 
-      -# ------------ ALERT MESSAGES
-      = setting_card title: "Alert Messages Sent", href: alert_messages_path, icon: 'fa-ra', colour: 'silver' do |c|
+      = setting_card title: I18n.t('alerts.index.messages_sent'), href: alert_messages_path, icon: 'fa-ra', colour: 'silver' do |c|
         - c.body do
-          Keep your team notified about important stuff.
+          = I18n.t('alerts.index.your_team')
 
-      -# ------------ ALERT INCIDENTS
-      = setting_card title: "Incidents", href: incidents_path, icon: 'fa-connectdevelop', colour: 'orange' do |c|
+      = setting_card title: I18n.t('alerts.index.incidents'), href: incidents_path, icon: 'fa-connectdevelop', colour: 'orange' do |c|
         - c.body do
-          Keep your team notified about important stuff.
+          = I18n.t('alerts.index.your_team')
