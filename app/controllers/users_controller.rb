@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       format.html do
         @total = @users.count
 
-        order_by, offset = perform_pagination('sites.name')
+        order_by, offset = perform_pagination('users.first_name, users.last_name')
         @users = @users.order(order_by).limit(@page_size).offset(offset)
       end
       format.csv do
