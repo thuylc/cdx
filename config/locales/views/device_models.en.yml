@@ -1,0 +1,12 @@
+en:
+  device_models:
+    index:
+      device_model:
+        zero: 'No device model'
+        one: '1 Device model'
+        other: '%{count} Device models'
+      add_device_model: 'Add device model'
+      device_models: 'Device models'
+      no_device_models: 'No device models'
+      there_are_no_device_models: 'There are no device models'
+      create_device_models: 'Create device models and publish manifests that will allow test reporting on CDx platform.'

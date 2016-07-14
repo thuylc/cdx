@@ -4,28 +4,27 @@
       .row
         .col
           %h1
-            - if @can_create
-              = link_to "+", new_device_model_path, class: 'btn-add side-link fix', title: 'Add Device Model'
-            Device models
+            - if has_access?(@navigation_context.institution, Policy::Actions::REGISTER_INSTITUTION_DEVICE_MODEL)
+              = link_to "+", new_device_model_path, class: 'btn-add side-link fix', title: I18n.t('device_models.index.add_device_model')
+            = I18n.t('device_models.index.device_models')
 
 .row
   .col
     - if @device_models.empty?
-      = empty_data title: 'No device models', icon: 'icon-outline-instructions xx-large' do |c|
+      = empty_data title: I18n.t('device_models.index.no_device_models'), icon: 'icon-outline-instructions xx-large' do |c|
         - c.body do
-          %h1 There are no device models
-          %p Create device models and publish manifests that will allow test reporting on CDx platform
+          %h1
+            = I18n.t('device_models.index.there_are_no_device_models')
+          %p
+            = I18n.t('device_models.index.create_device_models')
     - else
-      = cdx_table title: pluralize(@device_models.count, "device model") do |t|
-        - t.columns do
-          %col{:width => "70%"}
-          %col{:width => "30%"}
-        - t.thead do
-          %tr
-            %th Name
-            %th Version
-        - t.tbody do
-          - @device_models.each do |device_model|
-            %tr{data: {href: try_edit_device_model_path(device_model) }}
-              %td= device_model.name
-              %td= device_model.current_manifest.try(:version)
+      %section.row
+        .small-12.columns.box
+          %header
+            = image_tag('img/user.png')
+            %h3
+              = I18n.t('device_models.index.device_model', count: @total)
+          .box-content
+            = react_component "DeviceModelsIndexTable", deviceModels: Presenters::DeviceModels.index_table(@device_models, current_user), orderBy: @order_by
+            .pagination
+              = render 'shared/pagination'
