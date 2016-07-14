@@ -34,7 +34,7 @@ var RolesIndexTable = React.createClass({
     );
 
     return (
-      <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="alert-groups-table">
+      <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="roles-table">
         <thead>
           <tr>
             {sortableHeader('Name', 'roles.name', 'This is the name of the role.')}

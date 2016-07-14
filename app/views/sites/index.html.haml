@@ -1,30 +1,24 @@
 = render "filters"
-.row
+.row.paginationHeader
   .col
     - if @sites.empty?
       = empty_data icon: 'icon-outline-site xx-large' do |c|
         - c.body do
-          %h1 This #{navigation_context_entity_name} has no dependencies
-          %p Create sites here to keep your institution's hierachy organized
+          %h1
+            = I18n.t('sites.index.no_dependencies', entity_name: navigation_context_entity_name)
+          %p
+            = I18n.t('sites.index.create_sites')
     - else
-      = cdx_table title: pluralize(@total, "site") do |t|
-        - t.columns do
-          %col{:width => "50%"}
-          %col{:width => "50%"}
-        - t.actions do
-          = link_to sites_path(filters_params.merge(format: :csv)), title: 'Download CSV' do
-            .icon-download.icon-gray
-        - t.thead do
-          %tr
-            %th Name
-            %th City
-            %th Comment
-        - t.tbody do
-          - @sites.each do |site|
-            %tr{data: {href: edit_site_path(site) }}
-              %td= site.name
-              %td= site.city !=nil ? site.city : ''
-              %td= site.comment != nil ? site.comment : ''
-
-      .pagination
-        = render 'shared/pagination'
+      %section.row
+        .small-12.columns.box
+          %header
+            = image_tag('img/user.png')
+            %h3
+              = I18n.t('sites.index.site', count: @total)
+            %span.table-actions
+              = link_to sites_path(filters_params.merge(format: :csv)), title: I18n.t('devices.index.download_csv') do
+                %span.icon-download.icon-gray
+          .box-content
+            = react_component "SitesIndexTable", sites: Presenters::Sites.index_table(@sites), orderBy: @order_by
+            .pagination
+              = render 'shared/pagination'

@@ -1,5 +1,12 @@
 en:
   sites:
+    index:
+      no_dependencies: 'This %{entity_name} has no dependencies.'
+      create_sites: "Create sites here to keep your institution's hierachy organized."
+      site:
+        zero: 'No sites'
+        one: '1 Site'
+        other: '%{count} Sites'
     form:
       label:
         institution: 'Institution'
