@@ -1,36 +1,14 @@
 = render "filters"
 
-.row
+.row.paginationHeader
   .col
-    = cdx_table title: pluralize(@total, "role") do |t|
-      - t.columns do
-        %col{:width => "45%"}
-        %col{:width => "45%"}
-        %col{:width => "10%"}
-      - t.thead do
-        %tr
-          %th
-            %div.tooltip 
-              Name
-              %div.tooltiptext_r 
-                This is the Name of the Role.
-          %th
-            %div.tooltip 
-              Location
-              %div.tooltiptext_r 
-                This is the Site the Role applies to.
-          %th
-            %div.tooltip 
-              Users
-              %div.tooltiptext_b 
-                Number of Users who have this Role.
-
-      - t.tbody do
-        - @roles.each do |role|
-          %tr{data: {href: edit_role_path(role)}}
-            %td= role.name
-            %td= role.site ? role.site.name : role.institution.name
-            %td= @user_counts[role.id]
-
-    .pagination
-      = render 'shared/pagination'
+    %section.row
+      .small-12.columns.box
+        %header
+          = image_tag('img/user.png')
+          %h3
+            = I18n.t('roles.index.role', count: @total)
+        .box-content
+          = react_component "RolesIndexTable", roles: Presenters::Roles.index_table(@roles, current_user, @navigation_context), orderBy: @order_by
+          .pagination
+            = render 'shared/pagination'

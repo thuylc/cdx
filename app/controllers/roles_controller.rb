@@ -3,14 +3,15 @@ class RolesController < ApplicationController
 
   def index
     @roles       = check_access(Role, READ_ROLE).within(@navigation_context.entity, @navigation_context.exclude_subsites).includes(:institution, :site)
-    @user_counts = check_access(Role, READ_ROLE).within(@navigation_context.entity, @navigation_context.exclude_subsites).joins("LEFT JOIN roles_users ON roles.id = roles_users.role_id").group("roles.id").count(:user_id)
     @can_create  = has_access?(Role, UPDATE_ROLE)
 
     @roles = @roles.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
     @total = @roles.count
 
     order_by, offset = perform_pagination('roles.name')
-    @roles = @roles.order(order_by).limit(@page_size).offset(offset)
+    order_by = 'sites.name, institutions.name' if (@order_by == 'sites.name' )
+    order_by = 'sites.name desc, institutions.name desc' if (@order_by == '-sites.name' )
+    @roles   = @roles.order(order_by).limit(@page_size).offset(offset)
   end
 
   def new

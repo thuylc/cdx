@@ -11,11 +11,11 @@ describe Presenters::Devices do
     end
 
     it 'should return an array of formated devices' do
-      expect(Presenters::Devices.index_table(site.devices).size).to eq(7)
+      expect(described_class.index_table(site.devices).size).to eq(7)
     end
 
     it 'should return elements formated' do
-      expect(Presenters::Devices.index_table(site.devices).first).to eq({
+      expect(described_class.index_table(site.devices).first).to eq({
         id:              site.devices.first.uuid,
         name:            site.devices.first.name,
         institutionName: site.devices.first.device_model.institution.name,

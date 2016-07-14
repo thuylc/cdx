@@ -286,7 +286,7 @@ end
 Policy.blueprint do
   name
   granter { Institution.make.user }
-  definition { policy_definition(object.granter.institutions.first, CREATE_INSTITUTION, true) }
+  definition { policy_definition(object.granter.institutions.first, Policy::Actions::CREATE_INSTITUTION, true) }
   user
 end
 

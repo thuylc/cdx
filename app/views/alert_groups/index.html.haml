@@ -1,6 +1,6 @@
 = render "filters"
 
-.row
+.row.paginationHeader
   .col
     - if @alerts.empty?
       = empty_data title: I18n.t('alert_groups.index.no_alerts'), icon: 'icon-outline-alert xx-large' do |c|
