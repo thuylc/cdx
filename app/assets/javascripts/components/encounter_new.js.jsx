@@ -41,7 +41,7 @@ var EncounterNew = React.createClass({
       }
     }));
   },
-  setPerformingSite: function(site) {  
+  setPerformingSite: function(site) {
     this.setState(React.addons.update(this.state, {
       encounter: {
         performing_site: { $set: site },
@@ -63,14 +63,14 @@ var EncounterNew = React.createClass({
 
     return (
       <div className="testflow">
-        <div class="row labelHeader">
-          <div class="col-6">
+        <div className="row labelHeader">
+          <div className="col-6">
             <h3>Site Details</h3>
           </div>
-          <div class="col-6">
+          <div className="col-6">
           </div>
         </div>
-        <div class="panel">
+        <div className="panel">
           {siteSelect}
           {performingSiteSelect}
         </div>
@@ -79,8 +79,8 @@ var EncounterNew = React.createClass({
           if (this.props.mode == 'existing_tests') {
             return <EncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} manual_sample_entry={this.state.encounter.site.allows_manual_entry} />
           } else {
-            return <FreshTestsEncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results} 
-                    manual_sample_entry={this.state.encounter.site.allows_manual_entry} referer={this.props.referer} allows_manual_entry={this.state.allows_manual_entry}/>                 
+            return <FreshTestsEncounterForm encounter={this.state.encounter} context={this.props.context} possible_assay_results={this.props.possible_assay_results}
+                    manual_sample_entry={this.state.encounter.site.allows_manual_entry} referer={this.props.referer} allows_manual_entry={this.state.allows_manual_entry}/>
           }
         }.bind(this))()}
       </div>

@@ -38,24 +38,24 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
     return (
       <div className="newTestOrder">
-      <div class="row labelHeader">
-        <div class="col-6">
+      <div className="row labelHeader">
+        <div className="col-6">
           <h3>Patient Details</h3>
         </div>
-        <div class="col-6">
+        <div className="col-6">
         </div>
       </div>
       <div className="panel">
         <PatientSelect patient={this.state.encounter.patient} context={this.props.context} onPatientChanged={this.onPatientChanged}/>
       </div>
-      <div class="row labelHeader">
-        <div class="col-6">
+      <div className="row labelHeader">
+        <div className="col-6">
           <h3>Test Order Details</h3>
         </div>
-        <div class="col-6">
+        <div className="col-6">
         </div>
       </div>
-      <div class="panel">
+      <div className="panel">
         <div className="row">
           <div className="col-6">
             <label>Samples</label>

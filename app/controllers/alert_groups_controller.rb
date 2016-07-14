@@ -1,5 +1,4 @@
 class AlertGroupsController < ApplicationController
-  include AlertsHelper
 
   respond_to :html, :json
 
