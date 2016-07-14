@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        name: 'Name'
+        email: 'Email'
+        telephone: 'Phone'
+        roles: 'Role'
+        is_active: 'Status'
+        last_sign_in_at: 'Activity'

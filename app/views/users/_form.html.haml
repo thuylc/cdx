@@ -13,7 +13,7 @@
           .value= f.object.email
       .row
         .col.pe-2
-          = f.label :telephone, "Phone"
+          = f.label :telephone
         .col
           .value= f.object.telephone
       .row
@@ -27,30 +27,35 @@
         - if @can_update
           .row
             .col.pe-2
-              .value= f.label :is_active, "Status"
+              .value= f.label :is_active
             .col
               .value
                 = f.check_box :is_active, class: 'power'
-                %label{:for => 'user_is_active'} Can access Cdx?
+                %label{:for => 'user_is_active'}
+                  = I18n.t('users.form.can_access')
         .row
           .col.pe-2
-            = f.label :last_sign_in_at, "Activity"
+            = f.label :last_sign_in_at
           .col
             .value= Presenters::Users.show_last_activity(f.object)
 
         - if @can_update
           .row
             .col.pe-2
-              .value= f.label :is_active, "Resend Invite"
+              .value
+                %label
+                  = I18n.t('users.form.resend_invite')
             .col
               .value
-                = link_to 'Send', 'resend_invite', class: 'btn-link'
+                = link_to I18n.t('users.form.send'), 'resend_invite', class: 'btn-link'
           .row
             .col.pe-2
-              .value= f.label :is_active, "Remove User"
+              .value
+                %label
+                  = I18n.t('users.form.remove_user')
             .col
               .value
-                = link_to 'Remove', 'remove', class: 'btn-link'
+                = link_to I18n.t('users.form.remove'), 'remove', class: 'btn-link'
 
   - if @can_update
     .row.button-actions

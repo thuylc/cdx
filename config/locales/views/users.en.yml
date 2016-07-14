@@ -19,3 +19,9 @@ en:
       has_access: 'Has access'
       sent_at: 'Invitation sent %{sent_at}'
       never_logged_in: 'Never logged in'
+    form:
+      resend_invite: 'Resend invite'
+      send: 'Send'
+      remove_user: 'Remove user'
+      remove: 'Remove'
+      can_access: 'Can access Cdx?'
