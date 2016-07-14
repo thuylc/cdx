@@ -20,7 +20,7 @@ class Presenters::Users
     end
 
     def show_user_active(user)
-      user.is_active? ? '' : I18n.t('users.presenters.blocked')
+      user.is_active? ? I18n.t('users.presenters.has_access') : I18n.t('users.presenters.blocked')
     end
 
     def show_last_activity(user)

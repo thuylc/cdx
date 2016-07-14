@@ -110,4 +110,10 @@ class User < ActiveRecord::Base
   def inactive_message
     self.is_active? ? super : I18n.t('devise.failure.suspended')
   end
+
+  class << self
+    def status_options
+      [{ value: "", label: I18n.t('select.user.status_options.show_all') }, { value: "1", label: I18n.t('select.user.status_options.active') }, { value: "0", label: I18n.t('select.user.status_options.blocked') }]
+    end
+  end
 end

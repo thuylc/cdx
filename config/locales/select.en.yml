@@ -34,3 +34,8 @@ en:
         detected: 'Detected'
         not_detected: 'Not Detected'
         indeterminate:  'Indeterminate result'
+    user:
+      status_options:
+        show_all: 'Show all'
+        active: 'Active'
+        blocked: 'Blocked'

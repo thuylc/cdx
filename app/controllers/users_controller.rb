@@ -21,13 +21,13 @@ class UsersController < ApplicationController
     @total = @users.count
 
     @date_options = Extras::Dates::Filters.date_options_for_filter
-    @status = [{value: "", label: "Show all"}, {value: "1", label: "Active"}, {value: "0", label: "Blocked"}]
 
     respond_to do |format|
       format.html do
         @total = @users.count
 
-        order_by, offset = perform_pagination('users.first_name, users.last_name')
+        order_by, offset = perform_pagination('users.first_name')
+        order_by         = order_by + ', users.last_name' if order_by.include?('users.first_name')
         @users = @users.order(order_by).limit(@page_size).offset(offset)
       end
       format.csv do
@@ -176,9 +176,8 @@ class UsersController < ApplicationController
   def build_csv
     CSV.generate do |csv|
       csv << ["Full name", "Roles", "Last activity"]
-      @users.each do |u|
-        roles = u.roles.empty? ? nil : "#{u.roles.pluck(:name).join(",")}"
-        csv << [u.full_name, roles, ApplicationController.helpers.last_activity(u)]
+      Presenters::Users.index_table(@users, @navigation_context).map do |u|
+        csv << [u[:name], u[:roles], u[:lastActivity]]
       end
     end
   end

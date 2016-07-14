@@ -38,7 +38,7 @@ var UsersIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="users-table">
         <thead>
           <tr>
-            {sortableHeader('Full name', 'roles.name')}
+            {sortableHeader('Full name', 'users.first_name')}
             <th data-resizable-column-id="sample-id">Roles</th>
             {sortableHeader('Status', 'users.is_active')}
             {sortableHeader('Last activity', 'users.last_sign_in_at')}

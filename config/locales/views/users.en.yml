@@ -16,5 +16,6 @@ en:
       download_csv: 'Download CSV'
     presenters:
       blocked: 'Blocked'
+      has_access: 'Has access'
       sent_at: 'Invitation sent %{sent_at}'
       never_logged_in: 'Never logged in'

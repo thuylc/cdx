@@ -30,7 +30,7 @@
               %label.block
                 = I18n.t('users.index.status')
               = cdx_select name: "is_active", value: params["is_active"] do |select|
-                - select.items @status, :value, :label
+                - select.items User.status_options, :value, :label
 
 .row.paginationHeader
   .col
