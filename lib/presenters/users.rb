@@ -13,6 +13,13 @@ class Presenters::Users
       end
     end
 
+    def show_last_activity(user)
+      return I18n.t('users.presenters.sent_at', sent_at: Extras::Dates::Format.datetime_with_time_zone(user.invitation_created_at)) if user.invited_pending?
+
+      return I18n.t('users.presenters.never_logged_in') unless user.last_sign_in_at
+      Extras::Dates::Format.datetime_with_time_zone(user.last_sign_in_at)
+    end
+
     protected
 
     def show_user_roles(user, navigation_context)
@@ -21,13 +28,6 @@ class Presenters::Users
 
     def show_user_active(user)
       user.is_active? ? I18n.t('users.presenters.has_access') : I18n.t('users.presenters.blocked')
-    end
-
-    def show_last_activity(user)
-      return I18n.t('users.presenters.sent_at', sent_at: Extras::Dates::Format.datetime_with_time_zone(user.invitation_created_at)) if user.invited_pending?
-
-      return I18n.t('users.presenters.never_logged_in') unless user.last_sign_in_at
-      Extras::Dates::Format.datetime_with_time_zone(user.last_sign_in_at)
     end
 
     def context_roles(navigation_context)

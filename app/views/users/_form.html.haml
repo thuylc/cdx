@@ -36,8 +36,8 @@
           .col.pe-2
             = f.label :last_sign_in_at, "Activity"
           .col
-            .value= last_activity(f.object)
-      
+            .value= Presenters::Users.show_last_activity(f.object)
+
         - if @can_update
           .row
             .col.pe-2
