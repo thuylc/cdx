@@ -2,3 +2,19 @@ en:
   users:
     index:
       users: 'Users'
+      user:
+        zero: 'No users'
+        one: '1 User'
+        other: '%{count} Users'
+      name: 'Name'
+      role: 'Role'
+      last_activity: 'Last activity'
+      status: 'Status'
+      show_all: 'Show all'
+      no_users: 'There are no users with access to %{entity_name}'
+      invite_users: 'Invite other users to join this team'
+      download_csv: 'Download CSV'
+    presenters:
+      blocked: 'Blocked'
+      sent_at: 'Invitation sent %{sent_at}'
+      never_logged_in: 'Never logged in'

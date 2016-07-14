@@ -13,6 +13,10 @@ en:
         header: "Send invitation"
         submit_button: "Send an invitation"
       edit:
+        first_name: 'First name'
+        last_name: 'Last name'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
         header: "Set your password"
         submit_button: "Set my password"
     mailer:

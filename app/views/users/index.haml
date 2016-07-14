@@ -5,65 +5,53 @@
         .col
           = react_component "AddUserLink", roles: @available_roles_hash, context: @navigation_context.to_hash
           %h1
-            Users
+            = I18n.t('users.index.users')
       %form#filters-form{action: users_path, "data-auto-submit" => true}
         %input{type: "hidden", name: "page_size", value: @page_size}
         .row
           .filter
-            %label.block Name
+            %label.block
+              = I18n.t('users.index.name')
             %input.input-block{type: "text", name: "name", value: params["name"]}
           .filter
-            %label.block Role
+            %label.block
+              = I18n.t('users.index.role')
             = cdx_select name: "role", value: params["role"] do |select|
-              - select.item "", "Show all"
+              - select.item "", I18n.t('users.index.show_all')
               - select.items @context_roles_hash, :value, :label
           .filter
-            %label.block Last activity
+            %label.block
+              = I18n.t('users.index.last_activity')
             = cdx_select name: "last_activity", value: params["last_activity"] do |select|
-              - select.item "", "Show all"
+              - select.item "", I18n.t('users.index.show_all')
               - select.items @date_options, :value, :label
           - if @can_update
             .filter
-              %label.block Status
+              %label.block
+                = I18n.t('users.index.status')
               = cdx_select name: "is_active", value: params["is_active"] do |select|
                 - select.items @status, :value, :label
 
-.row
+.row.paginationHeader
   .col
     - if @users.empty?
       = empty_data icon: 'icon-outline-user xx-large' do |c|
         - c.body do
-          %h1 There are no users with access to #{truncated_navigation_context_entity_name}
-          %p Invite other users to join this team
+          %h1
+            = I18n.t('users.index.no_users', entity_name: truncated_navigation_context_entity_name)
+          %p
+            = I18n.t('users.index.invite_users')
     - else
-      = cdx_table title: pluralize(@total, "user") do |t|
-        - t.columns do
-          %col{:width => "30%"}
-          - if @can_update
-            %col{:width => "30%"}
-            %col{:width => "10%"}
-          - else
-            %col{width: "40%"}
-          %col{:width => "30%"}
-        - t.actions do
-          = link_to users_path(filters_params.merge(format: :csv)), title: 'Download CSV' do
-            .icon-download.icon-gray
-
-        - t.thead do
-          %tr
-            %th Full name
-            %th Roles
-            - if @can_update
-              %th Status
-            %th Last Activity
-        - t.tbody do
-          - @users.each do |user|
-            %tr{class: (user.invited_pending? || !user.is_active? ? "pending" : ""), data: {href: edit_user_path(user.id)}}
-              %td= user.full_name
-              %td= (user.roles & @context_roles).map(&:name).join(", ")
-              - if @can_update
-                %td= user.is_active? ? "" : "Blocked"
-              %td= last_activity(user)
-
-      .pagination
-        = render 'shared/pagination'
+      %section.row
+        .small-12.columns.box
+          %header
+            = image_tag('img/user.png')
+            %h3
+              = I18n.t('users.index.user', count: @total)
+            %span.table-actions
+              = link_to users_path(filters_params.merge(format: :csv)), title: I18n.t('users.index.download_csv') do
+                %span.icon-download.icon-gray
+          .box-content
+            = react_component "UsersIndexTable", users: Presenters::Users.index_table(@users, @navigation_context), orderBy: @order_by
+            .pagination
+              = render 'shared/pagination'

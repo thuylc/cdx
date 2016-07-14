@@ -7,7 +7,7 @@ describe Presenters::Roles do
   let(:site)               { Site.make institution: institution }
   let(:navigation_context) { NavigationContext.new(user, institution.uuid) }
 
-  describe 'patient_view' do
+  describe 'index_table' do
     before :each do
       policy = grant nil, nil, institution, [Policy::Actions::CREATE_INSTITUTION]
       7.times {

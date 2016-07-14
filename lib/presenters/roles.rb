@@ -7,7 +7,7 @@ class Presenters::Roles
           name:     role.name,
           site:     show_site_name(role),
           count:    show_user_count(role, current_user, navigation_context),
-          viewLink: Rails.application.routes.url_helpers.edit_role_path(Role.first)
+          viewLink: Rails.application.routes.url_helpers.edit_role_path(role)
         }
       end
     end
