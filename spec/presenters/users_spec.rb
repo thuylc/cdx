@@ -27,7 +27,7 @@ describe Presenters::Users do
         id:           User.first.id,
         name:         User.first.full_name,
         roles:        role.name,
-        isActive:     '',
+        isActive:     'Has access',
         lastActivity: 'Never logged in',
         viewLink:     Rails.application.routes.url_helpers.edit_user_path(User.first)
       })

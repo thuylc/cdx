@@ -1,5 +1,4 @@
 @wip
-include AlertsHelper
 include CdxPageHelper
 
 Given(/^the user has an account$/) do
