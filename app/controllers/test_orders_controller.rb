@@ -47,7 +47,7 @@ class TestOrdersController < TestsController
     @total           = Encounter.where(uuid: results.map{|r| r['encounter']['uuid'] if r['encounter'] }).count
     order_by, offset = perform_pagination('encounters.testdue_date')
     order_by         = order_by + ', users.last_name' if order_by.include?('users.first_name')
-    @tests           = Encounter.includes(:institution, :patient, :site, :user).where(uuid: results.map{|r| r['encounter']['uuid'] if r['encounter'] }).order(order_by).limit(@page_size).offset(offset)
+    @tests           = Encounter.includes(:institution, :patient, :site, :user, :performing_site, :samples).where(uuid: results.map{|r| r['encounter']['uuid'] if r['encounter'] }).order(order_by).limit(@page_size).offset(offset)
   end
 
   def create_filter_for_test_order

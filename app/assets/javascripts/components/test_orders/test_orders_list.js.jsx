@@ -77,7 +77,7 @@ var TestOrdersIndexTable = React.createClass({
               <tr>
                 <CsvCheckboxColumnHeader columnId="test-orders-table" selectedTestOrders={this.selectedTestOrders} />
                 {sortableHeader("Request by", "sites.name")}
-                <th data-resizable-column-id="performing-site">Request to</th>
+                {sortableHeader("Request to",    "performing_sites_encounters.name")}
                 <th data-resizable-column-id="sample-id">Sample Id</th>
                 {sortableHeader("Testing for",  "patients.name")}
                 {sortableHeader("Order by user", "users.first_name")}
@@ -94,7 +94,6 @@ var TestOrdersIndexTable = React.createClass({
           </table>
         </div>
       </div>
-
     );
   }
 });
