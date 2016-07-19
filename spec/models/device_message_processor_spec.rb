@@ -1246,6 +1246,7 @@ describe DeviceMessageProcessor, elasticsearch: true do
         alert.institution_id = institution.id
         alert.sample_id=""
         alert.user = institution.user
+        alert.site_id=nil
         alert.save!
 
         @check_invalid_test=TRUE

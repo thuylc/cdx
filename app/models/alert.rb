@@ -1,4 +1,7 @@
 class Alert < ActiveRecord::Base
+  include Resource
+  include SiteContained
+
   belongs_to :user
   belongs_to :site
   belongs_to :institution
@@ -25,6 +28,18 @@ class Alert < ActiveRecord::Base
   validates_presence_of :name    #html5 form validations also done
   validate :category_validation
   validate :aggregation_percentage_validation
+
+  scope :within, -> (institution_or_site, exclude_subsites = false) {
+    if institution_or_site.is_a?(Institution) && exclude_subsites
+      where("alerts.institution_id = ? AND alerts.site_id IS NULL", institution_or_site.id)
+    elsif institution_or_site.is_a?(Institution) && !exclude_subsites
+      where("alerts.institution_id = ?", institution_or_site.id)
+    elsif institution_or_site.is_a?(Site) && exclude_subsites
+      where("alerts.site_id = ?", institution_or_site.id)
+    else
+      where("alerts.site_prefix LIKE concat(?, '%')", institution_or_site.prefix)
+    end
+  }
 
   enum category_type: [:anomalies, :device_errors, :quality_assurance, :test_results, :utilization_efficiency]
   enum aggregation_type: [:record, :aggregated]
