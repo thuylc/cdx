@@ -12,7 +12,8 @@ module Resource
       Encounter,
       Role,
       User,
-      Patient
+      Patient,
+      Alert
     ].freeze
   end
 

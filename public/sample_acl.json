@@ -52,6 +52,15 @@ Institution Admin:
     },
     {
       "action" : [
+        "cdxp:readAlert",
+        "cdxp:updateAlert",
+        "cdxp:deleteAlert",
+        "cdxp:createAlert"
+      ],
+      "resource" : "cdxp:alert?institution=1"
+    },
+    {
+      "action" : [
         "cdxp:readDevice",
         "cdxp:updateDevice",
         "cdxp:deleteDevice",

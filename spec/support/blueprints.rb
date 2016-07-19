@@ -38,7 +38,9 @@ Alert.blueprint do
   message { 'test message' }
   category_type {"anomalies"}
   sms_limit {10000}
-  user
+  institution { object.site.try(:institution) || Institution.make }
+  site { Site.make(institution: (object.institution || Institution.make)) }
+  user { institution.user }
 end
 
 AlertRecipient.blueprint do

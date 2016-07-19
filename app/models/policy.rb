@@ -75,6 +75,11 @@ class Policy < ActiveRecord::Base
     REMOVE_USER_ROLE = "role:removeUser"
 
     UPDATE_USER = 'user:update'
+
+    READ_ALERT   =  "alert:read"
+    UPDATE_ALERT =  "alert:update"
+    DELETE_ALERT =  "alert:delete"
+    CREATE_ALERT =  "alert:create"
   end
 
   ACTIONS = Actions.constants.map{|action| Actions.const_get(action)}

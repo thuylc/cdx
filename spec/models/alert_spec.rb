@@ -150,4 +150,40 @@ RSpec.describe Alert, :type => :model, elasticsearch: true do
     expect(result["hits"]["total"]).to eq(0)
   end
   
+  context "security" do
+    let!(:institution) {Institution.make}
+    let!(:user) {institution.user}
+    let!(:site) {institution.sites.make}
+    let!(:other_institution) {Institution.make}
+    let!(:other_user) {other_institution.user}
+    let!(:other_site) {other_institution.sites.make}
+    let!(:sub_site) { Site.make :child, parent: site }
+
+    let!(:alert_site) { Alert.make user: user, institution: institution, site: site}
+    let!(:alert_other_institution_other_user_other_site) { Alert.make user: other_user, institution: other_institution, site: other_site}
+    let!(:alert_same_institution_no_site) { Alert.make site: nil, institution: site.institution }
+    let!(:alert_sub_site) { Alert.make user: user, institution: institution, site: sub_site}
+    let!(:alert_other_institution_same_user_other_site) { Alert.make user: user, institution: other_institution, site: other_site}
+
+    it "institution, no exclusion, should show alerts from site, subsites and no site" do
+      expect(Alert.within(site.institution).to_a).to eq([alert_site, alert_same_institution_no_site, alert_sub_site])
+    end
+
+    it "institution, with exclusion, should show alerts with no site" do
+      expect(Alert.within(site.institution,true).to_a).to eq([alert_same_institution_no_site])
+    end
+
+    it "site, no exclusion, should show alerts from site and subsite" do
+      expect(Alert.within(site).to_a).to eq([alert_site, alert_sub_site])
+    end
+
+    it "site, with exclusion, should show alerts from site only" do
+      expect(Alert.within(site,true).to_a).to eq([alert_site])
+    end
+
+    it "institution should not show alerts from other institutions" do
+      expect(Alert.within(other_site.institution).to_a).to eq([alert_other_institution_other_user_other_site,alert_other_institution_same_user_other_site])
+    end
+  end
+
 end
