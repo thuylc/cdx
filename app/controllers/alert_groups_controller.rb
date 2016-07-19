@@ -25,7 +25,7 @@ class AlertGroupsController < ApplicationController
   def index
     order_by, offset = perform_pagination('alerts.name')
 
-    @alerts = authorize_resource(current_user.alerts, READ_ALERT) or return
+    @alerts = authorize_resource(Alert, READ_ALERT) or return
     @alerts = @alerts.within(@navigation_context.entity, @navigation_context.exclude_subsites)
 
     @total = @alerts.count
