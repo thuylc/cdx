@@ -25,7 +25,8 @@ class AlertGroupsController < ApplicationController
   def index
     order_by, offset = perform_pagination('alerts.name')
 
-    @alerts = authorize_resource(Alert, READ_ALERT) or return
+    @can_create = has_access?(@navigation_context.institution, CREATE_ALERT)
+    @alerts = check_access(Alert.where(institution: @navigation_context.institution), READ_ALERT)
     @alerts = @alerts.within(@navigation_context.entity, @navigation_context.exclude_subsites)
 
     @total = @alerts.count
@@ -35,7 +36,9 @@ class AlertGroupsController < ApplicationController
   end
 
   def edit
-    return unless authorize_resource(alert_info, UPDATE_ALERT)
+    return unless authorize_resource(alert_info, READ_ALERT)
+    @can_update = has_access?(@navigation_context.institution, UPDATE_ALERT)
+    @can_delete = has_access?(@navigation_context.institution, DELETE_ALERT)
 
     new_alert_request_variables
     @alert_sites=[]
