@@ -1,12 +1,8 @@
 class AlertMessagesController < ApplicationController
   respond_to :html, :json
 
-  before_filter do
-    head :forbidden unless has_access_to_test_results_index?
-  end
-
   def index
-    if has_access?(@navigation_context.institution, READ_ALERT)
+    if has_access?(Alert, READ_ALERT)
       @alert_messages  = current_user.recipient_notification_history
       @total           = @alert_messages.count
       order_by, offset = perform_pagination('alerts.name')

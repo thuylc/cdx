@@ -1,14 +1,10 @@
 class IncidentsController < ApplicationController
   respond_to :html, :json
 
-  before_filter do
-    head :forbidden unless has_access_to_test_results_index?
-  end
-
   def index
     @date_options = Extras::Dates::Filters.date_options_for_filter
 
-    if has_access?(@navigation_context.institution, READ_ALERT)
+    if has_access?(Alert, READ_ALERT)
       @devices = check_access(Device.within(@navigation_context.entity), READ_DEVICE)
       @alerts = Alert.where({user_id: current_user.id})
       @incidents =  current_user.alert_histories.where({for_aggregation_calculation: false}).joins(:alert)
