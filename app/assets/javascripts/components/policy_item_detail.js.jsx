@@ -32,7 +32,9 @@ var PolicyItemDetail = React.createClass({
       actions: {
         $apply: (function(actions) {
           actions = actions.slice(); // clone the list - so we don't modify the original one
-          var actionIndex = actions.findIndex(function(anAction) { return anAction.id == action.id });
+///anthony          var actionIndex = actions.findIndex(function(anAction) { return anAction.id == action.id });
+
+   var actionIndex = actions.indexOf(function(anAction) { return anAction.id == action.id });
           if(actionIndex < 0) {
             actions.push(action);
           } else {

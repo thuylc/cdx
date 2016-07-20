@@ -5,8 +5,9 @@
       .row
         .col
           %h1
-            = link_to "+", new_alert_group_path, class: 'btn-add side-link fix', title: 'Add Alert'
-            Alert groups
+            - if @can_create
+              = link_to "+", new_alert_group_path, class: 'btn-add side-link fix', title: 'Add Alert'
+              Alert groups
               
       %form#filters-form{action: alerts_path, "data-auto-submit" => true}
         %input{type: "hidden", name: "page_size", value: @page_size}

@@ -6,9 +6,13 @@ class AlertMessagesController < ApplicationController
   end
 
   def index
-    @alert_messages  = current_user.recipient_notification_history
-    @total           = @alert_messages.count
-    order_by, offset = perform_pagination('alerts.name')
-    @alert_messages  = @alert_messages.joins(:alert, :user).order(order_by).limit(@page_size).offset(offset)
+    if has_access?(@navigation_context.institution, READ_ALERT)
+      @alert_messages  = current_user.recipient_notification_history
+      @total           = @alert_messages.count
+      order_by, offset = perform_pagination('alerts.name')
+      @alert_messages  = @alert_messages.joins(:alert, :user).order(order_by).limit(@page_size).offset(offset)
+    else
+      @alert_messages = []
+    end
   end
 end
