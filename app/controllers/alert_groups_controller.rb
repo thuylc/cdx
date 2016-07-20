@@ -5,10 +5,6 @@ class AlertGroupsController < ApplicationController
   #could not name it 'alert' as rails gave a warning as this is a reserved method.
   expose(:alert_info, model: :alert, attributes: :alert_params)
 
-  before_filter do
-    head :forbidden unless has_access_to_test_results_index?
-  end
-
   def new
     return unless prepare_for_institution_and_authorize(alert_info, CREATE_ALERT)
 
@@ -26,7 +22,7 @@ class AlertGroupsController < ApplicationController
     order_by, offset = perform_pagination('alerts.name')
 
     @can_create = has_access?(@navigation_context.institution, CREATE_ALERT)
-    @alerts = check_access(Alert.where(institution: @navigation_context.institution), READ_ALERT)
+    @alerts = check_access(current_user.alerts, READ_ALERT)
     @alerts = @alerts.within(@navigation_context.entity, @navigation_context.exclude_subsites)
 
     @total = @alerts.count
