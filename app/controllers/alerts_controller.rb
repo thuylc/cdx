@@ -6,6 +6,7 @@ class AlertsController < ApplicationController
   end
 
   def index
+    @can_create = has_access?(@navigation_context.institution, CREATE_ALERT)
     @alerts = current_user.alerts
     @alerts = @alerts.within(@navigation_context.entity, @navigation_context.exclude_subsites)
     @total = @alerts.count

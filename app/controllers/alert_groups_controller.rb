@@ -8,6 +8,7 @@ class AlertGroupsController < ApplicationController
   def new
     return unless prepare_for_institution_and_authorize(alert_info, CREATE_ALERT)
 
+    @can_update = true
     new_alert_request_variables
     alert_info.sms_limit=100
     alert_info.email_limit=100
@@ -20,7 +21,6 @@ class AlertGroupsController < ApplicationController
 
   def index
     order_by, offset = perform_pagination('alerts.name')
-
     @can_create = has_access?(@navigation_context.institution, CREATE_ALERT)
     @alerts = check_access(current_user.alerts, READ_ALERT)
     @alerts = @alerts.within(@navigation_context.entity, @navigation_context.exclude_subsites)
