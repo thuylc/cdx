@@ -34,8 +34,10 @@
       "delegable": true
     },
     {
-      "resource": "alert",
-      "action": "alert:read",
+      "resource": [
+        "alert?institution=<%= institution_id %>"
+      ],
+      "action": "*",
       "delegable": true
     },
     {

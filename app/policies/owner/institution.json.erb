@@ -22,7 +22,8 @@
         "deviceModel?institution=<%= institution_id %>",
         "device?institution=<%= institution_id %>",
         "testResult?institution=<%= institution_id %>",
-        "encounter?institution=<%= institution_id %>"
+        "encounter?institution=<%= institution_id %>",
+        "alert?institution=<%= institution_id %>"
       ],
       "action": "*",
       "delegable": true
@@ -38,11 +39,6 @@
     {
       "resource": "deviceModel",
       "action": "deviceModel:read",
-      "delegable": true
-    },
-    {
-      "resource": "alert?institution=<%= institution_id %>",
-      "action": "*",
       "delegable": true
     },
     {
