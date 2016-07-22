@@ -13,7 +13,8 @@ module Resource
       Role,
       User,
       Patient,
-      Alert
+      Alert,
+      PageHeader
     ].freeze
   end
 

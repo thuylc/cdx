@@ -9,16 +9,41 @@ module ApplicationHelper
     Policy.authorize action, resource, current_user
   end
 
+  def has_access_to_test_orders_index?
+     has_access?(PageHeader, Policy::Actions::DISPLAY_TEST_ORDER_HEADER)
+   end
+
+  def has_access_to_test_results_index?
+    has_access?(PageHeader, Policy::Actions::DISPLAY_TEST_RESULT_HEADER) || has_access?(TestResult, Policy::Actions::QUERY_TEST)
+  end
+
+#  def has_access_to_test_results_index?
+#    has_access?(TestResult, Policy::Actions::QUERY_TEST)
+#  end
+  
+  def has_access_to_devices_index?
+    has_access?(Institution, Policy::Actions::REGISTER_INSTITUTION_DEVICE) || check_access(Device, Policy::Actions::READ_DEVICE).exists? || has_access?(PageHeader, Policy::Actions::DISPLAY_DEVICES_HEADER)
+  end
+
+#  def has_access_to_devices_index?
+#    has_access?(Institution, Policy::Actions::REGISTER_INSTITUTION_DEVICE) || check_access(Device, Policy::Actions::READ_DEVICE).exists?
+#  end
+
+  def has_access_to_settings?
+    has_access?(PageHeader, Policy::Actions::DISPLAY_SETTINGS_HEADER) || can_delegate_permissions?
+  end
+
+#  def has_access_to_settings?
+#    has_access_to_test_results_index? || has_access_to_roles_index? || can_delegate_permissions?
+#  end
+
+
   def has_access_to_patients_index?
     has_access?(Institution, Policy::Actions::CREATE_INSTITUTION_PATIENT) || check_access(Patient, Policy::Actions::READ_PATIENT).exists?
   end
 
   def has_access_to_sites_index?
     has_access?(Institution, Policy::Actions::CREATE_INSTITUTION_SITE) || check_access(Site, Policy::Actions::READ_SITE).exists?
-  end
-
-  def has_access_to_devices_index?
-    has_access?(Institution, Policy::Actions::REGISTER_INSTITUTION_DEVICE) || check_access(Device, Policy::Actions::READ_DEVICE).exists?
   end
 
   def has_access_to_device_models_index?
@@ -35,10 +60,6 @@ module ApplicationHelper
 
   def has_access_to_roles_index?
     has_access?(Role, Policy::Actions::READ_ROLE)
-  end
-
-  def has_access_to_settings?
-    has_access_to_test_results_index? || has_access_to_roles_index? || can_delegate_permissions?
   end
 
   def can_delegate_permissions?

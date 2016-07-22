@@ -59,6 +59,11 @@ namespace :policy do
       DELETE_ALERT =  "alert:delete"
       CREATE_ALERT =  "alert:create"
 
+      DISPLAY_TEST_ORDER_HEADER  = "pageHeader:displayTestOrder"
+      DISPLAY_TEST_RESULT_HEADER = "pageHeader:displayTestResult"
+      DISPLAY_DEVICES_HEADER     = "pageHeader:displayDevices"
+      DISPLAY_SETTINGS_HEADER    = "pageHeader:displaySettings"
+
       REGENERATE_DEVICE_KEY =     "device:regenerateKey"
       GENERATE_ACTIVATION_TOKEN = "device:generateActivationToken"
       REPORT_MESSAGE =            "device:reportMessage"
@@ -94,7 +99,12 @@ namespace :policy do
       "#{PREFIX}:readAlert" => NewActions::READ_ALERT,
       "#{PREFIX}:updateAlert" => NewActions::UPDATE_ALERT,
       "#{PREFIX}:deleteAlert" => NewActions::DELETE_ALERT,
-      "#{PREFIX}:createAlert" => NewActions::CREATE_ALERT
+      "#{PREFIX}:createAlert" => NewActions::CREATE_ALERT,
+      
+      "#{PREFIX}:displayTestOrderHeader" => NewActions::DISPLAY_TEST_ORDER_HEADER,
+      "#{PREFIX}:displayTestResultHeader" => NewActions::DISPLAY_TEST_RESULT_HEADER,
+     "#{PREFIX}:displayDevicesHeader" => NewActions::DISPLAY_DEVICES_HEADER,
+      "#{PREFIX}:displaySettingsHeader" => NewActions::DISPLAY_SETTINGS_HEADER
     }
 
     def translate_action(action)

@@ -80,6 +80,11 @@ class Policy < ActiveRecord::Base
     UPDATE_ALERT =  "alert:update"
     DELETE_ALERT =  "alert:delete"
     CREATE_ALERT =  "alert:create"
+    
+    DISPLAY_TEST_ORDER_HEADER  = "pageHeader:displayTestOrder"
+    DISPLAY_TEST_RESULT_HEADER = "pageHeader:displayTestResult"
+    DISPLAY_DEVICES_HEADER     = "pageHeader:displayDevices"
+    DISPLAY_SETTINGS_HEADER    = "pageHeader:displaySettings"
   end
 
   ACTIONS = Actions.constants.map{|action| Actions.const_get(action)}

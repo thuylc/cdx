@@ -26,7 +26,8 @@
             = link_to I18n.t('layout.header_nav.patients'), patients_path
 
         -# ------------ TEST Orders
-        - if has_access_to_test_results_index?
+        -# - if has_access_to_test_results_index?
+        - if has_access_to_test_orders_index?
           %li{:class => is_menu_item_active?('test_orders', request.params) }
             = link_to I18n.t('layout.header_nav.test_orders'), test_orders_path
 

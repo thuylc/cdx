@@ -454,6 +454,16 @@ ActiveRecord::Schema.define(version: 20160724151854) do
 
   add_index "old_passwords", ["password_archivable_type", "password_archivable_id"], name: "index_password_archivable", using: :btree
 
+  create_table "page_headers", force: :cascade do |t|
+    t.integer  "institution_id", limit: 4
+    t.integer  "site_id",        limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "page_headers", ["institution_id"], name: "index_page_headers_on_institution_id", using: :btree
+  add_index "page_headers", ["site_id"], name: "index_page_headers_on_site_id", using: :btree
+
   create_table "patient_results", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
