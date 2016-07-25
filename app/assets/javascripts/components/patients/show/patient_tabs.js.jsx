@@ -5,7 +5,7 @@ var PatientTabs = React.createClass({
 
   render: function(){
     return (
-      <ul className='tab'>
+      <ul className='tabs'>
         {this.props.tabList.map(function(tab) {
           return (
             <PatientTab

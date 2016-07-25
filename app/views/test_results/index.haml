@@ -1,25 +1,15 @@
-= render "filters"
+.testflow
+  = bettertabs :profile_tabs, :selected_tab => :devices do |tab|
+    = tab.link :devices do
+      = render :partial => 'device_results' #, :locals => { :user => @user }
+    = tab.link :microscopy do
+      = render :partial => 'microscopy_results' #, :locals => { :user => @user }
+    = tab.link :xpert do
+      = render :partial => 'xpert_results' #, :locals => { :user => @user }
+    = tab.link :culture do
+      = render :partial => 'culture_results' #, :locals => { :user => @user }
+    = tab.link :dst_lpa do
+      = render :partial => 'dst_lpa_results' #, :locals => { :user => @user }
 
-.row.paginationHeader
-  .col
-    - if @tests.empty?
-      = empty_data icon: 'icon-outline-test xx-large' do |c|
-        - c.body do
-          %h1
-            = I18n.t('test_results.index.header', test_result: I18n.t('test_results.index.test', count: 0))
-          %p
-            = I18n.t('test_results.index.setup_devices')
-    - else
-      %section.row
-        .small-12.columns.box
-          %header
-            = image_tag('img/test-tube.png')
-            %h3
-              = I18n.t('test_results.index.test_result', count: @total)
-            %span.table-actions
-              = link_to test_results_path(@filter.merge(format: :csv)), title: I18n.t('test_results.index.test', count: @total) do
-                %span.icon-download.icon-gray
-          .box-content
-            = react_component "TestResultsIndexTable", tests: @json, orderBy: @order_by, showSites: @show_sites, showDevices: @show_devices
-            .pagination
-              = render 'shared/pagination'
+:javascript
+  jQuery('.bettertabs').bettertabs();

@@ -56,54 +56,54 @@ z-index:1000000;
 }
 
 /*----------- Tooltips -------------*/
-.tooltip 
+.tooltip
 {
   outline:none;
-  flex:1 0 100%; 
+  flex:1 0 100%;
 }
 
-.tooltip strong 
+.tooltip strong
 {
   line-height:30px;
 }
 
-.tooltip:hover 
+.tooltip:hover
 {
   text-decoration:none;
 }
 
-/* General Styling */    
-.tooltip .tooltiptext_r, 
-.tooltip .tooltiptext_b 
+/* General Styling */
+.tooltip .tooltiptext_r,
+.tooltip .tooltiptext_b
 {
   border-radius:5px;
   box-shadow: 5px 5px 8px #CCC;
   opacity: 0.9;
 
   z-index:10;
-  display:none; 
+  display:none;
   padding:14px 20px;
 
-  width:300px; 
+  width:300px;
   line-height:16px;
   text-transform:none;
 }
 
 /* Tooltip positioning */
-.tooltip .tooltiptext_b 
+.tooltip .tooltiptext_b
 {
-  margin-top:20px; 
+  margin-top:20px;
   margin-left:-160px;
 }
 
-.tooltip .tooltiptext_r 
+.tooltip .tooltiptext_r
 {
-  margin-top:-20px; 
+  margin-top:-20px;
   margin-left:28px;
 }
 
 /* Callout Arrows */
-.tooltip .tooltiptext_b:after 
+.tooltip .tooltiptext_b:after
 {
   content: '';
   position: absolute;
@@ -117,7 +117,7 @@ z-index:1000000;
   border-left: 8px solid transparent;
 }
 
-.tooltip .tooltiptext_r:after 
+.tooltip .tooltiptext_r:after
 {
   content: '';
   position: absolute;
@@ -132,11 +132,11 @@ z-index:1000000;
 }
 
 /* On Hover actions */
-.tooltip:hover .tooltiptext_r, 
-.tooltip:hover .tooltiptext_b 
+.tooltip:hover .tooltiptext_r,
+.tooltip:hover .tooltiptext_b
 {
-  display:inline; 
-  position:absolute; 
+  display:inline;
+  position:absolute;
   color:#222222;
   background:#ffffff;
 }
@@ -171,7 +171,7 @@ z-index:1000000;
     position: fixed;
     top: 0;
     bottom: 0;
-	padding-top:60px;
+  padding-top:60px;
     left: 0;
     right: 0;
     overflow: auto;
@@ -187,15 +187,15 @@ z-index:1000000;
 }
 
 .search-sites:-moz-placeholder { /* Firefox 18- */
-   color: #fff;  
+   color: #fff;
 }
 
 .search-sites::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
+   color: #fff;
 }
 
-.search-sites:-ms-input-placeholder {  
-   color: #fff;  
+.search-sites:-ms-input-placeholder {
+   color: #fff;
 }
 
 
@@ -465,7 +465,7 @@ color:#fff !important;
 
 @media only screen and (max-width: 480px) {
   .testflow fieldset {
-    margin-top: 0.5em; 
+    margin-top: 0.5em;
   }
 }
 
@@ -530,11 +530,11 @@ color:#fff !important;
 
 .testflow tr:nth-child(even) {
   background-color: #dbdae2;
-} 
+}
 
 
 
-/* New Episode Styles */ 
+/* New Episode Styles */
 
 .testflow .row {
   max-width:64rem;
@@ -648,7 +648,7 @@ form#new_comment {
 }
 
 .testflow form.zebra .panel .row:nth-child(even) > div {
-  
+
 }
 .testflow .panel .row:last-child {
   margin-bottom:0px;
@@ -791,7 +791,7 @@ padding:15px;
     }
   }
 }
-.testflow ul.tab {
+.testflow ul.tabs {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -802,10 +802,10 @@ padding:15px;
 }
 
 /* Float the list items side by side */
-.testflow ul.tab li {float: left;margin:0px;}
+.testflow ul.tabs li {float: left;margin:0px;}
 
 /* Style the links inside the list items */
-.testflow ul.tab li a {
+.testflow ul.tabs li a {
     display: inline-block;
     color: black;
     text-align: center;
@@ -827,7 +827,7 @@ padding:15px;
     border-top: none;
 }
 
-/* Test Order Styles */ 
+/* Test Order Styles */
 .testflow .right {float:right;}
 .testflow .left {float:left;}
 

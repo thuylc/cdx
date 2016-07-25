@@ -295,7 +295,7 @@ body {
     line-height: 1em;
     text-decoration: none;
     margin-left: 5px;
-	margin-right: 10px;
+  margin-right: 10px;
     &.save, &.new {
       background: #2196f3;
     }
@@ -374,7 +374,7 @@ body {
   .patient-details.panel .row:nth-child(even) {
     background: #fff;
   }
-  ul.tab {
+  ul.tabs {
     list-style-type: none;
     margin: 0;
     padding: 0;

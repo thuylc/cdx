@@ -1,0 +1,17 @@
+= render "filters"
+
+.row.paginationHeader
+  .col
+    - if @tests.empty?
+      = render 'empty_manual_results'
+    - else
+      %section.row
+        .small-12.columns.box
+          %header
+            = image_tag('img/test-tube.png')
+            %h3
+              = I18n.t('test_results.index.test_result', count: @total)
+          .box-content
+            = react_component "TestResultsIndexTable", tests: @json, orderBy: @order_by, showSites: @show_sites, showDevices: @show_devices
+            .pagination
+              = render 'shared/pagination'

@@ -40,6 +40,7 @@
 //= require moment.min
 //= require jquery-ui.min
 //= require jquery.comiseo.daterangepicker.min
+//= require jquery.bettertabs.min
 
 Turbolinks.enableProgressBar()
 

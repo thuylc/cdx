@@ -33,7 +33,7 @@ en:
       was_also_made: 'was also made with this sample'
       were_also_made: 'were also made with this sample'
     index:
-      header: 'No %{test_result} have been reported'
+      header: 'No tests have been reported'
       test:
         zero: 'tests'
         one: 'test'
@@ -43,4 +43,5 @@ en:
         one: 'test result'
         other: '%{count} test results'
       test_results: 'test results'
-      setup_devices: 'Setup your devices first in order to start reporting'
+      setup_devices: 'Setup your devices first in order to start reporting.'
+      manual_results: 'You can add requested tests in your test orders.'

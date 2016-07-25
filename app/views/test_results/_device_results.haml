@@ -1,0 +1,25 @@
+= render "filters"
+
+.row.paginationHeader
+  .col
+    - if @tests.empty?
+      = empty_data icon: 'icon-outline-test xx-large' do |c|
+        - c.body do
+          %h1
+            = I18n.t('test_results.index.header')
+          %p
+            = I18n.t('test_results.index.setup_devices')
+    - else
+      %section.row
+        .small-12.columns.box
+          %header
+            = image_tag('img/test-tube.png')
+            %h3
+              = I18n.t('test_results.index.test_result', count: @total)
+            %span.table-actions
+              = link_to test_results_path(@filter.merge(format: :csv)), title: I18n.t('test_results.index.test', count: @total) do
+                %span.icon-download.icon-gray
+          .box-content
+            = react_component "TestResultsList", testResults: @json, orderBy: @order_by, showSites: @show_sites, showDevices: @show_devices
+            .pagination
+              = render 'shared/pagination'

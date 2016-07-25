@@ -1,0 +1,2 @@
+.testflow
+  = react_component 'TestResultsIndex', testResultsUrl: test_results_path

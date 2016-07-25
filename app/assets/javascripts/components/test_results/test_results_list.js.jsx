@@ -85,12 +85,3 @@ var TestResultsList = React.createClass({
     );
   }
 });
-
-var TestResultsIndexTable = React.createClass({
-  render: function() {
-    return <TestResultsList testResults={this.props.tests}
-              titleClassName="table-title"
-              allowSorting={true} orderBy={this.props.orderBy}
-              showSites={this.props.showSites} showDevices={this.props.showDevices} />
-  }
-});
