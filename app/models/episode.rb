@@ -72,12 +72,12 @@ class Episode < ActiveRecord::Base
   def self.treatment_outcome_options
     [
       OpenStruct.new(id: :cured, name: I18n.t('select.episode.treatment_outcome.cured')),
-      OpenStruct.new(id: :completed, name: I18n.t('select.episode.treatment_outcome.cured')),
-      OpenStruct.new(id: :failed, name: I18n.t('select.episode.treatment_outcome.cured')),
-      OpenStruct.new(id: :died, name: I18n.t('select.episode.treatment_outcome.cured')),
-      OpenStruct.new(id: :lost_to_follow_up, name: I18n.t('select.episode.treatment_outcome.cured')),
-      OpenStruct.new(id: :not_evaluated, name: I18n.t('select.episode.treatment_outcome.cured')),
-      OpenStruct.new(id: :success, name: I18n.t('select.episode.treatment_outcome.cured'))
+      OpenStruct.new(id: :completed, name: I18n.t('select.episode.treatment_outcome.completed')),
+      OpenStruct.new(id: :failed, name: I18n.t('select.episode.treatment_outcome.failed')),
+      OpenStruct.new(id: :died, name: I18n.t('select.episode.treatment_outcome.died')),
+      OpenStruct.new(id: :lost_to_follow_up, name: I18n.t('select.episode.treatment_outcome.lost_to_follow_up')),
+      OpenStruct.new(id: :not_evaluated, name: I18n.t('select.episode.treatment_outcome.not_evaluated')),
+      OpenStruct.new(id: :success, name: I18n.t('select.episode.treatment_outcome.success'))
     ]
   end
 end
