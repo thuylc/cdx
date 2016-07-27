@@ -4,6 +4,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
     $('.test_for_ebola').attr('checked', false).parent().hide();
     $('.test_for_tb').attr('checked', false).parent().hide();
     $('.test_for_hiv').attr('checked', false).parent().hide();
+    $('.cformatIndented').hide();
   },
 
   reasonClicked: function(clk) {
@@ -24,13 +25,14 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
   validateAndSetManualEntry: function (event) {
     var sampleId    = React.findDOMNode(this.refs.manualSampleEntry).value;
+    var labSampleId = React.findDOMNode(this.refs.manualLabSampleEntry).value;
     if (this.state.encounter.new_samples.filter(function(el){ return el.entity_id == sampleId }).length > 0) {
       // Error handling as done in the ajax responses
       alert("This sample has already been added");
     } else {
       this._ajax_put('/encounters/add/manual_sample_entry', function() {
         this.refs.addNewSamplesModal.hide();
-      }, {entity_id: sampleId});
+      }, {entity_id: sampleId, lab_sample_id: labSampleId});
     }
     event.preventDefault();
   },
@@ -104,6 +106,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
           </div>
 
           { this.state.encounter.exam_reason === 'follow' ? <ReasonFollow treatmentDateChange={this.treatmentDateChange} /> : null }
+          { this.state.encounter.exam_reason === 'diag' ? <PresumptiveRR /> : null }
 
           <div className="row">
             <div className="col-6">
@@ -139,15 +142,48 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
                 </li>
                 <li><input type="checkbox" onChange={this.reqtests_change} name="culture" className="test_for_tb" id="requested_culture"/>
                   <label htmlFor="requested_culture">Culture</label>
+                  <ul className="cformatIndented" id="culture_cultformat_section">
+                    <li><input type="checkbox" className="cultureformat" id="culture_cformat_liquid" name="culture_cformat_liquid"/>
+                      <label htmlFor="culture_cformat_liquid">Liquid Culture</label></li>
+                    <li><input type="checkbox" className="cultureformat" id="culture_cformat_solid" name="culture_cformat_solid"/>
+                      <label htmlFor="culture_cformat_solid">Solid Culture</label></li>
+                  </ul>
                 </li>
                 <li><input type="checkbox" onChange={this.reqtests_change} name="drugsusceptibility1line" className="test_for_tb" id="requested_drugsusceptibility1line"/>
-                   <label htmlFor="requested_drugsusceptibility1line">Drug Susceptibility First Line</label>
-                 </li>
+                  <label htmlFor="requested_drugsusceptibility1line">Drug Susceptibility First Line</label>
+                  <ul className="cformatIndented" id="drugsusceptibility1line_cultformat_section">
+                    <li><input type="checkbox" className="cultureformat" id="drugsusceptibility1line_cformat_liquid" name="drugsusceptibility1line_cformat_liquid"/>
+                      <label htmlFor="drugsusceptibility1line_cformat_liquid">Liquid Culture</label></li>
+                    <li><input type="checkbox" className="cultureformat" id="drugsusceptibility1line_cformat_solid" name="drugsusceptibility1line_cformat_solid"/>
+                      <label htmlFor="drugsusceptibility1line_cformat_solid">Solid Culture</label></li>
+                  </ul>
+                </li>
                 <li><input type="checkbox" onChange={this.reqtests_change} name="drugsusceptibility2line" className="test_for_tb" id="requested_drugsusceptibility2line"/>
                   <label htmlFor="requested_drugsusceptibility2line">Drug Susceptibility Second Line</label>
+                  <ul className="cformatIndented" id="drugsusceptibility2line_cultformat_section">
+                    <li><input type="checkbox" className="cultureformat" id="drugsusceptibility2line_cformat_liquid" name="drugsusceptibility2line_cformat_liquid"/>
+                      <label htmlFor="drugsusceptibility2line_cformat_liquid">Liquid Culture</label></li>
+                    <li><input type="checkbox" className="cultureformat" id="drugsusceptibility2line_cformat_solid" name="drugsusceptibility2line_cformat_solid"/>
+                      <label htmlFor="drugsusceptibility2line_cformat_solid">Solid Culture</label></li>
+                  </ul>
                 </li>
-                <li><input type="checkbox" onChange={this.reqtests_change} name="lineprobe" className="test_for_tb" id="requested_lineprobe"/>
-                  <label htmlFor="requested_lineprobe">Line probe assay</label>
+                <li><input type="checkbox" onChange={this.reqtests_change} name="lineprobe1" className="test_for_tb" id="requested_lineprobe1"/>
+                  <label htmlFor="requested_lineprobe1">Line probe assay First Line</label>
+                  <ul className="cformatIndented" id="lineprobe1_cultformat_section">
+                    <li><input type="checkbox" className="cultureformat" id="lineprobe1_cformat_liquid" name="lineprobe1_cformat_liquid"/>
+                      <label htmlFor="lineprobe1_cformat_liquid">Liquid Culture</label></li>
+                    <li><input type="checkbox" className="cultureformat" id="lineprobe1_cformat_solid" name="lineprobe1_cformat_solid"/>
+                      <label htmlFor="lineprobe1_cformat_solid">Solid Culture</label></li>
+                  </ul>
+                </li>
+                <li><input type="checkbox" onChange={this.reqtests_change} name="lineprobe2" className="test_for_tb" id="requested_lineprobe2"/>
+                  <label htmlFor="requested_lineprobe2">Line probe assay Second Line</label>
+                  <ul className="cformatIndented" id="lineprobe2_cultformat_section">
+                    <li><input type="checkbox" className="cultureformat" id="lineprobe2_cformat_liquid" name="lineprobe2_cformat_liquid"/>
+                      <label htmlFor="lineprobe2_cformat_liquid">Liquid Culture</label></li>
+                    <li><input type="checkbox" className="cultureformat" id="lineprobe2_cformat_solid" name="lineprobe2_cformat_solid"/>
+                      <label htmlFor="lineprobe2_cformat_solid">Solid Culture</label></li>
+                  </ul>
                 </li>
                 <li><input type="checkbox" onChange={this.reqtests_change} name="cd4" className="test_for_hiv" id="requested_cd4"/>
                   <label htmlFor="requested_cd4">CD4 Count</label>
@@ -167,8 +203,6 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
               </ul>
             </div>
           </div>
-
-          { this.state.encounter.tests_requested.indexOf('culture') > -1 ? <CultureFormat cultureFormatChange={this.cultureFormatChange} /> : null }
 
           <div className="row">
             <div className="col-6">
@@ -273,9 +307,11 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
   reqtests_change: function() {
     var reqtests = '';
-
+    $('.cformatIndented').hide();
     $('.req_tests_checks input:checked').each(function(dd) {
-      reqtests += $(this).attr('name') + '|';
+      var nn = $(this).attr('name');
+      reqtests += nn + '|';
+      $('#'+nn+'_cultformat_section').show();
     });
     this.setState(React.addons.update(this.state, {
       encounter: {
@@ -411,6 +447,25 @@ var ReasonDiag = React.createClass({
   }
 });
 
+var PresumptiveRR = React.createClass({
+  updatePresumptiveRR: function(e){
+    alert('its changed');
+  },
+
+  render: function() {
+    return (
+      <div className="row">
+        <div className="col-6">
+        </div>
+        <div className="col-6">
+          <input type="checkbox" onChnage={this.updatePresumptiveRR} className="presumptive_rr" id="presumptive_rr" name="presumptive_rr"/>
+          <label htmlFor="presumptive_rr">Presumptive RR-TB/MDR-TB</label>
+        </div>
+      </div>
+    )
+  }
+});
+
 var ReasonFollow = React.createClass({
   updateWeeks: function (e) {
     this.props.treatmentDateChange();
@@ -424,29 +479,6 @@ var ReasonFollow = React.createClass({
         </div>
         <div className="col-6">
           <input type="number" min="0" max="52" onChange={this.updateWeeks} id="treatment_weeks" name="treatment_weeks"/>
-        </div>
-      </div>
-    );
-  }
-});
-
-var CultureFormat = React.createClass({
-  cultureFormatChange: function (e) {
-    this.props.cultureFormatChange();
-  },
-
-  render: function() {
-    return (
-      <div className="row">
-        <div className="col-6">
-          <label>Culture format</label>
-        </div>
-        <div className="col-6">
-          <select className="input-large" id="cultureFormat" name="culture_format" onChange={this.cultureFormatChange}>
-            <option value="">Please Select...</option>
-            <option value="liquid">Liquid culture</option>
-            <option value="solid">Solid culture</option>
-          </select>
         </div>
       </div>
     );
