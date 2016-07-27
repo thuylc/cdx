@@ -46,6 +46,16 @@
           "action": "*",
           "delegable": true
         },
+   {
+          "resource": "page1Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+{
+          "resource": "page2Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
         {
           "resource": "role?institution=<%= institution_id %>",
           "action": "*",
@@ -81,6 +91,21 @@
        {
           "resource": "alert?institution=<%= institution_id %>",
           "action": "alert:read"
+        },
+        {
+          "resource": "pageHeader?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+{
+          "resource": "page1Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+{
+          "resource": "page2Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
         }
       ]
     }

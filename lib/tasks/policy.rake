@@ -63,6 +63,16 @@ namespace :policy do
       DISPLAY_TEST_RESULT_HEADER = "pageHeader:displayTestResult"
       DISPLAY_DEVICES_HEADER     = "pageHeader:displayDevices"
       DISPLAY_SETTINGS_HEADER    = "pageHeader:displaySettings"
+      
+      DISPLAY_TEST_ORDER_HEADER1  = "page1Header:displayTestOrder"
+      DISPLAY_TEST_RESULT_HEADER1 = "page1Header:displayTestResult"
+      DISPLAY_DEVICES_HEADER1     = "page1Header:displayDevices"
+      DISPLAY_SETTINGS_HEADER1    = "page1Header:displaySettings"
+      
+         DISPLAY_TEST_ORDER_HEADER2  = "page2Header:displayTestOrder"
+          DISPLAY_TEST_RESULT_HEADER2 = "page2Header:displayTestResult"
+          DISPLAY_DEVICES_HEADER2     = "page2Header:displayDevices"
+          DISPLAY_SETTINGS_HEADER2    = "page2Header:displaySettings"
 
       REGENERATE_DEVICE_KEY =     "device:regenerateKey"
       GENERATE_ACTIVATION_TOKEN = "device:generateActivationToken"
@@ -100,11 +110,22 @@ namespace :policy do
       "#{PREFIX}:updateAlert" => NewActions::UPDATE_ALERT,
       "#{PREFIX}:deleteAlert" => NewActions::DELETE_ALERT,
       "#{PREFIX}:createAlert" => NewActions::CREATE_ALERT,
-      
+
       "#{PREFIX}:displayTestOrderHeader" => NewActions::DISPLAY_TEST_ORDER_HEADER,
       "#{PREFIX}:displayTestResultHeader" => NewActions::DISPLAY_TEST_RESULT_HEADER,
      "#{PREFIX}:displayDevicesHeader" => NewActions::DISPLAY_DEVICES_HEADER,
-      "#{PREFIX}:displaySettingsHeader" => NewActions::DISPLAY_SETTINGS_HEADER
+      "#{PREFIX}:displaySettingsHeader" => NewActions::DISPLAY_SETTINGS_HEADER,
+      
+       "#{PREFIX}:displayTestOrderHeader1" => NewActions::DISPLAY_TEST_ORDER_HEADER1,
+       "#{PREFIX}:displayTestResultHeader1" => NewActions::DISPLAY_TEST_RESULT_HEADER1,
+      "#{PREFIX}:displayDevicesHeader1" => NewActions::DISPLAY_DEVICES_HEADER1,
+       "#{PREFIX}:displaySettingsHeader1" => NewActions::DISPLAY_SETTINGS_HEADER1,
+       
+        "#{PREFIX}:displayTestOrderHeader2" => NewActions::DISPLAY_TEST_ORDER_HEADER2,
+        "#{PREFIX}:displayTestResultHeader2" => NewActions::DISPLAY_TEST_RESULT_HEADER2,
+       "#{PREFIX}:displayDevicesHeader2" => NewActions::DISPLAY_DEVICES_HEADER2,
+        "#{PREFIX}:displaySettingsHeader2" => NewActions::DISPLAY_SETTINGS_HEADER2
+
     }
 
     def translate_action(action)

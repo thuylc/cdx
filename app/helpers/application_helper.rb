@@ -10,6 +10,7 @@ module ApplicationHelper
   end
 
   def has_access_to_test_orders_index?
+ #   binding.pry
      has_access?(PageHeader, Policy::Actions::DISPLAY_TEST_ORDER_HEADER)
    end
 

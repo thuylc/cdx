@@ -63,6 +63,16 @@
           "action": "*",
           "delegable": true
         },
+       {
+          "resource": "page1Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+  {
+          "resource": "page2Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
         {
           "resource": "device?institution=<%= institution_id %>",
           "action": "*",
@@ -124,7 +134,22 @@
           "resource": "pageHeader?institution=<%= institution_id %>",
           "action": "*",
           "delegable": true
-        }
+        },
+{
+          "resource": "page1Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+{
+          "resource": "page2Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+{
+          "resource": "page2Header?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+       }
       ]
     }
   }

@@ -14,7 +14,9 @@ module Resource
       User,
       Patient,
       Alert,
-      PageHeader
+      PageHeader,
+      Page1Header,
+      Page2Header
     ].freeze
   end
 

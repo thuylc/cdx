@@ -85,6 +85,17 @@ class Policy < ActiveRecord::Base
     DISPLAY_TEST_RESULT_HEADER = "pageHeader:displayTestResult"
     DISPLAY_DEVICES_HEADER     = "pageHeader:displayDevices"
     DISPLAY_SETTINGS_HEADER    = "pageHeader:displaySettings"
+    
+      DISPLAY_TEST_ORDER_HEADER1  = "page1Header:displayTestOrder"
+      DISPLAY_TEST_RESULT_HEADER1 = "page1Header:displayTestResult"
+      DISPLAY_DEVICES_HEADER1     = "page1Header:displayDevices"
+      DISPLAY_SETTINGS_HEADER1    = "page1Header:displaySettings"
+      
+          DISPLAY_TEST_ORDER_HEADER2  = "page2Header:displayTestOrder"
+          DISPLAY_TEST_RESULT_HEADER2 = "page2Header:displayTestResult"
+          DISPLAY_DEVICES_HEADER2     = "page2Header:displayDevices"
+          DISPLAY_SETTINGS_HEADER2    = "page2Header:displaySettings"
+
   end
 
   ACTIONS = Actions.constants.map{|action| Actions.const_get(action)}
