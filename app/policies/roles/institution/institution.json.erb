@@ -58,8 +58,13 @@
           "action": "*",
           "delegable": true
         },
-       {
+        {
           "resource": "pageHeader?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+        {
+          "resource": "settingsPage?institution=<%= institution_id %>",
           "action": "*",
           "delegable": true
         },
@@ -122,6 +127,11 @@
         },
        {
           "resource": "pageHeader?institution=<%= institution_id %>",
+          "action": "*",
+          "delegable": true
+        },
+        {
+          "resource": "settingsPage?institution=<%= institution_id %>",
           "action": "*",
           "delegable": true
         }

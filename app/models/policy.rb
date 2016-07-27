@@ -85,6 +85,8 @@ class Policy < ActiveRecord::Base
     DISPLAY_TEST_RESULT_HEADER = "pageHeader:displayTestResult"
     DISPLAY_DEVICES_HEADER     = "pageHeader:displayDevices"
     DISPLAY_SETTINGS_HEADER    = "pageHeader:displaySettings"
+
+    DISPLAY_SETTINGS_PAGE_ROLE = "settingsPage:displayRole"
   end
 
   ACTIONS = Actions.constants.map{|action| Actions.const_get(action)}

@@ -64,6 +64,8 @@ namespace :policy do
       DISPLAY_DEVICES_HEADER     = "pageHeader:displayDevices"
       DISPLAY_SETTINGS_HEADER    = "pageHeader:displaySettings"
 
+      DISPLAY_SETTINGS_PAGE_ROLE =  "settingsPage:displayRole"
+
       REGENERATE_DEVICE_KEY =     "device:regenerateKey"
       GENERATE_ACTIVATION_TOKEN = "device:generateActivationToken"
       REPORT_MESSAGE =            "device:reportMessage"
@@ -104,7 +106,9 @@ namespace :policy do
       "#{PREFIX}:displayTestOrderHeader" => NewActions::DISPLAY_TEST_ORDER_HEADER,
       "#{PREFIX}:displayTestResultHeader" => NewActions::DISPLAY_TEST_RESULT_HEADER,
      "#{PREFIX}:displayDevicesHeader" => NewActions::DISPLAY_DEVICES_HEADER,
-      "#{PREFIX}:displaySettingsHeader" => NewActions::DISPLAY_SETTINGS_HEADER
+      "#{PREFIX}:displaySettingsHeader" => NewActions::DISPLAY_SETTINGS_HEADER,
+
+      "#{PREFIX}:displaySettingsRole" => NewActions::DISPLAY_SETTINGS_PAGE_ROLE
     }
 
     def translate_action(action)

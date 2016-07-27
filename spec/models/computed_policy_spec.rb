@@ -57,6 +57,18 @@ describe ComputedPolicy do
       end
     end
 
+    it "should create computed policy for all resources including settings page" do
+      expect {
+        grant superadmin, user, SettingsPage, [DISPLAY_SETTINGS_PAGE_ROLE]
+      }.to change(user.computed_policies(:reload), :count).by(1)
+
+      user.computed_policies(:reload).last.tap do |p|
+        expect(p.action).to eq(DISPLAY_SETTINGS_PAGE_ROLE)
+        expect(p.resource_type).to eq('settingsPage')
+        expect(p.resource_id).to be_nil
+      end
+    end
+
     it "should create computed policy for multiple actions and resources" do
       expect {
         grant superadmin, user, [device, device2], [READ_DEVICE, UPDATE_DEVICE]

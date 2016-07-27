@@ -49,6 +49,10 @@ module ApplicationHelper
     has_access?(Role, Policy::Actions::READ_ROLE)
   end
 
+  def has_access_to_roles_index_display?
+    has_access_to_roles_index? || has_access?(SettingsPage, Policy::Actions::DISPLAY_SETTINGS_PAGE_ROLE)
+  end
+
   def can_delegate_permissions?
     current_user.computed_policies.any? &:delegable?
   end

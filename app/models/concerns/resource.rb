@@ -14,7 +14,8 @@ module Resource
       User,
       Patient,
       Alert,
-      PageHeader
+      PageHeader,
+      SettingsPage
     ].freeze
   end
 

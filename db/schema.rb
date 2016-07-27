@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726103921) do
+ActiveRecord::Schema.define(version: 20160727135031) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "uuid",             limit: 255
@@ -454,6 +454,28 @@ ActiveRecord::Schema.define(version: 20160726103921) do
 
   add_index "old_passwords", ["password_archivable_type", "password_archivable_id"], name: "index_password_archivable", using: :btree
 
+  create_table "page1_headers", force: :cascade do |t|
+    t.integer  "institution_id", limit: 4
+    t.integer  "site_id",        limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "site_prefix",    limit: 255
+  end
+
+  add_index "page1_headers", ["institution_id"], name: "index_page1_headers_on_institution_id", using: :btree
+  add_index "page1_headers", ["site_id"], name: "index_page1_headers_on_site_id", using: :btree
+
+  create_table "page2_headers", force: :cascade do |t|
+    t.integer  "institution_id", limit: 4
+    t.integer  "site_id",        limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "site_prefix",    limit: 255
+  end
+
+  add_index "page2_headers", ["institution_id"], name: "index_page2_headers_on_institution_id", using: :btree
+  add_index "page2_headers", ["site_id"], name: "index_page2_headers_on_site_id", using: :btree
+
   create_table "page_headers", force: :cascade do |t|
     t.integer  "institution_id", limit: 4
     t.integer  "site_id",        limit: 4
@@ -638,6 +660,17 @@ ActiveRecord::Schema.define(version: 20160726103921) do
   add_index "samples", ["deleted_at"], name: "index_samples_on_deleted_at", using: :btree
   add_index "samples", ["institution_id"], name: "index_samples_on_institution_id_and_entity_id", using: :btree
   add_index "samples", ["patient_id"], name: "index_samples_on_patient_id", using: :btree
+
+  create_table "settings_pages", force: :cascade do |t|
+    t.integer  "institution_id", limit: 4
+    t.integer  "site_id",        limit: 4
+    t.string   "site_prefix",    limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "settings_pages", ["institution_id"], name: "index_settings_pages_on_institution_id", using: :btree
+  add_index "settings_pages", ["site_id"], name: "index_settings_pages_on_site_id", using: :btree
 
   create_table "sites", force: :cascade do |t|
     t.string   "name",                             limit: 255

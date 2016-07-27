@@ -140,6 +140,10 @@ PageHeader.blueprint do
   institution { Institution.make }
 end
 
+SettingsPage.blueprint do
+  institution { Institution.make }
+end
+
 Encounter.blueprint do
   patient { Patient.make }
   institution { object.patient.try(:institution) || Institution.make }
