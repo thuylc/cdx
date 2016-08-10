@@ -58,7 +58,7 @@ gem 'puma', '~>3.5'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'sidekiq-cron', '~> 0.3.1'
-
+gem 'i18n-js',">= 3.0.0.rc13"
 group :development do
   gem 'letter_opener'
   gem 'letter_opener_web'

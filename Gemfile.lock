@@ -308,6 +308,8 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    i18n-js (3.0.0.rc13)
+      i18n (~> 0.6, >= 0.6.6)
     interception (0.5)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -669,6 +671,7 @@ DEPENDENCIES
   guid
   haml-rails
   hashdiff
+  i18n-js (>= 3.0.0.rc13)
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
@@ -728,6 +731,3 @@ DEPENDENCIES
   view_components!
   web-console (~> 2.0)
   webmock
-
-BUNDLED WITH
-   1.12.5

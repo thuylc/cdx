@@ -1,6 +1,9 @@
 en:
   sites:
     index:
+      col_name: "Name"
+      col_city: "City"
+      col_comment: "Comment"
       no_dependencies: 'This %{entity_name} has no dependencies.'
       create_sites: "Create sites here to keep your institution's hierachy organized."
       site:
