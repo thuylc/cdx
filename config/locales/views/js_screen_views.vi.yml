@@ -1,0 +1,6 @@
+vi:
+  sites:
+    index:
+      col_name: "Ten Cot"
+      col_city: "City"
+      col_comment: "Comment"
