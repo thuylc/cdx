@@ -1,0 +1,13 @@
+en:
+  sessions:
+    new:
+      title: "Login"
+      create_account: "Create an account"
+      login_btn: "Login"
+      email_place_holder: "Email"
+      password_place_holder: "Password"
+      login_problem: "Login problems?"
+      sign_in_with: "Sign in with"
+      chrome_test: "This system has been designed to work with the Google Chrome browser."
+      other_browser: "Other browsers might not work properly."
+      remember_me: "Remember Me"

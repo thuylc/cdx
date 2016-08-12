@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
+
     I18n.locale = current_user.try(:locale) || I18n.default_locale
+    I18n.locale = :vi if params[:language]=="vi"
     @localization_helper = LocalizationHelper.new(current_user.try(:time_zone), I18n.locale,
       current_user.try(:timestamps_in_device_time_zone))
   end

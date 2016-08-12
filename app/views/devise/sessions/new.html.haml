@@ -1,33 +1,33 @@
 .row
   .col
-    %h1 Login
+    %h1=I18n.t("sessions.new.title")
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .row
     .col
-      = f.email_field :email, autofocus: true, placeholder: 'Email', class: "input-block"
+      = f.email_field :email, autofocus: true, placeholder: I18n.t("sessions.new.email_place_holder"), class: "input-block"
   .row
     .col
-      = f.password_field :password, autocomplete: "off", placeholder: 'Password', class: "input-block"
+      = f.password_field :password, autocomplete: "off", placeholder: I18n.t("sessions.new.password_place_holder"), class: "input-block"
   %br
   .row
     .col
-      = f.submit "Login", class: "btn-secondary input-block"
+      = f.submit I18n.t("sessions.new.login_btn"), class: "btn-secondary input-block"
   .row
     - if devise_mapping.rememberable?
       .col
         = f.check_box :remember_me
-        = f.label :remember_me
+        = f.label I18n.t("sessions.new.remember_me")
     .col
-      = link_to "Login problems?", new_password_path(resource_name), class: "pull-right"
+      = link_to I18n.t("sessions.new.login_problem"), new_password_path(resource_name), class: "pull-right"
       -# if devise_mapping.omniauthable?
         - resource_class.omniauth_providers.each do |provider|
           - if provider.to_s =~ /google/i
             %br
-            = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "pull-right"
+            = link_to "#{I18n.t('sessions.new.sign_in_with')} #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "pull-right"
   .row
     .col
       .chromeimage
         = image_tag( 'chrome_logo_sm.png' )
       .chrometest
-        %p This system has been designed to work with the Google Chrome browser.
-        %p.smallprint Other browsers might not work properly.
+        %p=I18n.t('sessions.new.chrome_test')
+        %p.smallprint=I18n.t('sessions.new.other_browser')

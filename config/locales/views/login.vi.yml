@@ -1,0 +1,13 @@
+vi:
+  sessions:
+    new:
+      title: "Đăng Nhập"
+      create_account: "Tạo tài khoản"
+      login_btn: "Đăng Nhập"
+      email_place_holder: "Email"
+      password_place_holder: "Password"
+      login_problem: "Vấn đề đăng nhập?"
+      sign_in_with: "Đăng nhập với"
+      chrome_test: "Hệ thống để thiết kế làm việc hiệu quả trên trình duyệt Google Chrome."
+      other_browser: "Các trình duyệt khác có thể hoạt động không tốt."
+      remember_me: "Ghi nhớ"
