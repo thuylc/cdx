@@ -6,7 +6,7 @@ var DeviceMessageRow = React.createClass({
         {
           this.props.deviceMessage.indexStatus.hasOwnProperty('success') ?
           this.props.deviceMessage.indexStatus.success :
-          <a href={this.props.deviceMessage.indexStatus.link} title="Click to reprocess this message again" method="post">
+                    <a href={this.props.deviceMessage.indexStatus.link} title={I18n.t("components.device_messages_table.click_to_process")} method="post">
             {this.props.deviceMessage.indexStatus.failed}
           </a>
         }</td>
@@ -17,7 +17,8 @@ var DeviceMessageRow = React.createClass({
       <td>{this.props.deviceMessage.errorField}</td>
       <td>{this.props.deviceMessage.createdAt}</td>
       <td>
-        <a href={this.props.deviceMessage.rawLink} title="Download raw file">
+        
+        <a href={this.props.deviceMessage.rawLink} title={I18n.t("components.device_messages_table.download_raw_file")}>
           <div className="icon-download icon-gray"></div>
         </a>
       </td>
@@ -48,14 +49,14 @@ var DeviceMessagesList = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="test-orders-table">
         <thead>
           <tr>
-            {sortableHeader("Status",  "device_messages.index_failed")}
-            {sortableHeader("Message", "device_messages.index_failure_reason")}
-            {sortableHeader("Model",   "device_models.name")}
-            {sortableHeader("Device",  "devices.name")}
-            <th data-resizable-column-id="failures">Failures</th>
-            <th data-resizable-column-id="error-field">Error field</th>
-            {sortableHeader("Date",    "device_messages.created_at")}
-            <th data-resizable-column-id="raw">Raw</th>
+            {sortableHeader(I18n.t("components.device_messages_table.col_status"),  "device_messages.index_failed")}
+            {sortableHeader(I18n.t("components.device_messages_table.col_message"), "device_messages.index_failure_reason")}
+            {sortableHeader(I18n.t("components.device_messages_table.col_model"),   "device_models.name")}
+            {sortableHeader(I18n.t("components.device_messages_table.col_device"),  "devices.name")}
+            <th data-resizable-column-id="failures">I18n.t("components.device_messages_table.col_failures")</th>
+            <th data-resizable-column-id="error-field">I18n.t("components.device_messages_table.col_error_field")</th>
+            {sortableHeader(I18n.t("components.device_messages_table.col_date"),    "device_messages.created_at")}
+            <th data-resizable-column-id="raw">I18n.t("components.device_messages_table.col_raw")</th>
           </tr>
         </thead>
         <tbody>

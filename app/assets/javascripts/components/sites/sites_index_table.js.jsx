@@ -37,9 +37,9 @@ var SitesIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="sites-table">
         <thead>
           <tr>
-            {sortableHeader(I18n.t("sites.index.col_name"), 'sites.name')}
-            {sortableHeader(I18n.t("sites.index.col_city"), 'sites.city')}
-            {sortableHeader(I18n.t("sites.index.col_comment"), 'sites.comment')}
+            {sortableHeader(I18n.t("components.sites_index_table.col_name"), 'sites.name')}
+            {sortableHeader(I18n.t("components.sites_index_table.col_city"), 'sites.city')}
+            {sortableHeader(I18n.t("components.sites_index_table.col_comment"), 'sites.comment')}
           </tr>
         </thead>
         <tbody>

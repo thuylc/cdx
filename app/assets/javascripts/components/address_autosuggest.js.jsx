@@ -49,7 +49,7 @@ var AddressAutosuggest = React.createClass({
     var _this = this;
     this.geocoder.geocode(_this.props.value, function(locations) {
       if (locations.length == 0 && _this.props.onError) {
-        _this.props.onError("The address could not be found, please choose a city and a location in the map");
+        _this.props.onError(I18n.t("components.address_autosuggest.error_message"));
       } else if (locations.length > 0) {
         _this.props.onAddress(locations[0]);
       }

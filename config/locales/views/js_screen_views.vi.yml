@@ -1,6 +1,93 @@
 vi:
-  sites:
-    index:
+  components:
+    sites_index_table:
       col_name: "Ten Cot"
       col_city: "City"
       col_comment: "Comment"
+
+  components:
+    device_messages_table:
+      col_status: "Status"
+      col_message: "Message"
+      col_model: "Model"
+      col_device: "Device"
+      col_failures: "Failures"
+      col_error_field: "Field"
+      col_date: "Date"
+      col_raw: "Raw"
+
+    device_messages_table:
+      click_to_process: "Click to reprocess this message again"
+      download_raw_file: "Download raw file"
+      
+
+    address_autosuggest:
+      error_message: "The address could not be found, please choose a city and a location in the map"
+
+    alert_child_components:
+      delete_message: "You are about to permanently delete this alert. Are you sure you want to proceed?"
+      delete_title: "Delete confirmation"
+      delete_alert: "Delete Alert"
+      delete_confirm_message: "Delete"
+
+      enabled_tooltip: "Enabled"
+      enabled_alert: "Is this Alert Enabled?"
+
+      name_tooltip: "Descriptive Name for this Alert"
+      name_placeholder : "Name"
+      name_label: "Name"
+
+      description_label: "Description"
+      description_tooltip: "Short description of the purpose of this Alert"
+      description_placeholder: "Description"
+
+      error_label: "Errors"
+      error_tooltip: "Range of Error Codes"
+      error_placeholder: "Error code (range)"
+
+
+      site_option_label: "All"
+      site_label: "Sites"
+      site_tootip: "Sites using this Alert."
+      site_placeholder: "All"
+
+
+      device_option_label: "All"
+      device_label: "Devices"
+      device_tooltip: "Which Device provides this Alert."
+      device_placeholder: "All"
+
+
+      anomalie_label: "Anomalie Type"
+      anomalie_tooltip: "Anomalie Type Tooltip"
+      anomalie_placeholder: "Select"
+
+      channel_label: "Channel"
+      channel_tooltip: "How the Alert is delivered"
+
+      role_option_label: "None"
+      role_label: "Roles"
+      role_tooltip: "Roles this Alert applies to"
+      role_placeholder: "None"
+
+
+      internal_recipient_label: "Internal Recipient"
+      internal_recipient_tooltip: "Internal Recipient Tooltip"
+      internal_recipient_placeholder: "None"
+
+
+      patient_label: "All Patients"
+
+      sample_id_label: "Sample Id"
+      sample_id_tooltip: "ID of the Sample that produced this Alert"
+
+
+
+
+
+
+
+
+
+      
+

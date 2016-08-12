@@ -20,14 +20,15 @@ var AlertDelete = React.createClass({
   render: function() {
     if (this.state.displayConfirm==true) {
       return (
-        <ConfirmationModal message= {'You are about to permanently delete this alert. Are you sure you want to proceed?'} title= {'Delete confirmation'} cancel_target= {this.cancelDeleteClickHandler} target= {this.confirmClickHandler} deletion= {true} hideCancel= {false} confirmMessage= {'Delete'} />
+        <ConfirmationModal message= {I18n.t("components.alert_child_components.delete_message")} title= {I18n.t("components.alert_child_components.delete_title")} cancel_target= {this.cancelDeleteClickHandler} target= {this.confirmClickHandler} deletion= {true} hideCancel= {false} confirmMessage= {I18n.t("components.alert_child_components.delete_confirm_message")} />
       );
     }
     else
     if(this.props.edit) {
       return (
+
         <div>
-          <a className = "btn-secondary pull-right" onClick={this.clickHandler} id="delete_alert" href="#">Delete Alert</a>
+          <a className = "btn-secondary pull-right" onClick={this.clickHandler} id="delete_alert" href="#">I18n.t("components.alert_child_components.delete_alert")</a>
         </div>
     );
   } else {
@@ -43,8 +44,8 @@ var AlertEnabled = React.createClass({
     return (
       <div className = "row">
       <div className = "col pe-2">
-        <label className="tooltip">Enabled
-          <div className="tooltiptext_r">Is this Alert Enabled?</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.enabled_tooltip")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.enabled_alert")</div>
         </label>
       </div>
       <div className = "col">
@@ -68,13 +69,13 @@ var AlertName = React.createClass({
     return (
       <div className = "row" id = "namerow" >
       <div className = "col pe-2" >
-        <label className="tooltip">Name
-          <div className="tooltiptext_r">Descriptive Name for this Alert</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.name_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.name_tooltip")</div>
         </label>
       </div>
 
       <div className = "col" >
-        <input type = "text" size="34" placeholder = "Name" valueLink = {
+        <input type = "text" size="34" placeholder = {I18n.t("components.alert_child_components.name_placeholder")} valueLink = {
             this.props.valueLink
           }
           id = "alertname" required  pattern=".{2,255}" />
@@ -89,12 +90,12 @@ var AlertDescription = React.createClass({
     return (
       <div className = "row" >
       <div className = "col pe-2" >
-        <label className="tooltip">Description
-          <div className="tooltiptext_r">Short description of the purpose of this Alert</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.description_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.description_tooltip")</div>
         </label>
       </div>
       <div className = "col" >
-        <input type = "text" size="34" placeholder = "Description" valueLink = {
+        <input type = "text" size="34" placeholder = {I18n.t("components.alert_child_components.description_placeholder")} valueLink = {
             this.props.valueLink
           }
           id = "alertdescription" />
@@ -110,13 +111,13 @@ var AlertErrorCode = React.createClass({
     return (
       <div className = "row" id="errorCodeRow">
       <div className = "col pe-2">
-        <label className="tooltip">Errors
-          <div className="tooltiptext_r">Range of Error Codes</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.error_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.error_tooltip")</div>
         </label>
       </div>
 
       <div className = "col" >
-        <input type = "text" placeholder = "Error code (range)" valueLink = {
+        <input type = "text" placeholder = {I18n.t("components.alert_child_components.error_placeholder")} valueLink = {
             this.props.valueLink
           }
           id = "alerterrorcode"  name="alerterrorcode" disabled={this.props.edit} />
@@ -145,7 +146,7 @@ var AlertSite = React.createClass({
     var siteOptions = [];
     siteOption = {};
     siteOption["value"] = "";
-    siteOption["label"] = "All"
+    siteOption["label"] = I18n.t("components.alert_child_components.site_option_label")
     siteOptions.push(siteOption);
 
     for (var i = 0; i < this.props.sites.length; i++) {
@@ -162,8 +163,8 @@ var AlertSite = React.createClass({
     return (
       < div className = "row">
       <div className = "col pe-2">
-        <label className="tooltip">Sites
-          <div className="tooltiptext_r">Sites using this Alert.</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.site_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.site_tootip")</div>
         </label>
       </div>
       <div className = "col">
@@ -178,7 +179,7 @@ var AlertSite = React.createClass({
           multi = {
             true
           }
-          placeholder = "All"
+          placeholder = {I18n.t("components.alert_child_components.site_placeholder")}
           onChange = {
             this.onChange
           }
@@ -209,7 +210,7 @@ var AlertDevice = React.createClass({
 
     deviceOption = {};
     deviceOption["value"] = "";
-    deviceOption["label"] = "All"
+    deviceOption["label"] = I18n.t("components.alert_child_components.device_option_label")
     deviceOptions.push(deviceOption);
 
     for (var i = 0; i < this.props.devices.length; i++) {
@@ -227,8 +228,8 @@ var AlertDevice = React.createClass({
     return (
       <div className = "row" >
         <div className = "col pe-2" >
-          <label className="tooltip">Devices
-          <div className="tooltiptext_r">Which Device provides this Alert.</div>
+          <label className="tooltip">I18n.t("components.alert_child_components.device_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.device_tooltip")</div>
         </label>
         </div>
         <div className = "col" >
@@ -243,7 +244,7 @@ var AlertDevice = React.createClass({
             multi = {
               true
             }
-            placeholder = "All"
+            placeholder = {I18n.t("components.alert_child_components.device_placeholder")}
             onChange = {
               this.onChange
             }
@@ -288,8 +289,8 @@ var AlertAnomalieType = React.createClass({
     return (
       < div className = "row" id = "anomalieRow">
       <div className = "col pe-2" >
-        <label className="tooltip">Anomalie Type
-          <div className="tooltiptext_r">Anomalie Type Tooltip</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.anomalie_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.anomalie_tooltip")</div>
         </label>
       </div>
       <div className = "col">
@@ -310,7 +311,7 @@ var AlertAnomalieType = React.createClass({
           disabled = {
             this.props.disable_all_selects
           }
-          placeholder="Select"
+          placeholder= {I18n.t("components.alert_child_components.anomalie_placeholder")}
           clearable = { false }
           />
       </div>
@@ -349,8 +350,8 @@ var AlertChannel = React.createClass({
     return (
       < div className = "row" id = "channelrow" >
       <div className = "col pe-2" >
-        <label className="tooltip">Channel
-          <div className="tooltiptext_r">How the Alert is delivered</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.channel_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.channel_tooltip")</div>
         </label>
       </div>
       <div className = "col" >
@@ -397,7 +398,7 @@ var AlertRole = React.createClass({
 
     roleOption = {};
     roleOption["value"] = "";
-    roleOption["label"] = "None"
+    roleOption["label"] = I18n.t("components.alert_child_components.role_option_label")
     roleOptions.push(roleOption);
 
     for (var i = 0; i < this.props.roles.length; i++) {
@@ -415,8 +416,8 @@ var AlertRole = React.createClass({
     return (
       < div className = "row" >
       <div className = "col pe-2" >
-        <label className="tooltip">Roles
-          <div className="tooltiptext_r">Roles this Alert applies to</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.role_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.role_tooltip")</div>
         </label>
       </div>
       <div className = "col" >
@@ -431,7 +432,7 @@ var AlertRole = React.createClass({
           multi = {
             true
           }
-          placeholder = "None"
+          placeholder = {I18n.t("components.alert_child_components.role_placeholder")}
           onChange = {
             this.onChange
           }
@@ -462,7 +463,7 @@ var AlertUser = React.createClass({
 
     userOption = {};
     userOption["value"] = "";
-    userOption["label"] = "None"
+    userOption["label"] = user_option_label
     userOptions.push(userOption);
 
     for (var i = 0; i < this.props.users.length; i++) {
@@ -480,8 +481,8 @@ var AlertUser = React.createClass({
     return (
       <div className = "row">
         <div className = "col pe-2">
-          <label className="tooltip">Internal Recipient
-            <div className="tooltiptext_r">Internal Recipient Tooltip</div>
+          <label className="tooltip">I18n.t("components.alert_child_components.internal_recipient_label")
+            <div className="tooltiptext_r">I18n.t("components.alert_child_components.internal_recipient_tooltip")</div>
           </label>
         </div>
         <div className = "col">
@@ -496,7 +497,7 @@ var AlertUser = React.createClass({
             multi = {
               true
             }
-            placeholder = "None"
+            placeholder = {I18n.t("components.alert_child_components.internal_recipient_placeholder")}
             onChange = {
               this.onChange
             }
@@ -517,7 +518,7 @@ render: function() {
 return (
 <div className="row">
 <div className="col pe-2">
-<label>All Patients</label >
+<label>I18n.t("components.alert_child_components.patient_label")</label >
 </div>
 <div className="col">
 <input
@@ -541,13 +542,13 @@ var AlertSampleId = React.createClass({
     return (
       < div className = "row" id = "sampleidrow" >
       <div className = "col pe-2" >
-        <label className="tooltip">Sample Id
-          <div className="tooltiptext_r">ID of the Sample that produced this Alert</div>
+        <label className="tooltip"> I18n.t("components.alert_child_components.sample_id_label")
+          <div className="tooltiptext_r"> I18n.t("components.alert_child_components.sample_id_tooltip")</div>
         </label>
       </div>
 
       <div className = "col" >
-        <input type = "text" placeholder = "Sample ID" valueLink = {
+        <input type = "text" placeholder = {I18n.t("components.alert_child_components.sample_id_placeholder")} valueLink = {
             this.props.valueLink
           }
           id = "alertsampleid" disabled={this.props.edit} />
@@ -564,13 +565,13 @@ var AlertSmsLimit = React.createClass({
     return (
       < div className = "row" id = "smslimitrow" >
       <div className = "col pe-2" >
-        <label className="tooltip">Daily SMS Limit
-          <div className="tooltiptext_r">Maximum number of SMS messages per day this alert can send</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.sms_limit_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.sms_limit_tooltip")</div>
         </label>
       </div>
 
       <div className = "col" >
-        <input type = "text"  type="number" min="0" max="10000" placeholder = "sms limit" valueLink = {
+        <input type = "text"  type="number" min="0" max="10000" placeholder = {I18n.t("components.alert_child_components.sms_limit_placeholder")} valueLink = {
             this.props.valueLink
           }
           id = "alertsmslimit" disabled={this.props.edit} />
@@ -586,13 +587,13 @@ var AlertEmailLimit = React.createClass({
     return (
       < div className = "row" id = "emaillimitrow" >
       <div className = "col pe-2" >
-        <label className="tooltip">Daily Email Limit
-          <div className="tooltiptext_r">Maximum number of Email messages per day this alert can send</div>
+        <label className="tooltip">I18n.t("components.alert_child_components.email_limit_label")
+          <div className="tooltiptext_r">I18n.t("components.alert_child_components.email_limit_tooltip")</div>
         </label>
       </div>
 
       <div className = "col" >
-        <input type = "text"  type="number" min="0" max="10000" placeholder = "email limit" valueLink = {
+        <input type = "text"  type="number" min="0" max="10000" placeholder = {I18n.t("components.alert_child_components.email_limit_placeholder")} valueLink = {
             this.props.valueLink
           }
           id = "alertemaillimit" disabled={this.props.edit} />
@@ -608,13 +609,13 @@ var AlertEmailMessage = React.createClass({
     return (
       <div className = "row" id = "messagerow">
         <div className = "col pe-2">
-          <label className="tooltip">Email Message
-            <div className="tooltiptext_r">Email Content used when sending Alert</div>
+          <label className="tooltip">I18n.t("components.alert_child_components.email_message_label")
+            <div className="tooltiptext_r">I18n.t("components.alert_child_components.email_message_tooltip")</div>
           </label>
         </div>
 
         <div className = "col" >
-          <textarea rows="4" cols="35" placeholder = "Email message" valueLink = {
+          <textarea rows="4" cols="35" placeholder = {I18n.t("components.alert_child_components.email_message_placeholder")} valueLink = {
               this.props.valueLink
             }
             id = "alertmessage" pattern=".{5,1024}" disabled={this.props.edit} />
@@ -630,13 +631,13 @@ var AlertSmsMessage = React.createClass({
     return (
       <div className = "row" id = "smsmessagerow" >
         <div className = "col pe-2" >
-          <label className="tooltip">SMS Message
-            <div className="tooltiptext_r">SMS Content used when sending Alert</div>
+          <label className="tooltip">I18n.t("components.alert_child_components.sms_message_label")
+            <div className="tooltiptext_r">I18n.t("components.alert_child_components.sms_message_tooltip")</div>
           </label>
         </div>
 
         <div className = "col" >
-          <textarea rows="4" cols="35" placeholder = "SMS message" valueLink = {
+          <textarea rows="4" cols="35" placeholder = {I18n.t("components.alert_child_components.sms_message_placeholder")} valueLink = {
               this.props.valueLink
             }
             id = "alertsmsmessage" pattern=".{5,160}" disabled={this.props.edit} />
