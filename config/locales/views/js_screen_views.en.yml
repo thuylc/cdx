@@ -81,6 +81,89 @@ en:
       sample_id_tooltip: "ID of the Sample that produced this Alert"
 
 
+      sms_limit_label: "Daily SMS Limit"
+      sms_limit_tooltip: "Maximum number of SMS messages per day this alert can send"
+      sms_limit_placeholder: "sms limit"
+
+      email_limit_label: "Daily Email Limit"
+      email_limit_tooltip: "Maximum number of Email messages per day this alert can send"
+      email_limit_placeholder: "email limit"
+
+      email_message_label: "Email Message"
+      email_message_tooltip: "Email Content used when sending Alert"
+      email_message_placeholder: "Email message"
+
+      sms_message_label: "SMS Message"
+      sms_message_tooltip: "SMS Content used when sending Alert"
+      sms_message_placeholder: "SMS message"
+
+
+
+
+    alert_conditions:
+      condition_option_label: "All"
+      condition_row_label: "Conditions"
+      condition_row_placeholder: "All"
+
+
+      condition_result_label: "Condition Results"
+      condition_result_placeholder: "All"
+
+      condition_status_label: "Condition Result Statuses"
+      condition_status_placeholder: "All"
+
+      Threshold_label: "Threshold"
+
+    alert_external_users:
+      ad_hoc_recipient_lable: "Ad-hoc Recipient"
+      ad_hoc_recipient_tooltip: "Ad-hoc Recipient Tooltip."
+
+      first_name_placeholder: "first name"
+      last_name_placeholder: "last name"
+      email_placeholder: "email"
+      telephone_placeholder: "telephone"
+
+
+      create_user_btn: "Create User"
+      delete_user_btn: "Delete"
+
+    alert_incidents:
+      creation_date_row: "Creation Date"
+      incidents_row: "Incidents" 
+      last_incident_row: "Last Incident"
+      ago_col: "Ago"
+    
+    alert_utilization_efficiency:
+      timespan_row_label: "TIMESPAN"
+      number_placeholder: "Number"
+    
+    cdx_select:
+      select_box_placeholder: "Choose one"
+
+
+    confirmation_modal:
+      delete_confirmation_btn: "Delete confirmation"
+      confirmation_btn: "Confirmation"
+      cancel_btn: "Cancel"
+      delete_btn: "Delete"
+      confirm_btn: "Confirm"
+
+    device_code_table: 
+      no_data_msg: "There is no data to display"
+      device_col: "Device"
+      location_col: "Location"
+      error_code_col: "Error Code"
+      error_count_col: "Error Count"
+      last_eror_col: "Last Error"
+
+
+
+
+
+
+
+
+
 
 
 

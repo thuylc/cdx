@@ -100,7 +100,7 @@ var DeviceRow = React.createClass({
         {
           return (
             <div>
-              <span className="horizontal-bar-value">There is no data to display</span>
+              <span className="horizontal-bar-value">I18n.t("components.device_code_table.no_data_msg")</span>
             </div>
           );
         }
@@ -111,11 +111,11 @@ var DeviceRow = React.createClass({
               <table className="table scroll" cellPadding="0" cellSpacing="0" data-resizable-columns-id="device-error-codes-table">
                 <thead>
                   <tr>
-                    {sortableHeader("Device", "device")}
-                    {sortableHeader("Location", "location")}
-                    {sortableHeader("Error Code", "error_code")}
-                    {sortableHeader("Error Count", "count")}
-                    {sortableHeader("Last Error", "last_error")}
+                    {sortableHeader(I18n.t("components.device_code_table.device_col"), "device")}
+                    {sortableHeader(I18n.t("components.device_code_table.location_col"), "location")}
+                    {sortableHeader(I18n.t("components.device_code_table.error_code_col"), "error_code")}
+                    {sortableHeader(I18n.t("components.device_code_table.error_count_col"), "count")}
+                    {sortableHeader(I18n.t("components.device_code_table.last_eror_col"), "last_error")}
                   </tr>
                 </thead>
                 <tbody key={this.randomString()} >

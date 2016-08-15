@@ -1,15 +1,15 @@
 var ConfirmationModal = React.createClass({
 
   modalTitle: function() {
-    return this.props.title || (this.props.deletion ? "Delete confirmation" : "Confirmation");
+    return this.props.title || (this.props.deletion ? I18n.t("components.confirmation_modal.delete_confirmation_btn") : I18n.t("components.confirmation_modal.confirmation_btn"));
   },
 
   cancelMessage: function() {
-    return this.props.cancelMessage || "Cancel";
+    return this.props.cancelMessage || I18n.t("components.confirmation_modal.cancel_btn");
   },
 
   confirmMessage: function() {
-    return this.props.confirmMessage || (this.props.deletion ? "Delete" : "Confirm");
+    return this.props.confirmMessage || (this.props.deletion ? I18n.t("components.confirmation_modal.delete_btn") : I18n.t("components.confirmation_modal.confirm_btn"));
   },
 
   componentDidMount: function() {

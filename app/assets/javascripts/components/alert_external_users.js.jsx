@@ -46,8 +46,8 @@ var AlertExternalUser = React.createClass({
 				<div>
 					<div className = "row" id = "newuserrow" >
 					<div className = "col pe-2" >
-						<label className="tooltip">Ad-hoc Recipient
-							<div className="tooltiptext_r">Ad-hoc Recipient Tooltip.</div> 
+						<label className="tooltip">I18n.t("components.alert_external_users.ad_hoc_recipient_lable")
+							<div className="tooltiptext_r">I18n.t("components.alert_external_users.ad_hoc_recipient_tooltip")</div> 
 						</label>
 					</div>
 
@@ -66,8 +66,8 @@ var AlertExternalUser = React.createClass({
 var AlertCreateExternalUser = React.createClass({
 	getInitialState: function() {
 		return {
-			first_name_paceholder: "first name",
-			last_name_paceholder: "last name"
+			first_name_paceholder: I18n.t("components.alert_external_users.first_name_placeholder"),
+			last_name_paceholder: I18n.t("components.alert_external_users.last_name_placeholder")
 		};
 	},				
 	propTypes: {
@@ -101,19 +101,19 @@ var AlertCreateExternalUser = React.createClass({
 			</div>
 
 			<div className = "col pe-2" >
-				<input type = "text" placeholder = "email"
+				<input type = "text" placeholder =  {I18n.t("components.alert_external_users.email_placeholder")}
 					valueLink = {this.props.emailLink}
 					id="externaluser_email" />
 			</div>
 
 			<div className = "col pe-2 " >
-				<input type = "text" placeholder = "telephone"
+				<input type = "text" placeholder =  {I18n.t("components.alert_external_users.telephone_placeholder")}
 					valueLink = {this.props.telephoneLink}
 					id="externaluser_telephone" />
 			</div>
 
 			<div className = "col" >
-				<a className = "btn-link"  onClick={this.clickHandler} id="newexternaluser">Create User</a>
+				<a className = "btn-link"  onClick={this.clickHandler} id="newexternaluser">I18n.t("components.alert_external_users.create_user_btn")</a>
 			</div>
 		</div>
 	);
@@ -170,7 +170,7 @@ var ExternalUser = React.createClass({
 				{this.props.telephone}
 			</div>
 			<div className = "col" >
-				<a className = "btn-link" onClick={this.clickHandler.bind(this,this.props.eachuserarrayindex)} id="externaluserdelete">Delete</a>
+				<a className = "btn-link" onClick={this.clickHandler.bind(this,this.props.eachuserarrayindex)} id="externaluserdelete">I18n.t("components.alert_external_users.delete_user_btn")</a>
 			</div>
 		</div>
 	);

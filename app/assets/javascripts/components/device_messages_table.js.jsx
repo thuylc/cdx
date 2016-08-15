@@ -53,10 +53,10 @@ var DeviceMessagesList = React.createClass({
             {sortableHeader(I18n.t("components.device_messages_table.col_message"), "device_messages.index_failure_reason")}
             {sortableHeader(I18n.t("components.device_messages_table.col_model"),   "device_models.name")}
             {sortableHeader(I18n.t("components.device_messages_table.col_device"),  "devices.name")}
-            <th data-resizable-column-id="failures">I18n.t("components.device_messages_table.col_failures")</th>
-            <th data-resizable-column-id="error-field">I18n.t("components.device_messages_table.col_error_field")</th>
+            <th data-resizable-column-id="failures">{I18n.t("components.device_messages_table.col_failures")}</th>
+            <th data-resizable-column-id="error-field">{I18n.t("components.device_messages_table.col_error_field")}</th>
             {sortableHeader(I18n.t("components.device_messages_table.col_date"),    "device_messages.created_at")}
-            <th data-resizable-column-id="raw">I18n.t("components.device_messages_table.col_raw")</th>
+            <th data-resizable-column-id="raw">{I18n.t("components.device_messages_table.col_raw")}</th>
           </tr>
         </thead>
         <tbody>

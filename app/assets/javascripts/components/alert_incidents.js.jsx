@@ -7,7 +7,7 @@ AlertDisplayIncidentInfo = React.createClass({
   				<div className="box small gray">
   					<div className = "row">
     					<div className = "col pe-2">
-    						<label>Creation Date</label>
+    						<label>I18n.t("components.alert_incidents.creation_date_row")</label>
     					</div>
     					<div className = "col">
     						<label>{this.props.alert_created_at}</label>
@@ -16,7 +16,7 @@ AlertDisplayIncidentInfo = React.createClass({
 
     				<div className = "row">
       				<div className = "col pe-2">
-      					<label>Incidents</label>
+      					<label>I18n.t("components.alert_incidents.incidents_row")</label>
       				</div>
       				<div className = "col">
       					<a className = "btn-link" href={"/incidents?alert.id="+this.props.alert_info.id}><label>{this.props.alert_number_incidents}</label></a>
@@ -24,10 +24,10 @@ AlertDisplayIncidentInfo = React.createClass({
       			</div>
     			  <div className = "row">
         			<div className = "col pe-2">
-        				<label>Last Incident</label>
+        				<label>I18n.t("components.alert_incidents.last_incident_row")</label>
         			</div>
         			<div className = "col" id="incidents">
-        				<label>{this.props.alert_last_incident} Ago</label>
+        				<label>{this.props.alert_last_incident} I18n.t("components.alert_incidents.ago_col")</label>
         			</div>
         		</div>
           </div>

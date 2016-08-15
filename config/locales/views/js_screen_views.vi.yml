@@ -1,41 +1,41 @@
 vi:
   components:
     sites_index_table:
-      col_name: "Ten Cot"
-      col_city: "City"
+      col_name: "Ten"
+      col_city: "Thanh pho"
       col_comment: "Comment"
 
-  components:
+ 
     device_messages_table:
       col_status: "Status"
       col_message: "Message"
       col_model: "Model"
-      col_device: "Device"
+      col_device: "Thiết bị"
       col_failures: "Failures"
       col_error_field: "Field"
-      col_date: "Date"
+      col_date: "Ngày"
       col_raw: "Raw"
 
-    device_messages_table:
-      click_to_process: "Click to reprocess this message again"
-      download_raw_file: "Download raw file"
+    
+      click_to_process: "Nhấn vào đây để tái xử lý lại tin nhắn này."
+      download_raw_file: "Tải raw file"
       
 
     address_autosuggest:
-      error_message: "The address could not be found, please choose a city and a location in the map"
+      error_message: "Địa chỉ không thể được tìm thấy, xin vui lòng chọn một thành phố và vị trí trên bản đồ"
 
     alert_child_components:
-      delete_message: "You are about to permanently delete this alert. Are you sure you want to proceed?"
-      delete_title: "Delete confirmation"
-      delete_alert: "Delete Alert"
-      delete_confirm_message: "Delete"
+      delete_message: "Bạn muốn xóa vĩnh viễn thông báo này. Bạn có chắc muốn tiếp tục?"
+      delete_title: "Xác nhận xóa"
+      delete_alert: "Xóa thông báo"
+      delete_confirm_message: "Xóa"
 
       enabled_tooltip: "Enabled"
       enabled_alert: "Is this Alert Enabled?"
 
       name_tooltip: "Descriptive Name for this Alert"
-      name_placeholder : "Name"
-      name_label: "Name"
+      name_placeholder : "Tên"
+      name_label: "Tên"
 
       description_label: "Description"
       description_tooltip: "Short description of the purpose of this Alert"
@@ -46,21 +46,21 @@ vi:
       error_placeholder: "Error code (range)"
 
 
-      site_option_label: "All"
+      site_option_label: "Tất cả"
       site_label: "Sites"
       site_tootip: "Sites using this Alert."
-      site_placeholder: "All"
+      site_placeholder: "Tất cả"
 
 
-      device_option_label: "All"
-      device_label: "Devices"
-      device_tooltip: "Which Device provides this Alert."
-      device_placeholder: "All"
+      device_option_label: "Tất cả"
+      device_label: "Thiết bị"
+      device_tooltip: "Những thiết bị cung cấp thông báo này"
+      device_placeholder: "Tất cả"
 
 
       anomalie_label: "Anomalie Type"
       anomalie_tooltip: "Anomalie Type Tooltip"
-      anomalie_placeholder: "Select"
+      anomalie_placeholder: "Lựa chọn"
 
       channel_label: "Channel"
       channel_tooltip: "How the Alert is delivered"
@@ -80,6 +80,86 @@ vi:
 
       sample_id_label: "Sample Id"
       sample_id_tooltip: "ID of the Sample that produced this Alert"
+      sample_id_placeholder: "Sample Id"
+
+
+      sms_limit_label: "Giới hạn SMS hằng ngày"
+      sms_limit_tooltip: "Số tin nhắn SMS tối đa có thể gửi mỗi ngày"
+      sms_limit_placeholder: "Giới hạn SMS"
+
+      email_limit_label: "Giới hạn Email hằng ngày"
+      email_limit_tooltip: "Số Email thông báo tối đa có thể gửi mỗi ngày"
+      email_limit_placeholder: "Giới hạn Email"
+
+
+      email_message_label: "Email thông báo"
+      email_message_tooltip: "Nội dung email sử dụng khi gửi thông báo"
+      email_message_placeholder: "Email thông báo"
+
+      sms_message_label: "Tin nhắn SMS"
+      sms_message_tooltip: "Nội dung SMS sử dụng khi gửi thông báo"
+      sms_message_placeholder: "Tin nhắn SMS"
+
+
+    alert_conditions:
+      condition_option_label: "Tất cả"
+      condition_row_label: "Conditions"
+      condition_row_placeholder: "Tất cả"
+
+
+
+      condition_result_label: "Condition Results"
+      condition_result_placeholder: "Tất cả"
+
+      condition_status_label: "Condition Result Statuses"
+      condition_status_placeholder: "Tất cả"
+
+      Threshold_label: "Threshold"
+
+    alert_external_users:
+      ad_hoc_recipient_lable: "Ad-hoc Recipient"
+      ad_hoc_recipient_tooltip: "Ad-hoc Recipient Tooltip."
+
+      first_name_placeholder: "Tên"
+      last_name_placeholder: "Họ"
+      email_placeholder: "email"
+      telephone_placeholder: "Số điện thoại"
+
+
+      create_user_btn: "Tạo User"
+      delete_user_btn: "Xóa"
+
+    alert_incidents:
+      creation_date_row: "Ngày khởi tạo"
+      incidents_row: "Các sự cố" 
+      last_incident_row: "Sự cố cuối cùng"
+      ago_col: "trước"
+
+
+    alert_utilization_efficiency:
+      timespan_row_label: "Khoảng thời gian"
+      number_placeholder: "Số"
+
+    cdx_select:
+      select_box_placeholder: "Chọn một"
+
+    confirmation_modal:
+      delete_confirmation_btn: "Xác nhận xóa"
+      confirmation_btn: "Xác nhận"
+      cancel_btn: "Hủy bỏ"
+      delete_btn: "Xóa"
+      confirm_btn: "Xác nhận"
+
+    device_code_table: 
+      no_data_msg: "Không có dữ liệu nào hiển thị"
+      device_col: "Thiết bị"
+      location_col: "Vị trí"
+      error_code_col: "Mã lỗi"
+      error_count_col: "Số lỗi"
+      last_eror_col: "Lỗi cuối cùng"
+      
+
+
 
 
 
