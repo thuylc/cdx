@@ -25,7 +25,7 @@ var LocationSelect = React.createClass({
   getDefaultProps: function() {
     return {
       className: "input-large",
-      placeholder: "Choose one",
+      placeholder: I18n.t("components.location_select.choose_one"),
       onChange: null,
       onError: null,
       clearable: false,
@@ -48,7 +48,7 @@ var LocationSelect = React.createClass({
               newState.value = { $set: null };
               newState.latlng = { $set: null };
               if (_this.props.onError) {
-                _this.props.onError("A region could not be found for this address, please choose one;")
+                _this.props.onError(I18n.t("components.location_select.no_region"))
               }
             } else {
               newState.value = { $set: _this.formatLocation(data[0]) };

@@ -34,11 +34,11 @@ var TextInputModal = React.createClass({
   render: function() {
     return (
       <div>
-        <a className="btn-add side-link" href='#' title="Add Comment" onClick={this.openInviteModal} ><span className="icon-pencil icon-white"></span></a>
+        <a className="btn-add side-link" href='#' title={I18n.t("components.text_input_modal.add_comment_title")} onClick={this.openInviteModal} ><span className="icon-pencil icon-white"></span></a>
         <Modal ref="inviteModal" hideOuterEvent={this.hideOuterEvent}>
-          <h1>Test Comment</h1>
+          <h1>I18n.t("components.text_input_modal.test_comment_heading")</h1>
           <p>
-            <textarea rows="10" cols="50" placeholder="Add Comment" value={this.state.newComment} onChange={this.handleChange} id="testcomment" disabled={!this.props.edit} />
+            <textarea rows="10" cols="50" placeholder={I18n.t("components.text_input_modal.add_comment_placeholder")} value={this.state.newComment} onChange={this.handleChange} id="testcomment" disabled={!this.props.edit} />
           </p>
           <p>
             <a className = "btn-add-link btn-primary" href = "#" onClick={this.handleSave}>{this.state.buttonText}</a>

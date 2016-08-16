@@ -257,8 +257,8 @@ var AlertCategorySelect = React.createClass({
 
       <div className="row">
         <div className="col pe-2">
-          <label className="tooltip">Categories
-            <div className="tooltiptext_r">These are the categories for the Alerts.</div>
+          <label className="tooltip">I18n.t("components.alert_category_select.categories_label")
+            <div className="tooltiptext_r">I18n.t("components.alert_category_select.categories_tooltip")</div>
           </label>
         </div>
         <div className="col" >
@@ -267,7 +267,7 @@ var AlertCategorySelect = React.createClass({
             id={category_keys[0]}
             disabled={false}
           />
-          <label htmlFor={category_keys[0]}>Anomalies</label>
+          <label htmlFor={category_keys[0]}>I18n.t("components.alert_category_select.anomalies_label")</label>
         </div>
       </div>
       <div className="row">
@@ -280,7 +280,7 @@ var AlertCategorySelect = React.createClass({
             id = {category_keys[1]}
             disabled={false}
           />
-          <label htmlFor={category_keys[1]}>Device Errors</label>
+          <label htmlFor={category_keys[1]}>I18n.t("components.alert_category_select.device_errors_label")</label>
         </div>
       </div>
 
@@ -294,7 +294,7 @@ var AlertCategorySelect = React.createClass({
             id = {category_keys[3]}
             disabled={false}
           />
-          <label htmlFor={category_keys[3]}>Test Results</label>
+          <label htmlFor={category_keys[3]}>I18n.t("components.alert_category_select.test_results_label")</label>
         </div>
       </div>
 
@@ -308,7 +308,7 @@ var AlertCategorySelect = React.createClass({
             id = {category_keys[4]}
             disabled={false}
           />
-          <label htmlFor={category_keys[4]}>Utilization Efficiency</label>
+          <label htmlFor={category_keys[4]}>I18n.t("components.alert_category_select.utilization_efficiency_label")</label>
         </div>
       </div>
 
@@ -390,7 +390,7 @@ var AlertCategorySelect = React.createClass({
   <div className="row">
     <div className = {save_class}>
       <input type = "submit" value = {this.state.submit_button_text} className = "btn-primary" id="submit" />
-      <a className = "btn-link cancel" href = "/alerts">Cancel</a>
+      <a className = "btn-link cancel" href = "/alerts">I18n.t("components.alert_category_select.cancel_btn")</a>
     </div>
 
     <div className = {delete_class}>

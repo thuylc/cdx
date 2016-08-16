@@ -8,7 +8,7 @@ var AddResourceSearchDeviceTemplate = React.createClass({
 var DeviceList = React.createClass({
 
   placeholder: function() {
-    return this.props.isException ? "Add elements to the exception list" : "Add elements to the list"
+    return this.props.isException ? I18n.t("components.resource_list.add_element_btn1") : I18n.t("components.resource_list.add_element_btn2")
   },
 
   render: function() {

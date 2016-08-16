@@ -76,7 +76,7 @@ var EncounterNew = React.createClass({
       <div className="testflow">
         <div className="row labelHeader">
           <div className="col-6">
-            <h3>Site Details</h3>
+            <h3>I18n.t("components.encounter_new.message_label")</h3>
           </div>
           <div className="col-6">
           </div>

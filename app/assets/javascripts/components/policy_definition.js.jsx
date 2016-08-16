@@ -90,8 +90,8 @@ var PolicyDefinition = React.createClass({
         }
         if(components.policyResourceType != resourceType) {
           // FIXME - show this warnings to the user
-          console.warn("Resource type " + components.policyResourceType + " doesn't match previous resource's type " + resourceType +
-              " - the control may not work OK");
+          console.warn(I18n.t("components.policy_definition.resource_type_text1") + components.policyResourceType + I18n.t("components.policy_definition.resource_type_text2") + resourceType +
+              I18n.t("components.policy_definition.resource_type_text3"));
         }
         return resources[resourceKey];
       }
@@ -184,7 +184,7 @@ var PolicyDefinition = React.createClass({
                   var selectedClass = this.state.activeTab == index ? "selected" : "";
                   return <li key={index} onClick={this.setActiveTab.bind(this,index)} className={selectedClass}><PolicyItem statement={statement} onRemove={this._removeStatement} /></li>;
                 }.bind(this))}
-                <li><a onClick={this.newPolicy} href="javascript:" className="btn-add-link"><span className="icon-circle-plus icon-blue"></span>Add policy</a></li>
+                <li><a onClick={this.newPolicy} href="javascript:" className="btn-add-link"><span className="icon-circle-plus icon-blue"></span>{I18n.t("components.policy_definition.add_policy_btn")}</a></li>
               </ul>
             </div>
           </div>

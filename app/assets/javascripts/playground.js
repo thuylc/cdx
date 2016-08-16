@@ -10,7 +10,7 @@ $(function() {
     $report_form.submit(function() {
       $create_button.prop("disabled", true);
       $results_div.html("");
-      $create_button.val("Creating...");
+      $create_button.val(I18n.t("stores.playground.creating"));
       device = cdx_select_value("device");
       data = $("#data").val();
 
@@ -32,12 +32,12 @@ $(function() {
         contentType: false,
         success: function(data, textStatus, jqXHR) {
           $create_button.prop("disabled", false);
-          $create_button.val("Created!");
-          setTimeout(function() { $create_button.val("Create another message"); }, 1000);
+          $create_button.val(I18n.t("stores.playground.created"));
+          setTimeout(function() { $create_button.val(I18n.t("stores.playground.create_another_message")); }, 1000);
         },
         error: function(response) {
           $results_div.html("<p> Error: " + errorMessageFor(response) + "</p>");
-          $create_button.val("Create another message");
+          $create_button.val(I18n.t("stores.playground.create_another_message"));
           setTimeout(function() { $create_button.prop("disabled", false); }, 1000);
         }
       });
@@ -51,7 +51,7 @@ $(function() {
       query_string = $("#query_string").val();
       post_body = $("#post_body").val();
       $query_button.prop("disabled", true);
-      $query_button.val("Querying...");
+      $query_button.val(I18n.t("stores.playground.querying"));
 
       $.ajax({
         url: "/api/tests?" + query_string,

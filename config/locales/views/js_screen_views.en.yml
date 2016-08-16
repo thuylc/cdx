@@ -24,6 +24,27 @@ en:
     address_autosuggest:
       error_message: "The address could not be found, please choose a city and a location in the map"
 
+    alert_aggregation:
+      aggregation_type: "Aggregation Type"
+      aggregation_type_tooltip.: "Aggregation Type Tooltip."
+      aggregation_frequency: "Aggregation Frequency"
+      aggregation_frequency_tooltip.: "Aggregation Frequency Tooltip."
+      aggregation_threshold: "Aggregation Threshold"
+      aggregation_threshold_tooltip.: "Aggregation Threshold Tooltip."
+      agg_threshold_placeholder: "Agg Threshold"
+      use_percentage: "Use Percentage"
+
+    alert_category_select:
+      categories_label: "Categories"
+      categories_tooltip: "These are the categories for the Alerts."
+      anomalies_label: "Anomalies"
+      device_errors_label: "Device Errors"
+      test_results_label: "Test Results"
+      utilization_efficiency_label: "Utilization Efficiency"
+
+
+      cancel_btn: "Cancel"
+
     alert_child_components:
       delete_message: "You are about to permanently delete this alert. Are you sure you want to proceed?"
       delete_title: "Delete confirmation"
@@ -155,6 +176,254 @@ en:
       error_code_col: "Error Code"
       error_count_col: "Error Count"
       last_eror_col: "Last Error"
+    
+    device_setup:
+      text_1: "Download instructions as a"
+      text_2: "pdf file"
+      text_3: "Visit manufacturer's"
+      text_4: "online support"
+      text_5: "manufacturer didn't provide a support url"
+      text_6: "View instructions"
+      text_7: " on how to setup this device 
+      or "
+      text_8: "email setup instructions to a lab operator"
+      instructions_heading: "Instructions"
+      close_btn: "Close"
+      email_instructions_heading: "Email instructions"
+      recipient_label: "Recipient"
+      send_btn: "Send"
+      cancel_btn: "Cancel"
+
+    encounter_form:
+      diagnosis_label: "Diagnosis"
+      diagnosis_text: "Each time a new test arrives, the list of conditions will be updated for you to diagnostic"
+      quantitative_placeholder: "Quant."
+      observations_placeholder: "Observations"
+      site_label: "Site"
+      sample_label: "Samples"
+      append_new_sample_btn: "Append new sample"
+      append_sample_btn: "Append sample"
+      add_sample_heading: "Add sample"
+      search_placeholder: "Search by sample id"
+      unify_sample_heading: "Unify sample"
+      add_test_btn: "Add tests"
+      save_btn: "Save"
+
+    encounter_new:
+      requesting_label: "Requesting"
+      performing_label: "Performing"
+      site_detail_heading: "Site Details"
+
+
+    encounter_show:
+      site_detail_heading: "Site Details"
+      
+      requesting_site_label: "Requesting site:"
+      performing_site_label: "Performing site:"
+
+      test_detail_heading: "Test Details"
+      order_id_label: "Order Id:"
+      testing_for_label: "Testing for:"
+      culture_format_label: "Culture format:"
+      comment_label: "Comment:"
+      ưeeks_in_treatment_label: "Weeks in treatment:"
+      samples_id_label: "Samples Id:"
+      sample_type_label: "Sample type:"
+      test_due_date_label: "Test due date:" 
+      status_label: "Status:"
+      update_btn: "Update Test Order"
+      cancel_confirm_msg: "You are about to permanently cancel this test order. Are you sure you want to proceed?"
+      cancel_confirm_title: "Cancel confirmation"
+      delete_btn: "Delete"
+      cancel_test_order_btn: "Cancel Test Order"
+      cancel_confirmation_btn: "Cancel confirmation"
+      confirmation_btn: "Confirmation"
+      cancel_btn: "Cancel"
+      confirm_btn: "Confirm"
+
+    fresh_tests_encounter_form:
+      alert_new_sample: "This sample has already been added"
+      alert_testing_for: "Please choose a Test For option."
+      alert_exam_reason: "Please choose an Examination Reason."
+      alert_tests_requested: "Please choose one or more Test types."
+      test_order_details_heading: "Test Order Details"
+      testing_for_label: "Testing For"
+      TB_option: "TB"
+      HIV_option: "HIV"
+      Ebola_option: "Ebola"
+
+
+
+      samples_lable: "Samples"
+      add_sample : "Add sample"
+      sample_id_placeholder: "Sample Id"
+      add_btn: "Add"
+
+
+
+
+
+
+
+      reason_for_examination_label: "Reason for Examination"
+      collection_sample_type_label: "Collection Sample Type"
+      please_select_option: "Please Select..."
+      sputum_option: "sputum"
+      blood_option: "Blood"
+      other_option: "Other - Please Specify"
+      test_due_date_label: "Test Due Date"
+      save_btn: "Save"
+      cancel_btn: "Cancel"
+      diagnosis_lable: "Diagnosis"
+      follow_up_lable: "Follow-Up"
+      weeks_in_treatment_label: "Weeks in treatment"
+
+    location_select:
+      no_region: "A region could not be found for this address, please choose one;"
+      choose_one: "Choose one"
+
+
+
+    outstanding_tests_table:
+      outstanding_tests_title: "Outstanding Tests"
+      no_data_display: "There is no data to display"
+      test_order_col: "Test Order#"
+      date_ordered_col: "Date Ordered"
+      ordered_by_col: "Ordered by"
+      outstanding_days_col: "Outstanding days"
+
+    patient_card:
+      no_patient_information: "No patient information"
+      name_col: "Name"
+      gender_col: "Gender"
+      date_of_birth_col: "Date of Birth"
+      address_col: "Address"
+      phone_col: "Phone"
+      email_col: "Email"
+      edit: "Edit"
+      create_test_order: "Create Test Order"
+
+
+
+
+    patient_select:
+      search_patient_placeholder: "Search by name or patient id"
+      patient_lable: "Patient"
+      create_new_patient_title: "Create new patient"
+      no_patient_found: "No patient could be found"
+
+    policy_definition:
+      resource_type_text1: "Resource type "
+      resource_type_text2: " doesn't match previous resource's type "
+      resource_type_text3: " - the control may not work OK"
+      add_policy_btn: "Add policy"
+
+    policy_item:
+      description_msg: "Type, resource, and actions are not defined yet"
+
+    policy_item_detail: 
+      resources_label: "Resources"
+      all_text: "All"
+      from_text: "from"
+      only_some_text: "Only some"
+      actions_label: "Actions"
+      delegable_label: "Delegable"
+      type_label: "Type"
+      include_subsites_label: "Include subsites"
+      users_can: "Users CAN"
+      not: "NOT"
+      delegate_permissions_on_this_policy: " delegate permissions on this policy"
+
+    request_tests:
+      add_result: "Add Result"
+      view_result: "View Result"
+      type_col: "Type"
+      sample_id_col: "Sample Id"
+      order_by_user_col: "Order by user"
+      requested_date: "Requested date"
+      request_by_col: "Request by"
+      due_date_col: "Due date"
+      status_col: "Status"
+      comment_col: "Comment"
+      result_col: "Result"
+      confirm_msg: "You must enter Culture results before you can add DST results."
+      confirm_title: "Culture result needed."
+      close_btn: "Close"
+      add_result_btn:  "Add Result"
+
+
+    resource_list:
+      add_element_btn1: "Add elements to the exception list"
+      add_element_btn2: "Add elements to the list"
+
+
+    sites:
+      search_sites_placeholder: "Search sites"
+      selection_label: "Selection includes all subsites"
+
+    text_input_modal:
+      add_comment_title: "Add Comment"
+      test_comment_heading: "Test Comment"
+      add_comment_placeholder: "Add Comment"
+      save_btn: "Save"
+      close_btn: "Close"
+
+
+
+    users:
+      invite_user_title: "Invite users"
+      invite_users_heading: "Invite users"
+      role_label: "Role"
+      users_label: "Users"
+      include_message_label: "Include message"
+      message_label: "Message"
+      send_btn: "Send"
+      cancel_btn: "Cancel"
+      type_email_placeholder: "Type email and press enter"
+
+  stores: 
+    device_model:
+      text1: "Publishing this device model will make it available to all institutions."
+      text2: "Withdrawing this device model will hide it from all institutions."
+      text3: " Are you sure you want to proceed?"
+      text4: "\n\nAny pending changes will be saved before proceeding."
+
+    playground:
+      create_another_message: "Create another message"
+      creating: "Creating"
+      created: "Created!"
+      querying: "Querying"
+
+    simulator:
+      create_another_message: "Create another message"
+      querying: "Querying"
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

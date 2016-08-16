@@ -83,11 +83,11 @@ var PolicyItemDetail = React.createClass({
           // HACK for statements scoped for institution
           ifResourcesSelectable = (<div className="row section">
             <div className="col px-1">
-              <label className="section-name">Resources</label>
+              <label className="section-name">{I18n.t("components.policy_item_detail.resources_label")}</label>
             </div>
             <div className="col">
               <input type="radio" name="statementType" value="all" id={this.idFor("statement-type-all")} checked={true} readOnly={true} />
-              <label htmlFor={this.idFor("statement-type-all")}>All {resourcesLabel} from {statement.resourceList[statement.statementType][0].name}</label>
+              <label htmlFor={this.idFor("statement-type-all")}>{I18n.t("components.policy_item_detail.all_text")} {resourcesLabel} I18n.t("components.policy_item_detail.from_text") {statement.resourceList[statement.statementType][0].name}</label>
             </div>
           </div>);
         } else {
@@ -96,17 +96,17 @@ var PolicyItemDetail = React.createClass({
 
           ifResourcesSelectable = (<div className="row section">
             <div className="col px-1">
-              <label className="section-name">Resources</label>
+              <label className="section-name">{I18n.t("components.policy_item_detail.resources_label")}</label>
             </div>
             <div className="col">
               <div className="section-content">
                 <input type="radio" name="statementType" value="all" id={this.idFor("statement-type-all")} checked={statement.statementType == 'all'} onChange={this.onStatementTypeChange.bind(this, 'all')} />
-                <label htmlFor={this.idFor("statement-type-all")}>All {resourcesLabel}</label>
+                <label htmlFor={this.idFor("statement-type-all")}>{I18n.t("components.policy_item_detail.all_text")} {resourcesLabel}</label>
                 <input type="radio" name="statementType" value="except" id={this.idFor("statement-type-except")} checked={statement.statementType == 'except'} onChange={this.onStatementTypeChange.bind(this, 'except')} />
-                <label htmlFor={this.idFor("statement-type-except")}>All {resourcesLabel} except</label>
+                <label htmlFor={this.idFor("statement-type-except")}>{I18n.t("components.policy_item_detail.all_text")} {resourcesLabel} except</label>
                 {resourcesList['except']}
                 <input type="radio" name="statementType" value="only" id={this.idFor("statement-type-only")} checked={statement.statementType == 'only'} onChange={this.onStatementTypeChange.bind(this, 'only')} />
-                <label htmlFor={this.idFor("statement-type-only")}>Only some {resourcesLabel}</label>
+                <label htmlFor={this.idFor("statement-type-only")}>{I18n.t("components.policy_item_detail.only_some_text")} {resourcesLabel}</label>
                 {resourcesList['only']}
               </div>
             </div>
@@ -123,12 +123,12 @@ var PolicyItemDetail = React.createClass({
         {ifResourcesSelectable}
         <div className="row section">
           <div className="col px-1">
-            <label className="section-name">Actions</label>
+            <label className="section-name">{I18n.t("components.policy_item_detail.actions_label")}</label>
           </div>
           <div className="col">
             <div className="section-content">
               <input type="checkbox" id={this.idFor("action-all")} checked={hasAllAction} onChange={this.toggleAction.bind(this, allAction)} />
-              <label htmlFor={this.idFor("action-all")}>All</label>
+              <label htmlFor={this.idFor("action-all")}>{I18n.t("components.policy_item_detail.all_text")}</label>
 
               { Object.keys(actions).map(function(actionKey, index) {
                 var action = actions[actionKey];
@@ -148,24 +148,24 @@ var PolicyItemDetail = React.createClass({
       <div>
         <div className="row section">
           <div className="col px-1">
-            <label className="section-name">Delegable</label>
+            <label className="section-name">{I18n.t("components.policy_item_detail.delegable_label")}</label>
           </div>
           <div className="col">
             <div className="section-content">
               <input type="checkbox" id={this.idFor("delegable")} checked={statement.delegable} onChange={this.toggleDelegable} className="power" />
-              <label htmlFor={this.idFor("delegable")}>Users CAN{statement.delegable ? "" : "NOT"} delegate permissions on this policy</label>
+              <label htmlFor={this.idFor("delegable")}>{I18n.t("components.policy_item_detail.users_can")}{statement.delegable ? "" : I18n.t("components.policy_item_detail.not")} {I18n.t("components.policy_item_detail.delegate_permissions_on_this_policy")}</label>
             </div>
           </div>
         </div>
         <div className="row section">
           <div className="col px-1">
-            <label className="section-name">Type</label>
+            <label className="section-name">{I18n.t("components.policy_item_detail.type_label")}</label>
           </div>
           <div className="col">
             <div className="section-content">
               <CdxSelect items={this.props.resourceTypes} value={statement.resourceType} onChange={this.onResourceTypeChange} />
               <input type="checkbox" id={this.idFor("includeSubsites")} checked={statement.includeSubsites} onChange={this.toggleIncludeSubsites} />
-              <label htmlFor={this.idFor("includeSubsites")}>Include subsites</label>
+              <label htmlFor={this.idFor("includeSubsites")}>{I18n.t("components.policy_item_detail.include_subsites_label")}</label>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ var PatientSelect = React.createClass({
   getDefaultProps: function() {
     return {
       className: "input-large",
-      placeholder: "Search by name or patient id",
+      placeholder: I18n.t("components.patient_select.search_patient_placeholder"),
       onPatientChanged: null,
       onError: null
     };
@@ -16,7 +16,7 @@ var PatientSelect = React.createClass({
     return (
     <div className="row">
       <div className="col-6">
-        <label>Patient</label>
+        <label>I18n.t("components.patient_select.patient_lable")</label>
       </div>
       <div className="col-6">
 
@@ -38,7 +38,7 @@ var PatientSelect = React.createClass({
 
         {(function(){
           if (this.state.patient == null) {
-            return <a className="btn-add-link" href={"/patients/new?" + $.param({next_url: window.location.href})} title="Create new patient"><span className="icon-circle-plus icon-blue"></span></a>;
+            return <a className="btn-add-link" href={"/patients/new?" + $.param({next_url: window.location.href})} title={I18n.t("components.patient_select.create_new_patient_title")}><span className="icon-circle-plus icon-blue"></span></a>;
           }
         }.bind(this))()}
 
@@ -79,7 +79,7 @@ var PatientSelect = React.createClass({
       success: function(patients) {
         callback(null, {options: patients, complete: false});
         if (patients.length == 0 && this.props.onError) {
-          this.props.onError("No patient could be found");
+          this.props.onError(I18n.t("components.patient_select.no_patient_found"));
         }
       }.bind(this)
     });

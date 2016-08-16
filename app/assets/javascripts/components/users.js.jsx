@@ -10,10 +10,10 @@ var AddUserLink = React.createClass({
 
   render: function() {
     return (<div>
-      <a className="btn-add icon side-link" href='#' title="Invite users" onClick={this.openInviteModal} ><span className="icon-mail icon-white"></span></a>
+      <a className="btn-add icon side-link" href='#' title= {I18n.t("components.users.invite_user_title")} onClick={this.openInviteModal} ><span className="icon-mail icon-white"></span></a>
 
       <Modal ref="inviteModal">
-        <header><h3>Invite users</h3></header>
+        <header><h3>{I18n.t("components.users.invite_users_heading")}</h3></header>
 
         <div className="panel"><UserInviteForm onFinished={this.closeInviteModal} roles={this.props.roles} context={this.props.context} /></div>
       </Modal>
@@ -93,31 +93,31 @@ var UserInviteForm = React.createClass({
   render: function() {
     return (<div>
       <div className="row">
-        <div className="col pe-2"><label>Role</label></div>
+        <div className="col pe-2"><label>{I18n.t("components.users.role_label")}</label></div>
         <div className="col"><CdxSelect name="role" items={this.props.roles} value={this.state.role} onChange={this.changeRole} /></div>
       </div>
 
       <div className="row">
-        <div className="col pe-2"><label>Users</label></div>
+        <div className="col pe-2"><label>{I18n.t("components.users.users_label")}</label></div>
         <div className="col"><OptionList ref="usersList"
           callback={this.addUser}
           autocompleteCallback="/users/autocomplete"
           context={this.props.context}
           allowNonExistent={true}
           showInput={true}
-          placeholder="Type email and press enter" /></div>
+          placeholder= {I18n.t("components.users.type_email_placeholder")} /></div>
       </div>
 
       <div className="row">
         <div>
           <input id="message-check" type="checkbox" checked={this.state.includeMessage} onChange={this.toggleMessage} />
-          <label className="include-message" htmlFor="message-check">Include message</label>
+          <label className="include-message" htmlFor="message-check">{I18n.t("components.users.include_message_label")}</label>
         </div>
       </div>
 
       { this.state.includeMessage ?
         <div className="row">
-          <div className="col pe-2"><label>Message</label></div>
+          <div className="col pe-2"><label>{I18n.t("components.users.message_label")}</label></div>
           <div className="col"><textarea value={this.state.message} onChange={this.writeMessage} className="input-block resizeable" rows="1" /></div>
         </div> : null }
 
@@ -125,8 +125,8 @@ var UserInviteForm = React.createClass({
       </div>
 
       <div className="modal-footer">
-        <button className="btn btn-primary" onClick={this.sendInvitation}>Send</button>
-        <button className="btn btn-link" onClick={this.closeModal}>Cancel</button>
+        <button className="btn btn-primary" onClick={this.sendInvitation}>{I18n.t("components.users.send_btn")}</button>
+        <button className="btn btn-link" onClick={this.closeModal}>{I18n.t("components.users.cancel_btn")}</button>
       </div>
     </div>);
   }

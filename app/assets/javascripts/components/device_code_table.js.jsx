@@ -100,7 +100,7 @@ var DeviceRow = React.createClass({
         {
           return (
             <div>
-              <span className="horizontal-bar-value">I18n.t("components.device_code_table.no_data_msg")</span>
+              <span className="horizontal-bar-value">{I18n.t("components.device_code_table.no_data_msg")}</span>
             </div>
           );
         }

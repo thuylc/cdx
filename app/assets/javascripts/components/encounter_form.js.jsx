@@ -160,8 +160,8 @@ var EncounterForm = React.createClass(_.merge({
       diagnosisEditor = (
         <div className="row">
           <div className="col pe-2">
-            <label>Diagnosis</label>
-            <p style={{fontSize: "12px"}}><i>Each time a new test arrives, the list of conditions will be updated for you to diagnostic</i></p>
+            <label>I18n.t("components.encounter_form.diagnosis_label")</label>
+            <p style={{fontSize: "12px"}}><i>I18n.t("components.encounter_form.diagnosis_text")</i></p>
           </div>
 
           <div className="col assays-editor">
@@ -177,14 +177,14 @@ var EncounterForm = React.createClass(_.merge({
                     <Select value={assay.result} options={this.props.assayResultOptions} onChange={this.encounterAssayChanged(index, 'result')} clearable={false} className="input-block"/>
                   </div>
                   <div className="col px-2">
-                    <input type="text" className="quantitative pull-right" value={assay.quantitative_result} placeholder="Quant." onChange={this.encounterAssayChanged(index, 'quantitative_result')} />
+                    <input type="text" className="quantitative pull-right" value={assay.quantitative_result} placeholder= {I18n.t("components.encounter_form.quantitative_placeholder")} onChange={this.encounterAssayChanged(index, 'quantitative_result')} />
                   </div>
                 </div>
               );
             }.bind(this))}
             <div className="row">
               <div className="col px-6">
-                <textarea className="observations input-block" value={this.state.encounter.observations} placeholder="Observations" onChange={this.encounterChanged('observations')} />
+                <textarea className="observations input-block" value={this.state.encounter.observations} placeholder= {I18n.t("components.encounter_form.observations_placeholder")} onChange={this.encounterChanged('observations')} />
               </div>
             </div>
           </div>
@@ -201,7 +201,7 @@ var EncounterForm = React.createClass(_.merge({
           return (
           <div className="row">
             <div className="col pe-2">
-              <label>Site</label>
+              <label>I18n.t("components.encounter_form.site_label")</label>
             </div>
             <div className="col">
               <p>{this.props.encounter.site.name}</p>
@@ -213,28 +213,28 @@ var EncounterForm = React.createClass(_.merge({
 
         <div className="row">
           <div className="col pe-2">
-            <label>Samples</label>
+            <label>I18n.t("components.encounter_form.sample_label")</label>
           </div>
           <div className="col">
             <SamplesList samples={this.state.encounter.samples} onUnifySample={this.showUnifySamplesModal} />
             <NewSamplesList samples={this.state.encounter.new_samples} onRemoveSample={this.removeNewSample} />
 
             <p>
-              <a className="btn-add-link" href='#' onClick={this.addNewSamples}><span className="icon-circle-plus icon-blue"></span> Append new sample</a>
+              <a className="btn-add-link" href='#' onClick={this.addNewSamples}><span className="icon-circle-plus icon-blue"></span> I18n.t("components.encounter_form.append_new_sample_btn")</a>
             </p>
             <p>
-              <a className="btn-add-link" href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> Append sample</a>
+              <a className="btn-add-link" href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> I18n.t("components.encounter_form.append_sample_btn")</a>
             </p>
           </div>
 
           <Modal ref="addSamplesModal">
             <h1>
               <a href="#" className="modal-back" onClick={this.closeAddSamplesModal}></a>
-              Add sample
+              I18n.t("components.encounter_form.add_sample_heading")
             </h1>
 
             <AddItemSearch callback={"/encounters/search_sample?institution_uuid=" + this.state.encounter.institution.uuid} onItemChosen={this.appendSample}
-              placeholder="Search by sample id"
+              placeholder={I18n.t("components.encounter_form.search_placeholder")}
               itemTemplate={AddItemSearchSampleTemplate}
               itemKey="uuid" />
           </Modal>
@@ -242,12 +242,12 @@ var EncounterForm = React.createClass(_.merge({
           <Modal ref="unifySamplesModal">
             <h1>
               <a href="#" className="modal-back" onClick={this.closeUnifySamplesModal}></a>
-              Unify sample
+              {I18n.t("components.encounter_form.unify_sample_heading")}
             </h1>
             <p>Unifying sample {this.state.unifyingSample ? this.state.unifyingSample.entity_ids[0] : ""}</p>
 
             <AddItemSearch callback={"/encounters/search_sample?institution_uuid=" + this.state.encounter.institution.uuid + "&sample_uuids=" + _.pluck(this.state.encounter.samples, 'uuid')} onItemChosen={this.unifySample}
-              placeholder="Search by sample id"
+              placeholder= {I18n.t("components.encounter_form.search_placeholder")}
               itemTemplate={AddItemSearchSampleTemplate}
               itemKey="uuid" />
           </Modal>
@@ -256,7 +256,7 @@ var EncounterForm = React.createClass(_.merge({
         <div className="row">
           <div className="col">
             <TestResultsList testResults={this.state.encounter.test_results} /><br/>
-            <a className="btn-add-link"  href='#' onClick={this.showTestsModal}><span className="icon-circle-plus icon-blue"></span> Add tests</a>
+            <a className="btn-add-link"  href='#' onClick={this.showTestsModal}><span className="icon-circle-plus icon-blue"></span> I18n.t("components.encounter_form.add_test_btn")</a>
           </div>
 
           <Modal ref="testsModal">
@@ -266,14 +266,14 @@ var EncounterForm = React.createClass(_.merge({
             </h1>
 
             <AddItemSearch callback={"/encounters/search_test?institution_uuid=" + this.state.encounter.institution.uuid} onItemChosen={this.appendTest}
-              placeholder="Search by test id"
+              placeholder={I18n.t("components.encounter_form.search_placeholder")}
               itemTemplate={AddItemSearchTestResultTemplate}
               itemKey="uuid" />
           </Modal>
         </div>
 
         <FlexFullRow>
-          <button type="button" className="btn-primary" onClick={this.save}>Save</button>
+          <button type="button" className="btn-primary" onClick={this.save}>I18n.t("components.encounter_form.save_btn")</button>
         </FlexFullRow>
 
       </div>

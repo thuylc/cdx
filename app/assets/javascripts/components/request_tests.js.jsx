@@ -13,12 +13,12 @@ var RequestedTestRow = React.createClass({
     if ( (this.props.edit == true) && (this.isAssociated() == false) &&
       ((this.state.test.status == 'pending') || (this.state.test.status == 'inprogress')) ) {
       this.setState({ testResultUrl: this.determineTestResultUrl(this.state.test.id, this.state.test.name, this.props.edit) });
-      this.setState({ testResultText: "Add Result" });
+      this.setState({ testResultText: I18n.t("components.request_tests.add_result") });
       this.setState({ showWarning: this.props.showDstWarning && this.state.test.name == 'dst' })
     }
     else if ( this.isAssociated() == true) {
       this.setState({ testResultUrl:  this.determineTestResultUrl(this.state.test.id, this.state.test.name, this.props.edit) });
-      this.setState({ testResultText: "View Result" });
+      this.setState({ testResultText: I18n.t("components.request_tests.view_result") });
     }
   },
 
@@ -170,15 +170,15 @@ var RequestedTestsList = React.createClass({
             </th>
           </tr>
           <tr>
-            <td>Type</td>
-            <td>Sample Id</td>
-            <td>Order by user</td>
-            <td>Requested date</td>
-            <td>Request by</td>
-            <td>Due date</td>
-            <td>Status</td>
-            <td>Comment</td>
-            <td>Result</td>
+            <td>I18n.t("components.request_tests.type_col")</td>
+            <td>I18n.t("components.request_tests.sample_id_col")</td>
+            <td>I18n.t("components.request_tests.order_by_user_col")</td>
+            <td>I18n.t("components.request_tests.requested_date")</td>
+            <td>I18n.t("components.request_tests.request_by_col")</td>
+            <td>I18n.t("components.request_tests.due_date_col")</td>
+            <td>I18n.t("components.request_tests.status_col")</td>
+            <td>I18n.t("components.request_tests.comment_col")</td>
+            <td>I18n.t("components.request_tests.result_col")</td>
           </tr>
         </thead>
         <tbody>
@@ -224,13 +224,13 @@ var TestResultButton = React.createClass({
   render: function() {
     if (this.state.displayConfirm == true) {
       return (
-        <ConfirmationModalEncounter message={'You must enter Culture results before you can add DST results.'} title= {'Culture result needed.'} cancel_target={this.cancelClickHandler} hideOuterEvent={this.cancelClickHandler} target={this.cancelClickHandler} deletion={false} hideCancel={true} confirmMessage= {'Close'} />
+        <ConfirmationModalEncounter message={I18n.t("components.request_tests.confirm_msg")} title= {I18n.t("components.request_tests.confirm_title")} cancel_target={this.cancelClickHandler} hideOuterEvent={this.cancelClickHandler} target={this.cancelClickHandler} deletion={false} hideCancel={true} confirmMessage= {I18n.t("components.request_tests.close_btn")} />
       );
     }
 
     if (this.props.showWarning) {
       return (
-        <a className="btn-add-link btn-primary" onClick={this.clickHandler}>Add Result</a>
+        <a className="btn-add-link btn-primary" onClick={this.clickHandler}>I18n.t("components.request_tests.add_result_btn")</a>
       )
     } else {
       return(

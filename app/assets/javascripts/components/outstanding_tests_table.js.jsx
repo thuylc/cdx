@@ -45,7 +45,7 @@ var OutstandingTestsTable = React.createClass({
   },
   getDefaultProps: function() {
     return {
-      title: "Outstanding Tests",
+      title: I18n.t("components.outstanding_tests_table.outstanding_tests_title"),
       allowSorting: false,
       orderBy: ""
     }
@@ -95,16 +95,16 @@ var OutstandingTestsTable = React.createClass({
       <div className="row">
         <div className="col pe-12">
           <div className={this.state.shouldHide ? '' : 'hidden'}>
-            <span className="horizontal-bar-value">There is no data to display</span>
+            <span className="horizontal-bar-value">I18n.t("components.outstanding_tests_table.no_data_display")</span>
           </div>
           <div className={this.state.shouldHide ? 'hidden' : ''}>
             <table className="table scroll" cellPadding="0" cellSpacing="0"  data-resizable-columns-id="outstanding-tests-table" id="outstanding_tests_table_chart" >
               <thead>
               <tr>
-                {sortableHeader("Test Order#", "test_order")}
-                {sortableHeader("Date Ordered", "date_ordered")}
-                {sortableHeader("Ordered by", "ordered_by")}
-                {sortableHeader("Outstanding days", "outstanding")}
+                {sortableHeader(I18n.t("components.outstanding_tests_table.test_order_col"), "test_order")}
+                {sortableHeader(I18n.t("components.outstanding_tests_table.date_ordered_col"), "date_ordered")}
+                {sortableHeader(I18n.t("components.outstanding_tests_table.ordered_by_col"), "ordered_by")}
+                {sortableHeader(I18n.t("components.outstanding_tests_table.outstanding_days_col"), "outstanding")}
               </tr>
               </thead>
               <tbody key={this.randomString()} >

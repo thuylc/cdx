@@ -89,20 +89,20 @@ var EncounterShow = React.createClass({
         </div>
         <div className="row labelHeader">
           <div className="col-6">
-            <h3>Site Details</h3>
+            <h3>I18n.t("components.encounter_show.site_detail_heading")</h3>
           </div>
           <div className="col-6">
           </div>
         </div>
         <div className="newTestOrder">
           <div className="panel">
-            <DisplayFieldWithLabel fieldLabel='Requesting site:' fieldValue={ this.props.encounter.site.name } />
-            <DisplayFieldWithLabel fieldLabel='Performing site:' fieldValue={ performing_site } />
+            <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.requesting_site_label")} fieldValue={ this.props.encounter.site.name } />
+            <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.performing_site_label")} fieldValue={ performing_site } />
           </div>
         </div>
         <div className="row labelHeader">
           <div className="col-6">
-            <h3>Test Details</h3>
+            <h3>I18n.t("components.encounter_show.test_detail_heading")</h3>
           </div>
           <div className="col-6">
           </div>
@@ -111,27 +111,27 @@ var EncounterShow = React.createClass({
           <div className="panel">
             <div className="row collapse">
               <div className="col-6">
-                <DisplayFieldWithLabel fieldLabel='Requesting site:'  fieldValue={ this.props.encounter.site.name } />
-                <DisplayFieldWithLabel fieldLabel='Performing site:' fieldValue={ performing_site } />
-                <DisplayFieldWithLabel fieldLabel='Order Id:'    fieldValue={ this.props.encounter.uuid } />
-                <DisplayFieldWithLabel fieldLabel='Testing for:' fieldValue={ this.props.encounter.testing_for } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.requesting_site_label")}  fieldValue={ this.props.encounter.site.name } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.performing_site_label")} fieldValue={ performing_site } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.order_id_label")}    fieldValue={ this.props.encounter.uuid } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.testing_for_label")} fieldValue={ this.props.encounter.testing_for } />
                 {
                   this.props.encounter.testing_for === 'TB' ?
-                  <DisplayFieldWithLabel fieldLabel='Culture format:' fieldValue={ this.props.encounter.culture_format } /> : null
+                  <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.culture_format_label")} fieldValue={ this.props.encounter.culture_format } /> : null
                 }
-                <DisplayFieldWithLabel fieldLabel='Comment:' fieldValue={ this.props.encounter.diag_comment } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.comment_label")} fieldValue={ this.props.encounter.diag_comment } />
                 {
                   this.props.encounter.exam_reason === 'follow' ?
-                  <DisplayFieldWithLabel fieldLabel='Weeks in treatment:' fieldValue={ this.props.encounter.treatment_weeks } /> : null
+                  <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.ưeeks_in_treatment_label")} fieldValue={ this.props.encounter.treatment_weeks } /> : null
                 }
                 {
                   this.props.showEdit ?
-                  <DisplayFieldWithLabel fieldLabel='Samples Id:'    fieldValue={ <LabSamplesList context={this.props.context} samples={this.props.encounter.samples}  /> } /> : null
+                  <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.samples_id_label")}   fieldValue={ <LabSamplesList context={this.props.context} samples={this.props.encounter.samples}  /> } /> : null
                 }
 
-                <DisplayFieldWithLabel fieldLabel='Sample type:'   fieldValue={ this.props.encounter.coll_sample_type } />
-                <DisplayFieldWithLabel fieldLabel='Test due date:' fieldValue={ this.props.encounter.testdue_date } />
-                <DisplayFieldWithLabel fieldLabel='Status:'        fieldValue={ this.props.encounter.status } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.sample_type_label")}   fieldValue={ this.props.encounter.coll_sample_type } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.test_due_date_label")} fieldValue={ this.props.encounter.testdue_date } />
+                <DisplayFieldWithLabel fieldLabel={I18n.t("components.encounter_show.status_label")}        fieldValue={ this.props.encounter.status } />
               </div>
 
               <div className="col-6 patientCard">
@@ -167,7 +167,7 @@ var EncounterUpdate = React.createClass({
    },
   render: function() {
     return(
-      <div><a className="btn-secondary" onClick={this.clickHandler} id="update_encounter" href="#">Update Test Order</a></div>
+      <div><a className="btn-secondary" onClick={this.clickHandler} id="update_encounter" href="#">I18n.t("components.encounter_show.update_btn")</a></div>
     );
   }
 });
@@ -207,13 +207,13 @@ var EncounterDelete = React.createClass({
   render: function() {
     if (this.state.displayConfirm == true) {
       return (
-        <ConfirmationModalEncounter message= {'You are about to permanently cancel this test order. Are you sure you want to proceed?'} title= {'Cancel confirmation'} cancelTarget= {this.cancelDeleteClickHandler} target={this.confirmClickHandler} hideOuterEvent={this.cancelDeleteClickHandler} deletion= {true} hideCancel= {false} confirmMessage= {'Delete'} />
+        <ConfirmationModalEncounter message= {I18n.t("components.encounter_show.cancel_confirm_msg")} title= {I18n.t("components.encounter_show.cancel_confirm_title")} cancelTarget= {this.cancelDeleteClickHandler} target={this.confirmClickHandler} hideOuterEvent={this.cancelDeleteClickHandler} deletion= {true} hideCancel= {false} confirmMessage= {I18n.t("components.encounter_show.delete_btn")} />
       );
     }
     else if (this.props.showEdit && (this.props.encounter.status != 'inprogress')) {
       return (
         <div>
-          <a className = "btn-secondary pull-right" onClick={this.clickHandler} id="delete_encounter" href="#">Cancel Test Order</a>
+          <a className = "btn-secondary pull-right" onClick={this.clickHandler} id="delete_encounter" href="#">I18n.t("components.encounter_show.cancel_test_order_btn")</a>
         </div>
       );
     } else {
@@ -224,15 +224,15 @@ var EncounterDelete = React.createClass({
 
 var ConfirmationModalEncounter = React.createClass({
   modalTitle: function() {
-    return this.props.title || (this.props.deletion ? "Cancel confirmation" : "Confirmation");
+    return this.props.title || (this.props.deletion ? I18n.t("components.encounter_show.cancel_confirmation_btn") : I18n.t("components.encounter_show.confirmation_btn"));
   },
 
   cancelMessage: function() {
-   return this.props.cancelMessage || "Cancel";
+   return this.props.cancelMessage || I18n.t("components.encounter_show.cancel_btn");
   },
 
   confirmMessage: function() {
-    return this.props.confirmMessage || (this.props.deletion ? "Cancel" : "Confirm");
+    return this.props.confirmMessage || (this.props.deletion ? I18n.t("components.encounter_show.cancel_btn") : I18n.t("components.encounter_show.confirm_btn"));
   },
 
   componentDidMount: function() {

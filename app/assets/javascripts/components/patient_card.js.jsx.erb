@@ -33,7 +33,7 @@ var PatientCard = React.createClass({
       return (
         <%= to_jsx(card(image: asset_url('card-unkown.png')) do |c|
           c.top do
-            "No patient information"
+             I18n.t("components.patient_card.no_patient_information")
           end
         end) %>
       );
@@ -46,27 +46,27 @@ var PatientCard = React.createClass({
             raw <<-JSX
               <ul class="column1">
                 <li>
-                  <label>Name</label>
+                  <label>I18n.t("components.patient_card.name_col")</label>
                   {patient.name || "(Unknown name)"}
                 </li>
                 <li>
-                  <label>Gender</label>
+                  <label>I18n.t("components.patient_card.gender_col")</label>
                   {patient.gender}
                 </li>
                 <li>
-                  <label>Date of Birth</label>
+                  <label>I18n.t("components.patient_card.date_of_birth_col")</label>
                   {patientInfo(patient)}
                 </li>
                 <li>
-                  <label>Address</label>
+                  <label>I18n.t("components.patient_card.address_col")</label>
                   {patient.address}<br/>
                 </li>
                 <li>
-                  <label>Phone</label>
+                  <label>I18n.t("components.patient_card.phone_col")</label>
                   {patient.phone}<br/>
                 </li>
                 <li>
-                  <label>Email</label>
+                  <label>I18n.t("components.patient_card.email_col")</label>
                   {(function(){
                     if (patient.email) {
                       return <a href={"mailto:" + patient.email}>{patient.email}</a>;
@@ -83,7 +83,7 @@ var PatientCard = React.createClass({
               if (!this.props.canEdit) return;
 
               return (
-                <a href={"/patients/" + patient.id + "/edit"} title="Edit">
+                <a href={"/patients/" + patient.id + "/edit"} title= {I18n.t("components.patient_card.edit")}>
                   <img src="#{asset_url("ic-pencil.png")}"/>
                 </a>);
             }.bind(this))()}
@@ -92,8 +92,8 @@ var PatientCard = React.createClass({
               if (!this.props.canAddTest) return;
               if (this.props.showTestLink != true) return;
               return (
-                <a href={"/encounters/new?mode=fresh_tests&patient_id=" + patient.id } title="Create Test Order" className="label">
-                  Create Test Order
+                <a href={"/encounters/new?mode=fresh_tests&patient_id=" + patient.id } title={I18n.t("components.patient_card.create_test_order")} className="label">
+                  I18n.t("components.patient_card.create_test_order")
                 </a>);
             }.bind(this))()}
             JSX

@@ -161,10 +161,10 @@ var SitePicker = React.createClass({
   render: function() {
     return (
       <div>
-        <input type="text" className="input-block search-sites" onChange={this.onSearchChange} autoFocus="true" placeholder="Search sites" />
+        <input type="text" className="input-block search-sites" onChange={this.onSearchChange} autoFocus="true" placeholder={I18n.t("components.sites.search_sites_placeholder")} />
         <div>
           <input type="checkbox" id="include-subsites" onChange={this.onSubsiteCheckboxChange} checked={this.state.subsites_selected} />
-          <label htmlFor="include-subsites" id="include-subsites">Selection includes all subsites</label>
+          <label htmlFor="include-subsites" id="include-subsites">{I18n.t("components.sites.selection_label")}</label>
           <SitesTreeView sites={this.state.sites_tree} onSiteClick={this.selectSite} />
         </div>
       </div>

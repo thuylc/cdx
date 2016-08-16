@@ -13,7 +13,7 @@ var PolicyItem = React.createClass({
             New Policy
             <img src="<%= asset_url('ic-cross.png') %>" className="pull-right" onClick={this.remove} />
           </div>
-          <div className="description">Type, resource, and actions are not defined yet</div>
+          <div className="description">{I18n.t("components.policy_item.description_msg")}</div>
         </div>
       );
     } else {

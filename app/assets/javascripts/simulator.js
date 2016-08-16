@@ -46,12 +46,12 @@
           success: function(data, textStatus, jqXHR) {
             $create_button.prop("disabled", false);
             $create_button.val("Created!");
-            setTimeout(function() { $create_button.val("Create another message"); }, 1000);
+            setTimeout(function() { $create_button.val(I18n.t("stores.simulator.create_another_message")); }, 1000);
           },
           error: function(jqXHR, textStatus, errorThrown) {
             $create_button.prop("disabled", false);
             $create_button.val("Error: " + errorThrown);
-            setTimeout(function() { $create_button.val("Create another message"); }, 1000);
+            setTimeout(function() { $create_button.val(I18n.t("stores.simulator.create_another_message")); }, 1000);
           }
         });
         return false;
@@ -63,7 +63,7 @@
         query_string = $("#query_string").val();
         post_body = $("#post_body").val();
         $query_button.prop("disabled", true);
-        $query_button.val("Querying...");
+        $query_button.val(I18n.t("stores.simulator.querying"));
 
         $.ajax({
           url: "/api/tests?" + query_string,
