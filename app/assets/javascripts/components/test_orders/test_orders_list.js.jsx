@@ -77,14 +77,14 @@ var TestOrdersIndexTable = React.createClass({
             <thead>
               <tr>
                 <CsvCheckboxColumnHeader columnId="test-orders-table" selectedTestOrders={this.selectedTestOrders} />
-                <th data-resizable-column-id="sample-id">Sample Id</th>
-                {sortableHeader("Status",        "encounters.status")}
-                {sortableHeader("Request by",    "sites.name")}
-                {sortableHeader("Request to",    "performing_sites.name")}
-                {sortableHeader("Testing for",   "patients.name")}
-                {sortableHeader("Order by user", "users.first_name")}
-                {sortableHeader("Request date",  "encounters.start_time")}
-                {sortableHeader("Due date",      "encounters.testdue_date")}
+                <th data-resizable-column-id="sample-id">{I18n.t("components.test_orders.col_sample_id")}</th>
+                {sortableHeader(I18n.t("components.test_orders.col_status"),        "encounters.status")}
+                {sortableHeader(I18n.t("components.test_orders.col_request_by"),    "sites.name")}
+                {sortableHeader(I18n.t("components.test_orders.col_request_to"),    "performing_sites.name")}
+                {sortableHeader(I18n.t("components.test_orders.col_testing_for"),   "patients.name")}
+                {sortableHeader(I18n.t("components.test_orders.col_order_by"), "users.first_name")}
+                {sortableHeader(I18n.t("components.test_orders.col_request_date"),  "encounters.start_time")}
+                {sortableHeader(I18n.t("components.test_orders.col_due_date"),      "encounters.testdue_date")}
 
               </tr>
             </thead>

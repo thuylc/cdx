@@ -43,7 +43,7 @@ var LabSample = React.createClass({
         <br />
         <input type="text" size="20" placeholder="Lab. sample Id" ref="manualLabSampleEntry" />
         <input type="hidden" ref="sampleId" value={this.props.sample.uuid} />
-        <button type="button" className="btn-primary" onClick={this.addLabId}>Save lab. Id</button>
+        <button type="button" className="btn-primary" onClick={this.addLabId}>{I18n.t("components.encounters.btn_save")}</button>
       </p>
     );
   }

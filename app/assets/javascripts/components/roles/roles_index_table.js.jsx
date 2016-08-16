@@ -37,13 +37,13 @@ var RolesIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="roles-table">
         <thead>
           <tr>
-            {sortableHeader('Name', 'roles.name', 'This is the name of the role.')}
-            {sortableHeader('Location', 'sites.name', 'This is the site the role applies to.')}
+            {sortableHeader(I18n.t("components.roles.col_name"), 'roles.name', I18n.t("components.roles.tooltip_name"))}
+            {sortableHeader(I18n.t("components.roles.col_location"), 'sites.name', I18n.t("components.roles.tooltip_location"))}
             <th data-resizable-column-id="count">
               <div className="tooltip">
-                Users
+                {I18n.t("components.roles.col_user")}
                 <div className="tooltiptext_r">
-                  Number of users who have this role.
+                  {I18n.t("components.roles.tooltip_user")}
                 </div>
               </div>
             </th>

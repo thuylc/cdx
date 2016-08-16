@@ -10,7 +10,7 @@ var CanvasJsChart = React.createClass({
 
   render: function(){
     return (
-      <p>There was an error displaying the graph.</p>
+      <p>{I18n.t("components.canvas-charts.err_chart_msg")}</p>
     );
   }
 });

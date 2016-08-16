@@ -3,17 +3,17 @@ var PatientTestOrders = React.createClass({
     return {
       patientTestOrders: [],
       queryOrder: true,
-      loadingMessage: 'Loading test orders...',
+      loadingMessage: I18n.t("components.patients.show.msg_loading"),
       orderedColumns: {},
       availableColumns: [
-        { title: 'Request By',    fieldName: 'site' },
-        { title: 'Request To',    fieldName: 'performingSite' },
-        { title: 'Order Id',      fieldName: 'orderId' },
-        { title: 'Order by User', fieldName: 'requester' },
-        { title: 'Request Date',  fieldName: 'requestDate' },
-        { title: 'Due Date',      fieldName: 'dueDate' },
-        { title: 'Turnaround Time', fieldName: '' },
-        { title: 'status',        fieldName: 'status' }
+        { title: I18n.t("components.patients.show.col_request_by"),    fieldName: 'site' },
+        { title: I18n.t("components.patients.show.col_request_to"),    fieldName: 'performingSite' },
+        { title: I18n.t("components.patients.show.col_order_id"),      fieldName: 'orderId' },
+        { title: I18n.t("components.patients.show.col_order_by"), fieldName: 'requester' },
+        { title: I18n.t("components.patients.show.col_request_date"),  fieldName: 'requestDate' },
+        { title: I18n.t("components.patients.show.col_due_date"),      fieldName: 'dueDate' },
+        { title: I18n.t("components.patients.show.col_time"), fieldName: '' },
+        { title: I18n.t("components.patients.show.col_status"),        fieldName: 'status' }
       ]
     };
   },
@@ -26,7 +26,7 @@ var PatientTestOrders = React.createClass({
         this.updateOrderIcon(field);
         $("table").resizableColumns({store: window.store});
       } else {
-        this.setState({ loadingMessage: 'There are no test orders.' });
+        this.setState({ loadingMessage: I18n.t("components.patients.show.msg_no_order") });
       };
     }.bind(this));
   },

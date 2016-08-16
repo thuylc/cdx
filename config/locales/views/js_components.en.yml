@@ -1,0 +1,214 @@
+en:
+  components:
+    alert_groups:
+      col_name: "Name"
+      tooltip_name: "This is the Name of the Alert."
+      col_description: "Description"
+      tooltip_description: "A meaningful description about what the alert entails."
+      col_enabled: "Enabled"
+      tooltip_enabled: "Is this alert enabled?"
+      col_sites: "Sites"
+      tooltip_sites: "Which site(s) this alert will trigger for."
+      col_roles: "Roles"
+      tooltip_roles: "Something about roles."
+      col_last_incident: "Last incident"
+      tooltip_last_incident: "When the last incident was reported."
+
+    alert_messages:
+      col_name: "Name"
+      col_date: "Date"
+      col_channels: "Channels"
+      col_message: "Message"
+
+    canvas-charts:
+      err_chart_msg: "There was an error displaying the graph."
+    
+    device_models:
+      col_name: "Name"
+      col_ver: "Version"
+
+    devices:
+      col_name: "Name"
+      col_manufacturer: "Manufacturer"
+      col_model: "Model"
+      col_site: "Site"
+
+    encounters:
+      btn_save: "Save lab. Id"
+      lbl_tests_requested: "Tests Requested"
+      lbl_microscopy: "Microscopy"
+      lbl_xpert_mtb: "Xpert MTB/RIF"
+      lbl_culture: "Culture"
+      lbl_liquid_culture: "Liquid Culture"
+      lbl_solid_culture: "Solid Culture"
+      lbl_drug_first_line: "Drug Susceptibility First Line"
+      lbl_drug_second_line: "Drug Susceptibility Second Line"
+      lbl_line_first_line: "Line probe assay First Line"
+      lbl_line_second_line: "Line probe assay Second Line"
+      lbl_cd4_count: "CD4 Count"
+      lbl_viral_count: "Viral Load Count"
+      lbl_hiv_detect: "HIV 1/2 Detect"
+      lbl_rdt: "RDT"
+      lbl_xpert_ebola: "Xpert Ebola"
+
+    episodes:
+      lbl_treatment_outcome: "Treatment Outcome"
+      h1_comfirm_msg: "Would you like to close this episode?"
+      confirm_yes: "Yes"
+      confirm_no: "No"
+
+    incidents:
+      lnk_view_result: "View result"
+      col_alert: "Alert group"
+      col_devices: "Devices"
+      col_date: "Date"
+      col_result: "Test Result"
+
+    patients:
+      msg_loading: "Loading audit logs..."
+      msg_no_log: "There are no audit logs available."
+      col_field: "Field"
+      col_ori_value: "Original value"
+      col_new_value: "New value"
+      col_title: "Patients"
+      col_name: "Name"
+      col_patient_id: "Patient Id"
+      col_date_of_birth: "Date of birth"
+      col_address: "Address"
+
+      form:
+        lbl_name: "NAME"
+        tbl_duplicate_msg: "Patients with same name."
+        col_name: "Name"
+        col_gender: "Gender"
+        col_birth_date: "Birth date"
+
+      show:
+        msg_loading: "Loading test orders..."
+        msg_no_order: "There are no test orders."
+        col_request_by: "Request By"
+        col_request_to: "Request To"
+        col_order_id: "Order Id"
+        col_order_by: "Order by User"
+        col_request_date: "Request Date"
+        col_due_date: "Due Date"
+        col_time: "Turnaround Time"
+        col_status: "status"
+
+        episodes:
+          lst_open: "Open episodes"
+          lst_close: "Closed episodes"
+          lbl_diagnosis: "Diagnosis"
+          lbl_hiv_status: "HIV Status"
+          lbl_history: "History"
+          lbl_drug: "Drug resistance"
+          lbl_outcome: "Outcome"
+          lbl_diagnosis_by_site: "Diagnosis classify by Anatomical site"
+          btn_edit: "Edit episode"
+          msg_loading: "Loading episodes..."
+          msg_no_episode: "There are no episodes available."
+
+        history:
+          col_comment_date: "Date"
+          col_commenter: "Commenter"
+          col_comment_des: "Description"
+          lst_history: "History"
+          lst_test_order: "Test Orders"
+          lst_results: "Results"
+          lst_comments: "Comments"
+          col_result_name: "Name"
+          col_result_status: "Status"
+          col_result_date: "Date"
+          col_test_order_request_by: "Request By"
+          col_test_order_request_to: "Request To"
+          col_test_order_id: "Order Id"
+          col_test_order_by_user: "Order by User"
+          col_test_order_request_date: "Request date"
+          col_test_order_due_date: "Due date"
+          col_test_order_time: "Turnaround Time"
+          col_test_order_status: "status"
+          col_title: "Title"
+          col_user: "User"
+          col_date: "Date added"
+          msg_loading: "Loading logs..."
+          msg_no_log: "There are no logs available."
+          msg_loading_comment: "Loading comments..."
+          msg_no_comment: "There are no comments available."
+          msg_loading_result: "Loading test results..."
+          msg_no_result: "There are no results available."
+          msg_loading_order: "Loading test orders..."
+          msg_no_order: "There are no test orders."
+
+    roles:
+      col_name: "Name"
+      tooltip_name: "This is the name of the role."
+      col_location: "Location"
+      tooltip_location: "This is the site the role applies to."
+      col_user: "Users"
+      tooltip_user: "Number of users who have this role."
+
+    test_orders:
+      col_sample_id: "Sample Id"
+      col_status: "Status"
+      col_request_by: "Request by"
+      col_request_to: "Request to"
+      col_testing_for: "Testing for"
+      col_order_by: "Order by user"
+      col_request_date: "Request date"
+      col_due_date: "Due date"
+
+    test_results:
+      col_sample: "Sample collected on"
+      col_number: "Serial number"
+      col_exam_by: "Examined by"
+      col_media_used: "Media used"
+      col_test_result: "Test result"
+      col_result_on: "Result on"
+      col_h: "Results H"
+      col_r: "Results R"
+      col_e: "Results E"
+      col_s: "Results S"
+      col_amk: "Results Amk"
+      col_km: "Results Km"
+      col_cm: "Results Cm"
+      col_fq: "Results Fq"
+      col_on: "Result on"
+      col_specimen: "Specimen type"
+      col_appearance: "Appearance"
+      col_test: "Test"
+      col_result: "Results"
+      col_site: "Site"
+      col_device_name: "Device name"
+      col_device_number: "Device serial number"
+      col_sample_id: "Sample ID"
+      col_type: "Type"
+      col_status: "Status"
+      col_err_code: "Error code"
+      col_start_time: "Start time"
+      col_end_time: "End time"
+      col_tuber: "Tuberculosis"
+      col_trace: "Trace"
+      col_rifampicin: "Rifampicin"
+
+    users:
+      col_full_name: "Full name"
+      col_role: "Roles"
+      col_status: "Status"
+      col_last_activity: "Last activity"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

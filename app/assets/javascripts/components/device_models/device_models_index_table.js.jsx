@@ -36,8 +36,8 @@ var DeviceModelsIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="device-models-table">
         <thead>
           <tr>
-            {sortableHeader("Name", 'device_models.name')}
-            <th data-resizable-column-id="version">Version</th>
+            {sortableHeader(I18n.t("components.device_models.col_name"), 'device_models.name')}
+            <th data-resizable-column-id="version">{I18n.t("components.device_models.col_ver")}</th>
           </tr>
         </thead>
         <tbody>

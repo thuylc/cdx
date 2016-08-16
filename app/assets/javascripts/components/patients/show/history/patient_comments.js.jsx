@@ -3,12 +3,12 @@ var PatientComments = React.createClass({
     return {
       patientComments: [],
       queryOrder: true,
-      loadingMessasge: 'Loading comments...',
+      loadingMessasge: I18n.t("components.patients.show.history.msg_loading_comment"),
       orderedColumns: {},
       availableColumns: [
-        { title: 'Date',        fieldName: 'date' },
-        { title: 'Commenter',   fieldName: 'commenter' },
-        { title: 'Description', fieldName: 'description' }
+        { title: I18n.t("components.patients.show.history.col_comment_date"),        fieldName: 'date' },
+        { title: I18n.t("components.patients.show.history.col_commenter"),   fieldName: 'commenter' },
+        { title: I18n.t("components.patients.show.history.col_comment_des"), fieldName: 'description' }
       ]
     };
   },
@@ -21,7 +21,7 @@ var PatientComments = React.createClass({
         this.updateOrderIcon(field);
         $("table").resizableColumns({store: window.store});
       } else {
-        this.setState({ loadingMessage: 'There are no comments available.' });
+        this.setState({ loadingMessage: I18n.t("components.patients.show.history.msg_no_comment") });
       };
     }.bind(this));
   },

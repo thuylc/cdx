@@ -3,12 +3,12 @@ var PatientResults = React.createClass({
     return {
       patientResults: [],
       queryOrder: true,
-      loadingMessasge: 'Loading test results...',
+      loadingMessasge: I18n.t("components.patients.show.history.msg_loading_result"),
       orderedColumns: {},
       availableColumns: [
-        { title: 'Name',   fieldName: 'name' },
-        { title: 'Status', fieldName: 'status' },
-        { title: 'Date',   fieldName: 'date' }
+        { title: I18n.t("components.patients.show.history.col_result_name"),   fieldName: 'name' },
+        { title: I18n.t("components.patients.show.history.col_result_status"), fieldName: 'status' },
+        { title: I18n.t("components.patients.show.history.col_result_date"),   fieldName: 'date' }
       ]
     };
   },
@@ -21,7 +21,7 @@ var PatientResults = React.createClass({
         this.updateOrderIcon(field);
         $("table").resizableColumns({store: window.store});
       } else {
-        this.setState({ loadingMessage: 'There are no results available.' });
+        this.setState({ loadingMessage: I18n.t("components.patients.show.history.msg_no_result") });
       };
     }.bind(this));
   },

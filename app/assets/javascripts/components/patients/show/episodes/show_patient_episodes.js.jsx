@@ -2,7 +2,7 @@ var ShowPatientEpisodes = React.createClass({
   getInitialState: function() {
     return {
       patientEpisodes: [],
-      loadingMessasge: 'Loading episodes...',
+      loadingMessasge: I18n.t("components.patients.show.episodes.msg_loading"),
     };
   },
 
@@ -12,7 +12,7 @@ var ShowPatientEpisodes = React.createClass({
       if (results.length > 0) {
         this.setState({ patientEpisodes: results });
       } else {
-        this.setState({ loadingMessage: 'There are no episodes available.' });
+        this.setState({ loadingMessage: I18n.t("components.patients.show.episodes.msg_no_episode") });
       };
     }.bind(this));
   },

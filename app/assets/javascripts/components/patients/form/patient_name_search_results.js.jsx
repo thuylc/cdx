@@ -48,12 +48,12 @@ var PatientNameSearchResults = React.createClass({
 
     return (
       <table className="patient-name-duplicates">
-        <caption>Patients with same name.</caption>
+        <caption>{I18n.t("components.patients.form.tbl_duplicate_msg")}</caption>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Birth date</th>
+            <th>{I18n.t("components.patients.form.col_name")}</th>
+            <th>{I18n.t("components.patients.form.col_gender")}</th>
+            <th>{I18n.t("components.patients.form.col_birth_date")}</th>
           </tr>
         </thead>
         <tbody>

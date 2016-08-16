@@ -1,0 +1,212 @@
+vi:
+  components:
+    alert_groups:
+      col_name: "Tên cảnh báo"
+      tooltip_name: "Đây là tên của cảnh báo."
+      col_description: "Mô tả"
+      tooltip_description: "Mô tả về những đòi hỏi của cảnh báo."
+      col_enabled: "Tình trạng kích hoạt"
+      tooltip_enabled: "Cảnh báo này đã được kích hoạt chưa?"
+      col_sites: "Trang"
+      tooltip_sites: "Cảnh báo này sẽ được kích hoạt cho những trang nào."
+      col_roles: "Vai trò"
+      tooltip_roles: "Đôi điều về các vai trò."
+      col_last_incident: "Sự cố sau cùng"
+      tooltip_last_incident: "Khi sự cố sau cùng được báo cáo."
+
+    alert_messages:
+      col_name: "Tên"
+      col_date: "Ngày"
+      col_channels: "Kênh"
+      col_message: "Tin nhắn"
+
+    canvas-charts:
+      err_chart_msg: "Có một lỗi xảy ra khi hiển thị biểu đồ."
+    
+    device_models:
+      col_name: "Tên thiết bị"
+      col_ver: "Phiên bản"
+
+    devices:
+      col_name: "Tên thiết bị"
+      col_manufacturer: "Nhà sản xuất"
+      col_model: "Kiểu"
+      col_site: "Trang"
+
+    encounters:
+      btn_save: "Lưu mã phòng thí nghiệm"
+      lbl_tests_requested: "Những kiểm tra được yêu cầu"
+      lbl_microscopy: "Kính hiển vi"
+      lbl_xpert_mtb: "Xpert MTB/RIF"
+      lbl_culture: "Môi trường"
+      lbl_liquid_culture: "Môi trường lỏng"
+      lbl_solid_culture: "Môi trường rắn"
+      lbl_drug_first_line: "Drug Susceptibility First Line"
+      lbl_drug_second_line: "Drug Susceptibility Second Line"
+      lbl_line_first_line: "Line probe assay First Line"
+      lbl_line_second_line: "Line probe assay Second Line"
+      lbl_cd4_count: "CD4 Count"
+      lbl_viral_count: "Viral Load Count"
+      lbl_hiv_detect: "HIV 1/2 Detect"
+      lbl_rdt: "RDT"
+      lbl_xpert_ebola: "Xpert Ebola"
+
+    episodes:
+      lbl_treatment_outcome: "Kết quả điều trị"
+      h1_comfirm_msg: "Bạn có muốn đóng giai đoạn này không?"
+      confirm_yes: "Có"
+      confirm_no: "Không"
+
+    incidents:
+      lnk_view_result: "Hiển thị kết quả"
+      col_alert: "Nhóm cảnh báo"
+      col_devices: "Thiết bị"
+      col_date: "Ngày"
+      col_result: "Kết quả kiểm tra"
+
+    patients:
+      msg_loading: "Đang tải nhật ký kiểm tra..."
+      msg_no_log: "Không có nhật ký kiểm tra."
+      col_field: "Vùng"
+      col_ori_value: "Giá trị khởi đầu"
+      col_new_value: "Giá trị mới"
+      col_title: "Bệnh nhân"
+      col_name: "Tên bệnh nhân"
+      col_patient_id: "Mã bệnh nhân"
+      col_date_of_birth: "Ngày sinh"
+      col_address: "Địa chỉ"
+
+      form:
+        lbl_name: "TÊN"
+        tbl_duplicate_msg: "Những bệnh nhân cùng tên."
+        col_name: "Tên"
+        col_gender: "Giới tính"
+        col_birth_date: "Ngày sinh"
+
+      show:
+        msg_loading: "Đang tải mệnh lệnh kiểm tra..."
+        msg_no_order: "Không có mệnh lệnh kiểm tra."
+        col_request_by: "Yêu cầu bởi"
+        col_request_to: "Yêu cầu cho"
+        col_order_id: "Mã đơn đặt hàng"
+        col_order_by: "Đặt hàng bởi"
+        col_request_date: "Ngày yêu cầu"
+        col_due_date: "Ngày đáo hạn"
+        col_time: "Thời gian quay vòng"
+        col_status: "Trạng thái"
+
+        episodes:
+          lst_open: "Tập mở"
+          lst_close: "Tập đóng"
+          lbl_diagnosis: "Chẩn đoán"
+          lbl_hiv_status: "Tình trạng nhiễm HIV"
+          lbl_history: "Lịch sử"
+          lbl_drug: "Kháng thuốc"
+          lbl_outcome: "Kết quả"
+          lbl_diagnosis_by_site: "Chẩn đoán phân loại bởi trang giải phẫu"
+          btn_edit: "Chỉnh sửa tập"
+          msg_loading: "Đang tải tập..."
+          msg_no_episode: "Không có tập."
+
+        history:
+          col_comment_date: "Ngày"
+          col_commenter: "Người bình luận"
+          col_comment_des: "Bình luận"
+          lst_history: "Lịch sử"
+          lst_test_order: "Yêu cầu kiểm tra"
+          lst_results: "Kết quả"
+          lst_comments: "Bình luận"
+          col_result_name: "Tên kết quả"
+          col_result_status: "Trạng thái"
+          col_result_date: "Ngày"
+          col_test_order_request_by: "Yêu cầu bởi"
+          col_test_order_request_to: "Yêu cầu cho"
+          col_test_order_id: "Mã yêu cầu"
+          col_test_order_by_user: "Người yêu cầu"
+          col_test_order_request_date: "Ngày yêu cầu"
+          col_test_order_due_date: "Ngày đáo hạn"
+          col_test_order_time: "Thời gian quay vòng"
+          col_test_order_status: "Trạng thái"
+          col_title: "Tiêu đề"
+          col_user: "Người dùng"
+          col_date: "Ngày thêm"
+          msg_loading: "Đang tải nhật ký..."
+          msg_no_log: "Không có nhật ký."
+          msg_loading_comment: "Đang tải bình luận..."
+          msg_no_comment: "Không có bình luận."
+          msg_loading_result: "Đang tải kết quả kiểm tra..."
+          msg_no_result: "Không có kết quả kiểm tra."
+          msg_loading_order: "Đang tải mệnh lệnh kiểm tra..."
+          msg_no_order: "Không có mệnh lệnh kiểm tra."
+
+    roles:
+      col_name: "Vai trò"
+      tooltip_name: "Tên của vai trò."
+      col_location: "Nơi"
+      tooltip_location: "Những nơi mà vai trò này áp dụng."
+      col_user: "Số người dùng"
+      tooltip_user: "Số lượng người dùng có vai trò này."
+
+    test_orders:
+      col_sample_id: "Mã mẫu thử"
+      col_status: "Trạng thái"
+      col_request_by: "Yêu cầu bởi"
+      col_request_to: "Yêu cầu cho"
+      col_testing_for: "Kiểm tra cho"
+      col_order_by: "Đặt hàng bởi"
+      col_request_date: "Ngày yêu cầu"
+      col_due_date: "Ngày đáo hạn"
+
+    test_results:
+      col_sample: "Mẫu được thu thập ở"
+      col_number: "Số seri"
+      col_exam_by: "Kiểm tra bởi"
+      col_media_used: "Phương tiện sử dụng"
+      col_test_result: "Kết quả kiểm tra"
+      col_result_on: "Kết quả ở"
+      col_h: "Kết quả H"
+      col_r: "Kết quả R"
+      col_e: "Kết quả E"
+      col_s: "Kết quả S"
+      col_amk: "Kết quả Amk"
+      col_km: "Kết quả Km"
+      col_cm: "Kết quả Cm"
+      col_fq: "Kết quả Fq"
+      col_on: "Kết quả ở"
+      col_specimen: "Mẫu văn bản"
+      col_appearance: "Xuất hiện"
+      col_test: "Thử nghiệm"
+      col_result: "Kết quả"
+      col_site: "Trang"
+      col_device_name: "Tên thiết bị"
+      col_device_number: "Số seri thiết bị"
+      col_sample_id: "Mã mẫu thử"
+      col_type: "Loại"
+      col_status: "Trạng thái"
+      col_err_code: "Mã lỗi"
+      col_start_time: "Thời gian bắt đầu"
+      col_end_time: "Thời gian kết thúc"
+      col_tuber: "Lao phổi"
+      col_trace: "Dấu vết"
+      col_rifampicin: "Rifampicin"
+
+    users:
+      col_full_name: "Tên đầy đủ"
+      col_role: "Chức vụ"
+      col_status: "Trạng thái"
+      col_last_activity: "Hoạt động cuối cùng"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,17 +61,17 @@ var TestResultsList = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="test-results-table">
         <thead>
           <tr>
-            {sortableHeader("Test", "test.name")}
-            <th data-resizable-column-id="results" colSpan={totalAssaysColCount}>Results</th>
-            { this.props.showSites ? sortableHeader("Site", "site.name") : null }
-            { this.props.showDevices ? sortableHeader("Device name", "device.name") : null }
-            { this.props.showDevices ? sortableHeader("Device serial number", "device.serial_number") : null }
-            {sortableHeader("Sample ID", "sample.id")}
-            {sortableHeader("Type", "test.type")}
-            {sortableHeader("Status", "test.status")}
-            {sortableHeader("Error code", "test.error_code")}
-            {sortableHeader("Start time", "test.start_time")}
-            {sortableHeader("End time", "test.end_time")}
+            {sortableHeader(I18n.t("components.test_results.col_test"), "test.name")}
+            <th data-resizable-column-id="results" colSpan={totalAssaysColCount}>{I18n.t("components.test_results.col_result")}</th>
+            { this.props.showSites ? sortableHeader(I18n.t("components.test_results.col_site"), "site.name") : null }
+            { this.props.showDevices ? sortableHeader(I18n.t("components.test_results.col_device_name"), "device.name") : null }
+            { this.props.showDevices ? sortableHeader(I18n.t("components.test_results.col_device_number"), "device.serial_number") : null }
+            {sortableHeader(I18n.t("components.test_results.col_sample_id"), "sample.id")}
+            {sortableHeader(I18n.t("components.test_results.col_type"), "test.type")}
+            {sortableHeader(I18n.t("components.test_results.col_status"), "test.status")}
+            {sortableHeader(I18n.t("components.test_results.col_err_code"), "test.error_code")}
+            {sortableHeader(I18n.t("components.test_results.col_start_time"), "test.start_time")}
+            {sortableHeader(I18n.t("components.test_results.col_end_time"), "test.end_time")}
           </tr>
         </thead>
         <tbody>

@@ -3,7 +3,7 @@ var PatientAuditUpdates = React.createClass({
     return {
       patientAuditUpdates: [],
       queryOrder: true,
-      loadingMessasge: 'Loading audit logs...'
+      loadingMessasge: I18n.t("components.patients.msg_loading")
     };
   },
 
@@ -13,7 +13,7 @@ var PatientAuditUpdates = React.createClass({
       if (results.length > 0) {
         this.setState({ patientAuditUpdates: results });
       } else {
-        this.setState({ loadingMessasge: 'There are no audit logs available.' });
+        this.setState({ loadingMessasge: I18n.t("components.patients.msg_no_log") });
       };
     }.bind(this));
   },
@@ -46,9 +46,9 @@ var PatientAuditUpdates = React.createClass({
           <table className="patient-audit-updates">
             <thead>
               <tr>
-                <th><a href="#" onClick={this.getAuditUpdates.bind(null, 'name')}>Field</a></th>
-                <th>Original value</th>
-                <th>New value</th>
+                <th><a href="#" onClick={this.getAuditUpdates.bind(null, 'name')}>{I18n.t("components.patients.col_field")}</a></th>
+                <th>{I18n.t("components.patients.col_ori_value")}</th>
+                <th>{I18n.t("components.patients.col_new_value")}</th>
               </tr>
             </thead>
             <tbody>

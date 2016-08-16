@@ -40,30 +40,30 @@ var AlertGroupsIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="alert-groups-table">
         <thead>
           <tr>
-            {sortableHeader('Name', 'alerts.name', 'This is the Name of the Alert.')}
-            {sortableHeader('Description', 'alerts.description', 'A meaningful description about what the alert entails.')}
-            {sortableHeader('Enabled', 'alerts.enabled', 'Is this alert enabled?')}
+            {sortableHeader(I18n.t("components.alert_groups.col_name"), 'alerts.name', I18n.t("components.alert_groups.tooltip_name"))}
+            {sortableHeader(I18n.t("components.alert_groups.col_description"), 'alerts.description', I18n.t("components.alert_groups.tooltip_description"))}
+            {sortableHeader(I18n.t("components.alert_groups.col_enabled"), 'alerts.enabled', I18n.t("components.alert_groups.tooltip_enabled"))}
             <th data-resizable-column-id="alerts.sites">
               <div className="tooltip">
-                Sites
+                I18n.t("components.alert_groups.col_sites")
                 <div className="tooltiptext_r">
-                  Which site(s) this alert will trigger for.
+                  I18n.t("components.alert_groups.tooltip_sites")
                 </div>
               </div>
             </th>
             <th data-resizable-column-id="alerts.roles">
               <div className="tooltip">
-                Roles
+                I18n.t("components.alert_groups.col_roles")
                 <div className="tooltiptext_r">
-                  Something about roles.
+                  I18n.t("components.alert_groups.tooltip_roles")
                 </div>
               </div>
             </th>
             <th data-resizable-column-id="alerts.last_incident">
               <div className="tooltip">
-                Last incident
+                I18n.t("components.alert_groups.col_last_incident")
                 <div className="tooltiptext_r">
-                  When the last incident was reported.
+                  I18n.t("components.alert_groups.tooltip_last_incident")
                 </div>
               </div>
             </th>

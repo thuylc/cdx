@@ -34,19 +34,19 @@ var DstLpaResultsIndex = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="dstlpa-test-results-table">
         <thead>
           <tr>
-            {sortableHeader('Sample collected on', 'patient_results.sample_collected_on')}
-            {sortableHeader('Serial number',       'patient_results.serial_number')}
-            {sortableHeader('Examined by',         'patient_results.examined_by')}
-            {sortableHeader('Media used',          'patient_results.media_used')}
-            {sortableHeader('Results H',           'patient_results.results_h')}
-            {sortableHeader('Results R',           'patient_results.results_r')}
-            {sortableHeader('Results E',           'patient_results.results_e')}
-            {sortableHeader('Results S',           'patient_results.results_s')}
-            {sortableHeader('Results Amk',         'patient_results.results_amk')}
-            {sortableHeader('Results Km',          'patient_results.results_km')}
-            {sortableHeader('Results Cm',          'patient_results.results_cm')}
-            {sortableHeader('Results Fq',          'patient_results.results_fq')}
-            {sortableHeader('Result on',           'patient_results.result_on')}
+            {sortableHeader(I18n.t("components.test_results.col_sample"), 'patient_results.sample_collected_on')}
+            {sortableHeader(I18n.t("components.test_results.col_number"),       'patient_results.serial_number')}
+            {sortableHeader(I18n.t("components.test_results.col_exam_by"),         'patient_results.examined_by')}
+            {sortableHeader(I18n.t("components.test_results.col_media_used"),          'patient_results.media_used')}
+            {sortableHeader(I18n.t("components.test_results.col_h"),           'patient_results.results_h')}
+            {sortableHeader(I18n.t("components.test_results.col_r"),           'patient_results.results_r')}
+            {sortableHeader(I18n.t("components.test_results.col_e"),           'patient_results.results_e')}
+            {sortableHeader(I18n.t("components.test_results.col_s"),           'patient_results.results_s')}
+            {sortableHeader(I18n.t("components.test_results.col_amk"),         'patient_results.results_amk')}
+            {sortableHeader(I18n.t("components.test_results.col_km"),          'patient_results.results_km')}
+            {sortableHeader(I18n.t("components.test_results.col_cm"),          'patient_results.results_cm')}
+            {sortableHeader(I18n.t("components.test_results.col_fq"),          'patient_results.results_fq')}
+            {sortableHeader(I18n.t("components.test_results.col_on"),           'patient_results.result_on')}
           </tr>
         </thead>
         <tbody>

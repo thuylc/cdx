@@ -38,10 +38,10 @@ var AlertMessagesIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="alert-messages-table">
         <thead>
           <tr>
-            {sortableHeader("Name", "alerts.name")}
-            {sortableHeader("Date", "recipient_notification_histories.created_at")}
-            <th data-resizable-column-id="channels">Channels</th>
-            {sortableHeader("Message", "recipient_notification_histories.message_sent")}
+            {sortableHeader(I18n.t("components.alert_messages.col_name"), "alerts.name")}
+            {sortableHeader(I18n.t("components.alert_messages.col_date"), "recipient_notification_histories.created_at")}
+            <th data-resizable-column-id="channels">{I18n.t("components.alert_messages.col_channels")}</th>
+            {sortableHeader(I18n.t("components.alert_messages.col_message"), "recipient_notification_histories.message_sent")}
           </tr>
         </thead>
         <tbody>

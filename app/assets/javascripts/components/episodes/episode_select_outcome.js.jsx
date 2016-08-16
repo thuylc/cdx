@@ -34,7 +34,7 @@ var EpisodeSelectOutcome = React.createClass({
     return(
       <div className="row">
         <div className="col-6">
-          <label htmlFor="outcome">Treatment Outcome</label>
+          <label htmlFor="outcome">{I18n.t("components.episodes.lbl_treatment_outcome")}</label>
         </div>
         <div className="col-6">
           <select name="episode[outcome]" onChange={this.confirmCloseEpisode}>
@@ -45,8 +45,8 @@ var EpisodeSelectOutcome = React.createClass({
           </select>
         </div>
         <Modal ref="confirmCloseEpisode">
-          <h1>Would you like to close this episode?</h1>
-          <p><a href="#" onClick={this.closeEpisode}>Yes</a> | <a href="#" onClick={this.closeEpisodeModal}>No</a></p>
+          <h1>{I18n.t("components.episodes.h1_comfirm_msg")}</h1>
+          <p><a href="#" onClick={this.closeEpisode}>{I18n.t("components.episodes.comfirm_yes")}</a> | <a href="#" onClick={this.closeEpisodeModal}>{I18n.t("components.episodes.comfirm_no")}</a></p>
         </Modal>
       </div>
     );

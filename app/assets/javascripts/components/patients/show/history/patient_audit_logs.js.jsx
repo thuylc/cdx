@@ -3,12 +3,12 @@ var PatientAuditLogs = React.createClass({
     return {
       patientLogs: [],
       queryOrder: true,
-      loadingMessasge: 'Loading logs...',
+      loadingMessasge: I18n.t("components.patients.show.history.msg_loading"),
       orderedColumns: {},
       availableColumns: [
-        { title: 'Title',      fieldName: 'title' },
-        { title: 'User',       fieldName: 'user' },
-        { title: 'Date added', fieldName: 'date' }
+        { title: I18n.t("components.patients.show.history.col_title"),      fieldName: 'title' },
+        { title: I18n.t("components.patients.show.history.col_user"),       fieldName: 'user' },
+        { title: I18n.t("components.patients.show.history.col_date"), fieldName: 'date' }
       ]
     };
   },
@@ -21,7 +21,7 @@ var PatientAuditLogs = React.createClass({
         this.updateOrderIcon(field);
         $("table").resizableColumns({store: window.store});
       } else {
-        this.setState({ loadingMessage: 'There are no logs available.' });
+        this.setState({ loadingMessage: I18n.t("components.patients.show.history.msg_no_log") });
       };
     }.bind(this));
   },

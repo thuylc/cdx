@@ -8,7 +8,7 @@ var IncidentResultRow = React.createClass({
       <td>
         { this.props.incident.testResult.resultLink === false ?
           this.props.incident.testResult.caption :
-          <a href={this.props.incident.testResult.resultLink}>View result</a>
+          <a href={this.props.incident.testResult.resultLink}>{I18n.t("components.incidents.lnk_view_result")}</a>
         }
       </td>
     </tr>);
@@ -43,10 +43,10 @@ var IncidentsIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="incidents-table">
         <thead>
           <tr>
-            {sortableHeader("Alert group", "alerts.name")}
-            <th data-resizable-column-id="devices">Devices</th>
-            {sortableHeader("Date", "alert_histories.created_at")}
-            {sortableHeader("Test Result", "alert_histories.test_result_id")}
+            {sortableHeader(I18n.t("components.incidents.col_alert"), "alerts.name")}
+            <th data-resizable-column-id="devices">{I18n.t("components.incidents.col_devices")}</th>
+            {sortableHeader(I18n.t("components.incidents.col_date"), "alert_histories.created_at")}
+            {sortableHeader(I18n.t("components.incidents.col_result"), "alert_histories.test_result_id")}
           </tr>
         </thead>
         <tbody>

@@ -15,7 +15,7 @@ var PatientInputName = React.createClass({
     return (
       <div className="row">
         <div className="col pe-2">
-          <label htmlFor="patient_name">NAME</label>
+          <label htmlFor="patient_name">{I18n.t("components.patients.form.lbl_name")}</label>
         </div>
         <div className="col">
           <input className="input-large" onBlur={this.checkPatientName()} valueLink={this.linkState('inputValue')} type="text" name="patient[name]" id="patient_name" />

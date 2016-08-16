@@ -2,10 +2,10 @@ var PatientHistory = React.createClass({
   getInitialState: function () {
     return {
       tabList: [
-        { 'id': 1, 'name': 'History' },
-        { 'id': 2, 'name': 'Test Orders' },
-        { 'id': 3, 'name': 'Results' },
-        { 'id': 4, 'name': 'Comments' }
+        { 'id': 1, 'name': I18n.t("components.patients.show.history.lst_history") },
+        { 'id': 2, 'name': I18n.t("components.patients.show.history.lst_test_order") },
+        { 'id': 3, 'name': I18n.t("components.patients.show.history.lst_results") },
+        { 'id': 4, 'name': I18n.t("components.patients.show.history.lst_comments") }
       ],
       currentTab: this.props.defaultTab
     };

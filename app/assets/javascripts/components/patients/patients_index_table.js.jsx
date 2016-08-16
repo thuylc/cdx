@@ -31,7 +31,7 @@ var PatientResultRow = React.createClass({
 var PatientsIndexTable = React.createClass({
   getDefaultProps: function() {
     return {
-      title: "Patients",
+      title: I18n.t("components.patients.col_title"),
       allowSorting: true,
       orderBy: "patients.name"
     }
@@ -57,10 +57,10 @@ var PatientsIndexTable = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="patients-table">
         <thead>
           <tr>
-            {sortableHeader("Name", "patients.name")}
-            {sortableHeader("Patient Id", "patients.entity_id")}
-            {sortableHeader("Date of birth", "patients.birth_date_on")}
-            {sortableHeader("Address", "patients.address")}
+            {sortableHeader(I18n.t("components.patients.col_name"), "patients.name")}
+            {sortableHeader(I18n.t("components.patients.col_patient_id"), "patients.entity_id")}
+            {sortableHeader(I18n.t("components.patients.col_date_of_birth"), "patients.birth_date_on")}
+            {sortableHeader(I18n.t("components.patients.col_address"), "patients.address")}
           </tr>
         </thead>
         <tbody>

@@ -3,8 +3,8 @@ var PatientEpisodes = React.createClass({
     var currentTab = window.store.get('patientEpisodeTab') ? window.store.get('patientEpisodeTab') : 1;
     return {
       tabList: [
-        { 'id': 1, 'name': 'Open episodes' },
-        { 'id': 2, 'name': 'Closed episodes' }
+        { 'id': 1, 'name': I18n.t("components.patients.show.episodes.lst_open") },
+        { 'id': 2, 'name': I18n.t("components.patients.show.episodes.lst_close") }
       ],
       currentTab: currentTab
     };

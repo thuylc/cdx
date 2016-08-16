@@ -27,12 +27,12 @@ var XpertResultsIndex = React.createClass({
       <table className="table" cellPadding="0" cellSpacing="0" data-resizable-columns-id="xpert-test-results-table">
         <thead>
           <tr>
-            {sortableHeader('Sample collected on', 'patient_results.sample_collected_on')}
-            {sortableHeader('Examined by',         'patient_results.examined_by')}
-            {sortableHeader('Tuberculosis',        'patient_results.tuberculosis')}
-            {sortableHeader('Trace',               'patient_results.trace')}
-            {sortableHeader('Rifampicin',          'patient_results.rifampicin')}
-            {sortableHeader('Result on',           'patient_results.result_on')}
+            {sortableHeader(I18n.t("components.test_results.col_sample"), 'patient_results.sample_collected_on')}
+            {sortableHeader(I18n.t("components.test_results.col_exam_by"),         'patient_results.examined_by')}
+            {sortableHeader(I18n.t("components.test_results.col_tuber"),        'patient_results.tuberculosis')}
+            {sortableHeader(I18n.t("components.test_results.col_trace"),               'patient_results.trace')}
+            {sortableHeader(I18n.t("components.test_results.col_rifampicin"),          'patient_results.rifampicin')}
+            {sortableHeader(I18n.t("components.test_results.col_result_on"),           'patient_results.result_on')}
           </tr>
         </thead>
         <tbody>
