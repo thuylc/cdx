@@ -36,7 +36,7 @@ var TextInputModal = React.createClass({
       <div>
         <a className="btn-add side-link" href='#' title={I18n.t("components.text_input_modal.add_comment_title")} onClick={this.openInviteModal} ><span className="icon-pencil icon-white"></span></a>
         <Modal ref="inviteModal" hideOuterEvent={this.hideOuterEvent}>
-          <h1>I18n.t("components.text_input_modal.test_comment_heading")</h1>
+          <h1>{I18n.t("components.text_input_modal.test_comment_heading")}</h1>
           <p>
             <textarea rows="10" cols="50" placeholder={I18n.t("components.text_input_modal.add_comment_placeholder")} value={this.state.newComment} onChange={this.handleChange} id="testcomment" disabled={!this.props.edit} />
           </p>

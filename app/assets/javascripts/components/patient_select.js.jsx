@@ -16,7 +16,7 @@ var PatientSelect = React.createClass({
     return (
     <div className="row">
       <div className="col-6">
-        <label>I18n.t("components.patient_select.patient_lable")</label>
+        <label>{I18n.t("components.patient_select.patient_lable")}</label>
       </div>
       <div className="col-6">
 

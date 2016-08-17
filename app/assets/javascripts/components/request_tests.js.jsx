@@ -170,15 +170,15 @@ var RequestedTestsList = React.createClass({
             </th>
           </tr>
           <tr>
-            <td>I18n.t("components.request_tests.type_col")</td>
-            <td>I18n.t("components.request_tests.sample_id_col")</td>
-            <td>I18n.t("components.request_tests.order_by_user_col")</td>
-            <td>I18n.t("components.request_tests.requested_date")</td>
-            <td>I18n.t("components.request_tests.request_by_col")</td>
-            <td>I18n.t("components.request_tests.due_date_col")</td>
-            <td>I18n.t("components.request_tests.status_col")</td>
-            <td>I18n.t("components.request_tests.comment_col")</td>
-            <td>I18n.t("components.request_tests.result_col")</td>
+            <td>{I18n.t("components.request_tests.type_col")}</td>
+            <td>{I18n.t("components.request_tests.sample_id_col")}</td>
+            <td>{I18n.t("components.request_tests.order_by_user_col")}</td>
+            <td>{I18n.t("components.request_tests.requested_date")}</td>
+            <td>{I18n.t("components.request_tests.request_by_col")}</td>
+            <td>{I18n.t("components.request_tests.due_date_col")}</td>
+            <td>{I18n.t("components.request_tests.status_col")}</td>
+            <td>{I18n.t("components.request_tests.comment_col")}</td>
+            <td>{I18n.t("components.request_tests.result_col")}</td>
           </tr>
         </thead>
         <tbody>
@@ -230,7 +230,7 @@ var TestResultButton = React.createClass({
 
     if (this.props.showWarning) {
       return (
-        <a className="btn-add-link btn-primary" onClick={this.clickHandler}>I18n.t("components.request_tests.add_result_btn")</a>
+        <a className="btn-add-link btn-primary" onClick={this.clickHandler}>{I18n.t("components.request_tests.add_result_btn")}</a>
       )
     } else {
       return(

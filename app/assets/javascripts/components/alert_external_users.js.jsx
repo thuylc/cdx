@@ -46,8 +46,8 @@ var AlertExternalUser = React.createClass({
 				<div>
 					<div className = "row" id = "newuserrow" >
 					<div className = "col pe-2" >
-						<label className="tooltip">I18n.t("components.alert_external_users.ad_hoc_recipient_lable")
-							<div className="tooltiptext_r">I18n.t("components.alert_external_users.ad_hoc_recipient_tooltip")</div> 
+						<label className="tooltip">{I18n.t("components.alert_external_users.ad_hoc_recipient_lable")}
+							<div className="tooltiptext_r">{I18n.t("components.alert_external_users.ad_hoc_recipient_tooltip")}</div> 
 						</label>
 					</div>
 
@@ -113,7 +113,7 @@ var AlertCreateExternalUser = React.createClass({
 			</div>
 
 			<div className = "col" >
-				<a className = "btn-link"  onClick={this.clickHandler} id="newexternaluser">I18n.t("components.alert_external_users.create_user_btn")</a>
+				<a className = "btn-link"  onClick={this.clickHandler} id="newexternaluser">{I18n.t("components.alert_external_users.create_user_btn")}</a>
 			</div>
 		</div>
 	);
@@ -170,7 +170,7 @@ var ExternalUser = React.createClass({
 				{this.props.telephone}
 			</div>
 			<div className = "col" >
-				<a className = "btn-link" onClick={this.clickHandler.bind(this,this.props.eachuserarrayindex)} id="externaluserdelete">I18n.t("components.alert_external_users.delete_user_btn")</a>
+				<a className = "btn-link" onClick={this.clickHandler.bind(this,this.props.eachuserarrayindex)} id="externaluserdelete">{I18n.t("components.alert_external_users.delete_user_btn")}</a>
 			</div>
 		</div>
 	);

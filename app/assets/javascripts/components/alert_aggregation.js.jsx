@@ -28,8 +28,8 @@ var AlertAggregation = React.createClass({
 		return (
 			< div className = "row" id = "aggregationTypeRow" >
 			<div className = "col pe-2" >
-				<label className="tooltip">I18n.t("components.alert_aggregation.aggregation_type")
-					<div className="tooltiptext_r">I18n.t("components.alert_aggregation.aggregation_type_tooltip")</div> 
+				<label className="tooltip">{I18n.t("components.alert_aggregation.aggregation_type")}
+					<div className="tooltiptext_r">{I18n.t("components.alert_aggregation.aggregation_type_tooltip")}</div> 
 				</label>
 			</div>
 			<div className = "col" >
@@ -88,8 +88,9 @@ var AlertAggregationFrequency = React.createClass({
 		return (
 			< div className = "row" id = "aggregationFrequenciesRow" >
 			<div className = "col pe-2" >
-				<label className="tooltip">I18n.t("components.alert_aggregation.aggregation_frequency")
-					<div className="tooltiptext_r">I18n.t("components.alert_aggregation.aggregation_frequency_tooltip")</div> 
+				<label className="tooltip">{I18n.t("components.alert_aggregation.aggregation_frequency")}
+					<div className="tooltiptext_r">{I18n.t("components.alert_aggregation.aggregation_frequency_tooltip")}</div> 
+				}
 				</label>
 			</div>
 			<div className = "col" >
@@ -124,8 +125,8 @@ var AlertAggregationThreshold = React.createClass({
 		return (
 			< div className = "row" id = "aggregationThresholdRow" >
 			<div className = "col pe-2" >
-				<label className="tooltip">I18n.t("components.alert_aggregation.aggregation_threshold")
-					<div className="tooltiptext_r">I18n.t("components.alert_aggregation.aggregation_threshold_tooltip")</div> 
+				<label className="tooltip">{I18n.t("components.alert_aggregation.aggregation_threshold")}
+					<div className="tooltiptext_r">{I18n.t("components.alert_aggregation.aggregation_threshold_tooltip")}</div> 
 				</label>
 			</div>
 
@@ -139,7 +140,7 @@ var AlertAggregationThreshold = React.createClass({
 			</div>
 					
 			<div className = "col">
-				<label>I18n.t("components.alert_aggregation.use_percentage")</label>
+				<label>{I18n.t("components.alert_aggregation.use_percentage")}</label>
 			</div>
 			<div className = "col">
 			  <input

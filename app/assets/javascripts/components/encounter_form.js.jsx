@@ -160,8 +160,8 @@ var EncounterForm = React.createClass(_.merge({
       diagnosisEditor = (
         <div className="row">
           <div className="col pe-2">
-            <label>I18n.t("components.encounter_form.diagnosis_label")</label>
-            <p style={{fontSize: "12px"}}><i>I18n.t("components.encounter_form.diagnosis_text")</i></p>
+            <label>{I18n.t("components.encounter_form.diagnosis_label")}</label>
+            <p style={{fontSize: "12px"}}><i>{I18n.t("components.encounter_form.diagnosis_text")}</i></p>
           </div>
 
           <div className="col assays-editor">
@@ -201,7 +201,7 @@ var EncounterForm = React.createClass(_.merge({
           return (
           <div className="row">
             <div className="col pe-2">
-              <label>I18n.t("components.encounter_form.site_label")</label>
+              <label>{I18n.t("components.encounter_form.site_label")}</label>
             </div>
             <div className="col">
               <p>{this.props.encounter.site.name}</p>
@@ -213,24 +213,24 @@ var EncounterForm = React.createClass(_.merge({
 
         <div className="row">
           <div className="col pe-2">
-            <label>I18n.t("components.encounter_form.sample_label")</label>
+            <label>{I18n.t("components.encounter_form.sample_label")}</label>
           </div>
           <div className="col">
             <SamplesList samples={this.state.encounter.samples} onUnifySample={this.showUnifySamplesModal} />
             <NewSamplesList samples={this.state.encounter.new_samples} onRemoveSample={this.removeNewSample} />
 
             <p>
-              <a className="btn-add-link" href='#' onClick={this.addNewSamples}><span className="icon-circle-plus icon-blue"></span> I18n.t("components.encounter_form.append_new_sample_btn")</a>
+              <a className="btn-add-link" href='#' onClick={this.addNewSamples}><span className="icon-circle-plus icon-blue"></span> {I18n.t("components.encounter_form.append_new_sample_btn")}</a>
             </p>
             <p>
-              <a className="btn-add-link" href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> I18n.t("components.encounter_form.append_sample_btn")</a>
+              <a className="btn-add-link" href='#' onClick={this.showAddSamplesModal}><span className="icon-circle-plus icon-blue"></span> {I18n.t("components.encounter_form.append_sample_btn")}</a>
             </p>
           </div>
 
           <Modal ref="addSamplesModal">
             <h1>
               <a href="#" className="modal-back" onClick={this.closeAddSamplesModal}></a>
-              I18n.t("components.encounter_form.add_sample_heading")
+              {I18n.t("components.encounter_form.add_sample_heading")}
             </h1>
 
             <AddItemSearch callback={"/encounters/search_sample?institution_uuid=" + this.state.encounter.institution.uuid} onItemChosen={this.appendSample}
@@ -256,7 +256,7 @@ var EncounterForm = React.createClass(_.merge({
         <div className="row">
           <div className="col">
             <TestResultsList testResults={this.state.encounter.test_results} /><br/>
-            <a className="btn-add-link"  href='#' onClick={this.showTestsModal}><span className="icon-circle-plus icon-blue"></span> I18n.t("components.encounter_form.add_test_btn")</a>
+            <a className="btn-add-link"  href='#' onClick={this.showTestsModal}><span className="icon-circle-plus icon-blue"></span> {I18n.t("components.encounter_form.add_test_btn")}</a>
           </div>
 
           <Modal ref="testsModal">
@@ -273,7 +273,7 @@ var EncounterForm = React.createClass(_.merge({
         </div>
 
         <FlexFullRow>
-          <button type="button" className="btn-primary" onClick={this.save}>I18n.t("components.encounter_form.save_btn")</button>
+          <button type="button" className="btn-primary" onClick={this.save}>{I18n.t("components.encounter_form.save_btn")}</button>
         </FlexFullRow>
 
       </div>

@@ -71,7 +71,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
       <div className="newTestOrder">
         <div className="row labelHeader">
           <div className="col-6">
-            <h3>I18n.t("components.fresh_tests_encounter_form.test_order_details_heading")</h3>
+            <h3>{I18n.t("components.fresh_tests_encounter_form.test_order_details_heading")}</h3>
           </div>
           <div className="col-6">
           </div>
@@ -79,15 +79,15 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
         <div className="panel">
           <div className="row">
             <div className="col-6">
-              <label>I18n.t("components.fresh_tests_encounter_form.testing_for_label")</label>
+              <label>{I18n.t("components.fresh_tests_encounter_form.testing_for_label")}</label>
             </div>
             <div className="col-6">
               <label>
                 <select className="input-large" id="testing_for" name="testing_for" onChange={this.testingForChange} datavalue={this.state.encounter.testing_for}>
-                  <option value="">I18n.t("components.fresh_tests_encounter_form.please_select_option")</option>
-                  <option value="TB">I18n.t("components.fresh_tests_encounter_form.TB_option")</option>
-                  <option value="HIV">I18n.t("components.fresh_tests_encounter_form.HIV_option")</option>
-                  <option value="Ebola">I18n.t("components.fresh_tests_encounter_form.Ebola_option")</option>
+                  <option value="">{I18n.t("components.fresh_tests_encounter_form.please_select_option")}</option>
+                  <option value="TB">{I18n.t("components.fresh_tests_encounter_form.TB_option")}</option>
+                  <option value="HIV">{I18n.t("components.fresh_tests_encounter_form.HIV_option")}</option>
+                  <option value="Ebola">{I18n.t("components.fresh_tests_encounter_form.Ebola_option")}</option>
                 </select>
               </label>
             </div>
@@ -95,13 +95,13 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
           <div className="row">
             <div className="col-6 flexStart">
-              <label>I18n.t("components.fresh_tests_encounter_form.reason_for_examination_label")</label>
+              <label>{I18n.t("components.fresh_tests_encounter_form.reason_for_examination_label")}</label>
             </div>
             <div className="col-6 flexStart">
               <input type="radio" onChange={this.reasonClicked.bind(this, 0)} checked={this.state.encounter.exam_reason == 'diag'} name="exam_reason" id="exam_reason_diag" value="diag"/>
-              <label htmlFor="exam_reason_diag">I18n.t("components.fresh_tests_encounter_form.diagnosis_lable")</label>
+              <label htmlFor="exam_reason_diag">{I18n.t("components.fresh_tests_encounter_form.diagnosis_lable")}</label>
               <input type="radio" onChange={this.reasonClicked.bind(this, 1)} checked={this.state.encounter.exam_reason == 'follow'} name="exam_reason" id="exam_reason_follow" value="follow"/>
-              <label htmlFor="exam_reason_follow">I18n.t("components.fresh_tests_encounter_form.follow_up_lable")</label>
+              <label htmlFor="exam_reason_follow">{I18n.t("components.fresh_tests_encounter_form.follow_up_lable")}</label>
             </div>
           </div>
 
@@ -110,7 +110,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
           <div className="row">
             <div className="col-6 flexStart">
-              <label>I18n.t("components.fresh_tests_encounter_form.samples_lable")</label>
+              <label>{I18n.t("components.fresh_tests_encounter_form.samples_lable")}</label>
             </div>
             <div className="col-6">
               <SamplesList samples={this.state.encounter.samples}  />
@@ -118,12 +118,12 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
               <p className={show_auto_sample}>
                 <a className="btn-add-link" href='#' onClick={this.addNewSamples}>
                   <span className="icon-circle-plus icon-blue"></span>
-                  I18n.t("components.fresh_tests_encounter_form.add_sample")
+                  {I18n.t("components.fresh_tests_encounter_form.add_sample")}
                 </a>
               </p>
               <p className={show_manual_sample}>
                 <input type="text" size="54" placeholder={I18n.t("components.fresh_tests_encounter_form.sample_id_placeholder")} ref="manualSampleEntry" />&nbsp;
-                <button type="button" className="btn-primary" onClick={this.validateAndSetManualEntry}>I18n.t("components.fresh_tests_encounter_form.add_btn")</button>
+                <button type="button" className="btn-primary" onClick={this.validateAndSetManualEntry}>{I18n.t("components.fresh_tests_encounter_form.add_btn")}</button>
               </p>
             </div>
           </div>
@@ -132,15 +132,15 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
           <div className="row">
             <div className="col-6">
-              <label>I18n.t("components.fresh_tests_encounter_form.collection_sample_type_label")</label>
+              <label>{I18n.t("components.fresh_tests_encounter_form.collection_sample_type_label")}</label>
             </div>
             <div className="col-6">
               <label>
                 <select className="input-large" id="coll_sample_type" name="coll_sample_type" onChange={this.sample_type_change} datavalue={this.state.encounter.coll_sample_type}>
-                  <option value="">I18n.t("components.fresh_tests_encounter_form.please_select_option")</option>
-                  <option value="sputum">I18n.t("components.fresh_tests_encounter_form.sputum_option")</option>
-                  <option value="blood">I18n.t("components.fresh_tests_encounter_form.blood_option")</option>
-                  <option value="other">I18n.t("components.fresh_tests_encounter_form.other_option")</option>
+                  <option value="">{I18n.t("components.fresh_tests_encounter_form.please_select_option")}</option>
+                  <option value="sputum">{I18n.t("components.fresh_tests_encounter_form.sputum_option")}</option>
+                  <option value="blood">{I18n.t("components.fresh_tests_encounter_form.blood_option")}</option>
+                  <option value="other">{I18n.t("components.fresh_tests_encounter_form.other_option")}</option>
                 </select>
               </label>
             </div>
@@ -157,7 +157,7 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
 
           <div className="row">
             <div className="col-6">
-              <label>I18n.t("components.fresh_tests_encounter_form.test_due_date_label")</label>
+              <label>{I18n.t("components.fresh_tests_encounter_form.test_due_date_label")}</label>
             </div>
             <div className="col-6">
               <input type="date" id="testdue_date" min={today} onChange={this.testDueDateChange} value={this.state.encounter.testdue_date}/>
@@ -170,10 +170,10 @@ var FreshTestsEncounterForm = React.createClass(_.merge({
             <div className="col-12">
               <ul>
                 <li>
-                  <a href="#" id="encountersave" className="button save" onClick={this.validateThenSave}>I18n.t("components.fresh_tests_encounter_form.save_btn")</a>
+                  <a href="#" id="encountersave" className="button save" onClick={this.validateThenSave}>{I18n.t("components.fresh_tests_encounter_form.save_btn")}</a>
                 </li>
                 <li>
-                  <a href={cancelUrl} className="button cancel">I18n.t("components.fresh_tests_encounter_form.cancel_btn")</a>
+                  <a href={cancelUrl} className="button cancel">{I18n.t("components.fresh_tests_encounter_form.cancel_btn")}</a>
                 </li>
               </ul>
             </div>
@@ -366,7 +366,7 @@ var ReasonFollow = React.createClass({
     return (
       <div className="row">
         <div className="col-6">
-          <label>I18n.t("components.fresh_tests_encounter_form.weeks_in_treatment_label")</label>
+          <label>{I18n.t("components.fresh_tests_encounter_form.weeks_in_treatment_label")}</label>
         </div>
         <div className="col-6">
           <input type="number" min="0" max="52" onChange={this.updateWeeks} id="treatment_weeks" name="treatment_weeks"/>

@@ -87,7 +87,7 @@ var PolicyItemDetail = React.createClass({
             </div>
             <div className="col">
               <input type="radio" name="statementType" value="all" id={this.idFor("statement-type-all")} checked={true} readOnly={true} />
-              <label htmlFor={this.idFor("statement-type-all")}>{I18n.t("components.policy_item_detail.all_text")} {resourcesLabel} I18n.t("components.policy_item_detail.from_text") {statement.resourceList[statement.statementType][0].name}</label>
+              <label htmlFor={this.idFor("statement-type-all")}>{I18n.t("components.policy_item_detail.all_text")} {resourcesLabel} {I18n.t("components.policy_item_detail.from_text")} {statement.resourceList[statement.statementType][0].name}</label>
             </div>
           </div>);
         } else {

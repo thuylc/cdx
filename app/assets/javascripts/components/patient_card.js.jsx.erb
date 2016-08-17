@@ -46,27 +46,27 @@ var PatientCard = React.createClass({
             raw <<-JSX
               <ul class="column1">
                 <li>
-                  <label>I18n.t("components.patient_card.name_col")</label>
+                  <label>{I18n.t("components.patient_card.name_col")}</label>
                   {patient.name || "(Unknown name)"}
                 </li>
                 <li>
-                  <label>I18n.t("components.patient_card.gender_col")</label>
+                  <label>{I18n.t("components.patient_card.gender_col")}</label>
                   {patient.gender}
                 </li>
                 <li>
-                  <label>I18n.t("components.patient_card.date_of_birth_col")</label>
+                  <label>{I18n.t("components.patient_card.date_of_birth_col")}</label>
                   {patientInfo(patient)}
                 </li>
                 <li>
-                  <label>I18n.t("components.patient_card.address_col")</label>
+                  <label>{I18n.t("components.patient_card.address_col")}</label>
                   {patient.address}<br/>
                 </li>
                 <li>
-                  <label>I18n.t("components.patient_card.phone_col")</label>
+                  <label>{I18n.t("components.patient_card.phone_col")}</label>
                   {patient.phone}<br/>
                 </li>
                 <li>
-                  <label>I18n.t("components.patient_card.email_col")</label>
+                  <label>{I18n.t("components.patient_card.email_col")}</label>
                   {(function(){
                     if (patient.email) {
                       return <a href={"mailto:" + patient.email}>{patient.email}</a>;
@@ -93,7 +93,7 @@ var PatientCard = React.createClass({
               if (this.props.showTestLink != true) return;
               return (
                 <a href={"/encounters/new?mode=fresh_tests&patient_id=" + patient.id } title={I18n.t("components.patient_card.create_test_order")} className="label">
-                  I18n.t("components.patient_card.create_test_order")
+                  {I18n.t("components.patient_card.create_test_order")}
                 </a>);
             }.bind(this))()}
             JSX

@@ -95,7 +95,7 @@ var OutstandingTestsTable = React.createClass({
       <div className="row">
         <div className="col pe-12">
           <div className={this.state.shouldHide ? '' : 'hidden'}>
-            <span className="horizontal-bar-value">I18n.t("components.outstanding_tests_table.no_data_display")</span>
+            <span className="horizontal-bar-value">{I18n.t("components.outstanding_tests_table.no_data_display")}</span>
           </div>
           <div className={this.state.shouldHide ? 'hidden' : ''}>
             <table className="table scroll" cellPadding="0" cellSpacing="0"  data-resizable-columns-id="outstanding-tests-table" id="outstanding_tests_table_chart" >

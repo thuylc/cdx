@@ -89,7 +89,7 @@ var EncounterShow = React.createClass({
         </div>
         <div className="row labelHeader">
           <div className="col-6">
-            <h3>I18n.t("components.encounter_show.site_detail_heading")</h3>
+            <h3>{I18n.t("components.encounter_show.site_detail_heading")}</h3>
           </div>
           <div className="col-6">
           </div>
@@ -102,7 +102,7 @@ var EncounterShow = React.createClass({
         </div>
         <div className="row labelHeader">
           <div className="col-6">
-            <h3>I18n.t("components.encounter_show.test_detail_heading")</h3>
+            <h3>{I18n.t("components.encounter_show.test_detail_heading")}</h3>
           </div>
           <div className="col-6">
           </div>
@@ -167,7 +167,7 @@ var EncounterUpdate = React.createClass({
    },
   render: function() {
     return(
-      <div><a className="btn-secondary" onClick={this.clickHandler} id="update_encounter" href="#">I18n.t("components.encounter_show.update_btn")</a></div>
+      <div><a className="btn-secondary" onClick={this.clickHandler} id="update_encounter" href="#">{I18n.t("components.encounter_show.update_btn")}</a></div>
     );
   }
 });
@@ -213,7 +213,7 @@ var EncounterDelete = React.createClass({
     else if (this.props.showEdit && (this.props.encounter.status != 'inprogress')) {
       return (
         <div>
-          <a className = "btn-secondary pull-right" onClick={this.clickHandler} id="delete_encounter" href="#">I18n.t("components.encounter_show.cancel_test_order_btn")</a>
+          <a className = "btn-secondary pull-right" onClick={this.clickHandler} id="delete_encounter" href="#">{I18n.t("components.encounter_show.cancel_test_order_btn")}</a>
         </div>
       );
     } else {

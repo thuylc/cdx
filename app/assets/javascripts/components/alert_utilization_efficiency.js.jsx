@@ -3,7 +3,7 @@ var AlertUtilizationEfficiency = React.createClass({
 		return (
 			< div className = "row" id = "utilizationEfficiencyRow" >
 			<div className = "col pe-2" >
-				<label> I18n.t("components.alert_utilization_efficiency.timespan_row_label")</label>
+				<label> {I18n.t("components.alert_utilization_efficiency.timespan_row_label")}</label>
 			</div>
 
 			<div className = "col pe">
