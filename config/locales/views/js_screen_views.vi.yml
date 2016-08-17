@@ -9,7 +9,7 @@ vi:
     device_messages_table:
       col_status: "Tình trạng"
       col_message: "Thông báo"
-      col_model: "Model"
+      col_model: "Kiểu"
       col_device: "Thiết bị"
       col_failures: "Những sự cố"
       col_error_field: "Lĩnh vực"
@@ -85,8 +85,8 @@ vi:
       anomalie_tooltip: "Loại dị thường"
       anomalie_placeholder: "Lựa chọn"
 
-      channel_label: "Channel"
-      channel_tooltip: "How the Alert is delivered"
+      channel_label: "Kênh"
+      channel_tooltip: "Cách các thông báo được gửi"
 
       role_option_label: "Không"
       role_label: "Vai trò"
@@ -101,9 +101,9 @@ vi:
 
       patient_label: "Tất cả bệnh nhân"
 
-      sample_id_label: "ID mẫu"
-      sample_id_tooltip: "ID mẫu của nhà sản xuất thông báo này"
-      sample_id_placeholder: "ID mẫu"
+      sample_id_label: "Mã mẫu"
+      sample_id_tooltip: "Mã mẫu của nhà sản xuất thông báo này"
+      sample_id_placeholder: "Mã mẫu"
 
 
       sms_limit_label: "Giới hạn SMS hằng ngày"
@@ -126,7 +126,7 @@ vi:
 
     alert_conditions:
       condition_option_label: "Tất cả"
-      condition_row_label: "Điều kiện"
+      condition_row_label: "Tình trạng"
       condition_row_placeholder: "Tất cả"
 
 
@@ -137,11 +137,11 @@ vi:
       condition_status_label: "Condition Result Statuses"
       condition_status_placeholder: "Tất cả"
 
-      Threshold_label: "Threshold"
+      Threshold_label: "Ngưỡng"
 
     alert_external_users:
-      ad_hoc_recipient_lable: "Ad-hoc Recipient"
-      ad_hoc_recipient_tooltip: "Ad-hoc Recipient Tooltip."
+      ad_hoc_recipient_lable: "Người nhận đột xuất"
+      ad_hoc_recipient_tooltip: "Chú giải người nhận đột xuất."
 
       first_name_placeholder: "Tên"
       last_name_placeholder: "Họ"
@@ -200,36 +200,36 @@ vi:
 
     encounter_form:
       diagnosis_label: "Chuẩn đoán"
-      diagnosis_text: "Mỗi lần có 1 thử nghiệm mới, danh sách các điều kiện sẽ được cập nhật cho bạn chuẩn đoán"
+      diagnosis_text: "Mỗi lần có 1 thử nghiệm mới, danh sách các tình trạng sẽ được cập nhật cho bạn chuẩn đoán"
       quantitative_placeholder: "Định lượng"
       observations_placeholder: "Quan sát"
-      site_label: "Site"
+      site_label: "Trang"
       sample_label: "Mẫu"
       append_new_sample_btn: "Gắn thêm mẫu mới"
       append_sample_btn: "Gắn thêm mẫu"
       add_sample_heading: "Thêm mẫu"
-      search_placeholder: "Tìm kiếm mẫu bằng ID"
-      unify_sample_heading: "Unify sample"
+      search_placeholder: "Tìm kiếm bằng mã mẫu"
+      unify_sample_heading: "Mẫu thống nhất"
       add_test_btn: "Thêm thử nghiệm"
       save_btn: "Lưu"
       
 
     encounter_new:
-      site_details_heading: "Chi tiết Site"
+      site_details_heading: "Chi tiết trang"
 
     encounter_show:
-      site_detail_heading: "Chi tiết site"
+      site_detail_heading: "Chi tiết trang"
       
-      requesting_site_label: "Site yêu cầu:"
-      performing_site_label: "Site thực hiện:"
+      requesting_site_label: "Trang yêu cầu:"
+      performing_site_label: "Trang thực hiện:"
 
       test_detail_heading: "Chi tiết thử nghiệm"
-      order_id_label: "Order Id:"
+      order_id_label: "Mã của yêu cầu:"
       testing_for_label: "Thử nghiệm cho:"
-      culture_format_label: "Culture format:"
+      culture_format_label: "Định dạng môi trường nuôi cấy:"
       comment_label: "Bình luận:"
       ưeeks_in_treatment_label: "Số tuần điều trị:"
-      samples_id_label: "ID của mẫu:"
+      samples_id_label: "Mã mẫu:"
       sample_type_label: "Loại mẫu:"
       test_due_date_label: "Ngày hết hạn thử nghiệm:" 
       status_label: "Tình trạng:"
@@ -250,20 +250,20 @@ vi:
       alert_tests_requested: "Vui lòng chọn một hoặc nhiều loại thử nghiệm"
       test_order_details_heading: "Chi tiết thử nghiệm"
       testing_for_label: "Thử nghiệm cho"
-      TB_option: "TB"
+      TB_option: "Lao"
       HIV_option: "HIV"
       Ebola_option: "Ebola"
 
       samples_lable: "Các mẫu thử"
       add_sample : "Thêm mẫu thử"
-      sample_id_placeholder: "ID mẫu thử"
+      sample_id_placeholder: "Mã mẫu thử"
       add_btn: "Thêm"
 
-      reason_for_examination_label: "Reason for Examination"
+      reason_for_examination_label: "Lý do kiểm tra"
       collection_sample_type_label: "Bộ sưu tập các loại mẫu thử"
       please_select_option: "Vui lòng lựa chọn..."
-      sputum_option: "sputum"
-      blood_option: "Blood"
+      sputum_option: "Đờm"
+      blood_option: "Máu"
       other_option: "Khác - Vui lòng mô tả cụ thể"
       test_due_date_label: "Ngày hết hạn thử nghiệm"
       save_btn: "Lưu"
@@ -281,8 +281,8 @@ vi:
       outstanding_tests_title: "Các thử nghiệm nỗi bật"
       no_data_display: "Không có dữ liệu để hiển thị"
       test_order_col: "Số thứ tự thử nghiệm"
-      date_ordered_col: "Ngày đặt"
-      ordered_by_col: "Đặt hàng bởi"
+      date_ordered_col: "Ngày yêu cầu"
+      ordered_by_col: "Yêu cầu bởi"
       outstanding_days_col: "Những ngày nỗi bật"
      
     patient_card:
@@ -294,10 +294,10 @@ vi:
       phone_col: "Số điện thoại"
       email_col: "Email"
       edit: "Sửa"
-      create_test_order: "Tạo mới đơn hàng thử nghiệm"
+      create_test_order: "Tạo mới yêu cầu thử nghiệm"
 
     patient_select:
-      search_patient_placeholder: "Tìm bằng tên hoặc ID bệnh nhân"
+      search_patient_placeholder: "Tìm bằng tên hoặc Mã bệnh nhân"
       patient_lable: "Bệnh nhân"
       create_new_patient_title: "Tạo mới một bệnh nhân"
       no_patient_found: "Không có bệnh nhân nào được tìm thấy"
@@ -318,9 +318,9 @@ vi:
       from_text: "từ"
       only_some_text: "Chỉ một số"
       actions_label: "Hoạt động"
-      delegable_label: "Delegable"
+      delegable_label: "Ủy quyền"
       type_label: "Loại"
-      include_subsites_label: "Bao gồm subsites"
+      include_subsites_label: "Bao gồm trang con"
       users_can: "Người dùng CÓ THỂ"
       not: "KHÔNG"
       delegate_permissions_on_this_policy: " có quyền ủy quyền chính sách này"
@@ -330,7 +330,7 @@ vi:
       add_result: "Thêm kết quả"
       view_result: "Xem kết quả"
       type_col: "Loại"
-      sample_id_col: "ID của mẫu"
+      sample_id_col: "Mã mẫu"
       order_by_user_col: "Order by user"
       requested_date: "Ngày yêu cầu"
       request_by_col: "Yêu cầu bởi"
@@ -338,8 +338,8 @@ vi:
       status_col: "Tình trạng"
       comment_col: "Bình luận"
       result_col: "Kết quả"
-      confirm_msg: "Bạn phải nhập kết quả văn hóa trước khi có thể thêm kết quả KH & CN"
-      confirm_title: "Yêu cầu kết quả văn hóa"
+      confirm_msg: "Bạn phải nhập kết quả thử nghiệm môi trường nuôi cấy trước khi có thể thêm kết quả DST"
+      confirm_title: "Yêu cầu kết quả thử nghiệm môi trường nuôi cấy"
       close_btn: "Đóng"
       add_result_btn:  "Thêm kết quả"
 
@@ -350,8 +350,8 @@ vi:
 
 
     sites:
-      search_sites_placeholder: "Tìm kiếm sites"
-      selection_label: "Lựa chọn bao gồm tất cả subsites"
+      search_sites_placeholder: "Tìm kiếm trang"
+      selection_label: "Lựa chọn bao gồm tất cả trang con"
 
 
     text_input_modal:
@@ -375,8 +375,8 @@ vi:
 
   stores: 
     device_model:
-      text1: "Publishing this device model will make it available to all institutions."
-      text2: "Withdrawing this device model will hide it from all institutions."
+      text1: "Công bố kiểu thiết bị này sẽ làm cho nó sẵn sàng sử dụng cho tất cả các tổ chức."
+      text2: "Thu hồi kiểu thiết bị này sẽ làm ẩn nó với tất cả các tổ chức."
       text3: " Bạn có chắc bạn muốn tiếp tục?"
       text4: "\n\nBất kỳ thay đổi đang chờ nào sẽ được lưu lại trước khi tiến hành."
       

@@ -17,7 +17,7 @@ var CdxSelect = React.createClass({
   },
 
   render: function() {
-    var placeholder = {I18n.t("components.cdx_select.select_box_placeholder")}
+    var placeholder = I18n.t("components.cdx_select.select_box_placeholder");
     if (this.props.items.length > 0 && this.props.items[0].value === "") {
       placeholder = this.props.items[0].label;
     }

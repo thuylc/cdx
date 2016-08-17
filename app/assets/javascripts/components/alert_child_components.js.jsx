@@ -146,7 +146,7 @@ var AlertSite = React.createClass({
     var siteOptions = [];
     siteOption = {};
     siteOption["value"] = "";
-    siteOption["label"] = {I18n.t("components.alert_child_components.site_option_label")}
+    siteOption["label"] = I18n.t("components.alert_child_components.site_option_label")
     siteOptions.push(siteOption);
 
     for (var i = 0; i < this.props.sites.length; i++) {
@@ -210,7 +210,7 @@ var AlertDevice = React.createClass({
 
     deviceOption = {};
     deviceOption["value"] = "";
-    deviceOption["label"] = {I18n.t("components.alert_child_components.device_option_label")}
+    deviceOption["label"] = I18n.t("components.alert_child_components.device_option_label");
     deviceOptions.push(deviceOption);
 
     for (var i = 0; i < this.props.devices.length; i++) {
@@ -398,7 +398,7 @@ var AlertRole = React.createClass({
 
     roleOption = {};
     roleOption["value"] = "";
-    roleOption["label"] = {I18n.t("components.alert_child_components.role_option_label")}
+    roleOption["label"] = I18n.t("components.alert_child_components.role_option_label");
     roleOptions.push(roleOption);
 
     for (var i = 0; i < this.props.roles.length; i++) {

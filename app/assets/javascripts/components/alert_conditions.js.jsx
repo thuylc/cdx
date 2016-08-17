@@ -15,7 +15,7 @@ var AlertCondition = React.createClass({
 
 		conditionOption = {};
 		conditionOption["value"] = "";
-		conditionOption["label"] = {I18n.t("components.alert_conditions.condition_option_label")}
+		conditionOption["label"] = I18n.t("components.alert_conditions.condition_option_label");
 		conditionOptions.push(conditionOption);
 
 		for (var i = 0; i < this.props.conditions.length; i++) {
@@ -80,7 +80,7 @@ var AlertConditionResults = React.createClass({
 
 		conditionOption = {};
 		conditionOption["value"] = "";
-		conditionOption["label"] = {I18n.t("components.alert_conditions.condition_option_label")}
+		conditionOption["label"] = I18n.t("components.alert_conditions.condition_option_label");
 		conditionOptions.push(conditionOption);
 
 		for (var i = 0; i < this.props.condition_results.length; i++) {
@@ -144,7 +144,7 @@ var AlertConditionResultStatuses = React.createClass({
 
 		conditionOption = {};
 		conditionOption["value"] = "";
-		conditionOption["label"] = {I18n.t("components.alert_conditions.condition_option_label")}
+		conditionOption["label"] = I18n.t("components.alert_conditions.condition_option_label");
 		conditionOptions.push(conditionOption);
 
 		for (var i = 0; i < this.props.condition_result_statuses.length; i++) {
