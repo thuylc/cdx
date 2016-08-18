@@ -1,0 +1,8 @@
+vi:
+  encounters:
+    new:
+      existing_test: 'Tồn tại thử nghiệm cho %{patient_name}'
+      new_test: 'Thử nghiệm mới cho %{patient_name}'
+      no_patient: 'Mỗi cuộc gặp phải thuộc về một bệnh nhân. Xin vui lòng đến trang Bệnh nhân và nhấn vào Thêm yêu cầu thử nghiệm'
+    show:
+      test_order: 'Yêu cầu thử nghiệm'

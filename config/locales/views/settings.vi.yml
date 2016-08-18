@@ -1,0 +1,8 @@
+vi:
+  settings:
+    alerts:
+      incidents:
+        incidents: 'Các sự cố'
+        alert_group: 'Nhóm thông báo'
+        date: 'Ngày'
+        sample_id: 'Mã mẫu'

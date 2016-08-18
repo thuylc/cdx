@@ -1,0 +1,10 @@
+vi:
+  alert_messages:
+    index:
+      no_messages: 'Không có thông báo ở %{entity_name}'
+      create_alerts: 'Tạo nhóm thông báo để thông báo cho nhóm của bạn về những sự kiện hiện tại'
+      alert_message:
+        zero: 'Không có thông báo'
+        one: '1 thông báo'
+        other: '%{count} thông báo'
+      no_alerts: 'không có thông báo'

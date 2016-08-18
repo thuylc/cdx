@@ -1,0 +1,14 @@
+vi:
+  culture_results:
+    new:
+      header: 'Thêm kết quả thử nghiệm môi trường nuôi cấy cho: %{patient_name}'
+    create:
+      audit: 'Kết quả thử nghiệm môi trường nuôi cấy đã được thêm'
+      notice: 'Kết quả thử nghiệm môi trường nuôi cấy đã được tạo thành công.'
+    edit:
+      header: 'Chỉnh sửa kết quả thử nghiệm môi trường nuôi cấy cho: %{patient_name}'
+    show:
+      header: 'Kết quả thử nghiệm môi trường nuôi cấy cho: %{patient_name}'
+    update:
+      audit: 'Kết quả thử nghiệm môi trường nuôi cấy đã được cập nhật'
+      notice: 'Kết quả thử nghiệm môi trường nuôi cấy đã được cập nhật thành công.'

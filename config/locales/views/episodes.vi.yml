@@ -1,0 +1,19 @@
+vi:
+  episodes:
+    form:
+      header: 'Tập cho %{patient_name}'
+      history: 'Lịch sử điều trị trước đây'
+      select_type_of_episode: 'Chọn loại tập'
+      episode_details: 'Thông tin tập'
+      episode_type_not_available: 'Loại tập này hiện không có có sẵn'
+    create:
+      new_episode: 'Tập mới đã được tạo'
+      episode_created: 'Tập đã được tạo thành công.'
+    update:
+      update_episode: 'Tập đã được cập nhật'
+      episode_updated: 'Tập đã được cập nhật thành công.'
+    permission:
+      not_allowed: "Bạn không có quyền quản lý tập cho bệnh nhân này"
+      select_type_of_episode: 'Chọn loại tập'
+      episode_details: 'Thông tin tập'
+      episode_type_not_available: 'Loại tập này hiện không có có sẵn'

@@ -14,7 +14,7 @@ vi:
       col_failures: "Những sự cố"
       col_error_field: "Lĩnh vực"
       col_date: "Ngày"
-      col_raw: "Raw"
+      col_raw: "File raw"
 
     
       click_to_process: "Nhấn vào đây để tái xử lý lại tin nhắn này."
@@ -26,7 +26,7 @@ vi:
 
     alert_aggregation:
       aggregation_type: "Loại kết hợp"
-      aggregation_type_tooltip.: "Loại kết hợp"
+      aggregation_type_tooltip: "Loại kết hợp"
       aggregation_frequency: "Tần số kết hợp"
       aggregation_frequency_tooltip.: "Tần số kết hợp"
       aggregation_threshold: "Ngưỡng kết hợp"
@@ -70,8 +70,8 @@ vi:
 
 
       site_option_label: "Tất cả"
-      site_label: "Sites"
-      site_tootip: "Sites đang sử dụng thông báo này."
+      site_label: "Trang"
+      site_tootip: "Những trang đang sử dụng thông báo này."
       site_placeholder: "Tất cả"
 
 
@@ -92,10 +92,12 @@ vi:
       role_label: "Vai trò"
       role_tooltip: "Vai trò thông báo này áp dụng đối với:"
       role_placeholder: "Không"
+      user_option_label: "Không"
+
 
 
       internal_recipient_label: "Người nhận nội bộ"
-      internal_recipient_tooltip: "INgười nhận nội bộ"
+      internal_recipient_tooltip: "Người nhận nội bộ"
       internal_recipient_placeholder: "Không"
 
 
@@ -131,10 +133,10 @@ vi:
 
 
 
-      condition_result_label: "Condition Results"
+      condition_result_label: "Kết quả tình trạng"
       condition_result_placeholder: "Tất cả"
 
-      condition_status_label: "Condition Result Statuses"
+      condition_status_label: "Trạng thái kết quả tình trạng"
       condition_status_placeholder: "Tất cả"
 
       Threshold_label: "Ngưỡng"
@@ -182,15 +184,15 @@ vi:
       last_eror_col: "Lỗi cuối cùng"
 
     device_setup:
-      text_1: "Tải hướng dẫn về dưới dạng"
-      text_2: "file PDF"
-      text_3: "Ghé thăm nhà sản xuất"
-      text_4: "hỗ trợ trực tuyến"
-      text_5: "Nhà sản xuất không cung cấp liên hết hỗ trợ"
-      text_6: "Xem hướng dẫn"
-      text_7: " cách để cài đặt thiết bị này
+      download: "Tải hướng dẫn về dưới dạng"
+      pdf_file: "file PDF"
+      visit: "Ghé thăm nhà sản xuất"
+      online_support: "hỗ trợ trực tuyến"
+      manufacturer: "Nhà sản xuất không cung cấp liên hết hỗ trợ"
+      view: "Xem hướng dẫn"
+      how_to_setup: " cách để cài đặt thiết bị này
       hoặc "
-      text_8: "Email hướng dẫn cài đặt cho phòng thí nghiệm"
+      email_setup: "Email hướng dẫn cài đặt cho phòng thí nghiệm"
       instructions_heading: "Hướng dẫn"
       close_btn: "Đóng"
       email_instructions_heading: "Email hướng dẫn"
@@ -375,10 +377,10 @@ vi:
 
   stores: 
     device_model:
-      text1: "Công bố kiểu thiết bị này sẽ làm cho nó sẵn sàng sử dụng cho tất cả các tổ chức."
-      text2: "Thu hồi kiểu thiết bị này sẽ làm ẩn nó với tất cả các tổ chức."
-      text3: " Bạn có chắc bạn muốn tiếp tục?"
-      text4: "\n\nBất kỳ thay đổi đang chờ nào sẽ được lưu lại trước khi tiến hành."
+      publishing: "Công bố kiểu thiết bị này sẽ làm cho nó sẵn sàng sử dụng cho tất cả các tổ chức."
+      withdrawing: "Thu hồi kiểu thiết bị này sẽ làm ẩn nó với tất cả các tổ chức."
+      sure: " Bạn có chắc bạn muốn tiếp tục?"
+      pending_changes: "\n\nBất kỳ thay đổi đang chờ nào sẽ được lưu lại trước khi tiến hành."
       
     playground:
       create_another_message: "Tạo mới một thông báo khác"

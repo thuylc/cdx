@@ -1,0 +1,8 @@
+vi:
+  addresses:
+    form:
+      street_tooltip:   'Địa chỉ một đường'
+      city_tooltip:     'Tên một thành phố'
+      state_tooltip:    'Tên một bang/nước'
+      zip_code_tooltip: 'Mã bưu điện'
+      address_tooltip: 'Địa chỉ'

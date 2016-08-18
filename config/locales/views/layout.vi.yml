@@ -1,0 +1,16 @@
+vi:
+  layout:
+    header:
+      meta_title: 'Hệ thống chẩn đoán'
+    header_nav:
+      menu_at: 'ở'
+      home: 'Trang chủ'
+      patients: 'Bệnh nhân'
+      test_orders: 'Yêu cầu thử nghiệm'
+      test_results: 'Kết quả thử nghiệm'
+      devices: 'Thiết bị'
+      settings: 'Cài đặt'
+      my_account: 'Tài khoản của tôi'
+      api_tokens: 'API tokens'
+      log_out: 'Đăng xuất'
+      log_in: 'Đăng nhập'

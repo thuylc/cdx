@@ -1,0 +1,28 @@
+vi:
+  sites:
+    index:
+      no_dependencies: '%{entity_name} này không phụ thuộc.'
+      create_sites: "tạo các trang ở đây để giữ cho các hệ thông phân cấp của các cơ quan của bạn được sắp xếp."
+      site:
+        zero: 'Không có trang nào'
+        one: '1 trang'
+        other: '%{count} trang'
+    form:
+      label:
+        institution: 'Tổ chức'
+        name: 'Tên'
+        parent: 'Trang cha'
+        sample_id_reset_policy: 'Chính sách thiết lập mã mẫu thử'
+        allows_manual_entry: 'Cho phép nhập bằng tay'
+        main_phone_number: 'Số điện thoại chính'
+        email_address: 'Địa chỉ email'
+        comment:  'Bình luận'
+      tooltip:
+        institution: 'Tổ chức trang này là một phần của'
+        name: 'Tên của trang'
+        parent: 'Trang này là con của'
+        sample_id_reset_policy: 'Chính sách thiết lập mã mẫu thử'
+        allows_manual_entry: 'Trang này cho phép nhập dữ liệu bằng tay không?'
+        main_phone_number: 'Số điện thoại chính của trang'
+        email_address: 'Địa chỉ email liên hệ của trang'
+        comment: 'Bình luận'

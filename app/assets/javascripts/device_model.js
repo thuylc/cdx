@@ -6,11 +6,11 @@ $(function() {
   //Request confirmation on publish
   $('#device-model-publish').on('click', function(evt) {
     var msg = evt.target.name == 'publish'
-      ? I18n.t("stores.device_model.text1")
-      : I18n.t("stores.device_model.text2");
-    msg += I18n.t("stores.device_model.text3");
+      ? I18n.t("stores.device_model.publishing")
+      : I18n.t("stores.device_model.withdrawing");
+    msg += I18n.t("stores.device_model.sure");
     if (form.hasClass('dirty')) {
-      msg += I18n.t("stores.device_model.text4");
+      msg += I18n.t("stores.device_model.pending_changes");
     }
 
     if (!window.confirm(msg)) {

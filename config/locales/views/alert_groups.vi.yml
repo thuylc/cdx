@@ -1,0 +1,12 @@
+vi:
+  alert_groups:
+    index:
+      no_alerts: 'Không có nhóm thông báo nào'
+      no_alert_groups: 'Có một nhóm thông báo ở %{entity_name}'
+      create_alert_groups: 'Tạo nhóm thông báo để thông báo cho nhóm của bạn về những sự kiện hiện tại.'
+      alert_group:
+        zero: 'Không có nhóm thông báo'
+        one: '1 nhóm thông báo'
+        other: '%{count} nhóm thông báo'
+      ago: ' trước'
+      never: 'không bao giờ'

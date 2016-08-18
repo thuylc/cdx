@@ -1,0 +1,12 @@
+vi:
+  comments:
+    show:
+      header:
+        comment: 'Bình luận cho bệnh nhân %{patient_name}'
+    create:
+      audit_comment: 'Bình luận mới đã được thêm'
+      created_ok: 'Bình luận đã được tạo thành công'
+    permissions:
+      deny: "Bạn không thể thêm bình luận cho bệnh nhân này"
+    new:
+      new_comment: 'Bình luận mới'

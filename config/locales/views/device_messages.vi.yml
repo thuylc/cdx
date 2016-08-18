@@ -1,0 +1,29 @@
+vi:
+  device_messages:
+    index:
+      no_logs: 'Không có nhật ký để báo cáo tại thời điểm này'
+      connect_device: 'Kết nối với một thiết bị và tải lên các thử nghiệm để xem tiến độ ở đây'
+      message:
+        zero: 'Không có thông báo'
+        one: '1 thông báo'
+        other: '%{count} thông báo'
+      table_header_status: 'Tình trạng'
+      table_header_model: 'Kiểu'
+      table_header_message: 'Thông báo'
+      table_header_device: 'Thiết bị'
+      table_header_error: 'Lĩnh vực báo lỗi'
+      table_header_date: 'Ngày'
+      table_header_raw: 'Raw'
+      table_header_failure: 'Những sự cố'
+      reprocess: '(tái xử lý)'
+      failed: 'Thất bại'
+      success: 'Thành công'
+    filters:
+      device_logs: 'Nhật ký thiết bị'
+      message: 'Thông báo'
+      device_model: 'Kiểu thiết bị'
+      device: 'Thiết bị'
+      date: 'Ngày'
+      show_all: 'Hiển thị tất cả'
+    reprocess:
+      message_reprocess: 'Thông báo sẽ được thực thi lại'

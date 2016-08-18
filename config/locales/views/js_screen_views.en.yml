@@ -90,6 +90,7 @@ en:
       role_label: "Roles"
       role_tooltip: "Roles this Alert applies to"
       role_placeholder: "None"
+      user_option_label: "None"
 
       internal_recipient_label: "Internal Recipient"
       internal_recipient_tooltip: "Internal Recipient Tooltip"
@@ -178,15 +179,15 @@ en:
       last_eror_col: "Last Error"
     
     device_setup:
-      text_1: "Download instructions as a"
-      text_2: "pdf file"
-      text_3: "Visit manufacturer's"
-      text_4: "online support"
-      text_5: "manufacturer didn't provide a support url"
-      text_6: "View instructions"
-      text_7: " on how to setup this device 
+      download: "Download instructions as a"
+      pdf_file: "pdf file"
+      visit: "Visit manufacturer's"
+      online_support: "online support"
+      manufacturer: "manufacturer didn't provide a support url"
+      view: "View instructions"
+      how_to_setup: " on how to setup this device 
       or "
-      text_8: "email setup instructions to a lab operator"
+      email_setup: "email setup instructions to a lab operator"
       instructions_heading: "Instructions"
       close_btn: "Close"
       email_instructions_heading: "Email instructions"
@@ -383,10 +384,10 @@ en:
 
   stores: 
     device_model:
-      text1: "Publishing this device model will make it available to all institutions."
-      text2: "Withdrawing this device model will hide it from all institutions."
-      text3: " Are you sure you want to proceed?"
-      text4: "\n\nAny pending changes will be saved before proceeding."
+      publishing: "Publishing this device model will make it available to all institutions."
+      withdrawing: "Withdrawing this device model will hide it from all institutions."
+      sure: " Are you sure you want to proceed?"
+      pending_changes: "\n\nAny pending changes will be saved before proceeding."
 
     playground:
       create_another_message: "Create another message"

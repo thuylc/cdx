@@ -1,0 +1,7 @@
+vi:
+  roles:
+    index:
+      role:
+        zero: 'Không có vai trò nào được tạo'
+        one: '1 Vai trò'
+        other: '%{count} Vai trò'

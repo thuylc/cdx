@@ -1,0 +1,12 @@
+vi:
+  device_models:
+    index:
+      device_model:
+        zero: 'Không có kiểu thiết bị nào'
+        one: '1 kiểu thiết bị'
+        other: '%{count} kiểu thiết bị'
+      add_device_model: 'Thêm kiểu thiết bị'
+      device_models: 'Kiểu thiết bị'
+      no_device_models: 'Không có kiểu thiết bị nào'
+      there_are_no_device_models: 'Không có kiểu thiết bị nào'
+      create_device_models: 'Tạo các kiểu thiết bị và công bố các bản kê khai để cho phép báo cáo thử nghiệm trên hệ thống CDx.'

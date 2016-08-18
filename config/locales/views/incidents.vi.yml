@@ -1,0 +1,11 @@
+vi:
+  incidents:
+    index:
+      no_incidents: 'Không có sự cố'
+      zero_incidents: 'Không có sự cố trong trang này'
+      create_alert_groups: 'Tạo một nhóm thông báo để thông báo cho nhóm của bạn về những sự kiện hiện tại'
+      incident:
+        zero: 'Không có sự cố'
+        one: '1 sự cố'
+        other: '%{count} sự cố'
+      no_result: 'Không có kết quả'

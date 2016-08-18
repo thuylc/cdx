@@ -1,0 +1,27 @@
+vi:
+  users:
+    index:
+      users: 'Người dùng'
+      user:
+        zero: 'Không có người dùng nào'
+        one: '1 người dùng'
+        other: '%{count} người dùng'
+      name: 'Tên'
+      role: 'Vai trò'
+      last_activity: 'Hoạt động cuối cùng'
+      status: 'Tình trạng'
+      show_all: 'Hiển thị tất cả'
+      no_users: 'Không có người dùng nào truy cập vào %{entity_name}'
+      invite_users: 'Mời người dùng '
+      download_csv: 'Tải file CSV'
+    presenters:
+      blocked: 'bị chặn'
+      has_access: 'Có quyền truy cập'
+      sent_at: 'Lời mời đã được gửi %{sent_at}'
+      never_logged_in: 'Không bao giờ đăng nhập'
+    form:
+      resend_invite: 'Gửi lại lời mời'
+      send: 'Gửi'
+      remove_user: 'Gõ bỏ người dùng'
+      remove: 'Gỡ bỏ'
+      can_access: 'Có thể truy cập Cdx?'

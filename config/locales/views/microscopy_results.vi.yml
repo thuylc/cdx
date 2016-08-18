@@ -1,0 +1,14 @@
+vi:
+  microscopy_results:
+    new:
+      header: 'Thêm kết quả xét nghiệm kính hiển vi cho: %{patient_name}'
+    create:
+      audit: 'Kết quả xét nghiệm kính hiển vi đã được thêm.'
+      notice: 'Kết quả xét nghiệm kính hiển vi đã được tạo thành công.'
+    edit:
+      header: 'Chỉnh sửa kết quả xét nghiệm kính hiển vi cho: %{patient_name}'
+    show:
+      header: 'Kết quả xét nghiệm kính hiển vi cho: %{patient_name}'
+    update:
+      audit: 'Kết quả xét nghiệm kính hiển vi đã được cập nhật.'
+      notice: 'Kết quả xét nghiệm kính hiển vi đã được cập nhật thành công.'

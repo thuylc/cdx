@@ -1,0 +1,48 @@
+vi:
+  patients:
+    show:
+      episode_empty_header: 'Không có lịch sử y tế'
+      episode_empty_text1: 'Tạo một %{href} để bắt đầu lịch sử y tế.'
+      episode_empty_text2: 'Bạn không thể tạo yêu cầu thử nghiệm cho đến khi một %{href} được thêm.'
+      new_episode: 'Tập mới'
+      add_episode: 'Thêm tập'
+      edit_episode: 'Chỉnh sửa tập'
+      add_test_order: 'Thêm yêu cầu thử nghiệm'
+      add_comment: 'Thêm bình luận'
+      edit_patient: 'Chỉnh sửa bệnh nhân'
+      patient_summary: 'Tóm tắt bệnh nhân'
+      patient_history: 'Lịch sử bệnh nhân'
+      episode_summary: 'Tóm tắt tập'
+    filters:
+      add_patient: 'Tất cả bệnh nhân'
+      show_all: 'Hiển thị tất cả'
+      name: 'Tên'
+      patient_id: 'Mã bệnh nhân'
+      last_test_order: 'yêu cầu thử nghiệm cuối cùng'
+      patients: 'Bệnh nhân'
+      clear_button:  'Xóa'
+      address: 'Địa chỉ'
+    new:
+      new_patient: 'Bệnh nhân mới'
+      new_patient_details: 'Thông tin bệnh nhân mới'
+    edit:
+      patient_details: 'Chỉnh sửa thông tin bệnh nhân'
+    create:
+      no_entity: "Mã thực thể không được để trống"
+      no_name: "Tên không được để trống"
+    form:
+      select_day: 'Chọn ngày'
+      select_month: 'Chọn tháng'
+      select_year: 'Chọn năm'
+    index:
+      no_patients: 'Không có bệnh nhân nào đăng ký'
+      keep_organized: 'Giữ cho yêu cầu thử nghiệm của bạn được tổ chức theo lịch sử y tế của bệnh nhân'
+      name: 'Tên'
+      patient_id: 'Mã bệnh nhân'
+      birth_date_on: 'Ngày sinh'
+      city: 'Thành phố'
+      last_test_order: 'Yêu cầu thử nghiệm cuối cùng'
+      patient:
+        zero: 'Không bệnh nhân'
+        one:  'Một bệnh nhân'
+        other: '%{count} bệnh nhân'

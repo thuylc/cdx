@@ -1,0 +1,14 @@
+vi:
+  xpert_results:
+    new:
+      header: 'Thêm kết quả thử nghiệm Xpert MTB/RIF cho: %{patient_name}'
+    create:
+      audit: 'Kết quả Xpert MTB/RIF đã được thêm.'
+      notice: 'Kết quả Xpert MTB/RIF đã được tạo thành công.'
+    edit:
+      header: 'Chỉnh sửa kết quả thử nghiệm Xpert MTB/RIF cho: %{patient_name}'
+    show:
+      header: 'Kết quả thử nghiệm Xpert MTB/RIF cho: %{patient_name}'
+    update:
+      audit: 'Kết quả Xpert MTB/RIF đã được cập nhật'
+      notice: 'Kết quả Xpert MTB/RIF đã được cập nhật thành công.'

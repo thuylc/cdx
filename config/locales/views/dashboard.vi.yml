@@ -1,0 +1,20 @@
+vi:
+  dashboard:
+    index:
+      date_to: 'Đến ngày'
+      date_from: 'Từ ngày'
+      date_period: 'Giai đoạn'
+      filter_button: 'Thiết lập lại bộ lọc'
+      total_tests: 'Tổng số thử nghiệm'
+      failed_tests: 'Thử nghiệm thất bại'
+      total_tests_by_site: 'Tổng số thử nghiệm bởi trang'
+      average_tests_by_site: 'Bình quân các thử nghiệm bởi trang'
+      total_tests_by_device: 'Tổng số thử nghiệm bởi thiết bị'
+      average_tests_by_technician: 'Bình quân các thử nghiệm bởi kỹ thuật viên'
+      outstanding_tests: 'Các thử nghiệm nổi bật'
+      no_chart_information: 'Không có sẵn biểu đồ thông tin'
+      devices_not_responding: 'Các thiết bị không đáp ứng'
+      device_error_codes: 'Mã lỗi thiết bị'
+      drtb_percentage: 'Tỉ lệ phần trăm DR-TB'
+      drug_resistance: 'Tỉ lệ phần trăm kháng thuốc'
+      chart_note: 'Biểu đồ cụ thể này được bắt nguồn từ kết quả chỉ có Xpert và tỷ lệ có thể không chính xác ở mức độ dân số trừ khi tất cả các xét nghiệm TB đã sử dụng Xpert.'

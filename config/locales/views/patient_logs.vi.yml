@@ -1,0 +1,4 @@
+vi:
+  patient_logs:
+    show:
+      header: 'Lịch sử'

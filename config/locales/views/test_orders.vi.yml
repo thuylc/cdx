@@ -1,0 +1,16 @@
+vi:
+  test_orders:
+    index:
+      header: ''
+      not_applicable: 'Không thể áp dụng'
+      header: 'Không có yêu cầu thử nghiệm nào được tạo'
+      test_order:
+        zero: 'Yêu cầu thử nghiệm'
+        one: 'Yêu cầu thử nghiệm'
+        other: '%{count} Yêu cầu thử nghiệm'
+    filters:
+      show_all: 'Hiển thị tất cả'
+      show_filters: 'Hiển thị bộ lọc'
+      testing_for: 'Thử nghiệm cho'
+      date: 'Ngày'
+      test_order_id: 'Mã của yêu cầu thử nghiệm'

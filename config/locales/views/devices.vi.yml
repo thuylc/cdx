@@ -1,0 +1,66 @@
+vi:
+  devices:
+    show:
+      performance: 'Hiệu suất'
+      setup: 'Cài đặt'
+    performance:
+      explore_tests: 'Khám phá các thử nghiệm'
+      or: 'hoặc'
+      logs: 'Nhật ký'
+    new:
+      new_device: 'Thiết bị mới'
+    form:
+      none: 'Không'
+      save: 'Lưu'
+      delete: 'Xóa'
+      confirm_delete: 'Bạn muốn xóa vĩnh viễn thiết bị này. Hành động này không thể được hoàn tác. Bạn có chắc muốn tiếp tục?'
+    index:
+      no_devices: 'Không có thiết bị báo cáo tại %{entity_name}'
+      configuration_steps: 'Thực hiện theo các bước cấu hình để kết nối với một thiết bị và bắt đầu báo cáo'
+      device:
+        zero: 'Không có thiết bị nào'
+        one: '1 thiết bị'
+        other: '%{count} thiết bị'
+      download_csv: 'Tải file CSV'
+      name: 'Tên'
+      manufacturer: 'Nhà sản xuất'
+      model: 'Kiểu'
+      site: 'Trang'
+      devices: 'Thiết bị'
+    setup:
+      setup_header: 'Cài đặt'
+      setup_text: 'Các mã thiết bị và khóa bảo mật cho phép thiết bị của bạn để nhận biết chính nó với CDx'
+      activation_token: 'Kích hoạt thẻ'
+      device_id: 'Mã thiết bị'
+      secret_key: 'Khóa bí mật'
+    token:
+      token_header: 'Kích hoạt thẻ đã được tạo'
+      token: 'Thẻ:'
+      warning: 'Thẻ này có thể được sử dụng một lần. Nó sẽ có hiệu lực miễn là thiết bị khóa bí mật không thay đổi.'
+      go_back: 'Ok, đã hiểu, quay trở lại'
+      last_time: 'Đây là lần cuối cùng bạn sẽ có thể xem thẻ. Hãy giữ nó an toàn'
+    filters:
+      header: 'Thiết bị'
+      add_device: 'Tất cả thiết bị'
+      show_filters: 'Hiển thị bộ lọc'
+      manufacturer: 'Nhà sản xuất'
+      model: 'Kiểu'
+      show_all: 'Hiển thị tất cả'
+    device_card:
+      institution: 'Tổ chức: %{institution_name}'
+      edit: 'Edit'
+      serial_number: 'Số seri %{serial_number}'
+      located_at: 'Thiết bị nằm ở '
+    activation_token:
+      reactivate: 'Kích hoạt'
+      confirm: 'Bạn có chắc không?'
+    custom_mappings:
+      how_to_use: "Chỉ rõ cách bạn sử dụng một số lĩnh vực của thiết bị"
+      device_field: 'Tôi sử dụng các lĩnh vực thiết bị'
+      to_enter: 'để nhấn vào'
+      none: 'không'
+      alert_error: "Định nghĩa các trường tùy chỉnh của hiển thị đường như không được cập nhật. Vui lòng liên hệ nhà sản xuất thiết bị hoặc các quản trị hệ thống để cập nhật nó."
+    secret_key:
+      warning: 'Đây là lần cuối cùng bạn sẽ có thể xem các khóa này. Hãy giữ nó an toàn.'
+      regenerate_key: 'Tạo khóa'
+      confirm: 'Bạn có chắc không?'

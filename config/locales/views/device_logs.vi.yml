@@ -1,0 +1,7 @@
+vi:
+  device_logs:
+    index:
+      logs_header: '%{device_name} - Nhật ký thiết bị'
+      date: 'Ngày'
+      message: 'Thông báo'
+      download: 'Tải về'
