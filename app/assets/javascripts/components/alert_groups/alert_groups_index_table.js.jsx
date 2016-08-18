@@ -45,25 +45,25 @@ var AlertGroupsIndexTable = React.createClass({
             {sortableHeader(I18n.t("components.alert_groups.col_enabled"), 'alerts.enabled', I18n.t("components.alert_groups.tooltip_enabled"))}
             <th data-resizable-column-id="alerts.sites">
               <div className="tooltip">
-                I18n.t("components.alert_groups.col_sites")
+                {I18n.t("components.alert_groups.col_sites")}
                 <div className="tooltiptext_r">
-                  I18n.t("components.alert_groups.tooltip_sites")
+                  {I18n.t("components.alert_groups.tooltip_sites")}
                 </div>
               </div>
             </th>
             <th data-resizable-column-id="alerts.roles">
               <div className="tooltip">
-                I18n.t("components.alert_groups.col_roles")
+                {I18n.t("components.alert_groups.col_roles")}
                 <div className="tooltiptext_r">
-                  I18n.t("components.alert_groups.tooltip_roles")
+                  {I18n.t("components.alert_groups.tooltip_roles")}
                 </div>
               </div>
             </th>
             <th data-resizable-column-id="alerts.last_incident">
               <div className="tooltip">
-                I18n.t("components.alert_groups.col_last_incident")
+                {I18n.t("components.alert_groups.col_last_incident")}
                 <div className="tooltiptext_r">
-                  I18n.t("components.alert_groups.tooltip_last_incident")
+                  {I18n.t("components.alert_groups.tooltip_last_incident")}
                 </div>
               </div>
             </th>
