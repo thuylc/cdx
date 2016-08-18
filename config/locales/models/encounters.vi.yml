@@ -1,0 +1,9 @@
+vi:
+  encounters:
+    status:
+      pending: 'Chưa tiến hành'
+      in_progress: 'Đang tiến hành'
+      completed: 'Hoàn thành'
+      site_id: 'Yêu cầu bởi'
+      performing_site_id: 'Yêu cầu cho'
+      user_id: 'Đặt hàng cho'

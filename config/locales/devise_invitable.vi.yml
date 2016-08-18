@@ -1,0 +1,28 @@
+vi:
+  devise:
+    failure:
+      invited: "Bạn có một lời mời chờ xử lý, chấp nhận nó để kết thúc việc tạo tài khoản của bạn."
+    invitations:
+      send_instructions: "Một lời mời đã được gửi tới %{email}."
+      invitation_token_invalid: "Mã lời mời đã cung cấp không hợp lệ!"
+      updated: "Mật khẩu của bạn đã được thiết lập thành công. Bây giờ bạn đang đăng nhập."
+      updated_not_active: "Mật khẩu của bạn đã được thiết lập thành công."
+      no_invitations_remaining: "Không còn lời mời"
+      invitation_removed: "Lời mời của bạn đã được gỡ bỏ."
+      new:
+        header: "Gửi lời mời"
+        submit_button: "Gửi một lời mời"
+      edit:
+        first_name: 'Tên'
+        last_name: 'Họ'
+        password: 'Mật khẩu'
+        password_confirmation: 'Xác nhận mật khẩu'
+        header: "Thiết lập mật khẩu của bạn"
+        submit_button: "Thiết lập mật khẩu của tôi"
+    mailer:
+      invitation_instructions:
+        subject: "Hướng dẫn mời"
+        hello: "Xin chào %{email}"
+        someone_invited_you: "Ai đó đã mời bạn truy cập %{url}, bạn có thể chấp nhận nó thông qua liên kết bên dưới."
+        accept: "Chấp nhận lời mời"
+        ignore: "Nếu bạn không muốn chấp nhận lời mời, vui lòng bỏ qua email này.<br />Tài khoản của bạn sẽ không được tạo cho đến khi bạn truy cập liên kết ở trên và thiết lập mật khẩu của bạn."

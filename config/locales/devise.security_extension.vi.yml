@@ -1,0 +1,14 @@
+vi:
+  errors:
+    messages:
+      taken_in_past: "đã được thực hiện trong quá khứ!"
+      equal_to_current_password: "phải khác với mật khẩu hiện tại!"
+      password_format: "phải chứa chữ hoa, chữ thường và số"
+  devise:
+    invalid_captcha: "Hình ảnh xác thực không hợp lệ!"
+    password_expired:
+      updated: "Mật khẩu mới của bạn đã được lưu."
+      change_required: "Mật khẩu của bạn đã hết hạn. Vui lòng đổi mới mật khẩu của bạn!"
+    failure:
+      session_limited: 'Thông tin đăng nhập của bạn đã được sử dụng ở một trình duyệt khác. Vui lòng đăng nhập để tiếp tục trong trình duyệt này.'
+      expired: 'Tài khoản của bạn đã hết hạn do không hoạt động. Vui lòng liên hệ với quản lý.'

@@ -1,0 +1,9 @@
+vi:
+  activerecord:
+    attributes:
+      comment:
+        created_at: 'Ngày'
+        description: 'Mô tả'
+        comment: 'Quan sát'
+        user_id: 'Nhận xét bởi'
+        image: 'Hình ảnh đính kèm'

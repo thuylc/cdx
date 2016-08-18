@@ -1,0 +1,10 @@
+vi:
+  activerecord:
+    attributes:
+      episode:
+        diagnosis: 'Chẩn đoán'
+        hiv_status: 'Tình trạng nhiễm HIV'
+        initial_history: 'Lịch sử'
+        drug_resistance: 'Kháng thuốc'
+        outcome: 'Kết quả'
+        anatomical_site_diagnosis: 'Chẩn đoán phân loại bởi trang web giải phẫu'

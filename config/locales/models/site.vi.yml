@@ -1,0 +1,5 @@
+vi:
+  activerecord:
+    attributes:
+      site:
+        parent: 'Trang web cha'

@@ -1,0 +1,61 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+vi:
+  devise:
+    confirmations:
+      confirmed: "Tài khoản của bạn đã được xác nhận. Vui lòng đăng nhập."
+      confirmed_and_signed_in: "Tài khoản của bạn đã được xác nhận. Bây giờ bạn đã đăng nhập."
+      send_instructions: "Bạn sẽ nhận được một email hướng dẫn cách xác nhận tài khoản của bạn trong vòng một vài phút."
+      send_paranoid_instructions: "Nếu email của bạn tồn tại trong hệ thống của chúng tôi, bạn sẽ nhận được một email hướng dẫn cách xác nhận tài khoản của bạn trong vòng một vài phút."
+    failure:
+      already_authenticated: ""
+      inactive: "Tài khoản của bạn chưa được kích hoạt."
+      invalid: "Email hoặc mật khẩu không hợp lệ."
+      invalid_token: "Mã xác thực không hợp lệ."
+      locked: "Tài khoản của bạn đã bị khóa."
+      not_found_in_database: "Email hoặc mật khẩu không hợp lệ."
+      timeout: "Phiên làm việc của bạn đã hết hạn. Vui lòng đăng nhập lại để tiếp tục."
+      unauthenticated: "Bạn cần đăng nhập hoặc đăng ký trước khi tiếp tục."
+      unconfirmed: "Bạn cần xác nhận tài khoản trước khi tiếp tục."
+      suspended: "Truy cập vào tài khoản của bạn đã bị tạm dừng, vui lòng tham khảo người giám sát của bạn"
+    mailer:
+      confirmation_instructions:
+        subject: "Hướng dẫn xác nhận"
+      reset_password_instructions:
+        subject: "Hướng dẫn đặt lại mật khẩu"
+      unlock_instructions:
+        subject: "Hướng dẫn mở khóa"
+    omniauth_callbacks:
+      failure: "Không thể xác thực bạn từ %{kind} vì \"%{reason}\"."
+      success: "Xác thực thành công từ tài khoản %{kind}."
+    passwords:
+      no_token: "Bạn không thể truy cập trang này mà không xuất phát từ email đặt lại mật khẩu. Nếu bạn truy cập từ email đặt lại mật khẩu, hãy chắc chắn rằng bạn sử dụng URL đầy đủ được cung cấp."
+      send_instructions: "Bạn sẽ nhận được một email hướng dẫn cách đặt lại mật khẩu trong vòng một vài phút."
+      send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại trong hệ thống của chúng tôi, bạn sẽ nhận được một liên kết khôi phục mật khẩu tại địa chỉ email của bạn trong vòng một vài phút."
+      updated: "Mật khẩu của bạn đã được thay đổi thành công. Bây giờ bạn đang đăng nhập."
+      updated_not_active: "Mật khẩu của bạn đã được thay đổi thành công."
+    registrations:
+      destroyed: "Tạm biệt! Tài khoản của bạn đã được hủy thành công. Chúng tôi hy vọng sẽ sớm gặp lại bạn."
+      signed_up: "Xin chào! Bạn đã đăng ký thành công."
+      signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể cho bạn đăng nhập vì tài khoản của bạn chưa được kích hoạt."
+      signed_up_but_locked: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể cho bạn đăng nhập vì tài khoản của bạn đã bị khóa."
+      signed_up_but_unconfirmed: "Một tin nhắn với liên kết xác nhận đã được gửi vào địa chỉ email của bạn. Vui lòng mở liên kết để kích hoạt tài khoản của bạn."
+      update_needs_confirmation: "Bạn đã cập nhật tài khoản của bạn thành công, nhưng chúng tôi cần xác minh địa chỉ email mới của bạn. Vui lòng kiểm tra email của bạn và nhấp vào liên kết xác nhận để hoàn thành xác nhận địa chỉ email mới của bạn."
+      updated: "Bạn đã cập nhật tài khoản của bạn thành công."
+    sessions:
+      signed_in: "Đăng nhập thành công."
+      signed_out: "Đăng xuất thành công."
+    unlocks:
+      send_instructions: "Bạn sẽ nhận được một email hướng dẫn cách mở khóa tài khoản của bạn trong vòng một vài phút."
+      send_paranoid_instructions: "Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được một email hướng dẫn cách mở khóa tài khoản trong vòng một vài phút."
+      unlocked: "Tài khoản của bạn đã được mở khóa thành công. Vui lòng đăng nhập để tiếp tục."
+  errors:
+    messages:
+      already_confirmed: "đã được xác nhận, hãy thử đăng nhập"
+      confirmation_period_expired: "cần xác nhận trong vòng %{period}, vui lòng yêu cầu một cái mới"
+      expired: "đã hết hạn, vui lòng yêu cầu một cái mới"
+      not_found: "không tìm thấy"
+      not_locked: "không bị khóa"
+      not_saved:
+        one: "1 lỗi không cho cái %{resource} được lưu:"
+        other: "%{count} lỗi không cho cái %{resource} được lưu:"

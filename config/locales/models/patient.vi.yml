@@ -1,0 +1,17 @@
+vi:
+  activerecord:
+    attributes:
+      patient:
+        birth_date_on: 'Ngày sinh / Tuổi'
+        entity_id: 'Mã bệnh nhân'
+        name: 'Tên'
+        gender: 'Giới tính'
+        phone: 'Số điện thoại'
+        email: 'Địa chỉ email'
+        address: 'Địa chỉ'
+        created_at: 'Tạo bởi'
+        nickname: 'Biệt danh'
+  patient:
+    model_form:
+      wrong_date: 'nên là một ngày trong %{birth_date_on_placeholder}'
+      wrong_gender: 'giá trị không hợp lệ (nên là một trong %{gender_values})'

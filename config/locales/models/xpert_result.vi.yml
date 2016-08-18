@@ -1,0 +1,10 @@
+vi:
+  activerecord:
+    attributes:
+      xpert_result:
+        sample_collected_on: 'Ngày lấy mẫu'
+        examined_by: 'Kiểm tra bởi'
+        result_on: 'Kết quả ngày'
+        rifampicin: 'Kháng sinh'
+        trace: 'Dấu vết'
+        tuberculosis: 'Vi khuẩn lao'

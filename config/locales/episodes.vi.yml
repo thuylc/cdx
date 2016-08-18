@@ -1,0 +1,16 @@
+vi:
+  episode: 'Tập'
+  episode_type:
+    tb: TB
+    ebola: Ebola
+    hiv: HIV
+  diagnosis:
+    presumptive_tb: Cơ sở lap phổi
+    bacteriologically_confirmed: Có xác nhận về vi trùng
+    clinically_diagnosed: Chẩn đoán lâm sàng
+    pulmonary_tb: Bệnh lao phổi (PTB)
+    extra_pulmonary_tb: Lao ngoài phổi (EPTB)
+  hiv_status:
+    positive_tb: HIV-Dương tính
+    negative_tb: HIV-Âm tính
+    unknown: Không rõ

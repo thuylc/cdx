@@ -1,0 +1,8 @@
+vi:
+  extras:
+    dates:
+      filters:
+        previous_week: 'Tuần trước'
+        previous_month: 'Tháng trước'
+        previous_quarter: 'Quý trước'
+        previous_year: 'Năm trước'

@@ -1,0 +1,10 @@
+vi:
+  activerecord:
+    attributes:
+      user:
+        name: 'Tên'
+        email: 'Địa chỉ email'
+        telephone: 'Số điện thoại'
+        roles: 'Chức vụ'
+        is_active: 'Trạng thái'
+        last_sign_in_at: 'Hoạt động'

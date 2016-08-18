@@ -1,0 +1,4 @@
+vi:
+  requested_test:
+    validations:
+      rejected_no_comment: 'Bạn cần giải thích lý do tại sao việc kiểm tra bị từ chối.'

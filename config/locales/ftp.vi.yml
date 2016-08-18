@@ -1,0 +1,15 @@
+ftp:
+  monitor:
+    listed_files_from: "Liệt kê các tập tin %{ftp_hostname}: %{files_list}"
+    no_files_to_process: "Không có tập tin để xử lý %{ftp_hostname}"
+    error_downloading_file: "Lỗi tải tập tin"
+    error_downloading_files_from: "Lỗi tải tập tin %{ftp_hostname}: %{files_list}"
+    downloaded_files_from: "Tập tin đã tải %{ftp_hostname}: %{files_list}"
+    unexpected_error_processing_file: "Lỗi xử lý tập tin không mong muốn"
+    no_device_matched: "Không có thiết bị phù hợp"
+    multiple_devices_matched: "Nhiều thiết bị phù hợp với tập tin %{remote_name}: %{devices_list}"
+    unexpected_error_matching_file: "Lỗi tập tin không phù hợp"
+    skipping_file: "Bỏ qua tập tin FTP %{remote_name} trên máy %{ftp_hostname}: %{reason}"
+    ftp_file_failed: "Tập tin FTP %{remote_name} trên máy %{ftp_hostname} thất bại: %{reason}"
+    ftp_file_success: "Tập tin FTP %{remote_name} trên máy %{ftp_hostname} đã xử lý thành công"
+    error_accessing_ftp: "Lỗi truy cập FTP %{ftp_hostname}: %{exception}\n%{backtrace_list}"

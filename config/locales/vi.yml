@@ -1,0 +1,242 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Xác thực thất bại: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Không thể xóa bản ghi vì tồn tại lệ thuộc %{record}"
+          has_many: "Không thể xóa bản ghi vì tồn tại lệ thuộc %{record}"
+    attributes:
+      manifest:
+        definition: 'Biểu lộ'
+  date:
+    input_format:
+      pattern: "%d/%m/%Y"
+      placeholder: DD/MM/YYYY
+    abbr_day_names:
+    - Chủ nhật
+    - Thứ hai
+    - Thứ ba
+    - Thứ tư
+    - Thứ năm
+    - Thứ sáu
+    - Thứ bảy
+    abbr_month_names:
+    -
+    - Tháng 1
+    - Tháng 2
+    - Tháng 3
+    - Tháng 4
+    - Tháng 5
+    - Tháng 6
+    - Tháng 7
+    - Tháng 8
+    - Tháng 9
+    - Tháng 10
+    - Tháng 11
+    - Tháng 12
+    day_names:
+    - Chủ nhật
+    - Thứ hai
+    - Thứ ba
+    - Thứ tư
+    - Thứ năm
+    - Thứ sáu
+    - Thứ bảy
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+      full_date: "%d/%m/%Y"
+    month_names:
+    -
+    - Tháng 1
+    - Tháng 2
+    - Tháng 3
+    - Tháng 4
+    - Tháng 5
+    - Tháng 6
+    - Tháng 7
+    - Tháng 8
+    - Tháng 9
+    - Tháng 10
+    - Tháng 11
+    - Tháng 12
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: khoảng 1 giờ
+        other: khoảng %{count} giờ
+      about_x_months:
+        one: khoảng 1 tháng
+        other: khoảng %{count} tháng
+      about_x_years:
+        one: khoảng 1 năm
+        other: khoảng %{count} năm
+      almost_x_years:
+        one: gần 1 năm
+        other: gần %{count} năm
+      half_a_minute: nửa phút
+      less_than_x_minutes:
+        one: ít hơn 1 phút
+        other: ít hơn %{count} phút
+      less_than_x_seconds:
+        one: ít hơn 1 giây
+        other: ít hơn %{count} giây
+      over_x_years:
+        one: hơn 1 năm
+        other: hơn %{count} năm
+      x_days:
+        one: 1 ngày
+        other: "%{count} ngày"
+      x_minutes:
+        one: 1 phút
+        other: "%{count} phút"
+      x_months:
+        one: 1 tháng
+        other: "%{count} tháng"
+      x_seconds:
+        one: 1 giây
+        other: "%{count} giây"
+    prompts:
+      day: Ngày
+      hour: Giờ
+      minute: Phút
+      month: Tháng
+      second: Giây
+      year: Năm
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: phải được chấp nhận
+      blank: không thể bỏ trống
+      present: phải bỏ trống
+      confirmation: không phù hợp %{attribute}
+      empty: không thể rỗng
+      equal_to: phải bằng %{count}
+      even: phải phẳng
+      exclusion: đã đặt trước
+      greater_than: phải lớn hơn %{count}
+      greater_than_or_equal_to: phải lớn hơn hoặc bằng %{count}
+      inclusion: không bao gồm trong danh sách
+      invalid: không hợp lệ
+      less_than: phải nhỏ hơn %{count}
+      less_than_or_equal_to: phải nhỏ hơn hoặc bằng %{count}
+      model_invalid: "Xác thực thất bại: %{errors}"
+      not_a_number: không phải số
+      not_an_integer: phải là số nguyên
+      odd: phải là số lẻ
+      required: phải tồn tại
+      taken: đã được thực hiện
+      too_long:
+        one: quá dài (nhiều nhất 1 ký tự)
+        other: quá dài (nhiều nhất %{count} ký tự)
+      too_short:
+        one: quá ngắn (ít nhất 1 ký tự)
+        other: quá ngắn (ít nhất %{count} ký tự)
+      wrong_length:
+        one: sai chiều dài (nên là 1 ký tự)
+        other: sai chiều dài (nên là %{count} ký tự)
+      other_than: phải khác %{count}
+    template:
+      body: 'Xảy ra vấn đề với những trường sau đây:'
+      header:
+        one: 1 lỗi làm cho %{model} này không lưu được
+        other: "%{count} lỗi làm cho %{model} này không lưu được"
+  helpers:
+    select:
+      prompt: Vui lòng chọn
+    submit:
+      create: Tạo %{model}
+      submit: Lưu %{model}
+      update: Chỉnh sửa %{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Tỷ
+          million: Triệu
+          quadrillion: Nghìn triệu triệu
+          thousand: Ngàn
+          trillion: Nghìn tỷ
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", và "
+      two_words_connector: " và "
+      words_connector: ", "
+  time:
+    am: sáng
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+      full_time: "%d/%m/%Y %H:%M"
+      date_only: "%d/%m/%Y"
+    pm: chiều
+  user:
+    settings:
+      updated: "Cài đặt đã được cập nhật"

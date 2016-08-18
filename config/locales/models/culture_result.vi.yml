@@ -1,0 +1,9 @@
+vi:
+  activerecord:
+    attributes:
+      culture_result:
+        sample_collected_on: 'Ngày lấy mẫu'
+        examined_by: 'Kiểm tra bởi'
+        result_on: 'Kết quả ngày'
+        media_used: 'Phương tiện truyền thông sử dụng'
+        serial_number: 'Số seri phòng thí nghiệm'

@@ -1,0 +1,21 @@
+vi:
+  activerecord:
+    attributes:
+      dst_lpa_result:
+        sample_collected_on: 'Ngày lấy mẫu'
+        media_used: 'Phương thức'
+        serial_number: 'Số seri phòng thí nghiệm'
+        results_h: 'Kết quả H'
+        results_r: 'Kết quả R'
+        results_e: 'Kết quả E'
+        results_s: 'Kết quả S'
+        results_amk: 'Kết quả Amk'
+        results_km: 'Kết quả Km'
+        results_cm: 'Kết quả Cm'
+        results_fq: 'Kết quả FQ'
+        results_other1: 'Kết quả khác'
+        results_other2: 'Kết quả khác'
+        results_other3: 'Kết quả khác'
+        results_other4: 'Kết quả khác'
+        examined_by: 'Kiểm tra bởi'
+        result_on: 'Kết quả ngày'
